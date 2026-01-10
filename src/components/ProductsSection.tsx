@@ -23,6 +23,30 @@ const PRODUCTS: Product[] = [
     imageUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&h=300&fit=crop",
     downloadUrl: "#",
   },
+  {
+    title: "Stalingrado: O Inferno na Terra",
+    description: "A batalha mais sangrenta da história humana. Descubra os detalhes da luta desesperada que mudou o rumo da guerra no front oriental.",
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+    downloadUrl: "#",
+  },
+  {
+    title: "A Batalha de Midway",
+    description: "O ponto de virada no Pacífico. Como uma batalha naval de quatro dias selou o destino do Império Japonês.",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+    downloadUrl: "#",
+  },
+  {
+    title: "A Queda de Berlim",
+    description: "Os últimos dias do Terceiro Reich. A corrida entre soviéticos e aliados para conquistar a capital alemã.",
+    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop",
+    downloadUrl: "#",
+  },
+  {
+    title: "Pearl Harbor: O Dia da Infâmia",
+    description: "O ataque surpresa que arrastou os Estados Unidos para a Segunda Guerra Mundial e mudou a história do mundo.",
+    imageUrl: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&h=300&fit=crop",
+    downloadUrl: "#",
+  },
 ];
 
 const SERVICES: Service[] = [
@@ -30,6 +54,30 @@ const SERVICES: Service[] = [
     title: "Consultoria Histórica",
     description: "Oferecemos consultoria especializada para produções audiovisuais, pesquisas acadêmicas e projetos educacionais sobre a Segunda Guerra Mundial.",
     imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+    linkUrl: "#",
+  },
+  {
+    title: "Palestras e Workshops",
+    description: "Apresentações dinâmicas e interativas sobre os principais eventos e personagens da Segunda Guerra Mundial para escolas e empresas.",
+    imageUrl: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&h=300&fit=crop",
+    linkUrl: "#",
+  },
+  {
+    title: "Produção de Conteúdo",
+    description: "Criação de roteiros, documentários e materiais educacionais personalizados sobre temas históricos da Segunda Guerra.",
+    imageUrl: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=300&fit=crop",
+    linkUrl: "#",
+  },
+  {
+    title: "Curadoria de Exposições",
+    description: "Planejamento e organização de exposições temáticas com peças históricas, fotografias e documentos da época.",
+    imageUrl: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=400&h=300&fit=crop",
+    linkUrl: "#",
+  },
+  {
+    title: "Tours Históricos Virtuais",
+    description: "Experiências imersivas em realidade virtual pelos principais campos de batalha e locais históricos da Segunda Guerra Mundial.",
+    imageUrl: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=300&fit=crop",
     linkUrl: "#",
   },
 ];
