@@ -6,6 +6,8 @@ import ReflectionCard from '@/components/ReflectionCard';
 import CTAButton from '@/components/CTAButton';
 import SectionTitle from '@/components/SectionTitle';
 import ThemeSelector from '@/components/ThemeSelector';
+import ProductsSection from '@/components/ProductsSection';
+import ChatbotButton from '@/components/ChatbotButton';
 
 const PROFILE_DATA = {
   name: "outrobrasileironodiad",
@@ -101,6 +103,9 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Products & Services */}
+        <ProductsSection />
+
         {/* Footer */}
         <footer className="text-center pt-8 pb-4">
           <p className="text-muted-foreground text-sm font-body">
@@ -111,6 +116,9 @@ const Index = () => {
           </p>
         </footer>
       </main>
+
+      {/* Chatbot */}
+      <ChatbotButton />
     </div>
   );
 };
