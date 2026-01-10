@@ -70,7 +70,7 @@ const Index = () => {
         />
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Narrow sections */}
       <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
         {/* CTA Button */}
         <CTAButton text="Fale Comigo" />
@@ -102,20 +102,22 @@ const Index = () => {
             ))}
           </div>
         </section>
-
-        {/* Products & Services */}
-        <ProductsSection />
-
-        {/* Footer */}
-        <footer className="text-center pt-8 pb-4">
-          <p className="text-muted-foreground text-sm font-body">
-            © 2024 Outro Brasileiro no D-Day
-          </p>
-          <p className="text-muted-foreground/50 text-xs mt-2">
-            Preservando a história para as futuras gerações
-          </p>
-        </footer>
       </main>
+
+      {/* Products & Services - Full width */}
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
+        <ProductsSection />
+      </div>
+
+      {/* Footer */}
+      <footer className="relative z-10 text-center py-8 px-6">
+        <p className="text-muted-foreground text-sm font-body">
+          © 2024 Outro Brasileiro no D-Day
+        </p>
+        <p className="text-muted-foreground/50 text-xs mt-2">
+          Preservando a história para as futuras gerações
+        </p>
+      </footer>
 
       {/* Chatbot */}
       <ChatbotButton />
