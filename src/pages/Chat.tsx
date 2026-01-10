@@ -61,7 +61,43 @@ const INITIAL_MESSAGES: Message[] = [
     id: '1',
     role: 'assistant',
     content: 'Olá! Sou o assistente do Outro Brasileiro no D-Day. 🎖️ Posso te ajudar com informações sobre a Segunda Guerra Mundial, os vídeos do canal, ou responder suas curiosidades históricas. Como posso te ajudar hoje?',
-    timestamp: new Date(),
+    timestamp: new Date(Date.now() - 300000),
+  },
+  {
+    id: '2',
+    role: 'user',
+    content: 'Oi! Quero saber mais sobre o Dia D. O que aconteceu nesse dia?',
+    timestamp: new Date(Date.now() - 280000),
+  },
+  {
+    id: '3',
+    role: 'assistant',
+    content: 'O Dia D, ocorrido em 6 de junho de 1944, foi a maior operação anfíbia da história militar! 🏖️⚔️\n\nNesse dia, mais de 156.000 soldados aliados desembarcaram nas praias da Normandia, na França, para libertar a Europa Ocidental do domínio nazista.\n\nAs cinco praias de desembarque foram:\n• Utah e Omaha (americanos)\n• Gold e Sword (britânicos)\n• Juno (canadenses)\n\nFoi um momento decisivo que mudou o rumo da Segunda Guerra Mundial!',
+    timestamp: new Date(Date.now() - 260000),
+  },
+  {
+    id: '4',
+    role: 'user',
+    content: 'Incrível! E o Brasil participou da guerra?',
+    timestamp: new Date(Date.now() - 200000),
+  },
+  {
+    id: '5',
+    role: 'assistant',
+    content: 'Sim! O Brasil teve uma participação muito importante! 🇧🇷\n\nA Força Expedicionária Brasileira (FEB) foi enviada à Itália em 1944 com cerca de 25.000 soldados. Eles lutaram bravamente em diversas batalhas, sendo a mais famosa a conquista de Monte Castello.\n\nOs pracinhas, como ficaram conhecidos, enfrentaram condições extremas nos Apeninos italianos e foram fundamentais para a vitória aliada na Campanha da Itália.\n\nO lema da FEB era "A cobra vai fumar" - e fumou! 🐍💨',
+    timestamp: new Date(Date.now() - 180000),
+  },
+  {
+    id: '6',
+    role: 'user',
+    content: 'Muito legal! Quem foi o General Patton?',
+    timestamp: new Date(Date.now() - 120000),
+  },
+  {
+    id: '7',
+    role: 'assistant',
+    content: 'George S. Patton foi um dos generais mais lendários da Segunda Guerra Mundial! ⭐\n\nConhecido por seu estilo agressivo e carismático, ele comandou o 3º Exército dos EUA e ficou famoso por:\n\n• Liderar a libertação da França após o Dia D\n• A incrível corrida através da Europa\n• Socorrer as tropas cercadas em Bastogne durante a Batalha do Bulge\n\nPatton acreditava que "a guerra é o inferno, mas a batalha é o teste supremo do homem". Era controverso, mas seus soldados o admiravam pela coragem e liderança no campo de batalha! 🎖️',
+    timestamp: new Date(Date.now() - 60000),
   },
 ];
 
