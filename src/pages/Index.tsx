@@ -129,6 +129,11 @@ const Index = () => {
         </section>
       </main>
 
+      {/* Products & Services - Full width */}
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
+        <ProductsSection />
+      </div>
+
       {/* Reflections - Full width */}
       <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
         <div className="max-w-7xl mx-auto">
@@ -144,11 +149,6 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Products & Services - Full width */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
-        <ProductsSection />
       </div>
 
       {/* Footer */}
