@@ -1,8 +1,53 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, ArrowLeft, Sparkles, Bot, User, Mic, MicOff, Volume2 } from 'lucide-react';
+import { Send, ArrowLeft, Sparkles, User, Mic, MicOff, MoreVertical } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import ParticleBackground from '@/components/ParticleBackground';
+import { useTheme, ThemeName } from '@/contexts/ThemeContext';
+
+// Import all theme-specific banners
+import bannerVintageSepia from '@/assets/banners/hero-vintage-sepia.jpg';
+import bannerMidnightGold from '@/assets/banners/hero-midnight-gold.jpg';
+import bannerMilitaryOlive from '@/assets/banners/hero-military-olive.jpg';
+import bannerOceanDeep from '@/assets/banners/hero-ocean-deep.jpg';
+import bannerCrimsonWar from '@/assets/banners/hero-crimson-war.jpg';
+import bannerSunsetBronze from '@/assets/banners/hero-sunset-bronze.jpg';
+import bannerRoyalPurple from '@/assets/banners/hero-royal-purple.jpg';
+import bannerForestEmerald from '@/assets/banners/hero-forest-emerald.jpg';
+import bannerArcticFrost from '@/assets/banners/hero-arctic-frost.jpg';
+import bannerDesertSand from '@/assets/banners/hero-desert-sand.jpg';
+import bannerCloudSilver from '@/assets/banners/hero-cloud-silver.jpg';
+import bannerRoseGarden from '@/assets/banners/hero-rose-garden.jpg';
+import bannerMintFresh from '@/assets/banners/hero-mint-fresh.jpg';
+import bannerLavenderDream from '@/assets/banners/hero-lavender-dream.jpg';
+import bannerPeachBlossom from '@/assets/banners/hero-peach-blossom.jpg';
+import bannerSkyBlue from '@/assets/banners/hero-sky-blue.jpg';
+import bannerCreamVanilla from '@/assets/banners/hero-cream-vanilla.jpg';
+import bannerSageMorning from '@/assets/banners/hero-sage-morning.jpg';
+import bannerCoralReef from '@/assets/banners/hero-coral-reef.jpg';
+import bannerGoldenHour from '@/assets/banners/hero-golden-hour.jpg';
+
+const themeBanners: Record<ThemeName, string> = {
+  'vintage-sepia': bannerVintageSepia,
+  'midnight-gold': bannerMidnightGold,
+  'military-olive': bannerMilitaryOlive,
+  'ocean-deep': bannerOceanDeep,
+  'crimson-war': bannerCrimsonWar,
+  'sunset-bronze': bannerSunsetBronze,
+  'royal-purple': bannerRoyalPurple,
+  'forest-emerald': bannerForestEmerald,
+  'arctic-frost': bannerArcticFrost,
+  'desert-sand': bannerDesertSand,
+  'cloud-silver': bannerCloudSilver,
+  'rose-garden': bannerRoseGarden,
+  'mint-fresh': bannerMintFresh,
+  'lavender-dream': bannerLavenderDream,
+  'peach-blossom': bannerPeachBlossom,
+  'sky-blue': bannerSkyBlue,
+  'cream-vanilla': bannerCreamVanilla,
+  'sage-morning': bannerSageMorning,
+  'coral-reef': bannerCoralReef,
+  'golden-hour': bannerGoldenHour,
+};
 
 interface Message {
   id: string;
@@ -21,6 +66,9 @@ const INITIAL_MESSAGES: Message[] = [
 ];
 
 const Chat = () => {
+  const { currentTheme } = useTheme();
+  const bannerImage = themeBanners[currentTheme] || bannerVintageSepia;
+  
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -50,7 +98,6 @@ const Chat = () => {
     setInput('');
     setIsTyping(true);
 
-    // Simulate AI response
     setTimeout(() => {
       const aiResponses = [
         'Excelente pergunta! A Segunda Guerra Mundial foi um conflito que envolveu praticamente todas as nações do mundo, divididas em duas alianças militares opostas: os Aliados e o Eixo.',
@@ -79,68 +126,116 @@ const Chat = () => {
   };
 
   const quickActions = [
-    { label: 'Dia D', query: 'Me conte sobre o Dia D' },
-    { label: 'FEB', query: 'Qual foi o papel do Brasil na guerra?' },
-    { label: 'Generais', query: 'Quem foram os principais generais?' },
-    { label: 'Batalhas', query: 'Quais foram as batalhas decisivas?' },
+    { label: '🏖️ Dia D', query: 'Me conte sobre o Dia D' },
+    { label: '🇧🇷 FEB', query: 'Qual foi o papel do Brasil na guerra?' },
+    { label: '⭐ Generais', query: 'Quem foram os principais generais?' },
+    { label: '⚔️ Batalhas', query: 'Quais foram as batalhas decisivas?' },
   ];
 
   return (
     <div className="min-h-screen bg-background relative flex flex-col">
-      <ParticleBackground />
-      
-      {/* Header */}
-      <motion.header 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="relative z-20 border-b border-border/50 backdrop-blur-xl bg-background/80"
-      >
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
+      {/* Hero Banner Header */}
+      <div className="relative h-48 md:h-56 overflow-hidden flex-shrink-0">
+        {/* Banner Image */}
+        <motion.img
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
+          src={bannerImage}
+          alt="Chat Banner"
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+        
+        {/* Animated Particles Overlay */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 rounded-full bg-primary"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Top Navigation */}
+        <div className="absolute top-0 left-0 right-0 p-4 flex items-center justify-between z-20">
           <Link 
             to="/"
-            className="p-2 rounded-full hover:bg-muted transition-colors"
+            className="p-2.5 rounded-full bg-background/50 backdrop-blur-md border border-border/50 hover:bg-background/80 transition-all"
           >
             <ArrowLeft className="w-5 h-5 text-foreground" />
           </Link>
           
-          <div className="flex items-center gap-3 flex-1">
-            <div className="relative">
-              <motion.div
-                animate={{ 
-                  boxShadow: ['0 0 0 0 hsl(var(--primary) / 0.4)', '0 0 0 10px hsl(var(--primary) / 0)', '0 0 0 0 hsl(var(--primary) / 0)']
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary"
-              >
-                <img 
-                  src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
-                  alt="AI Assistant"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-              <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-background" />
-            </div>
-            
-            <div>
-              <h1 className="font-display text-lg font-semibold text-foreground">
-                Outro Brasileiro IA
-              </h1>
-              <div className="flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-primary" />
-                <span className="text-xs text-muted-foreground">Especialista em WWII</span>
+          <button className="p-2.5 rounded-full bg-background/50 backdrop-blur-md border border-border/50 hover:bg-background/80 transition-all">
+            <MoreVertical className="w-5 h-5 text-foreground" />
+          </button>
+        </div>
+
+        {/* Profile Card - Positioned at bottom of banner */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="absolute bottom-0 left-0 right-0 px-4 pb-4"
+        >
+          <div className="max-w-2xl mx-auto">
+            <div className="flex items-end gap-4">
+              {/* Avatar with glow effect */}
+              <div className="relative flex-shrink-0">
+                <motion.div
+                  animate={{ 
+                    boxShadow: ['0 0 20px hsl(var(--primary) / 0.3)', '0 0 40px hsl(var(--primary) / 0.5)', '0 0 20px hsl(var(--primary) / 0.3)']
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-3 border-primary/50"
+                >
+                  <img 
+                    src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
+                    alt="AI Assistant"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-3 border-background flex items-center justify-center">
+                  <span className="w-2 h-2 bg-white rounded-full" />
+                </span>
+              </div>
+              
+              {/* Info */}
+              <div className="flex-1 pb-1">
+                <h1 className="font-display text-xl md:text-2xl font-bold text-foreground drop-shadow-lg">
+                  Outro Brasileiro IA
+                </h1>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
+                    <Sparkles className="w-3 h-3 text-primary" />
+                    <span className="text-xs font-medium text-primary">Especialista WWII</span>
+                  </span>
+                  <span className="text-xs text-muted-foreground">• Online agora</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <button className="p-2 rounded-full hover:bg-muted transition-colors">
-            <Volume2 className="w-5 h-5 text-muted-foreground" />
-          </button>
-        </div>
-      </motion.header>
+        </motion.div>
+      </div>
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto relative z-10">
-        <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
+        <div className="max-w-2xl mx-auto px-4 py-6 space-y-4">
           <AnimatePresence mode="popLayout">
             {messages.map((message, index) => (
               <motion.div
@@ -148,13 +243,13 @@ const Chat = () => {
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
                 className={`flex gap-3 ${message.role === 'user' ? 'flex-row-reverse' : ''}`}
               >
                 {/* Avatar */}
-                <div className={`flex-shrink-0 ${message.role === 'user' ? 'ml-2' : 'mr-2'}`}>
+                <div className="flex-shrink-0 mt-1">
                   {message.role === 'assistant' ? (
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center overflow-hidden border border-primary/30">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden border border-primary/30">
                       <img 
                         src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
                         alt="AI"
@@ -162,27 +257,27 @@ const Chat = () => {
                       />
                     </div>
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center border border-border">
-                      <User className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center border border-border">
+                      <User className="w-4 h-4 text-muted-foreground" />
                     </div>
                   )}
                 </div>
 
                 {/* Message Bubble */}
-                <div className={`max-w-[80%] ${message.role === 'user' ? 'items-end' : 'items-start'}`}>
+                <div className={`max-w-[85%] ${message.role === 'user' ? 'items-end' : 'items-start'}`}>
                   <motion.div
-                    className={`rounded-2xl px-4 py-3 ${
+                    className={`rounded-2xl px-4 py-3 shadow-sm ${
                       message.role === 'user'
-                        ? 'bg-primary text-primary-foreground rounded-br-md'
-                        : 'bg-card border border-border rounded-bl-md'
+                        ? 'bg-primary text-primary-foreground rounded-tr-md'
+                        : 'bg-card/80 backdrop-blur-sm border border-border/50 rounded-tl-md'
                     }`}
-                    whileHover={{ scale: 1.01 }}
+                    whileHover={{ scale: 1.005 }}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap">
                       {message.content}
                     </p>
                   </motion.div>
-                  <span className="text-[10px] text-muted-foreground mt-1 px-2 block">
+                  <span className={`text-[10px] text-muted-foreground mt-1.5 px-1 block ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
                     {message.timestamp.toLocaleTimeString('pt-BR', { 
                       hour: '2-digit', 
                       minute: '2-digit' 
@@ -202,27 +297,27 @@ const Chat = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="flex gap-3"
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center overflow-hidden">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden border border-primary/30">
                   <img 
                     src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
                     alt="AI"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="bg-card border border-border rounded-2xl rounded-bl-md px-4 py-3">
-                  <div className="flex gap-1">
+                <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl rounded-tl-md px-4 py-3">
+                  <div className="flex gap-1.5">
                     {[0, 1, 2].map((i) => (
                       <motion.div
                         key={i}
-                        className="w-2 h-2 rounded-full bg-primary"
+                        className="w-2 h-2 rounded-full bg-primary/60"
                         animate={{ 
-                          y: [0, -6, 0],
-                          opacity: [0.5, 1, 0.5]
+                          y: [0, -5, 0],
+                          opacity: [0.4, 1, 0.4]
                         }}
                         transition={{ 
-                          duration: 0.6, 
+                          duration: 0.5, 
                           repeat: Infinity, 
-                          delay: i * 0.15 
+                          delay: i * 0.12 
                         }}
                       />
                     ))}
@@ -236,56 +331,68 @@ const Chat = () => {
         </div>
       </div>
 
-      {/* Quick Actions */}
-      {messages.length <= 1 && (
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="relative z-10 px-4 pb-4"
-        >
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xs text-muted-foreground mb-3 text-center">Sugestões rápidas</p>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {quickActions.map((action) => (
-                <motion.button
-                  key={action.label}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setInput(action.query);
-                    inputRef.current?.focus();
-                  }}
-                  className="px-4 py-2 rounded-full bg-card border border-border text-sm text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all"
-                >
-                  {action.label}
-                </motion.button>
-              ))}
+      {/* Quick Actions - Show only at start */}
+      <AnimatePresence>
+        {messages.length <= 1 && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ delay: 0.5 }}
+            className="relative z-10 px-4 pb-3"
+          >
+            <div className="max-w-2xl mx-auto">
+              <p className="text-xs text-muted-foreground mb-2.5 text-center font-medium">Perguntas populares</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {quickActions.map((action) => (
+                  <motion.button
+                    key={action.label}
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => {
+                      setInput(action.query);
+                      inputRef.current?.focus();
+                    }}
+                    className="px-4 py-2.5 rounded-xl bg-card/60 backdrop-blur-sm border border-border/50 text-sm text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all shadow-sm"
+                  >
+                    {action.label}
+                  </motion.button>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Input Area */}
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="relative z-20 border-t border-border/50 backdrop-blur-xl bg-background/80"
+        className="relative z-20 border-t border-border/30 bg-background/95 backdrop-blur-xl"
       >
-        <div className="max-w-4xl mx-auto px-4 py-4">
+        <div className="max-w-2xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
             {/* Voice Button */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
               onClick={() => setIsListening(!isListening)}
-              className={`p-3 rounded-full transition-all ${
+              className={`p-3 rounded-xl transition-all shadow-sm ${
                 isListening 
-                  ? 'bg-red-500 text-white animate-pulse' 
-                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  ? 'bg-red-500 text-white' 
+                  : 'bg-card border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30'
               }`}
             >
-              {isListening ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
+              {isListening ? (
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                >
+                  <MicOff className="w-5 h-5" />
+                </motion.div>
+              ) : (
+                <Mic className="w-5 h-5" />
+              )}
             </motion.button>
 
             {/* Input Field */}
@@ -297,27 +404,24 @@ const Chat = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Pergunte sobre a Segunda Guerra..."
-                className="w-full bg-card border border-border rounded-2xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all pr-12"
+                className="w-full bg-card border border-border/50 rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all text-sm shadow-sm"
               />
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
-                {input.length}/2000
-              </div>
             </div>
 
             {/* Send Button */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
               onClick={handleSend}
               disabled={!input.trim()}
-              className="p-3 rounded-full bg-primary text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:shadow-lg hover:shadow-primary/25"
+              className="p-3 rounded-xl bg-primary text-primary-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg hover:shadow-primary/20"
             >
               <Send className="w-5 h-5" />
             </motion.button>
           </div>
           
-          <p className="text-[10px] text-muted-foreground text-center mt-3">
-            Powered by <span className="text-primary font-medium">Deep Reflection AI</span> • Respostas baseadas em fontes históricas verificadas
+          <p className="text-[10px] text-muted-foreground/60 text-center mt-3">
+            Powered by <span className="text-primary/80 font-medium">Deep Reflection AI</span>
           </p>
         </div>
       </motion.div>
