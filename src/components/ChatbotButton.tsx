@@ -11,7 +11,7 @@ const ChatbotButton = () => {
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center glow-primary"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg flex items-center justify-center overflow-hidden glow-primary"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,11 @@ const ChatbotButton = () => {
         transition={{ duration: 0.5, delay: 1 }}
         aria-label="Abrir chat"
       >
-        <MessageCircle className="w-6 h-6" />
+        <img
+          src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
+          alt="Chat"
+          className="w-full h-full object-cover"
+        />
       </motion.button>
 
       {/* Chat Window */}
