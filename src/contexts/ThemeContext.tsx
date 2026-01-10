@@ -45,17 +45,27 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     return (saved as ThemeName) || 'vintage-sepia';
   });
 
+  // Apply theme on mount and when it changes
   useEffect(() => {
-    localStorage.setItem('deeplink-theme', currentTheme);
+    const applyTheme = () => {
+      localStorage.setItem('deeplink-theme', currentTheme);
+      
+      // Remove all theme classes from html element
+      THEMES.forEach(theme => {
+        document.documentElement.classList.remove(`theme-${theme.id}`);
+      });
+      
+      // Add current theme class to html element
+      document.documentElement.classList.add(`theme-${currentTheme}`);
+    };
     
-    // Remove all theme classes
-    THEMES.forEach(theme => {
-      document.documentElement.classList.remove(`theme-${theme.id}`);
-    });
-    
-    // Add current theme class
-    document.documentElement.classList.add(`theme-${currentTheme}`);
+    applyTheme();
   }, [currentTheme]);
+
+  // Also apply on initial render
+  useEffect(() => {
+    document.documentElement.classList.add(`theme-${currentTheme}`);
+  }, []);
 
   const setTheme = (theme: ThemeName) => {
     setCurrentTheme(theme);
