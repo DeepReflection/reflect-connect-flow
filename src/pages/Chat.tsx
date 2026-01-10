@@ -202,7 +202,7 @@ const Chat = () => {
                     boxShadow: ['0 0 20px hsl(var(--primary) / 0.3)', '0 0 40px hsl(var(--primary) / 0.5)', '0 0 20px hsl(var(--primary) / 0.3)']
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden border-3 border-primary/50"
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-primary/50"
                 >
                   <img 
                     src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
