@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useTheme } from '@/contexts/ThemeContext';
 import heroBanner from '@/assets/hero-banner.jpg';
+import heroBannerArctic from '@/assets/hero-banner-arctic.jpg';
 import ShareButton from './ShareButton';
 
 interface HeroSectionProps {
@@ -9,14 +11,20 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
+  const { currentTheme } = useTheme();
+  
+  // Select banner based on theme
+  const isArcticTheme = currentTheme === 'arctic-frost';
+  const bannerImage = isArcticTheme ? heroBannerArctic : heroBanner;
+
   return (
     <section className="relative min-h-[60vh] flex items-end pb-8 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={heroBanner}
+          src={bannerImage}
           alt="World War II Documentary"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-opacity duration-500"
         />
         <div 
           className="absolute inset-0"
