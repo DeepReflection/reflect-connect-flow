@@ -29,7 +29,7 @@ const ProductsSection = () => {
     <section className="space-y-6">
       <SectionTitle title="Produtos & Serviços" />
       
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {PRODUCTS.map((product, index) => (
           <motion.div
             key={product.title}
@@ -37,22 +37,22 @@ const ProductsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="glass-card rounded-xl overflow-hidden"
+            className="glass-card rounded-xl overflow-hidden h-full"
           >
-            <div className="flex flex-col sm:flex-row">
-              <div className="sm:w-1/3 h-40 sm:h-auto">
+            <div className="flex flex-col h-full">
+              <div className="h-48 lg:h-56">
                 <img
                   src={product.imageUrl}
                   alt={product.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between">
+              <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                  <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-3">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-foreground/70 line-clamp-3">
+                  <p className="text-sm lg:text-base text-foreground/70 leading-relaxed">
                     {product.description}
                   </p>
                 </div>
@@ -61,9 +61,9 @@ const ProductsSection = () => {
                     href={product.downloadUrl}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="mt-4 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors font-medium text-sm"
+                    className="mt-5 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors font-medium text-sm lg:text-base"
                   >
-                    <Download className="w-4 h-4" />
+                    <Download className="w-4 h-4 lg:w-5 lg:h-5" />
                     Download
                   </motion.a>
                 )}
