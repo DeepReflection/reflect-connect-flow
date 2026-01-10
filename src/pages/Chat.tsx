@@ -186,48 +186,44 @@ const Chat = () => {
           </button>
         </div>
 
-        {/* Profile Card - Positioned at bottom of banner */}
+        {/* Profile Card - Centered */}
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="absolute bottom-0 left-0 right-0 px-4 pb-4"
+          className="absolute bottom-0 left-0 right-0 px-4 pb-6"
         >
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-end gap-4">
-              {/* Avatar with glow effect */}
-              <div className="relative flex-shrink-0">
-                <motion.div
-                  animate={{ 
-                    boxShadow: ['0 0 20px hsl(var(--primary) / 0.3)', '0 0 40px hsl(var(--primary) / 0.5)', '0 0 20px hsl(var(--primary) / 0.3)']
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-primary/50"
-                >
-                  <img 
-                    src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
-                    alt="AI Assistant"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-                <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-3 border-background flex items-center justify-center">
-                  <span className="w-2 h-2 bg-white rounded-full" />
-                </span>
-              </div>
-              
-              {/* Info */}
-              <div className="flex-1 pb-1">
-                <h1 className="font-display text-xl md:text-2xl font-bold text-foreground drop-shadow-lg">
-                  Outro Brasileiro IA
-                </h1>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
-                    <Sparkles className="w-3 h-3 text-primary" />
-                    <span className="text-xs font-medium text-primary">Especialista WWII</span>
-                  </span>
-                  <span className="text-xs text-muted-foreground">• Online agora</span>
-                </div>
-              </div>
+          <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+            {/* Avatar with glow effect */}
+            <div className="relative mb-3">
+              <motion.div
+                animate={{ 
+                  boxShadow: ['0 0 20px hsl(var(--primary) / 0.3)', '0 0 40px hsl(var(--primary) / 0.5)', '0 0 20px hsl(var(--primary) / 0.3)']
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-primary/50"
+              >
+                <img 
+                  src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
+                  alt="AI Assistant"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-3 border-background flex items-center justify-center">
+                <span className="w-2 h-2 bg-white rounded-full" />
+              </span>
+            </div>
+            
+            {/* Info */}
+            <h1 className="font-display text-xl md:text-2xl font-bold text-foreground drop-shadow-lg">
+              Outro Brasileiro IA
+            </h1>
+            <div className="flex items-center gap-2 mt-2 flex-wrap justify-center">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
+                <Sparkles className="w-3 h-3 text-primary" />
+                <span className="text-xs font-medium text-primary">Especialista WWII</span>
+              </span>
+              <span className="text-xs text-muted-foreground">• Online agora</span>
             </div>
           </div>
         </motion.div>
