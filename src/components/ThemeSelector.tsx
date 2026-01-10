@@ -14,10 +14,11 @@ const ThemeSelector = () => {
 
   const currentThemeData = themes.find(t => t.id === currentTheme);
 
-  // Separate themes into dark, business, and light
-  const darkThemes = themes.filter(t => !t.isLight && !t.id.match(/corporate|executive|startup|finance|consulting|tech|luxury|modern|innovation|prestige/));
+  // Separate themes into categories
+  const darkThemes = themes.filter(t => !t.isLight && !t.layout && !t.id.match(/corporate|executive|startup|finance|consulting|tech|luxury|modern|innovation|prestige/));
   const businessThemes = themes.filter(t => t.id.match(/corporate|executive|startup|finance|consulting|tech|luxury|modern|innovation|prestige/));
-  const lightThemes = themes.filter(t => t.isLight);
+  const lightThemes = themes.filter(t => t.isLight && !t.layout);
+  const layoutThemes = themes.filter(t => t.layout);
 
   return (
     <motion.div
