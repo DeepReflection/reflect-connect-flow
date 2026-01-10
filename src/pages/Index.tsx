@@ -113,7 +113,7 @@ const Index = () => {
       {/* Main Content - Narrow sections */}
       <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
         {/* CTA Button */}
-        <CTAButton text="Fale Comigo" />
+        <CTAButton text="Fale com a minha Reflection" />
 
         {/* Social Links */}
         <section className="space-y-3">
