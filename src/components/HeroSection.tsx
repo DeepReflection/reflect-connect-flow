@@ -38,7 +38,7 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/30 glow-bronze">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/30 glow-primary">
               <img
                 src={avatarUrl}
                 alt={name}
