@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { HeroLayoutType } from '@/components/layouts/HeroLayouts';
 
 export type ThemeName = 
   | 'vintage-sepia'
@@ -31,13 +32,25 @@ export type ThemeName =
   | 'luxury-black'
   | 'modern-graphite'
   | 'innovation-blue'
-  | 'prestige-burgundy';
+  | 'prestige-burgundy'
+  // Layout themes (new)
+  | 'neon-gamer'
+  | 'minimal-zen'
+  | 'magazine-editorial'
+  | 'retro-wave'
+  | 'nature-organic'
+  | 'brutalist-raw'
+  | 'glassmorphism'
+  | 'split-screen'
+  | 'gradient-flow'
+  | 'card-stack';
 
 export interface Theme {
   id: ThemeName;
   name: string;
   description: string;
   isLight?: boolean;
+  layout?: HeroLayoutType;
 }
 
 export const THEMES: Theme[] = [
@@ -74,6 +87,17 @@ export const THEMES: Theme[] = [
   { id: 'sage-morning', name: 'Sálvia Matinal', description: 'Verde sálvia calmante', isLight: true },
   { id: 'coral-reef', name: 'Recife de Coral', description: 'Coral vibrante e tropical', isLight: true },
   { id: 'golden-hour', name: 'Hora Dourada', description: 'Dourado quente e luminoso', isLight: true },
+  // Layout Themes (new - each has unique layout)
+  { id: 'neon-gamer', name: 'Neon Gamer', description: 'Cyber gaming com efeitos neon vibrantes', layout: 'centered' },
+  { id: 'minimal-zen', name: 'Minimalista Zen', description: 'Design ultra limpo e contemplativo', layout: 'minimal', isLight: true },
+  { id: 'magazine-editorial', name: 'Magazine Editorial', description: 'Estilo revista com layout assimétrico', layout: 'editorial' },
+  { id: 'retro-wave', name: 'Retro Wave', description: 'Nostálgia anos 80 com visuais ousados', layout: 'retro' },
+  { id: 'nature-organic', name: 'Natureza Orgânica', description: 'Formas fluidas inspiradas na natureza', layout: 'organic', isLight: true },
+  { id: 'brutalist-raw', name: 'Brutalista Cru', description: 'Design cru e impactante em blocos', layout: 'brutalist' },
+  { id: 'glassmorphism', name: 'Glassmorphism', description: 'Efeitos de vidro fosco modernos', layout: 'glass' },
+  { id: 'split-screen', name: 'Tela Dividida', description: 'Layout equilibrado em duas metades', layout: 'split' },
+  { id: 'gradient-flow', name: 'Fluxo Gradiente', description: 'Gradientes animados e fluidos', layout: 'gradient' },
+  { id: 'card-stack', name: 'Cartões Empilhados', description: 'Efeito de cartões sobrepostos', layout: 'stacked' },
 ];
 
 interface ThemeContextType {

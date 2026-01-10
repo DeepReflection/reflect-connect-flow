@@ -36,6 +36,17 @@ import bannerLuxuryBlack from '@/assets/banners/hero-luxury-black.jpg';
 import bannerModernGraphite from '@/assets/banners/hero-modern-graphite.jpg';
 import bannerInnovationBlue from '@/assets/banners/hero-innovation-blue.jpg';
 import bannerPrestigeBurgundy from '@/assets/banners/hero-prestige-burgundy.jpg';
+// Layout themes
+import bannerNeonGamer from '@/assets/banners/hero-neon-gamer.jpg';
+import bannerMinimalZen from '@/assets/banners/hero-minimal-zen.jpg';
+import bannerMagazineEditorial from '@/assets/banners/hero-magazine-editorial.jpg';
+import bannerRetroWave from '@/assets/banners/hero-retro-wave.jpg';
+import bannerNatureOrganic from '@/assets/banners/hero-nature-organic.jpg';
+import bannerBrutalistRaw from '@/assets/banners/hero-brutalist-raw.jpg';
+import bannerGlassmorphism from '@/assets/banners/hero-glassmorphism.jpg';
+import bannerSplitScreen from '@/assets/banners/hero-split-screen.jpg';
+import bannerGradientFlow from '@/assets/banners/hero-gradient-flow.jpg';
+import bannerCardStack from '@/assets/banners/hero-card-stack.jpg';
 
 const themeBanners: Record<ThemeName, string> = {
   'vintage-sepia': bannerVintageSepia,
@@ -69,6 +80,17 @@ const themeBanners: Record<ThemeName, string> = {
   'modern-graphite': bannerModernGraphite,
   'innovation-blue': bannerInnovationBlue,
   'prestige-burgundy': bannerPrestigeBurgundy,
+  // Layout themes
+  'neon-gamer': bannerNeonGamer,
+  'minimal-zen': bannerMinimalZen,
+  'magazine-editorial': bannerMagazineEditorial,
+  'retro-wave': bannerRetroWave,
+  'nature-organic': bannerNatureOrganic,
+  'brutalist-raw': bannerBrutalistRaw,
+  'glassmorphism': bannerGlassmorphism,
+  'split-screen': bannerSplitScreen,
+  'gradient-flow': bannerGradientFlow,
+  'card-stack': bannerCardStack,
 };
 
 interface Message {
