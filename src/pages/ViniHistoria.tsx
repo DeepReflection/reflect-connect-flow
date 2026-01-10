@@ -130,7 +130,11 @@ const ViniHistoria = () => {
       </footer>
 
       {/* Chatbot */}
-      <ChatbotButton />
+      <ChatbotButton 
+        avatarUrl="https://vortice-deep-reflection-production.s3.us-east-1.amazonaws.com/resources/66.jpeg"
+        name="Vini Historia"
+        welcomeMessage="Olá! Eu sou o Vini História e seja muito bem-vindo ao meu Canal. 📚"
+      />
     </div>
   );
 };
