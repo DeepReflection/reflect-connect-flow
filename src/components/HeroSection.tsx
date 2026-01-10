@@ -1,8 +1,52 @@
 import { motion } from 'framer-motion';
-import { useTheme } from '@/contexts/ThemeContext';
-import heroBanner from '@/assets/hero-banner.jpg';
-import heroBannerArctic from '@/assets/hero-banner-arctic.jpg';
+import { useTheme, ThemeName } from '@/contexts/ThemeContext';
 import ShareButton from './ShareButton';
+
+// Import all theme-specific banners
+import bannerVintageSepia from '@/assets/banners/hero-vintage-sepia.jpg';
+import bannerMidnightGold from '@/assets/banners/hero-midnight-gold.jpg';
+import bannerMilitaryOlive from '@/assets/banners/hero-military-olive.jpg';
+import bannerOceanDeep from '@/assets/banners/hero-ocean-deep.jpg';
+import bannerCrimsonWar from '@/assets/banners/hero-crimson-war.jpg';
+import bannerSunsetBronze from '@/assets/banners/hero-sunset-bronze.jpg';
+import bannerRoyalPurple from '@/assets/banners/hero-royal-purple.jpg';
+import bannerForestEmerald from '@/assets/banners/hero-forest-emerald.jpg';
+import bannerArcticFrost from '@/assets/banners/hero-arctic-frost.jpg';
+import bannerDesertSand from '@/assets/banners/hero-desert-sand.jpg';
+import bannerCloudSilver from '@/assets/banners/hero-cloud-silver.jpg';
+import bannerRoseGarden from '@/assets/banners/hero-rose-garden.jpg';
+import bannerMintFresh from '@/assets/banners/hero-mint-fresh.jpg';
+import bannerLavenderDream from '@/assets/banners/hero-lavender-dream.jpg';
+import bannerPeachBlossom from '@/assets/banners/hero-peach-blossom.jpg';
+import bannerSkyBlue from '@/assets/banners/hero-sky-blue.jpg';
+import bannerCreamVanilla from '@/assets/banners/hero-cream-vanilla.jpg';
+import bannerSageMorning from '@/assets/banners/hero-sage-morning.jpg';
+import bannerCoralReef from '@/assets/banners/hero-coral-reef.jpg';
+import bannerGoldenHour from '@/assets/banners/hero-golden-hour.jpg';
+
+// Banner mapping for each theme
+const themeBanners: Record<ThemeName, string> = {
+  'vintage-sepia': bannerVintageSepia,
+  'midnight-gold': bannerMidnightGold,
+  'military-olive': bannerMilitaryOlive,
+  'ocean-deep': bannerOceanDeep,
+  'crimson-war': bannerCrimsonWar,
+  'sunset-bronze': bannerSunsetBronze,
+  'royal-purple': bannerRoyalPurple,
+  'forest-emerald': bannerForestEmerald,
+  'arctic-frost': bannerArcticFrost,
+  'desert-sand': bannerDesertSand,
+  'cloud-silver': bannerCloudSilver,
+  'rose-garden': bannerRoseGarden,
+  'mint-fresh': bannerMintFresh,
+  'lavender-dream': bannerLavenderDream,
+  'peach-blossom': bannerPeachBlossom,
+  'sky-blue': bannerSkyBlue,
+  'cream-vanilla': bannerCreamVanilla,
+  'sage-morning': bannerSageMorning,
+  'coral-reef': bannerCoralReef,
+  'golden-hour': bannerGoldenHour,
+};
 
 interface HeroSectionProps {
   name: string;
@@ -13,9 +57,8 @@ interface HeroSectionProps {
 const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
   const { currentTheme } = useTheme();
   
-  // Select banner based on theme
-  const isArcticTheme = currentTheme === 'arctic-frost';
-  const bannerImage = isArcticTheme ? heroBannerArctic : heroBanner;
+  // Get banner for current theme
+  const bannerImage = themeBanners[currentTheme] || bannerVintageSepia;
 
   return (
     <section className="relative min-h-[60vh] flex items-end pb-8 overflow-hidden">
@@ -24,7 +67,7 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
         <img
           src={bannerImage}
           alt="World War II Documentary"
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className="w-full h-full object-cover transition-all duration-700"
         />
         <div 
           className="absolute inset-0"
