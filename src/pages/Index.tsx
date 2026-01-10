@@ -127,11 +127,13 @@ const Index = () => {
             />
           ))}
         </section>
+      </main>
 
-        {/* Reflections */}
-        <section className="w-full">
+      {/* Reflections - Full width */}
+      <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
+        <div className="max-w-7xl mx-auto">
           <SectionTitle title="Minhas Reflexões" />
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3 md:gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
             {REFLECTIONS.map((reflection, index) => (
               <ReflectionCard
                 key={reflection.title}
@@ -141,8 +143,8 @@ const Index = () => {
               />
             ))}
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
 
       {/* Products & Services - Full width */}
       <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
