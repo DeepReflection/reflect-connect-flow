@@ -29,10 +29,10 @@ const ChatbotButton = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-[90%] max-w-sm glass-card rounded-2xl overflow-hidden shadow-2xl"
+            className="fixed bottom-24 right-6 z-50 w-[90%] max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border/50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <img
@@ -40,16 +40,16 @@ const ChatbotButton = () => {
                     alt="Bot"
                     className="w-10 h-10 rounded-full"
                   />
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-background" />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground text-sm">outrobrasileironodiad</p>
+                  <p className="font-semibold text-gray-800 text-sm">outrobrasileironodiad</p>
                   <p className="text-xs text-green-500">● Online</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-foreground/50 hover:text-foreground transition-colors"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -73,24 +73,24 @@ const ChatbotButton = () => {
             </div>
 
             {/* Input */}
-            <div className="p-4 border-t border-border/50">
+            <div className="p-4 border-t border-gray-200 bg-gray-50">
               <div className="flex items-center gap-2">
                 <input
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Digite sua mensagem..."
-                  className="flex-1 bg-background/50 border border-border/50 rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-lg bg-primary text-primary-foreground flex items-center justify-center"
+                  className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition-colors"
                 >
                   <Send className="w-4 h-4" />
                 </motion.button>
               </div>
-              <p className="text-[10px] text-muted-foreground mt-2 text-right">
+              <p className="text-[10px] text-gray-400 mt-2 text-right">
                 {message.length}/2000
               </p>
             </div>
