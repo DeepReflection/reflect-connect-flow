@@ -53,6 +53,46 @@ const REFLECTIONS = [
     title: "Rommel",
     imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/277.png",
   },
+  {
+    title: "Eisenhower",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/272.png",
+  },
+  {
+    title: "De Gaulle",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/273.png",
+  },
+  {
+    title: "Roosevelt",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/274.png",
+  },
+  {
+    title: "Stalin",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/275.png",
+  },
+  {
+    title: "Bradley",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/276.png",
+  },
+  {
+    title: "Nimitz",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/277.png",
+  },
+  {
+    title: "Yamamoto",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/272.png",
+  },
+  {
+    title: "Guderian",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/273.png",
+  },
+  {
+    title: "Manstein",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/274.png",
+  },
+  {
+    title: "Konev",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/275.png",
+  },
 ];
 
 const Index = () => {
