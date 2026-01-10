@@ -131,7 +131,7 @@ const Index = () => {
         {/* Reflections */}
         <section>
           <SectionTitle title="Minhas Reflexões" />
-          <div className="flex flex-wrap justify-between gap-y-6">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4">
             {REFLECTIONS.map((reflection, index) => (
               <ReflectionCard
                 key={reflection.title}
