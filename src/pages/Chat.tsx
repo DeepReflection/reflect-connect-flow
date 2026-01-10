@@ -209,9 +209,6 @@ const Chat = () => {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-              <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-3 border-background flex items-center justify-center">
-                <span className="w-2 h-2 bg-white rounded-full" />
-              </span>
             </div>
             
             {/* Info */}
@@ -223,7 +220,6 @@ const Chat = () => {
                 <Sparkles className="w-3 h-3 text-primary" />
                 <span className="text-xs font-medium text-primary">Especialista WWII</span>
               </span>
-              <span className="text-xs text-muted-foreground">• Online agora</span>
             </div>
           </div>
         </motion.div>
