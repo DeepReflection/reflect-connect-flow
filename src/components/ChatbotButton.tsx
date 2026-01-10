@@ -11,7 +11,10 @@ const ChatbotButton = () => {
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg flex items-center justify-center overflow-hidden glow-primary"
+        className="fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full shadow-lg flex items-center justify-center overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-background"
+        style={{
+          boxShadow: '0 0 20px hsl(var(--primary) / 0.4), 0 4px 15px hsl(var(--background) / 0.5)'
+        }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 20 }}
