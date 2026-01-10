@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Palette, Sun, Moon, Briefcase } from 'lucide-react';
+import { Palette, Sun, Moon, Briefcase, Layout } from 'lucide-react';
 import { useTheme, ThemeName } from '@/contexts/ThemeContext';
 import {
   Select,
@@ -37,7 +37,9 @@ const ThemeSelector = () => {
           <SelectTrigger className="w-[200px] sm:w-[280px] bg-card border-border hover:border-primary/50 transition-colors">
             <SelectValue>
               <div className="flex items-center gap-2">
-                {currentThemeData?.isLight ? (
+                {currentThemeData?.layout ? (
+                  <Layout className="w-3 h-3 text-primary" />
+                ) : currentThemeData?.isLight ? (
                   <Sun className="w-3 h-3 text-primary" />
                 ) : (
                   <Moon className="w-3 h-3 text-primary" />
@@ -47,6 +49,27 @@ const ThemeSelector = () => {
             </SelectValue>
           </SelectTrigger>
           <SelectContent className="bg-card border-border max-h-[400px]">
+            {/* Layout Themes Section - NEW */}
+            <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
+              <Layout className="w-3 h-3" />
+              Temas com Layout Único
+            </div>
+            {layoutThemes.map((theme) => (
+              <SelectItem 
+                key={theme.id} 
+                value={theme.id}
+                className="cursor-pointer hover:bg-accent focus:bg-accent"
+              >
+                <div className="flex flex-col gap-0.5 py-1">
+                  <span className="font-medium">{theme.name}</span>
+                  <span className="text-xs text-muted-foreground">{theme.description}</span>
+                </div>
+              </SelectItem>
+            ))}
+            
+            {/* Separator */}
+            <div className="h-px bg-border my-2" />
+            
             {/* Dark Themes Section */}
             <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
               <Moon className="w-3 h-3" />

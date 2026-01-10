@@ -924,6 +924,8 @@ html.theme-card-stack {
   --input: 45 20% 92%;
   --ring: 40 50% 45%;
 }
+
+@layer base {
   * {
     @apply border-border;
   }
