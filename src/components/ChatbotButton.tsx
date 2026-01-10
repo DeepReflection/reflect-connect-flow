@@ -56,16 +56,16 @@ const ChatbotButton = () => {
             </div>
 
             {/* Messages */}
-            <div className="h-64 p-4 overflow-y-auto bg-background/30">
+            <div className="h-64 p-4 overflow-y-auto bg-white">
               <div className="flex gap-3">
                 <img
                   src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
                   alt="Bot"
                   className="w-8 h-8 rounded-full flex-shrink-0"
                 />
-                <div className="glass-card rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                  <p className="text-sm text-foreground">E ai pessoal do canal? 👋</p>
-                  <p className="text-[10px] text-muted-foreground mt-1 text-right">
+                <div className="bg-gray-100 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+                  <p className="text-sm text-gray-800">E ai pessoal do canal? 👋</p>
+                  <p className="text-[10px] text-gray-500 mt-1 text-right">
                     {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
