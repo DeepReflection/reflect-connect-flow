@@ -20,7 +20,18 @@ export type ThemeName =
   | 'cream-vanilla'
   | 'sage-morning'
   | 'coral-reef'
-  | 'golden-hour';
+  | 'golden-hour'
+  // Business themes
+  | 'corporate-navy'
+  | 'executive-charcoal'
+  | 'startup-teal'
+  | 'finance-green'
+  | 'consulting-slate'
+  | 'tech-indigo'
+  | 'luxury-black'
+  | 'modern-graphite'
+  | 'innovation-blue'
+  | 'prestige-burgundy';
 
 export interface Theme {
   id: ThemeName;
@@ -39,6 +50,17 @@ export const THEMES: Theme[] = [
   { id: 'sunset-bronze', name: 'Pôr do Sol Bronze', description: 'Cores quentes do entardecer' },
   { id: 'royal-purple', name: 'Púrpura Real', description: 'Luxo e sofisticação imperial' },
   { id: 'forest-emerald', name: 'Floresta Esmeralda', description: 'Verde profundo e natural' },
+  // Business Themes (Dark)
+  { id: 'corporate-navy', name: 'Corporativo Marinho', description: 'Azul marinho profissional e confiável' },
+  { id: 'executive-charcoal', name: 'Executivo Carvão', description: 'Cinza escuro sofisticado e moderno' },
+  { id: 'startup-teal', name: 'Startup Teal', description: 'Verde-azulado inovador e dinâmico' },
+  { id: 'finance-green', name: 'Finanças Verde', description: 'Verde clássico de prosperidade' },
+  { id: 'consulting-slate', name: 'Consultoria Ardósia', description: 'Azul-cinza elegante e confiável' },
+  { id: 'tech-indigo', name: 'Tech Índigo', description: 'Azul-violeta tecnológico e futurista' },
+  { id: 'luxury-black', name: 'Luxo Preto', description: 'Preto premium com dourado sutil' },
+  { id: 'modern-graphite', name: 'Grafite Moderno', description: 'Cinza neutro contemporâneo' },
+  { id: 'innovation-blue', name: 'Inovação Azul', description: 'Azul elétrico vibrante e criativo' },
+  { id: 'prestige-burgundy', name: 'Prestígio Borgonha', description: 'Vermelho vinho elegante e exclusivo' },
   // Light Themes
   { id: 'arctic-frost', name: 'Gelo Ártico', description: 'Branco gelado com tons azuis', isLight: true },
   { id: 'desert-sand', name: 'Areia do Deserto', description: 'Tons terrosos e arenosos', isLight: true },

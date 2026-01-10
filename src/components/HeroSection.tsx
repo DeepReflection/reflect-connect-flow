@@ -23,6 +23,17 @@ import bannerCreamVanilla from '@/assets/banners/hero-cream-vanilla.jpg';
 import bannerSageMorning from '@/assets/banners/hero-sage-morning.jpg';
 import bannerCoralReef from '@/assets/banners/hero-coral-reef.jpg';
 import bannerGoldenHour from '@/assets/banners/hero-golden-hour.jpg';
+// Business themes
+import bannerCorporateNavy from '@/assets/banners/hero-corporate-navy.jpg';
+import bannerExecutiveCharcoal from '@/assets/banners/hero-executive-charcoal.jpg';
+import bannerStartupTeal from '@/assets/banners/hero-startup-teal.jpg';
+import bannerFinanceGreen from '@/assets/banners/hero-finance-green.jpg';
+import bannerConsultingSlate from '@/assets/banners/hero-consulting-slate.jpg';
+import bannerTechIndigo from '@/assets/banners/hero-tech-indigo.jpg';
+import bannerLuxuryBlack from '@/assets/banners/hero-luxury-black.jpg';
+import bannerModernGraphite from '@/assets/banners/hero-modern-graphite.jpg';
+import bannerInnovationBlue from '@/assets/banners/hero-innovation-blue.jpg';
+import bannerPrestigeBurgundy from '@/assets/banners/hero-prestige-burgundy.jpg';
 
 // Banner mapping for each theme
 const themeBanners: Record<ThemeName, string> = {
@@ -46,6 +57,17 @@ const themeBanners: Record<ThemeName, string> = {
   'sage-morning': bannerSageMorning,
   'coral-reef': bannerCoralReef,
   'golden-hour': bannerGoldenHour,
+  // Business themes
+  'corporate-navy': bannerCorporateNavy,
+  'executive-charcoal': bannerExecutiveCharcoal,
+  'startup-teal': bannerStartupTeal,
+  'finance-green': bannerFinanceGreen,
+  'consulting-slate': bannerConsultingSlate,
+  'tech-indigo': bannerTechIndigo,
+  'luxury-black': bannerLuxuryBlack,
+  'modern-graphite': bannerModernGraphite,
+  'innovation-blue': bannerInnovationBlue,
+  'prestige-burgundy': bannerPrestigeBurgundy,
 };
 
 interface HeroSectionProps {
