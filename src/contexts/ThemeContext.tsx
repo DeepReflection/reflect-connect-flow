@@ -10,25 +10,48 @@ export type ThemeName =
   | 'sunset-bronze'
   | 'royal-purple'
   | 'forest-emerald'
-  | 'desert-sand';
+  | 'desert-sand'
+  | 'cloud-silver'
+  | 'rose-garden'
+  | 'mint-fresh'
+  | 'lavender-dream'
+  | 'peach-blossom'
+  | 'sky-blue'
+  | 'cream-vanilla'
+  | 'sage-morning'
+  | 'coral-reef'
+  | 'golden-hour';
 
 export interface Theme {
   id: ThemeName;
   name: string;
   description: string;
+  isLight?: boolean;
 }
 
 export const THEMES: Theme[] = [
+  // Dark Themes
   { id: 'vintage-sepia', name: 'Vintage Sépia', description: 'Tom clássico de fotografias antigas' },
   { id: 'midnight-gold', name: 'Meia-Noite Dourado', description: 'Elegância noturna com acentos dourados' },
   { id: 'military-olive', name: 'Militar Oliva', description: 'Tons táticos e robustos' },
   { id: 'ocean-deep', name: 'Oceano Profundo', description: 'Azul marinho e tons aquáticos' },
   { id: 'crimson-war', name: 'Carmesim de Guerra', description: 'Vermelho dramático e intenso' },
-  { id: 'arctic-frost', name: 'Gelo Ártico', description: 'Branco gelado com tons azuis' },
   { id: 'sunset-bronze', name: 'Pôr do Sol Bronze', description: 'Cores quentes do entardecer' },
   { id: 'royal-purple', name: 'Púrpura Real', description: 'Luxo e sofisticação imperial' },
   { id: 'forest-emerald', name: 'Floresta Esmeralda', description: 'Verde profundo e natural' },
-  { id: 'desert-sand', name: 'Areia do Deserto', description: 'Tons terrosos e arenosos' },
+  // Light Themes
+  { id: 'arctic-frost', name: 'Gelo Ártico', description: 'Branco gelado com tons azuis', isLight: true },
+  { id: 'desert-sand', name: 'Areia do Deserto', description: 'Tons terrosos e arenosos', isLight: true },
+  { id: 'cloud-silver', name: 'Nuvem Prateada', description: 'Cinza elegante e moderno', isLight: true },
+  { id: 'rose-garden', name: 'Jardim de Rosas', description: 'Rosa suave e romântico', isLight: true },
+  { id: 'mint-fresh', name: 'Menta Fresca', description: 'Verde menta refrescante', isLight: true },
+  { id: 'lavender-dream', name: 'Sonho Lavanda', description: 'Lilás suave e relaxante', isLight: true },
+  { id: 'peach-blossom', name: 'Flor de Pêssego', description: 'Pêssego delicado e acolhedor', isLight: true },
+  { id: 'sky-blue', name: 'Céu Azul', description: 'Azul claro e sereno', isLight: true },
+  { id: 'cream-vanilla', name: 'Creme Baunilha', description: 'Tons creme suaves e elegantes', isLight: true },
+  { id: 'sage-morning', name: 'Sálvia Matinal', description: 'Verde sálvia calmante', isLight: true },
+  { id: 'coral-reef', name: 'Recife de Coral', description: 'Coral vibrante e tropical', isLight: true },
+  { id: 'golden-hour', name: 'Hora Dourada', description: 'Dourado quente e luminoso', isLight: true },
 ];
 
 interface ThemeContextType {
