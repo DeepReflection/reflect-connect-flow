@@ -5,6 +5,7 @@ import SocialLink from '@/components/SocialLink';
 import ReflectionCard from '@/components/ReflectionCard';
 import CTAButton from '@/components/CTAButton';
 import SectionTitle from '@/components/SectionTitle';
+import ThemeSelector from '@/components/ThemeSelector';
 
 const PROFILE_DATA = {
   name: "outrobrasileironodiad",
@@ -55,14 +56,17 @@ const REFLECTIONS = [
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <ThemeSelector />
       <ParticleBackground />
       
       {/* Hero Section */}
-      <HeroSection
-        name={PROFILE_DATA.name}
-        description={PROFILE_DATA.description}
-        avatarUrl={PROFILE_DATA.avatarUrl}
-      />
+      <div className="pt-14">
+        <HeroSection
+          name={PROFILE_DATA.name}
+          description={PROFILE_DATA.description}
+          avatarUrl={PROFILE_DATA.avatarUrl}
+        />
+      </div>
 
       {/* Main Content */}
       <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
