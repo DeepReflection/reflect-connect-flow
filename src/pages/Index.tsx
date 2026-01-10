@@ -1,12 +1,112 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Instagram, Youtube } from 'lucide-react';
+import ParticleBackground from '@/components/ParticleBackground';
+import HeroSection from '@/components/HeroSection';
+import SocialLink from '@/components/SocialLink';
+import ReflectionCard from '@/components/ReflectionCard';
+import CTAButton from '@/components/CTAButton';
+import SectionTitle from '@/components/SectionTitle';
+
+const PROFILE_DATA = {
+  name: "outrobrasileironodiad",
+  description: "O Projeto Outro Brasileiro é uma iniciativa independente e sem fins lucrativos dedicada à criação de conteúdos audiovisuais sobre a Segunda Guerra Mundial, explorando de forma aprofundada seus principais eventos, batalhas, personagens e contextos históricos.",
+  avatarUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png",
+};
+
+const SOCIAL_LINKS = [
+  {
+    url: "https://www.instagram.com/outrobrasileironodiad/",
+    icon: <Instagram className="w-6 h-6" />,
+    label: "Instagram",
+  },
+  {
+    url: "https://www.youtube.com/@outrobrasileironodiad9205",
+    icon: <Youtube className="w-6 h-6" />,
+    label: "YouTube",
+  },
+];
+
+const REFLECTIONS = [
+  {
+    title: "General Patton",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/272.png",
+  },
+  {
+    title: "Montgomery",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/273.png",
+  },
+  {
+    title: "MacArthur",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/274.png",
+  },
+  {
+    title: "Zhukov",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/275.png",
+  },
+  {
+    title: "Churchill",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/276.png",
+  },
+  {
+    title: "Rommel",
+    imageUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/277.png",
+  },
+];
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background relative">
+      <ParticleBackground />
+      
+      {/* Hero Section */}
+      <HeroSection
+        name={PROFILE_DATA.name}
+        description={PROFILE_DATA.description}
+        avatarUrl={PROFILE_DATA.avatarUrl}
+      />
+
+      {/* Main Content */}
+      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
+        {/* CTA Button */}
+        <CTAButton text="Fale Comigo" />
+
+        {/* Social Links */}
+        <section className="space-y-3">
+          {SOCIAL_LINKS.map((link, index) => (
+            <SocialLink
+              key={link.url}
+              url={link.url}
+              icon={link.icon}
+              label={link.label}
+              index={index}
+            />
+          ))}
+        </section>
+
+        {/* Reflections */}
+        <section>
+          <SectionTitle title="Minhas Reflexões" />
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+            {REFLECTIONS.map((reflection, index) => (
+              <ReflectionCard
+                key={reflection.title}
+                title={reflection.title}
+                imageUrl={reflection.imageUrl}
+                index={index}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="text-center pt-8 pb-4">
+          <p className="text-muted-foreground text-sm font-body">
+            © 2024 Outro Brasileiro no D-Day
+          </p>
+          <p className="text-muted-foreground/50 text-xs mt-2">
+            Preservando a história para as futuras gerações
+          </p>
+        </footer>
+      </main>
     </div>
   );
 };
