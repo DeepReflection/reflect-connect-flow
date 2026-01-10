@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import heroBanner from '@/assets/hero-banner.jpg';
+import ShareButton from './ShareButton';
 
 interface HeroSectionProps {
   name: string;
@@ -50,14 +51,23 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
 
           {/* Text */}
           <div className="text-center md:text-left flex-1 glass-card p-6 md:p-8 rounded-xl">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-bronze mb-4"
-            >
-              {name}
-            </motion.h1>
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-bronze"
+              >
+                {name}
+              </motion.h1>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+              >
+                <ShareButton />
+              </motion.div>
+            </div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
