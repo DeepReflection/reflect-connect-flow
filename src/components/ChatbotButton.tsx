@@ -6,6 +6,34 @@ const ChatbotButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
 
+  const simulatedMessages = [
+    {
+      role: 'assistant',
+      content: 'E ai pessoal do canal? 👋',
+      time: '14:32'
+    },
+    {
+      role: 'user',
+      content: 'Opa! Tudo bem? Queria saber mais sobre a Segunda Guerra Mundial',
+      time: '14:33'
+    },
+    {
+      role: 'assistant',
+      content: 'Claro! A Segunda Guerra Mundial foi o maior conflito da história, ocorrendo entre 1939 e 1945. Envolveu mais de 70 nações. Sobre qual aspecto você quer saber mais? 🎖️',
+      time: '14:33'
+    },
+    {
+      role: 'user',
+      content: 'Qual foi a batalha mais decisiva?',
+      time: '14:34'
+    },
+    {
+      role: 'assistant',
+      content: 'Muitos historiadores consideram a Batalha de Stalingrado (1942-1943) como o ponto de virada. Foi uma vitória soviética crucial que mudou o rumo da guerra na Europa! 🏛️',
+      time: '14:34'
+    }
+  ];
+
   return (
     <>
       {/* Floating Button */}
@@ -63,20 +91,30 @@ const ChatbotButton = () => {
             </div>
 
             {/* Messages */}
-            <div className="h-64 p-4 overflow-y-auto bg-white">
-              <div className="flex gap-3">
-                <img
-                  src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
-                  alt="Bot"
-                  className="w-8 h-8 rounded-full flex-shrink-0"
-                />
-                <div className="bg-gray-100 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
-                  <p className="text-sm text-gray-800">E ai pessoal do canal? 👋</p>
-                  <p className="text-[10px] text-gray-500 mt-1 text-right">
-                    {new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
-                  </p>
+            <div className="h-72 p-4 overflow-y-auto bg-white space-y-3">
+              {simulatedMessages.map((msg, index) => (
+                <div key={index} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                  {msg.role === 'assistant' && (
+                    <img
+                      src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
+                      alt="Bot"
+                      className="w-8 h-8 rounded-full flex-shrink-0"
+                    />
+                  )}
+                  <div className={`rounded-2xl p-3 max-w-[80%] ${
+                    msg.role === 'user' 
+                      ? 'bg-blue-500 text-white rounded-tr-none' 
+                      : 'bg-gray-100 text-gray-800 rounded-tl-none'
+                  }`}>
+                    <p className="text-sm">{msg.content}</p>
+                    <p className={`text-[10px] mt-1 text-right ${
+                      msg.role === 'user' ? 'text-blue-100' : 'text-gray-500'
+                    }`}>
+                      {msg.time}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
 
             {/* Input */}
