@@ -2,14 +2,27 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send } from 'lucide-react';
 
-const ChatbotButton = () => {
+interface ChatbotButtonProps {
+  avatarUrl?: string;
+  name?: string;
+  welcomeMessage?: string;
+}
+
+const DEFAULT_AVATAR = "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png";
+const DEFAULT_NAME = "outrobrasileironodiad";
+
+const ChatbotButton = ({ 
+  avatarUrl = DEFAULT_AVATAR, 
+  name = DEFAULT_NAME,
+  welcomeMessage = "E ai pessoal do canal? 👋"
+}: ChatbotButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
 
   const simulatedMessages = [
     {
       role: 'assistant',
-      content: 'E ai pessoal do canal? 👋',
+      content: welcomeMessage,
       time: '14:32'
     },
     {
@@ -51,7 +64,7 @@ const ChatbotButton = () => {
         aria-label="Abrir chat"
       >
         <img
-          src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
+          src={avatarUrl}
           alt="Chat"
           className="w-full h-full object-cover"
         />
@@ -71,14 +84,14 @@ const ChatbotButton = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <img
-                    src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
+                    src={avatarUrl}
                     alt="Bot"
                     className="w-10 h-10 rounded-full"
                   />
                   <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-800 text-sm">outrobrasileironodiad</p>
+                  <p className="font-semibold text-gray-800 text-sm">{name}</p>
                   <p className="text-xs text-green-500">● Online</p>
                 </div>
               </div>
@@ -96,7 +109,7 @@ const ChatbotButton = () => {
                 <div key={index} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                   {msg.role === 'assistant' && (
                     <img
-                      src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png"
+                      src={avatarUrl}
                       alt="Bot"
                       className="w-8 h-8 rounded-full flex-shrink-0"
                     />
