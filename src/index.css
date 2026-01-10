@@ -497,6 +497,220 @@ html.theme-golden-hour {
   --ring: 42 85% 50%;
 }
 
+/* ============================================
+   BUSINESS THEMES
+   ============================================ */
+
+/* THEME: Corporate Navy - Professional and trustworthy */
+html.theme-corporate-navy {
+  --background: 220 35% 10%;
+  --foreground: 210 25% 92%;
+  --card: 220 30% 14%;
+  --card-foreground: 210 25% 92%;
+  --popover: 220 30% 12%;
+  --popover-foreground: 210 25% 92%;
+  --primary: 210 80% 55%;
+  --primary-foreground: 220 35% 8%;
+  --secondary: 220 25% 20%;
+  --secondary-foreground: 210 25% 88%;
+  --muted: 220 20% 22%;
+  --muted-foreground: 210 15% 55%;
+  --accent: 200 70% 50%;
+  --accent-foreground: 220 35% 8%;
+  --border: 220 25% 25%;
+  --input: 220 25% 18%;
+  --ring: 210 80% 55%;
+}
+
+/* THEME: Executive Charcoal - Sophisticated and modern */
+html.theme-executive-charcoal {
+  --background: 0 0% 9%;
+  --foreground: 0 0% 92%;
+  --card: 0 0% 13%;
+  --card-foreground: 0 0% 92%;
+  --popover: 0 0% 11%;
+  --popover-foreground: 0 0% 92%;
+  --primary: 0 0% 70%;
+  --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 88%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 0 0% 60%;
+  --accent-foreground: 0 0% 8%;
+  --border: 0 0% 22%;
+  --input: 0 0% 16%;
+  --ring: 0 0% 70%;
+}
+
+/* THEME: Startup Teal - Innovative and dynamic */
+html.theme-startup-teal {
+  --background: 180 25% 8%;
+  --foreground: 175 20% 92%;
+  --card: 180 22% 12%;
+  --card-foreground: 175 20% 92%;
+  --popover: 180 22% 10%;
+  --popover-foreground: 175 20% 92%;
+  --primary: 175 70% 45%;
+  --primary-foreground: 180 25% 8%;
+  --secondary: 180 18% 18%;
+  --secondary-foreground: 175 20% 88%;
+  --muted: 180 15% 20%;
+  --muted-foreground: 175 12% 55%;
+  --accent: 165 60% 40%;
+  --accent-foreground: 180 25% 8%;
+  --border: 180 20% 22%;
+  --input: 180 18% 16%;
+  --ring: 175 70% 45%;
+}
+
+/* THEME: Finance Green - Classic prosperity */
+html.theme-finance-green {
+  --background: 150 25% 8%;
+  --foreground: 145 18% 92%;
+  --card: 150 22% 12%;
+  --card-foreground: 145 18% 92%;
+  --popover: 150 22% 10%;
+  --popover-foreground: 145 18% 92%;
+  --primary: 145 60% 42%;
+  --primary-foreground: 150 25% 8%;
+  --secondary: 150 18% 18%;
+  --secondary-foreground: 145 18% 88%;
+  --muted: 150 15% 20%;
+  --muted-foreground: 145 12% 55%;
+  --accent: 155 55% 38%;
+  --accent-foreground: 150 25% 8%;
+  --border: 150 18% 22%;
+  --input: 150 18% 16%;
+  --ring: 145 60% 42%;
+}
+
+/* THEME: Consulting Slate - Elegant and reliable */
+html.theme-consulting-slate {
+  --background: 215 20% 10%;
+  --foreground: 210 18% 92%;
+  --card: 215 18% 14%;
+  --card-foreground: 210 18% 92%;
+  --popover: 215 18% 12%;
+  --popover-foreground: 210 18% 92%;
+  --primary: 210 40% 55%;
+  --primary-foreground: 215 20% 8%;
+  --secondary: 215 15% 20%;
+  --secondary-foreground: 210 18% 88%;
+  --muted: 215 12% 22%;
+  --muted-foreground: 210 10% 55%;
+  --accent: 205 35% 48%;
+  --accent-foreground: 215 20% 8%;
+  --border: 215 15% 25%;
+  --input: 215 15% 18%;
+  --ring: 210 40% 55%;
+}
+
+/* THEME: Tech Indigo - Futuristic technology */
+html.theme-tech-indigo {
+  --background: 250 30% 9%;
+  --foreground: 245 22% 92%;
+  --card: 250 28% 13%;
+  --card-foreground: 245 22% 92%;
+  --popover: 250 28% 11%;
+  --popover-foreground: 245 22% 92%;
+  --primary: 245 75% 60%;
+  --primary-foreground: 250 30% 8%;
+  --secondary: 250 22% 18%;
+  --secondary-foreground: 245 22% 88%;
+  --muted: 250 18% 20%;
+  --muted-foreground: 245 14% 55%;
+  --accent: 255 65% 55%;
+  --accent-foreground: 250 30% 8%;
+  --border: 250 22% 22%;
+  --input: 250 22% 16%;
+  --ring: 245 75% 60%;
+}
+
+/* THEME: Luxury Black - Premium with subtle gold */
+html.theme-luxury-black {
+  --background: 40 5% 6%;
+  --foreground: 45 15% 92%;
+  --card: 40 5% 10%;
+  --card-foreground: 45 15% 92%;
+  --popover: 40 5% 8%;
+  --popover-foreground: 45 15% 92%;
+  --primary: 45 75% 55%;
+  --primary-foreground: 40 5% 6%;
+  --secondary: 40 5% 15%;
+  --secondary-foreground: 45 15% 88%;
+  --muted: 40 4% 18%;
+  --muted-foreground: 45 8% 50%;
+  --accent: 42 70% 48%;
+  --accent-foreground: 40 5% 6%;
+  --border: 45 12% 18%;
+  --input: 40 5% 14%;
+  --ring: 45 75% 55%;
+}
+
+/* THEME: Modern Graphite - Contemporary neutral */
+html.theme-modern-graphite {
+  --background: 220 8% 10%;
+  --foreground: 220 8% 92%;
+  --card: 220 8% 14%;
+  --card-foreground: 220 8% 92%;
+  --popover: 220 8% 12%;
+  --popover-foreground: 220 8% 92%;
+  --primary: 220 15% 60%;
+  --primary-foreground: 220 8% 8%;
+  --secondary: 220 8% 18%;
+  --secondary-foreground: 220 8% 88%;
+  --muted: 220 6% 22%;
+  --muted-foreground: 220 6% 55%;
+  --accent: 220 12% 52%;
+  --accent-foreground: 220 8% 8%;
+  --border: 220 8% 24%;
+  --input: 220 8% 16%;
+  --ring: 220 15% 60%;
+}
+
+/* THEME: Innovation Blue - Vibrant and creative */
+html.theme-innovation-blue {
+  --background: 225 40% 8%;
+  --foreground: 220 25% 92%;
+  --card: 225 38% 12%;
+  --card-foreground: 220 25% 92%;
+  --popover: 225 38% 10%;
+  --popover-foreground: 220 25% 92%;
+  --primary: 210 100% 55%;
+  --primary-foreground: 225 40% 8%;
+  --secondary: 225 30% 18%;
+  --secondary-foreground: 220 25% 88%;
+  --muted: 225 25% 20%;
+  --muted-foreground: 220 18% 55%;
+  --accent: 200 90% 50%;
+  --accent-foreground: 225 40% 8%;
+  --border: 225 28% 22%;
+  --input: 225 30% 16%;
+  --ring: 210 100% 55%;
+}
+
+/* THEME: Prestige Burgundy - Elegant wine red */
+html.theme-prestige-burgundy {
+  --background: 345 30% 9%;
+  --foreground: 340 18% 92%;
+  --card: 345 28% 13%;
+  --card-foreground: 340 18% 92%;
+  --popover: 345 28% 11%;
+  --popover-foreground: 340 18% 92%;
+  --primary: 345 60% 45%;
+  --primary-foreground: 345 30% 95%;
+  --secondary: 345 22% 18%;
+  --secondary-foreground: 340 18% 88%;
+  --muted: 345 18% 20%;
+  --muted-foreground: 340 12% 55%;
+  --accent: 350 55% 40%;
+  --accent-foreground: 345 30% 95%;
+  --border: 345 22% 22%;
+  --input: 345 22% 16%;
+  --ring: 345 60% 45%;
+}
+
 @layer base {
   * {
     @apply border-border;
