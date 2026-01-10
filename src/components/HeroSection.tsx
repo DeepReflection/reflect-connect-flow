@@ -61,7 +61,7 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
   const bannerImage = themeBanners[currentTheme] || bannerVintageSepia;
 
   return (
-    <section className="relative min-h-[60vh] flex items-end pb-8 overflow-hidden">
+    <section className="relative min-h-[60vh] flex items-end pb-8 overflow-x-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -76,7 +76,7 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-12 lg:px-20 max-w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,13 +101,13 @@ const HeroSection = ({ name, description, avatarUrl }: HeroSectionProps) => {
           </motion.div>
 
           {/* Text */}
-          <div className="text-center md:text-left flex-1 glass-card p-6 md:p-8 rounded-xl">
+          <div className="text-center md:text-left flex-1 min-w-0 glass-card p-4 sm:p-6 md:p-8 rounded-xl">
             <div className="flex items-start justify-between gap-4 mb-4">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-bronze"
+                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-bronze break-words"
               >
                 {name}
               </motion.h1>
