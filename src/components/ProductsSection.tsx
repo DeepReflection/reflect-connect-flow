@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import SectionTitle from './SectionTitle';
 
 interface Product {
@@ -9,6 +9,13 @@ interface Product {
   downloadUrl?: string;
 }
 
+interface Service {
+  title: string;
+  description: string;
+  imageUrl: string;
+  linkUrl?: string;
+}
+
 const PRODUCTS: Product[] = [
   {
     title: "Dia D: A Verdade Por Trás da Batalha da Normandia",
@@ -16,63 +23,122 @@ const PRODUCTS: Product[] = [
     imageUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&h=300&fit=crop",
     downloadUrl: "#",
   },
+];
+
+const SERVICES: Service[] = [
   {
-    title: "O Dia D: A Invasão da Normandia que Mudou a Guerra",
-    description: "Uma análise profunda dos eventos que marcaram o dia 6 de junho de 1944 e mudaram o rumo da Segunda Guerra Mundial.",
+    title: "Consultoria Histórica",
+    description: "Oferecemos consultoria especializada para produções audiovisuais, pesquisas acadêmicas e projetos educacionais sobre a Segunda Guerra Mundial.",
     imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
-    downloadUrl: "#",
+    linkUrl: "#",
   },
 ];
 
+const ProductCard = ({ product, index }: { product: Product; index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="glass-card rounded-xl overflow-hidden h-full"
+  >
+    <div className="flex flex-col h-full">
+      <div className="h-48 lg:h-56">
+        <img
+          src={product.imageUrl}
+          alt={product.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-3">
+            {product.title}
+          </h3>
+          <p className="text-sm lg:text-base text-foreground/70 leading-relaxed">
+            {product.description}
+          </p>
+        </div>
+        {product.downloadUrl && (
+          <motion.a
+            href={product.downloadUrl}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="mt-5 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors font-medium text-sm lg:text-base"
+          >
+            <Download className="w-4 h-4 lg:w-5 lg:h-5" />
+            Download
+          </motion.a>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
+
+const ServiceCard = ({ service, index }: { service: Service; index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="glass-card rounded-xl overflow-hidden h-full"
+  >
+    <div className="flex flex-col h-full">
+      <div className="h-48 lg:h-56">
+        <img
+          src={service.imageUrl}
+          alt={service.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-3">
+            {service.title}
+          </h3>
+          <p className="text-sm lg:text-base text-foreground/70 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+        {service.linkUrl && (
+          <motion.a
+            href={service.linkUrl}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="mt-5 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg bg-secondary/20 text-secondary-foreground hover:bg-secondary/30 transition-colors font-medium text-sm lg:text-base"
+          >
+            <ExternalLink className="w-4 h-4 lg:w-5 lg:h-5" />
+            Saiba Mais
+          </motion.a>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
+
 const ProductsSection = () => {
   return (
-    <section className="space-y-6">
-      <SectionTitle title="Produtos & Serviços" />
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {PRODUCTS.map((product, index) => (
-          <motion.div
-            key={product.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="glass-card rounded-xl overflow-hidden h-full"
-          >
-            <div className="flex flex-col h-full">
-              <div className="h-48 lg:h-56">
-                <img
-                  src={product.imageUrl}
-                  alt={product.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-display text-lg lg:text-xl font-bold text-foreground mb-3">
-                    {product.title}
-                  </h3>
-                  <p className="text-sm lg:text-base text-foreground/70 leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-                {product.downloadUrl && (
-                  <motion.a
-                    href={product.downloadUrl}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="mt-5 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors font-medium text-sm lg:text-base"
-                  >
-                    <Download className="w-4 h-4 lg:w-5 lg:h-5" />
-                    Download
-                  </motion.a>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+    <div className="space-y-16">
+      {/* Produtos */}
+      <section className="space-y-6">
+        <SectionTitle title="Produtos" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {PRODUCTS.map((product, index) => (
+            <ProductCard key={product.title} product={product} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* Serviços */}
+      <section className="space-y-6">
+        <SectionTitle title="Serviços" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {SERVICES.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 
