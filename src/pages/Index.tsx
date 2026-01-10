@@ -91,7 +91,7 @@ const Index = () => {
         {/* Reflections */}
         <section>
           <SectionTitle title="Minhas Reflexões" />
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-between gap-y-6">
             {REFLECTIONS.map((reflection, index) => (
               <ReflectionCard
                 key={reflection.title}
