@@ -287,6 +287,216 @@ html.theme-desert-sand {
   --ring: 30 60% 45%;
 }
 
+/* THEME: Cloud Silver (Light) */
+html.theme-cloud-silver {
+  --background: 220 15% 95%;
+  --foreground: 220 20% 15%;
+  --card: 220 12% 100%;
+  --card-foreground: 220 20% 15%;
+  --popover: 220 12% 98%;
+  --popover-foreground: 220 20% 15%;
+  --primary: 220 25% 45%;
+  --primary-foreground: 220 15% 98%;
+  --secondary: 220 10% 90%;
+  --secondary-foreground: 220 20% 20%;
+  --muted: 220 8% 88%;
+  --muted-foreground: 220 12% 45%;
+  --accent: 215 30% 50%;
+  --accent-foreground: 220 15% 98%;
+  --border: 220 15% 85%;
+  --input: 220 10% 90%;
+  --ring: 220 25% 45%;
+}
+
+/* THEME: Rose Garden (Light) */
+html.theme-rose-garden {
+  --background: 350 30% 96%;
+  --foreground: 350 25% 15%;
+  --card: 350 25% 100%;
+  --card-foreground: 350 25% 15%;
+  --popover: 350 25% 98%;
+  --popover-foreground: 350 25% 15%;
+  --primary: 350 70% 55%;
+  --primary-foreground: 350 30% 98%;
+  --secondary: 350 20% 92%;
+  --secondary-foreground: 350 25% 18%;
+  --muted: 350 15% 90%;
+  --muted-foreground: 350 15% 45%;
+  --accent: 340 60% 50%;
+  --accent-foreground: 350 30% 98%;
+  --border: 350 20% 88%;
+  --input: 350 20% 92%;
+  --ring: 350 70% 55%;
+}
+
+/* THEME: Mint Fresh (Light) */
+html.theme-mint-fresh {
+  --background: 160 30% 95%;
+  --foreground: 160 25% 12%;
+  --card: 160 25% 100%;
+  --card-foreground: 160 25% 12%;
+  --popover: 160 25% 98%;
+  --popover-foreground: 160 25% 12%;
+  --primary: 165 60% 40%;
+  --primary-foreground: 160 30% 98%;
+  --secondary: 160 20% 90%;
+  --secondary-foreground: 160 25% 15%;
+  --muted: 160 15% 88%;
+  --muted-foreground: 160 15% 42%;
+  --accent: 155 55% 35%;
+  --accent-foreground: 160 30% 98%;
+  --border: 160 18% 85%;
+  --input: 160 20% 90%;
+  --ring: 165 60% 40%;
+}
+
+/* THEME: Lavender Dream (Light) */
+html.theme-lavender-dream {
+  --background: 270 25% 96%;
+  --foreground: 270 20% 15%;
+  --card: 270 20% 100%;
+  --card-foreground: 270 20% 15%;
+  --popover: 270 20% 98%;
+  --popover-foreground: 270 20% 15%;
+  --primary: 270 55% 55%;
+  --primary-foreground: 270 25% 98%;
+  --secondary: 270 18% 92%;
+  --secondary-foreground: 270 20% 18%;
+  --muted: 270 12% 90%;
+  --muted-foreground: 270 12% 45%;
+  --accent: 280 50% 50%;
+  --accent-foreground: 270 25% 98%;
+  --border: 270 18% 88%;
+  --input: 270 18% 92%;
+  --ring: 270 55% 55%;
+}
+
+/* THEME: Peach Blossom (Light) */
+html.theme-peach-blossom {
+  --background: 25 40% 95%;
+  --foreground: 20 30% 15%;
+  --card: 25 35% 100%;
+  --card-foreground: 20 30% 15%;
+  --popover: 25 35% 98%;
+  --popover-foreground: 20 30% 15%;
+  --primary: 20 75% 55%;
+  --primary-foreground: 25 40% 98%;
+  --secondary: 25 25% 92%;
+  --secondary-foreground: 20 30% 18%;
+  --muted: 25 20% 90%;
+  --muted-foreground: 20 18% 45%;
+  --accent: 15 70% 50%;
+  --accent-foreground: 25 40% 98%;
+  --border: 25 22% 88%;
+  --input: 25 25% 92%;
+  --ring: 20 75% 55%;
+}
+
+/* THEME: Sky Blue (Light) */
+html.theme-sky-blue {
+  --background: 200 35% 96%;
+  --foreground: 205 30% 12%;
+  --card: 200 30% 100%;
+  --card-foreground: 205 30% 12%;
+  --popover: 200 30% 98%;
+  --popover-foreground: 205 30% 12%;
+  --primary: 200 80% 50%;
+  --primary-foreground: 200 35% 98%;
+  --secondary: 200 22% 92%;
+  --secondary-foreground: 205 30% 15%;
+  --muted: 200 18% 90%;
+  --muted-foreground: 200 18% 42%;
+  --accent: 195 75% 45%;
+  --accent-foreground: 200 35% 98%;
+  --border: 200 20% 88%;
+  --input: 200 22% 92%;
+  --ring: 200 80% 50%;
+}
+
+/* THEME: Cream Vanilla (Light) */
+html.theme-cream-vanilla {
+  --background: 45 35% 95%;
+  --foreground: 40 30% 12%;
+  --card: 45 30% 100%;
+  --card-foreground: 40 30% 12%;
+  --popover: 45 30% 98%;
+  --popover-foreground: 40 30% 12%;
+  --primary: 40 55% 45%;
+  --primary-foreground: 45 35% 98%;
+  --secondary: 45 22% 92%;
+  --secondary-foreground: 40 30% 15%;
+  --muted: 45 18% 90%;
+  --muted-foreground: 40 18% 42%;
+  --accent: 35 50% 40%;
+  --accent-foreground: 45 35% 98%;
+  --border: 45 20% 88%;
+  --input: 45 22% 92%;
+  --ring: 40 55% 45%;
+}
+
+/* THEME: Sage Morning (Light) */
+html.theme-sage-morning {
+  --background: 130 20% 94%;
+  --foreground: 135 20% 12%;
+  --card: 130 18% 100%;
+  --card-foreground: 135 20% 12%;
+  --popover: 130 18% 98%;
+  --popover-foreground: 135 20% 12%;
+  --primary: 135 35% 40%;
+  --primary-foreground: 130 20% 98%;
+  --secondary: 130 15% 90%;
+  --secondary-foreground: 135 20% 15%;
+  --muted: 130 12% 88%;
+  --muted-foreground: 135 12% 42%;
+  --accent: 140 30% 35%;
+  --accent-foreground: 130 20% 98%;
+  --border: 130 15% 85%;
+  --input: 130 15% 90%;
+  --ring: 135 35% 40%;
+}
+
+/* THEME: Coral Reef (Light) */
+html.theme-coral-reef {
+  --background: 15 45% 96%;
+  --foreground: 10 35% 12%;
+  --card: 15 40% 100%;
+  --card-foreground: 10 35% 12%;
+  --popover: 15 40% 98%;
+  --popover-foreground: 10 35% 12%;
+  --primary: 10 80% 60%;
+  --primary-foreground: 15 45% 98%;
+  --secondary: 15 28% 92%;
+  --secondary-foreground: 10 35% 15%;
+  --muted: 15 22% 90%;
+  --muted-foreground: 10 20% 45%;
+  --accent: 5 75% 55%;
+  --accent-foreground: 15 45% 98%;
+  --border: 15 25% 88%;
+  --input: 15 28% 92%;
+  --ring: 10 80% 60%;
+}
+
+/* THEME: Golden Hour (Light) */
+html.theme-golden-hour {
+  --background: 45 45% 95%;
+  --foreground: 40 35% 12%;
+  --card: 45 40% 100%;
+  --card-foreground: 40 35% 12%;
+  --popover: 45 40% 98%;
+  --popover-foreground: 40 35% 12%;
+  --primary: 42 85% 50%;
+  --primary-foreground: 45 45% 8%;
+  --secondary: 45 30% 92%;
+  --secondary-foreground: 40 35% 15%;
+  --muted: 45 25% 90%;
+  --muted-foreground: 40 22% 42%;
+  --accent: 38 80% 45%;
+  --accent-foreground: 45 45% 8%;
+  --border: 45 28% 88%;
+  --input: 45 30% 92%;
+  --ring: 42 85% 50%;
+}
+
 @layer base {
   * {
     @apply border-border;
