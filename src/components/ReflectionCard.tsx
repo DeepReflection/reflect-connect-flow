@@ -12,25 +12,26 @@ const ReflectionCard = ({ title, imageUrl, index }: ReflectionCardProps) => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.6 + index * 0.08 }}
-      className="reflection-card group"
+      className="group cursor-pointer"
     >
-      <div className="aspect-square overflow-hidden">
+      {/* Image Container */}
+      <div className="relative aspect-square overflow-hidden rounded-xl border-2 border-primary/20 group-hover:border-primary/50 transition-all duration-500 glow-primary">
         <img
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500" />
       </div>
       
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-        <h3 className="font-display text-sm font-medium text-foreground text-shadow-sm">
+      {/* Title below image */}
+      <div className="mt-3 text-center">
+        <h3 className="font-display text-sm md:text-base font-medium text-foreground group-hover:text-primary transition-colors duration-300">
           {title}
         </h3>
       </div>
-
-      {/* Border glow effect */}
-      <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/40 transition-colors duration-500" />
     </motion.div>
   );
 };
