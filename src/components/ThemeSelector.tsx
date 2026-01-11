@@ -49,12 +49,12 @@ const ThemeSelector = () => {
             </SelectValue>
           </SelectTrigger>
           <SelectContent className="bg-card border-border max-h-[400px]">
-            {/* Layout Themes Section - NEW */}
+            {/* Light Themes Section */}
             <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
-              <Layout className="w-3 h-3" />
-              Temas com Layout Único
+              <Sun className="w-3 h-3" />
+              Temas Claros
             </div>
-            {layoutThemes.map((theme) => (
+            {lightThemes.map((theme) => (
               <SelectItem 
                 key={theme.id} 
                 value={theme.id}
@@ -94,7 +94,7 @@ const ThemeSelector = () => {
             {/* Business Themes Section */}
             <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
               <Briefcase className="w-3 h-3" />
-              Temas de Negócios
+              Temas de Negócio
             </div>
             {businessThemes.map((theme) => (
               <SelectItem 
@@ -111,11 +111,13 @@ const ThemeSelector = () => {
             
             {/* Separator */}
             <div className="h-px bg-border my-2" />
+            
+            {/* Layout Themes Section */}
             <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
-              <Sun className="w-3 h-3" />
-              Temas Claros
+              <Layout className="w-3 h-3" />
+              Temas com Layout Único
             </div>
-            {lightThemes.map((theme) => (
+            {layoutThemes.map((theme) => (
               <SelectItem 
                 key={theme.id} 
                 value={theme.id}
