@@ -8,6 +8,9 @@ import SectionTitle from '@/components/SectionTitle';
 import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
 import ChatbotButton from '@/components/ChatbotButton';
+import ThemedProductsSection from '@/components/sections/ThemedProductsSection';
+import ThemedReflectionsSection from '@/components/sections/ThemedReflectionsSection';
+import { useTheme, ThemeName } from '@/contexts/ThemeContext';
 
 const PROFILE_DATA = {
   name: "outrobrasileironodiad",
@@ -95,7 +98,13 @@ const REFLECTIONS = [
   },
 ];
 
+// Layout themes that have unique section layouts
+const layoutThemes: string[] = ['editorial', 'brutalist', 'split', 'glass', 'gradient', 'cards', 'retro', 'neon', 'magazine', 'minimal'];
+
 const Index = () => {
+  const { currentTheme } = useTheme();
+  const hasUniqueLayout = layoutThemes.includes(currentTheme);
+
   return (
     <div className="min-h-screen bg-background relative">
       <ThemeSelector />
@@ -130,26 +139,40 @@ const Index = () => {
       </main>
 
       {/* Products & Services - Full width */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
-        <ProductsSection />
+      <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+        {hasUniqueLayout ? (
+          <div className="w-full">
+            <ThemedProductsSection />
+          </div>
+        ) : (
+          <div className="max-w-6xl mx-auto">
+            <ProductsSection />
+          </div>
+        )}
       </div>
 
       {/* Reflections - Full width */}
-      <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
-        <div className="max-w-7xl mx-auto">
-          <SectionTitle title="Minhas Reflexões" />
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
-            {REFLECTIONS.map((reflection, index) => (
-              <ReflectionCard
-                key={reflection.title}
-                title={reflection.title}
-                imageUrl={reflection.imageUrl}
-                index={index}
-              />
-            ))}
+      {hasUniqueLayout ? (
+        <div className="relative z-10 w-full">
+          <ThemedReflectionsSection reflections={REFLECTIONS} />
+        </div>
+      ) : (
+        <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
+          <div className="max-w-7xl mx-auto">
+            <SectionTitle title="Minhas Reflexões" />
+            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
+              {REFLECTIONS.map((reflection, index) => (
+                <ReflectionCard
+                  key={reflection.title}
+                  title={reflection.title}
+                  imageUrl={reflection.imageUrl}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 px-6">
