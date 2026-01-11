@@ -7,9 +7,11 @@ import CTAButton from '@/components/CTAButton';
 import SectionTitle from '@/components/SectionTitle';
 import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
+import AgendaSection from '@/components/AgendaSection';
 import ChatbotButton from '@/components/ChatbotButton';
 import ThemedProductsSection from '@/components/sections/ThemedProductsSection';
 import ThemedReflectionsSection from '@/components/sections/ThemedReflectionsSection';
+import ThemedAgendaSection from '@/components/sections/ThemedAgendaSection';
 import { useTheme, ThemeName } from '@/contexts/ThemeContext';
 
 const PROFILE_DATA = {
@@ -137,6 +139,19 @@ const Index = () => {
           ))}
         </section>
       </main>
+
+      {/* Agenda Section - Full width */}
+      <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+        {hasUniqueLayout ? (
+          <div className="w-full">
+            <ThemedAgendaSection />
+          </div>
+        ) : (
+          <div className="max-w-6xl mx-auto">
+            <AgendaSection />
+          </div>
+        )}
+      </div>
 
       {/* Products & Services - Full width */}
       <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
