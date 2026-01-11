@@ -99,7 +99,7 @@ const REFLECTIONS = [
 ];
 
 // Layout themes that have unique section layouts
-const layoutThemes: string[] = ['editorial', 'brutalist', 'split', 'glass', 'gradient', 'cards', 'retro', 'neon', 'magazine', 'minimal'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen'];
 
 const Index = () => {
   const { currentTheme } = useTheme();
