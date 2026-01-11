@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, X, Copy, Check } from 'lucide-react';
 
-const ShareButton = () => {
+const ShareButton = forwardRef<HTMLDivElement>((_, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -59,7 +59,7 @@ const ShareButton = () => {
   ];
 
   return (
-    <>
+    <div ref={ref}>
       <motion.button
         onClick={() => setIsOpen(true)}
         className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary/50 transition-all duration-300"
@@ -147,8 +147,10 @@ const ShareButton = () => {
           </>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
-};
+});
+
+ShareButton.displayName = 'ShareButton';
 
 export default ShareButton;
