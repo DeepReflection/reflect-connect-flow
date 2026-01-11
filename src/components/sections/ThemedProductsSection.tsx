@@ -837,8 +837,384 @@ const CorporateNavyProducts = () => (
   </div>
 );
 
+// Executive Charcoal Products
+const ExecutiveCharcoalProducts = () => (
+  <div className="space-y-20">
+    <section className="space-y-10">
+      <div className="text-center">
+        <span className="text-xs uppercase tracking-[0.4em] text-primary/80 font-light">Materiais Premium</span>
+        <h2 className="text-4xl md:text-5xl font-light mt-2 tracking-tight">Produtos</h2>
+        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4" />
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {PRODUCTS.map((product, index) => (
+          <motion.div
+            key={product.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="group relative bg-gradient-to-br from-card to-card/50 border border-border/30 rounded-sm overflow-hidden hover:border-primary/40 transition-all duration-500"
+          >
+            <div className="absolute top-0 left-0 w-1 h-full bg-primary/50 group-hover:bg-primary transition-colors" />
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-2/5 h-48 md:h-auto grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1 p-6">
+                <h3 className="text-xl font-medium mb-3">{product.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{product.description}</p>
+                {product.downloadUrl && (
+                  <a href={product.downloadUrl} className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 text-sm">
+                    <Download className="w-4 h-4" /> Download
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-10">
+      <div className="text-center">
+        <span className="text-xs uppercase tracking-[0.4em] text-primary/80 font-light">Expertise</span>
+        <h2 className="text-4xl md:text-5xl font-light mt-2 tracking-tight">Serviços</h2>
+        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group p-6 border border-border/30 rounded-sm hover:border-primary/40 transition-all">
+            <span className="text-3xl font-light text-primary/40">0{index + 1}</span>
+            <h3 className="font-medium mt-3 mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Startup Teal Products
+const StartupTealProducts = () => (
+  <div className="space-y-16">
+    <section className="space-y-8">
+      <div className="flex items-center gap-4">
+        <div className="w-2 h-12 bg-primary rounded-full" />
+        <h2 className="text-3xl md:text-4xl font-bold">Nossos Produtos</h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group bg-card rounded-2xl overflow-hidden border-2 border-transparent hover:border-primary transition-all hover:shadow-2xl hover:shadow-primary/20">
+            <div className="h-40 overflow-hidden"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" /></div>
+            <div className="p-4">
+              <h3 className="font-bold mb-2">{product.title}</h3>
+              <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+              {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium"><Download className="w-4 h-4" /> Baixar</a>}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-8">
+      <div className="flex items-center gap-4">
+        <div className="w-2 h-12 bg-primary rounded-full" />
+        <h2 className="text-3xl md:text-4xl font-bold">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group bg-card rounded-2xl p-5 border-2 border-transparent hover:border-primary transition-all">
+            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center mb-4"><Sparkles className="w-5 h-5 text-primary" /></div>
+            <h3 className="font-bold mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Finance Green Products
+const FinanceGreenProducts = () => (
+  <div className="space-y-16">
+    <section className="space-y-6">
+      <div className="flex items-center justify-between border-b border-border pb-4">
+        <h2 className="text-3xl font-semibold">Produtos Disponíveis</h2>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="flex gap-4 p-4 border border-border rounded-lg hover:shadow-md transition-shadow">
+            <div className="w-24 h-24 rounded overflow-hidden flex-shrink-0"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" /></div>
+            <div className="flex-1">
+              <h3 className="font-semibold mb-1">{product.title}</h3>
+              <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+              {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-1 mt-2 text-primary text-sm"><Download className="w-3 h-3" /> Download</a>}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-6">
+      <div className="flex items-center justify-between border-b border-border pb-4">
+        <h2 className="text-3xl font-semibold">Serviços Profissionais</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-5 border border-border rounded-lg hover:border-primary/50 transition-colors">
+            <h3 className="font-semibold mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Consulting Slate Products
+const ConsultingSlateProducts = () => (
+  <div className="space-y-20">
+    <section className="space-y-10">
+      <div className="max-w-2xl">
+        <span className="text-primary text-sm font-medium uppercase tracking-wider">Materiais</span>
+        <h2 className="text-4xl font-bold mt-2">Produtos</h2>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex gap-5 p-6 bg-card rounded-lg border border-border hover:shadow-lg transition-shadow">
+            <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" /></div>
+            <div className="flex-1">
+              <h3 className="font-semibold mb-2">{product.title}</h3>
+              <p className="text-sm text-muted-foreground">{product.description}</p>
+              {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-1 mt-3 text-primary text-sm font-medium"><Download className="w-4 h-4" /> Download</a>}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-10">
+      <div className="max-w-2xl">
+        <span className="text-primary text-sm font-medium uppercase tracking-wider">Expertise</span>
+        <h2 className="text-4xl font-bold mt-2">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-6 bg-card rounded-lg border border-border">
+            <h3 className="font-semibold mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Tech Indigo Products
+const TechIndigoProducts = () => (
+  <div className="space-y-16">
+    <section className="space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center"><Download className="w-5 h-5 text-primary" /></div>
+        <h2 className="text-3xl font-bold">Produtos</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group relative bg-gradient-to-br from-card via-card to-primary/5 rounded-xl p-5 border border-border hover:border-primary/50 transition-all overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+            <div className="relative flex gap-4">
+              <div className="w-20 h-20 rounded-lg overflow-hidden ring-2 ring-primary/20 flex-shrink-0"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" /></div>
+              <div className="flex-1">
+                <h3 className="font-semibold mb-1">{product.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+                {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-1 mt-2 text-primary text-sm"><Download className="w-3 h-3" /> Baixar</a>}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-8">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center"><Zap className="w-5 h-5 text-primary" /></div>
+        <h2 className="text-3xl font-bold">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group bg-gradient-to-br from-card to-primary/5 rounded-xl p-5 border border-border hover:border-primary/50 transition-all">
+            <h3 className="font-semibold mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Luxury Black Products
+const LuxuryBlackProducts = () => (
+  <div className="space-y-20">
+    <section className="space-y-12">
+      <div className="text-center">
+        <span className="text-xs uppercase tracking-[0.5em] text-primary/70">Coleção Exclusiva</span>
+        <h2 className="text-4xl md:text-5xl font-light mt-4 tracking-wide">Produtos</h2>
+        <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/50" />
+          <div className="w-2 h-2 rotate-45 border border-primary/50" />
+          <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/50" />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.15 }} className="group border border-border/50 rounded-sm overflow-hidden bg-card/50">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-2/5 h-48 md:h-auto grayscale group-hover:grayscale-0 transition-all duration-700"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" /></div>
+              <div className="flex-1 p-6">
+                <h3 className="text-xl font-light tracking-wide mb-3">{product.title}</h3>
+                <p className="text-sm text-muted-foreground/80 leading-relaxed">{product.description}</p>
+                {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-2 mt-4 text-primary text-sm tracking-wider"><Download className="w-4 h-4" /> DOWNLOAD</a>}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-12">
+      <div className="text-center">
+        <span className="text-xs uppercase tracking-[0.5em] text-primary/70">Experiências</span>
+        <h2 className="text-4xl md:text-5xl font-light mt-4 tracking-wide">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-6 border border-border/50 rounded-sm text-center">
+            <h3 className="font-light text-lg tracking-wide mb-3">{service.title}</h3>
+            <p className="text-sm text-muted-foreground/80">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Modern Graphite Products
+const ModernGraphiteProducts = () => (
+  <div className="space-y-16">
+    <section className="space-y-8">
+      <div className="flex items-end justify-between">
+        <h2 className="text-4xl font-black uppercase tracking-tight">Produtos</h2>
+        <span className="text-sm text-muted-foreground">{PRODUCTS.length} itens</span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group flex gap-4 p-4 bg-card border border-border rounded hover:bg-muted/50 transition-colors">
+            <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover" /></div>
+            <div className="flex-1">
+              <h3 className="font-bold group-hover:text-primary transition-colors">{product.title}</h3>
+              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{product.description}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-8">
+      <h2 className="text-4xl font-black uppercase tracking-tight">Serviços</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-5 bg-card border border-border rounded hover:border-primary transition-colors">
+            <span className="text-2xl font-black text-primary/30">0{index + 1}</span>
+            <h3 className="font-bold mt-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground mt-2">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Innovation Blue Products
+const InnovationBlueProducts = () => (
+  <div className="space-y-16">
+    <section className="space-y-10">
+      <div className="relative">
+        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+        <h2 className="text-4xl font-bold">Produtos Inovadores</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, rotateX: -10 }} whileInView={{ opacity: 1, rotateX: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group bg-gradient-to-br from-card to-card/80 rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all">
+            <div className="h-40 overflow-hidden"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
+            <div className="p-5">
+              <h3 className="font-bold text-lg mb-2">{product.title}</h3>
+              <p className="text-sm text-muted-foreground">{product.description}</p>
+              {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-1 mt-3 text-primary font-medium"><Download className="w-4 h-4" /> Download</a>}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-10">
+      <div className="relative">
+        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+        <h2 className="text-4xl font-bold">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-gradient-to-br from-card to-primary/5 rounded-2xl p-5 border border-border hover:border-primary/50 transition-all">
+            <h3 className="font-bold mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
+// Prestige Burgundy Products
+const PrestigeBurgundyProducts = () => (
+  <div className="space-y-20">
+    <section className="space-y-10">
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-3">
+          <div className="w-8 h-px bg-primary" />
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">Coleção</span>
+          <div className="w-8 h-px bg-primary" />
+        </div>
+        <h2 className="text-4xl md:text-5xl font-serif">Produtos</h2>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {PRODUCTS.map((product, index) => (
+          <motion.div key={product.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group bg-card border border-border/50 rounded overflow-hidden hover:border-primary/30 transition-all">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-2/5 h-48 md:h-auto overflow-hidden"><img src={product.imageUrl} alt={product.title} className="w-full h-full object-cover sepia group-hover:sepia-0 transition-all duration-500" /></div>
+              <div className="flex-1 p-6">
+                <h3 className="font-serif text-xl mb-3">{product.title}</h3>
+                <p className="text-sm text-muted-foreground">{product.description}</p>
+                {product.downloadUrl && <a href={product.downloadUrl} className="inline-flex items-center gap-2 mt-4 text-primary font-medium text-sm"><Download className="w-4 h-4" /> Download</a>}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    <section className="space-y-10">
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-3">
+          <div className="w-8 h-px bg-primary" />
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">Expertise</span>
+          <div className="w-8 h-px bg-primary" />
+        </div>
+        <h2 className="text-4xl md:text-5xl font-serif">Serviços</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div key={service.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-6 bg-card border border-border/50 rounded text-center">
+            <h3 className="font-serif text-lg mb-2">{service.title}</h3>
+            <p className="text-sm text-muted-foreground">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
 // Map layouts to themes - using actual theme IDs from ThemeContext
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green', 'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite', 'innovation-blue', 'prestige-burgundy'];
 
 const layoutMap: Record<string, React.FC> = {
   'magazine-editorial': EditorialProducts,
@@ -852,6 +1228,15 @@ const layoutMap: Record<string, React.FC> = {
   'nature-organic': MagazineProducts,
   'minimal-zen': MinimalProducts,
   'corporate-navy': CorporateNavyProducts,
+  'executive-charcoal': ExecutiveCharcoalProducts,
+  'startup-teal': StartupTealProducts,
+  'finance-green': FinanceGreenProducts,
+  'consulting-slate': ConsultingSlateProducts,
+  'tech-indigo': TechIndigoProducts,
+  'luxury-black': LuxuryBlackProducts,
+  'modern-graphite': ModernGraphiteProducts,
+  'innovation-blue': InnovationBlueProducts,
+  'prestige-burgundy': PrestigeBurgundyProducts,
 };
 
 const ThemedProductsSection = () => {

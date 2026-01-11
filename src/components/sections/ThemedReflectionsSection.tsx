@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface Reflection {
@@ -390,8 +391,198 @@ const CorporateNavyReflections = ({ reflections }: { reflections: Reflection[] }
   </section>
 );
 
+// Executive Charcoal Reflections
+const ExecutiveCharcoalReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-10">
+    <div className="text-center">
+      <span className="text-xs uppercase tracking-[0.4em] text-primary/80 font-light">Galeria</span>
+      <h2 className="text-4xl md:text-5xl font-light mt-2 tracking-tight">Minhas Reflexões</h2>
+      <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4" />
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group cursor-pointer">
+          <div className="aspect-square overflow-hidden rounded-sm border border-border/30 hover:border-primary/50 transition-all grayscale group-hover:grayscale-0">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover" />
+          </div>
+          <p className="text-xs text-center mt-2 text-muted-foreground group-hover:text-foreground transition-colors truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Startup Teal Reflections
+const StartupTealReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-8">
+    <div className="flex items-center gap-4">
+      <div className="w-2 h-12 bg-primary rounded-full" />
+      <h2 className="text-3xl md:text-4xl font-bold">Minhas Reflexões</h2>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-2xl border-2 border-transparent hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          <p className="text-xs text-center mt-2 font-medium truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Finance Green Reflections
+const FinanceGreenReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-6">
+    <div className="flex items-center justify-between border-b border-border pb-4">
+      <h2 className="text-3xl font-semibold">Minhas Reflexões</h2>
+      <span className="text-sm text-muted-foreground">{reflections.length} perfis</span>
+    </div>
+    <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-lg border border-border hover:border-primary transition-colors">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover" />
+          </div>
+          <p className="text-xs text-center mt-2 text-muted-foreground truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Consulting Slate Reflections
+const ConsultingSlateReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-10">
+    <div className="max-w-2xl">
+      <span className="text-primary text-sm font-medium uppercase tracking-wider">Galeria</span>
+      <h2 className="text-4xl font-bold mt-2">Minhas Reflexões</h2>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-5">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-lg border border-border hover:shadow-lg transition-all">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+          </div>
+          <p className="text-xs text-center mt-2 font-medium truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Tech Indigo Reflections
+const TechIndigoReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-8">
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center"><Star className="w-5 h-5 text-primary" /></div>
+      <h2 className="text-3xl font-bold">Minhas Reflexões</h2>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-xl ring-2 ring-primary/20 hover:ring-primary/50 transition-all">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          <p className="text-xs text-center mt-2 truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Luxury Black Reflections
+const LuxuryBlackReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-12">
+    <div className="text-center">
+      <span className="text-xs uppercase tracking-[0.5em] text-primary/70">Galeria Exclusiva</span>
+      <h2 className="text-4xl md:text-5xl font-light mt-4 tracking-wide">Minhas Reflexões</h2>
+      <div className="flex items-center justify-center gap-4 mt-6">
+        <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/50" />
+        <div className="w-2 h-2 rotate-45 border border-primary/50" />
+        <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/50" />
+      </div>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-5">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-sm border border-border/30 grayscale hover:grayscale-0 transition-all duration-500">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover" />
+          </div>
+          <p className="text-xs text-center mt-2 tracking-wider text-muted-foreground/80 truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Modern Graphite Reflections
+const ModernGraphiteReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-8">
+    <div className="flex items-end justify-between">
+      <h2 className="text-4xl font-black uppercase tracking-tight">Reflexões</h2>
+      <span className="text-sm text-muted-foreground">{reflections.length} perfis</span>
+    </div>
+    <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded border border-border hover:border-primary transition-colors">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover" />
+          </div>
+          <p className="text-xs text-center mt-1.5 font-bold truncate group-hover:text-primary transition-colors">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Innovation Blue Reflections
+const InnovationBlueReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-10">
+    <div className="relative">
+      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+      <h2 className="text-4xl font-bold">Minhas Reflexões</h2>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded-2xl border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+          </div>
+          <p className="text-xs text-center mt-2 font-medium truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Prestige Burgundy Reflections
+const PrestigeBurgundyReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-10">
+    <div className="text-center space-y-3">
+      <div className="inline-flex items-center gap-3">
+        <div className="w-8 h-px bg-primary" />
+        <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">Galeria</span>
+        <div className="w-8 h-px bg-primary" />
+      </div>
+      <h2 className="text-4xl md:text-5xl font-serif">Minhas Reflexões</h2>
+    </div>
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+      {reflections.map((r, i) => (
+        <motion.div key={r.title} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="group">
+          <div className="aspect-square overflow-hidden rounded border border-border/50 hover:border-primary/30 transition-all sepia group-hover:sepia-0">
+            <img src={r.imageUrl} alt={r.title} className="w-full h-full object-cover" />
+          </div>
+          <p className="text-xs text-center mt-2 font-serif truncate">{r.title}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
 // Map layouts to themes - using actual theme IDs from ThemeContext
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green', 'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite', 'innovation-blue', 'prestige-burgundy'];
 
 const layoutMap: Record<string, React.FC<{ reflections: Reflection[] }>> = {
   'magazine-editorial': EditorialReflections,
@@ -405,6 +596,15 @@ const layoutMap: Record<string, React.FC<{ reflections: Reflection[] }>> = {
   'nature-organic': MagazineReflections,
   'minimal-zen': MinimalReflections,
   'corporate-navy': CorporateNavyReflections,
+  'executive-charcoal': ExecutiveCharcoalReflections,
+  'startup-teal': StartupTealReflections,
+  'finance-green': FinanceGreenReflections,
+  'consulting-slate': ConsultingSlateReflections,
+  'tech-indigo': TechIndigoReflections,
+  'luxury-black': LuxuryBlackReflections,
+  'modern-graphite': ModernGraphiteReflections,
+  'innovation-blue': InnovationBlueReflections,
+  'prestige-burgundy': PrestigeBurgundyReflections,
 };
 
 const ThemedReflectionsSection = ({ reflections }: ThemedReflectionsSectionProps) => {
