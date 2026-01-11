@@ -343,20 +343,20 @@ const MagazineReflections = ({ reflections }: { reflections: Reflection[] }) => 
   </section>
 );
 
-// Map layouts to themes
-const layoutThemes: string[] = ['editorial', 'brutalist', 'split', 'glass', 'gradient', 'cards', 'retro', 'neon', 'magazine', 'minimal'];
+// Map layouts to themes - using actual theme IDs from ThemeContext
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen'];
 
 const layoutMap: Record<string, React.FC<{ reflections: Reflection[] }>> = {
-  editorial: EditorialReflections,
-  brutalist: BrutalistReflections,
-  split: SplitReflections,
-  glass: GlassReflections,
-  gradient: GradientReflections,
-  cards: CardsReflections,
-  retro: RetroReflections,
-  neon: NeonReflections,
-  magazine: MagazineReflections,
-  minimal: MinimalReflections,
+  'magazine-editorial': EditorialReflections,
+  'brutalist-raw': BrutalistReflections,
+  'split-screen': SplitReflections,
+  'glassmorphism': GlassReflections,
+  'gradient-flow': GradientReflections,
+  'card-stack': CardsReflections,
+  'retro-wave': RetroReflections,
+  'neon-gamer': NeonReflections,
+  'nature-organic': MagazineReflections,
+  'minimal-zen': MinimalReflections,
 };
 
 const ThemedReflectionsSection = ({ reflections }: ThemedReflectionsSectionProps) => {
