@@ -339,8 +339,59 @@ const MagazineReflections = ({ reflections }: { reflections: Reflection[] }) => 
   </div>
 );
 
+// Corporate Navy Layout - Professional portrait gallery
+const CorporateNavyReflections = ({ reflections }: { reflections: Reflection[] }) => (
+  <section className="space-y-10">
+    <div className="flex items-end justify-between border-b-2 border-primary/30 pb-4">
+      <div>
+        <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">Galeria de Líderes</span>
+        <h2 className="text-3xl md:text-4xl font-bold mt-1 tracking-tight">Minhas Reflexões</h2>
+      </div>
+      <p className="hidden md:block text-sm text-muted-foreground max-w-xs text-right">
+        Conheça as figuras históricas que moldaram o destino da Segunda Guerra Mundial
+      </p>
+    </div>
+    
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+      {reflections.map((reflection, index) => (
+        <motion.div
+          key={reflection.title}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.03 }}
+          className="group cursor-pointer"
+        >
+          <div className="relative overflow-hidden rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl">
+            {/* Image container */}
+            <div className="aspect-square overflow-hidden">
+              <img
+                src={reflection.imageUrl}
+                alt={reflection.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            
+            {/* Name badge */}
+            <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-background to-background/80">
+              <p className="text-sm font-medium text-center truncate">{reflection.title}</p>
+            </div>
+            
+            {/* Static name for non-hover state */}
+            <div className="p-2 text-center border-t border-border/30 group-hover:opacity-0 transition-opacity">
+              <p className="text-xs font-medium truncate text-muted-foreground">{reflection.title}</p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
 // Map layouts to themes - using actual theme IDs from ThemeContext
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
 
 const layoutMap: Record<string, React.FC<{ reflections: Reflection[] }>> = {
   'magazine-editorial': EditorialReflections,
@@ -353,6 +404,7 @@ const layoutMap: Record<string, React.FC<{ reflections: Reflection[] }>> = {
   'neon-gamer': NeonReflections,
   'nature-organic': MagazineReflections,
   'minimal-zen': MinimalReflections,
+  'corporate-navy': CorporateNavyReflections,
 };
 
 const ThemedReflectionsSection = ({ reflections }: ThemedReflectionsSectionProps) => {

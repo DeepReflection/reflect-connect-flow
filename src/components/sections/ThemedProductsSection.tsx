@@ -718,8 +718,127 @@ const MagazineProducts = () => (
   </div>
 );
 
+// Corporate Navy Layout - Professional executive style
+const CorporateNavyProducts = () => (
+  <div className="space-y-20">
+    {/* Products Section */}
+    <section className="space-y-10">
+      <div className="flex items-end justify-between border-b-2 border-primary/30 pb-4">
+        <div>
+          <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">Materiais Exclusivos</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-1 tracking-tight">Nossos Produtos</h2>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {PRODUCTS.map((product, index) => (
+          <motion.div
+            key={product.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+          >
+            <div className="flex flex-col md:flex-row h-full">
+              {/* Image with overlay */}
+              <div className="w-full md:w-2/5 h-48 md:h-auto relative overflow-hidden">
+                <img 
+                  src={product.imageUrl} 
+                  alt={product.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-card/80 via-card/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 md:hidden">
+                  <span className="bg-primary/90 text-primary-foreground px-3 py-1 rounded text-xs font-medium uppercase tracking-wider">
+                    Produto #{String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 p-6 flex flex-col justify-between">
+                <div>
+                  <span className="hidden md:inline-block bg-primary/10 text-primary px-3 py-1 rounded text-xs font-medium uppercase tracking-wider mb-3">
+                    Produto #{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors leading-tight">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+                
+                {product.downloadUrl && (
+                  <a
+                    href={product.downloadUrl}
+                    className="mt-5 inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium text-sm w-fit"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download Gratuito
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+
+    {/* Services Section */}
+    <section className="space-y-10">
+      <div className="flex items-end justify-between border-b-2 border-primary/30 pb-4">
+        <div>
+          <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">Soluções Profissionais</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-1 tracking-tight">Nossos Serviços</h2>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES.map((service, index) => (
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+          >
+            {/* Decorative corner accent */}
+            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/10 to-transparent" />
+            
+            <div className="relative">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <span className="text-lg font-bold text-primary">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              
+              <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {service.description}
+              </p>
+              
+              {service.linkUrl && (
+                <a
+                  href={service.linkUrl}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  Saiba Mais
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  </div>
+);
+
 // Map layouts to themes - using actual theme IDs from ThemeContext
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
 
 const layoutMap: Record<string, React.FC> = {
   'magazine-editorial': EditorialProducts,
@@ -732,6 +851,7 @@ const layoutMap: Record<string, React.FC> = {
   'neon-gamer': NeonProducts,
   'nature-organic': MagazineProducts,
   'minimal-zen': MinimalProducts,
+  'corporate-navy': CorporateNavyProducts,
 };
 
 const ThemedProductsSection = () => {

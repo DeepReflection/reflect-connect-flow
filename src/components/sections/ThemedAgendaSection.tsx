@@ -418,8 +418,89 @@ const MinimalAgenda = () => (
   </section>
 );
 
+// Corporate Navy Layout - Professional executive style with navy accents
+const CorporateNavyAgenda = () => (
+  <section className="space-y-10">
+    {/* Header with subtle navy underline */}
+    <div className="flex items-end justify-between border-b-2 border-primary/30 pb-4">
+      <div>
+        <span className="text-xs uppercase tracking-[0.25em] text-primary font-medium">Próximos Eventos</span>
+        <h2 className="text-3xl md:text-4xl font-bold mt-1 tracking-tight">Agenda Executiva</h2>
+      </div>
+      <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
+        <Calendar className="w-4 h-4" />
+        <span>Calendário Completo</span>
+      </div>
+    </div>
+    
+    {/* Timeline-style events */}
+    <div className="relative">
+      {/* Vertical line */}
+      <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+      
+      <div className="space-y-8">
+        {AGENDA_EVENTS.map((event, index) => (
+          <motion.div
+            key={event.title}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="relative pl-16 md:pl-20"
+          >
+            {/* Timeline dot */}
+            <div className="absolute left-4 md:left-6 top-2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg" />
+            
+            {/* Event card */}
+            <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg overflow-hidden hover:border-primary/30 transition-colors group">
+              <div className="flex flex-col md:flex-row">
+                {/* Image */}
+                <div className="w-full md:w-48 h-32 md:h-auto flex-shrink-0 relative overflow-hidden">
+                  <img 
+                    src={event.imageUrl} 
+                    alt={event.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/50 md:block hidden" />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 p-5">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1 rounded text-sm font-medium">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {event.date}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-muted-foreground text-sm">
+                      <Clock className="w-3.5 h-3.5" />
+                      {event.time}
+                    </span>
+                    {event.location && (
+                      <span className="inline-flex items-center gap-1.5 text-muted-foreground text-sm">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {event.location}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{event.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
+                  
+                  <button className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                    Inscrever-se
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 // Map layouts to themes
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
 
 const layoutMap: Record<string, React.FC> = {
   'magazine-editorial': EditorialAgenda,
@@ -432,6 +513,7 @@ const layoutMap: Record<string, React.FC> = {
   'neon-gamer': NeonAgenda,
   'nature-organic': NatureAgenda,
   'minimal-zen': MinimalAgenda,
+  'corporate-navy': CorporateNavyAgenda,
 };
 
 const ThemedAgendaSection = () => {
