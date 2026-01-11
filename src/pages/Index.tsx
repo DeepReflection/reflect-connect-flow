@@ -153,7 +153,7 @@ const Index = () => {
 
       {/* Reflections - Full width */}
       {hasUniqueLayout ? (
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
           <ThemedReflectionsSection reflections={REFLECTIONS} />
         </div>
       ) : (

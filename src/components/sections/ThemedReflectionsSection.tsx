@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useTheme, ThemeName } from '@/contexts/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface Reflection {
   title: string;
@@ -12,14 +12,14 @@ interface ThemedReflectionsSectionProps {
 
 // Editorial - Magazine horizontal scroll
 const EditorialReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16">
-    <div className="border-b-4 border-foreground mb-12 px-4 md:px-8">
+  <div className="space-y-12">
+    <div className="border-b-4 border-foreground">
       <h2 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-tight pb-4">
         Minhas Reflexões
       </h2>
     </div>
-    <div className="overflow-x-auto pb-8">
-      <div className="flex gap-6 px-4 md:px-8 min-w-max">
+    <div className="overflow-x-auto pb-8 -mx-4 md:-mx-8 lg:-mx-12">
+      <div className="flex gap-6 px-4 md:px-8 lg:px-12 min-w-max">
         {reflections.map((reflection, index) => (
           <motion.div
             key={reflection.title}
@@ -27,7 +27,7 @@ const EditorialReflections = ({ reflections }: { reflections: Reflection[] }) =>
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="w-48 md:w-64 group cursor-pointer shrink-0"
+            className="w-40 md:w-56 group cursor-pointer shrink-0"
           >
             <div className="aspect-square overflow-hidden">
               <img
@@ -36,18 +36,18 @@ const EditorialReflections = ({ reflections }: { reflections: Reflection[] }) =>
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
-            <p className="mt-4 text-lg font-serif font-bold">{reflection.title}</p>
+            <p className="mt-4 text-base font-serif font-bold text-center">{reflection.title}</p>
           </motion.div>
         ))}
       </div>
     </div>
-  </section>
+  </div>
 );
 
 // Brutalist - Raw grid
 const BrutalistReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <h2 className="text-6xl md:text-8xl font-black uppercase mb-8 bg-foreground text-background inline-block px-4 py-2 -rotate-1">
+  <div className="space-y-8">
+    <h2 className="text-6xl md:text-8xl font-black uppercase bg-foreground text-background inline-block px-4 py-2 -rotate-1">
       REFLEXÕES
     </h2>
     <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
@@ -58,30 +58,26 @@ const BrutalistReflections = ({ reflections }: { reflections: Reflection[] }) =>
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.02 }}
-          className="aspect-square border-4 border-foreground overflow-hidden group cursor-pointer hover:z-10 hover:scale-110 transition-transform"
+          className="group cursor-pointer"
         >
-          <img
-            src={reflection.imageUrl}
-            alt={reflection.title}
-            className="w-full h-full object-cover"
-          />
+          <div className="aspect-square border-4 border-foreground overflow-hidden hover:z-10 hover:scale-110 transition-transform">
+            <img
+              src={reflection.imageUrl}
+              alt={reflection.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <p className="mt-2 text-center text-xs font-black uppercase truncate">{reflection.title}</p>
         </motion.div>
       ))}
     </div>
-    <div className="mt-8 grid grid-cols-4 md:grid-cols-8 lg:grid-cols-16 gap-2">
-      {reflections.map((reflection) => (
-        <div key={`label-${reflection.title}`} className="text-xs font-black uppercase truncate border-2 border-foreground p-1">
-          {reflection.title}
-        </div>
-      ))}
-    </div>
-  </section>
+  </div>
 );
 
 // Glass - Floating glass cards
 const GlassReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <h2 className="text-4xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+  <div className="space-y-12">
+    <h2 className="text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
       ✨ Minhas Reflexões
     </h2>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
@@ -108,14 +104,14 @@ const GlassReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Neon - Cyberpunk grid
 const NeonReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8 relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-cyan-900/20" />
-    <h2 className="text-5xl md:text-7xl font-black text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 relative">
+  <div className="space-y-12 relative">
+    <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-cyan-900/20 pointer-events-none" />
+    <h2 className="text-5xl md:text-7xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 relative">
       REFLEXÕES
     </h2>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3 relative">
@@ -144,13 +140,13 @@ const NeonReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Retro - 80s arcade style
 const RetroReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <div className="text-center mb-12">
+  <div className="space-y-12">
+    <div className="text-center">
       <h2 className="text-5xl md:text-7xl font-black bg-gradient-to-b from-yellow-300 via-orange-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
         ★ REFLEXÕES ★
       </h2>
@@ -179,13 +175,13 @@ const RetroReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Minimal - Clean zen
 const MinimalReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-20 px-4 md:px-8">
-    <div className="text-center mb-16">
+  <div className="space-y-16">
+    <div className="text-center">
       <span className="text-xs uppercase tracking-[0.5em] text-muted-foreground">Galeria</span>
       <h2 className="text-4xl md:text-5xl font-light mt-2">Minhas Reflexões</h2>
       <div className="w-16 h-px mx-auto mt-6 bg-foreground/20" />
@@ -213,13 +209,13 @@ const MinimalReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Cards - Stacked floating
 const CardsReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Minhas Reflexões</h2>
+  <div className="space-y-12">
+    <h2 className="text-4xl md:text-5xl font-bold text-center">Minhas Reflexões</h2>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
       {reflections.map((reflection, index) => (
         <motion.div
@@ -244,14 +240,14 @@ const CardsReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Gradient - Flowing colors
 const GradientReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8 relative">
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
-    <h2 className="text-4xl md:text-6xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent relative">
+  <div className="space-y-12 relative">
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10 pointer-events-none" />
+    <h2 className="text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent relative">
       Minhas Reflexões
     </h2>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6 relative">
@@ -280,13 +276,13 @@ const GradientReflections = ({ reflections }: { reflections: Reflection[] }) => 
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Split - Alternating layout
 const SplitReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <h2 className="text-4xl md:text-5xl font-bold mb-12">Minhas Reflexões</h2>
+  <div className="space-y-12">
+    <h2 className="text-4xl md:text-5xl font-bold">Minhas Reflexões</h2>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
       {reflections.map((reflection, index) => (
         <motion.div
@@ -310,13 +306,13 @@ const SplitReflections = ({ reflections }: { reflections: Reflection[] }) => (
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
-// Magazine - Editorial grid
+// Magazine - Editorial grid (for nature-organic)
 const MagazineReflections = ({ reflections }: { reflections: Reflection[] }) => (
-  <section className="py-16 px-4 md:px-8">
-    <div className="border-y-2 border-foreground py-4 mb-12">
+  <div className="space-y-12">
+    <div className="border-y-2 border-foreground py-4">
       <h2 className="text-5xl md:text-7xl font-serif font-black uppercase text-center">Minhas Reflexões</h2>
     </div>
     <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
@@ -340,7 +336,7 @@ const MagazineReflections = ({ reflections }: { reflections: Reflection[] }) => 
         </motion.div>
       ))}
     </div>
-  </section>
+  </div>
 );
 
 // Map layouts to themes - using actual theme IDs from ThemeContext
