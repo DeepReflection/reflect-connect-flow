@@ -499,8 +499,374 @@ const CorporateNavyAgenda = () => (
   </section>
 );
 
+// Executive Charcoal - Sophisticated dark executive style
+const ExecutiveCharcoalAgenda = () => (
+  <section className="space-y-10">
+    <div className="text-center mb-12">
+      <div className="inline-block">
+        <span className="text-xs uppercase tracking-[0.4em] text-primary/80 font-light">Calendário Executivo</span>
+        <h2 className="text-4xl md:text-5xl font-light mt-2 tracking-tight">Agenda</h2>
+        <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4" />
+      </div>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group relative bg-gradient-to-br from-card to-card/50 border border-border/30 rounded-sm overflow-hidden hover:border-primary/40 transition-all duration-500"
+        >
+          <div className="absolute top-0 left-0 w-1 h-full bg-primary/50 group-hover:bg-primary transition-colors" />
+          <div className="flex">
+            <div className="w-28 h-28 flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+              <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+            </div>
+            <div className="flex-1 p-5">
+              <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2 font-light tracking-wider">
+                <span className="text-primary">{event.date}</span>
+                <span>|</span>
+                <span>{event.time}</span>
+              </div>
+              <h3 className="font-medium text-lg mb-1">{event.title}</h3>
+              <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Startup Teal - Modern energetic startup vibe
+const StartupTealAgenda = () => (
+  <section className="space-y-8">
+    <div className="flex items-center gap-4">
+      <div className="w-2 h-12 bg-primary rounded-full" />
+      <div>
+        <h2 className="text-3xl md:text-4xl font-bold">Próximos Eventos</h2>
+        <p className="text-muted-foreground">Fique por dentro das novidades</p>
+      </div>
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group bg-card rounded-2xl overflow-hidden border-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+        >
+          <div className="h-32 relative overflow-hidden">
+            <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+            <span className="absolute bottom-2 left-3 bg-primary text-primary-foreground px-2 py-0.5 rounded-full text-xs font-bold">{event.date}</span>
+          </div>
+          <div className="p-4">
+            <div className="flex items-center gap-1 text-xs text-primary mb-2">
+              <Clock className="w-3 h-3" />
+              <span>{event.time}</span>
+            </div>
+            <h3 className="font-bold text-sm mb-1 line-clamp-2">{event.title}</h3>
+            <p className="text-xs text-muted-foreground line-clamp-2">{event.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Finance Green - Professional financial style
+const FinanceGreenAgenda = () => (
+  <section className="space-y-8">
+    <div className="flex items-center justify-between border-b border-border pb-4">
+      <h2 className="text-3xl font-semibold">Agenda de Eventos</h2>
+      <div className="flex items-center gap-2 text-sm text-primary">
+        <Calendar className="w-4 h-4" />
+        <span>Ver calendário completo</span>
+      </div>
+    </div>
+    <div className="overflow-hidden rounded-lg border border-border">
+      <table className="w-full">
+        <thead className="bg-muted/50">
+          <tr className="text-left text-sm">
+            <th className="p-4 font-medium">Data</th>
+            <th className="p-4 font-medium">Evento</th>
+            <th className="p-4 font-medium hidden md:table-cell">Local</th>
+            <th className="p-4 font-medium text-right">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {AGENDA_EVENTS.map((event, index) => (
+            <motion.tr
+              key={event.title}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="border-t border-border hover:bg-muted/30 transition-colors"
+            >
+              <td className="p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded overflow-hidden flex-shrink-0">
+                    <img src={event.imageUrl} alt="" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-primary">{event.date}</p>
+                    <p className="text-xs text-muted-foreground">{event.time}</p>
+                  </div>
+                </div>
+              </td>
+              <td className="p-4">
+                <p className="font-medium">{event.title}</p>
+                <p className="text-xs text-muted-foreground line-clamp-1">{event.description}</p>
+              </td>
+              <td className="p-4 hidden md:table-cell text-sm text-muted-foreground">{event.location}</td>
+              <td className="p-4 text-right">
+                <button className="px-3 py-1.5 bg-primary text-primary-foreground rounded text-xs font-medium hover:bg-primary/90">
+                  Inscrever
+                </button>
+              </td>
+            </motion.tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+);
+
+// Consulting Slate - Clean professional consulting style
+const ConsultingSlateAgenda = () => (
+  <section className="space-y-10">
+    <div className="max-w-2xl">
+      <span className="text-primary text-sm font-medium uppercase tracking-wider">Próximos Eventos</span>
+      <h2 className="text-4xl font-bold mt-2">Agenda</h2>
+      <p className="text-muted-foreground mt-3">Participe dos nossos eventos e amplie seu conhecimento histórico.</p>
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex gap-5 p-6 bg-card rounded-lg border border-border hover:shadow-lg transition-shadow"
+        >
+          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+            <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 text-sm mb-2">
+              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">{event.date}</span>
+              <span className="text-muted-foreground">{event.time}</span>
+            </div>
+            <h3 className="font-semibold mb-1">{event.title}</h3>
+            <p className="text-sm text-muted-foreground">{event.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Tech Indigo - Modern tech-focused style
+const TechIndigoAgenda = () => (
+  <section className="space-y-8">
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+        <Calendar className="w-5 h-5 text-primary" />
+      </div>
+      <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">Agenda</h2>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group relative bg-gradient-to-br from-card via-card to-primary/5 rounded-xl p-5 border border-border hover:border-primary/50 transition-all overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+          <div className="relative flex gap-4">
+            <div className="w-16 h-16 rounded-lg overflow-hidden ring-2 ring-primary/20 flex-shrink-0">
+              <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 text-xs mb-2">
+                <span className="bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-medium">{event.date}</span>
+                <span className="text-muted-foreground">{event.time}</span>
+              </div>
+              <h3 className="font-semibold truncate">{event.title}</h3>
+              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{event.description}</p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Luxury Black - Premium luxury style
+const LuxuryBlackAgenda = () => (
+  <section className="space-y-12">
+    <div className="text-center">
+      <span className="text-xs uppercase tracking-[0.5em] text-primary/70">Experiências Exclusivas</span>
+      <h2 className="text-4xl md:text-5xl font-light mt-4 tracking-wide">Agenda</h2>
+      <div className="flex items-center justify-center gap-4 mt-6">
+        <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/50" />
+        <div className="w-2 h-2 rotate-45 border border-primary/50" />
+        <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/50" />
+      </div>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.15, duration: 0.6 }}
+          className="group relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm" />
+          <div className="relative border border-border/50 rounded-sm overflow-hidden bg-card/50 backdrop-blur-sm">
+            <div className="flex">
+              <div className="w-32 h-36 flex-shrink-0 overflow-hidden">
+                <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+              </div>
+              <div className="flex-1 p-5 flex flex-col justify-between">
+                <div>
+                  <div className="text-xs tracking-widest text-primary/80 mb-2">{event.date} • {event.time}</div>
+                  <h3 className="text-lg font-light tracking-wide">{event.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground/80 leading-relaxed">{event.description}</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Modern Graphite - Clean modern industrial
+const ModernGraphiteAgenda = () => (
+  <section className="space-y-8">
+    <div className="flex items-end justify-between">
+      <h2 className="text-4xl font-black uppercase tracking-tight">Agenda</h2>
+      <span className="text-sm text-muted-foreground">{AGENDA_EVENTS.length} eventos</span>
+    </div>
+    <div className="space-y-3">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group flex items-center gap-4 p-4 bg-card border border-border rounded hover:bg-muted/50 transition-colors"
+        >
+          <div className="w-14 h-14 rounded overflow-hidden flex-shrink-0 ring-1 ring-border">
+            <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 text-sm text-muted-foreground mb-1">
+              <span className="font-mono text-primary">{event.date}</span>
+              <span>{event.time}</span>
+            </div>
+            <h3 className="font-bold truncate group-hover:text-primary transition-colors">{event.title}</h3>
+          </div>
+          <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Innovation Blue - Creative innovation style
+const InnovationBlueAgenda = () => (
+  <section className="space-y-10">
+    <div className="relative">
+      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+      <h2 className="text-4xl font-bold">Agenda de Inovação</h2>
+      <p className="text-muted-foreground mt-2">Eventos que transformam conhecimento em experiência</p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, rotateX: -10 }}
+          whileInView={{ opacity: 1, rotateX: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group bg-gradient-to-br from-card to-card/80 rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+        >
+          <div className="h-36 relative overflow-hidden">
+            <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+            <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+              <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">{event.date}</span>
+              <span className="text-sm text-foreground/80">{event.time}</span>
+            </div>
+          </div>
+          <div className="p-5">
+            <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{event.title}</h3>
+            <p className="text-sm text-muted-foreground">{event.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
+// Prestige Burgundy - Elegant prestigious style
+const PrestigeBurgundyAgenda = () => (
+  <section className="space-y-10">
+    <div className="text-center space-y-3">
+      <div className="inline-flex items-center gap-3">
+        <div className="w-8 h-px bg-primary" />
+        <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">Eventos</span>
+        <div className="w-8 h-px bg-primary" />
+      </div>
+      <h2 className="text-4xl md:text-5xl font-serif">Agenda</h2>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {AGENDA_EVENTS.map((event, index) => (
+        <motion.div
+          key={event.title}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group bg-card border border-border/50 rounded overflow-hidden hover:border-primary/30 transition-all"
+        >
+          <div className="flex">
+            <div className="w-28 h-32 flex-shrink-0 overflow-hidden">
+              <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover sepia group-hover:sepia-0 transition-all duration-500" />
+            </div>
+            <div className="flex-1 p-5">
+              <div className="flex items-center gap-2 text-sm text-primary mb-2 font-medium">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>{event.date}</span>
+                <span className="text-muted-foreground">• {event.time}</span>
+              </div>
+              <h3 className="font-serif text-lg mb-2">{event.title}</h3>
+              <p className="text-sm text-muted-foreground line-clamp-2">{event.description}</p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+);
+
 // Map layouts to themes
-const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy'];
+const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green', 'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite', 'innovation-blue', 'prestige-burgundy'];
 
 const layoutMap: Record<string, React.FC> = {
   'magazine-editorial': EditorialAgenda,
@@ -514,6 +880,15 @@ const layoutMap: Record<string, React.FC> = {
   'nature-organic': NatureAgenda,
   'minimal-zen': MinimalAgenda,
   'corporate-navy': CorporateNavyAgenda,
+  'executive-charcoal': ExecutiveCharcoalAgenda,
+  'startup-teal': StartupTealAgenda,
+  'finance-green': FinanceGreenAgenda,
+  'consulting-slate': ConsultingSlateAgenda,
+  'tech-indigo': TechIndigoAgenda,
+  'luxury-black': LuxuryBlackAgenda,
+  'modern-graphite': ModernGraphiteAgenda,
+  'innovation-blue': InnovationBlueAgenda,
+  'prestige-burgundy': PrestigeBurgundyAgenda,
 };
 
 const ThemedAgendaSection = () => {
