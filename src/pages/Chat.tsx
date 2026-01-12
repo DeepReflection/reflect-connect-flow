@@ -3,95 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, ArrowLeft, Sparkles, User, Mic, MicOff, MoreVertical } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTheme, ThemeName } from '@/contexts/ThemeContext';
+import { THEME_BANNER_MAP } from '@/themes/types';
 
-// Import all theme-specific banners
-import bannerVintageSepia from '@/assets/banners/hero-vintage-sepia.jpg';
-import bannerMidnightGold from '@/assets/banners/hero-midnight-gold.jpg';
-import bannerMilitaryOlive from '@/assets/banners/hero-military-olive.jpg';
-import bannerOceanDeep from '@/assets/banners/hero-ocean-deep.jpg';
-import bannerCrimsonWar from '@/assets/banners/hero-crimson-war.jpg';
-import bannerSunsetBronze from '@/assets/banners/hero-sunset-bronze.jpg';
-import bannerRoyalPurple from '@/assets/banners/hero-royal-purple.jpg';
-import bannerForestEmerald from '@/assets/banners/hero-forest-emerald.jpg';
-import bannerArcticFrost from '@/assets/banners/hero-arctic-frost.jpg';
-import bannerDesertSand from '@/assets/banners/hero-desert-sand.jpg';
-import bannerCloudSilver from '@/assets/banners/hero-cloud-silver.jpg';
-import bannerRoseGarden from '@/assets/banners/hero-rose-garden.jpg';
-import bannerMintFresh from '@/assets/banners/hero-mint-fresh.jpg';
-import bannerLavenderDream from '@/assets/banners/hero-lavender-dream.jpg';
-import bannerPeachBlossom from '@/assets/banners/hero-peach-blossom.jpg';
-import bannerSkyBlue from '@/assets/banners/hero-sky-blue.jpg';
-import bannerCreamVanilla from '@/assets/banners/hero-cream-vanilla.jpg';
-import bannerSageMorning from '@/assets/banners/hero-sage-morning.jpg';
-import bannerCoralReef from '@/assets/banners/hero-coral-reef.jpg';
-import bannerGoldenHour from '@/assets/banners/hero-golden-hour.jpg';
-// Business themes
-import bannerCorporateNavy from '@/assets/banners/hero-corporate-navy.jpg';
-import bannerExecutiveCharcoal from '@/assets/banners/hero-executive-charcoal.jpg';
-import bannerStartupTeal from '@/assets/banners/hero-startup-teal.jpg';
-import bannerFinanceGreen from '@/assets/banners/hero-finance-green.jpg';
-import bannerConsultingSlate from '@/assets/banners/hero-consulting-slate.jpg';
-import bannerTechIndigo from '@/assets/banners/hero-tech-indigo.jpg';
-import bannerLuxuryBlack from '@/assets/banners/hero-luxury-black.jpg';
-import bannerModernGraphite from '@/assets/banners/hero-modern-graphite.jpg';
-import bannerInnovationBlue from '@/assets/banners/hero-innovation-blue.jpg';
-import bannerPrestigeBurgundy from '@/assets/banners/hero-prestige-burgundy.jpg';
-// Layout themes
-import bannerNeonGamer from '@/assets/banners/hero-neon-gamer.jpg';
-import bannerMinimalZen from '@/assets/banners/hero-minimal-zen.jpg';
-import bannerMagazineEditorial from '@/assets/banners/hero-magazine-editorial.jpg';
-import bannerRetroWave from '@/assets/banners/hero-retro-wave.jpg';
-import bannerNatureOrganic from '@/assets/banners/hero-nature-organic.jpg';
-import bannerBrutalistRaw from '@/assets/banners/hero-brutalist-raw.jpg';
-import bannerGlassmorphism from '@/assets/banners/hero-glassmorphism.jpg';
-import bannerSplitScreen from '@/assets/banners/hero-split-screen.jpg';
-import bannerGradientFlow from '@/assets/banners/hero-gradient-flow.jpg';
-import bannerCardStack from '@/assets/banners/hero-card-stack.jpg';
+// Default fallback banner
+import defaultBanner from '@/assets/themes/vintage-sepia/images/banner.jpg';
 
-const themeBanners: Record<ThemeName, string> = {
-  'vintage-sepia': bannerVintageSepia,
-  'midnight-gold': bannerMidnightGold,
-  'military-olive': bannerMilitaryOlive,
-  'ocean-deep': bannerOceanDeep,
-  'crimson-war': bannerCrimsonWar,
-  'sunset-bronze': bannerSunsetBronze,
-  'royal-purple': bannerRoyalPurple,
-  'forest-emerald': bannerForestEmerald,
-  'arctic-frost': bannerArcticFrost,
-  'desert-sand': bannerDesertSand,
-  'cloud-silver': bannerCloudSilver,
-  'rose-garden': bannerRoseGarden,
-  'mint-fresh': bannerMintFresh,
-  'lavender-dream': bannerLavenderDream,
-  'peach-blossom': bannerPeachBlossom,
-  'sky-blue': bannerSkyBlue,
-  'cream-vanilla': bannerCreamVanilla,
-  'sage-morning': bannerSageMorning,
-  'coral-reef': bannerCoralReef,
-  'golden-hour': bannerGoldenHour,
-  // Business themes
-  'corporate-navy': bannerCorporateNavy,
-  'executive-charcoal': bannerExecutiveCharcoal,
-  'startup-teal': bannerStartupTeal,
-  'finance-green': bannerFinanceGreen,
-  'consulting-slate': bannerConsultingSlate,
-  'tech-indigo': bannerTechIndigo,
-  'luxury-black': bannerLuxuryBlack,
-  'modern-graphite': bannerModernGraphite,
-  'innovation-blue': bannerInnovationBlue,
-  'prestige-burgundy': bannerPrestigeBurgundy,
-  // Layout themes
-  'neon-gamer': bannerNeonGamer,
-  'minimal-zen': bannerMinimalZen,
-  'magazine-editorial': bannerMagazineEditorial,
-  'retro-wave': bannerRetroWave,
-  'nature-organic': bannerNatureOrganic,
-  'brutalist-raw': bannerBrutalistRaw,
-  'glassmorphism': bannerGlassmorphism,
-  'split-screen': bannerSplitScreen,
-  'gradient-flow': bannerGradientFlow,
-  'card-stack': bannerCardStack,
-};
+// Cache for loaded banner images
+const bannerCache: Record<string, string> = {};
 
 interface Message {
   id: string;
@@ -147,7 +65,34 @@ const INITIAL_MESSAGES: Message[] = [
 
 const Chat = () => {
   const { currentTheme } = useTheme();
-  const bannerImage = themeBanners[currentTheme] || bannerVintageSepia;
+  const [bannerImage, setBannerImage] = useState<string>(defaultBanner);
+  
+  // Dynamically load banner for current theme
+  useEffect(() => {
+    const loadBanner = async () => {
+      // Check cache first
+      if (bannerCache[currentTheme]) {
+        setBannerImage(bannerCache[currentTheme]);
+        return;
+      }
+      
+      const bannerLoader = THEME_BANNER_MAP[currentTheme];
+      if (bannerLoader) {
+        try {
+          const module = await bannerLoader();
+          bannerCache[currentTheme] = module.default;
+          setBannerImage(module.default);
+        } catch (error) {
+          console.error(`Failed to load banner for theme: ${currentTheme}`, error);
+          setBannerImage(defaultBanner);
+        }
+      } else {
+        setBannerImage(defaultBanner);
+      }
+    };
+    
+    loadBanner();
+  }, [currentTheme]);
   
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
@@ -388,8 +333,8 @@ const Chat = () => {
                         }}
                         transition={{ 
                           duration: 0.5, 
-                          repeat: Infinity, 
-                          delay: i * 0.12 
+                          repeat: Infinity,
+                          delay: i * 0.15,
                         }}
                       />
                     ))}
@@ -403,68 +348,50 @@ const Chat = () => {
         </div>
       </div>
 
-      {/* Quick Actions - Show only at start */}
-      <AnimatePresence>
-        {messages.length <= 1 && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ delay: 0.5 }}
-            className="relative z-10 px-4 pb-3"
-          >
-            <div className="max-w-2xl mx-auto">
-              <p className="text-xs text-muted-foreground mb-2.5 text-center font-medium">Perguntas populares</p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {quickActions.map((action) => (
-                  <motion.button
-                    key={action.label}
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    whileTap={{ scale: 0.97 }}
-                    onClick={() => {
-                      setInput(action.query);
-                      inputRef.current?.focus();
-                    }}
-                    className="px-4 py-2.5 rounded-xl bg-card/60 backdrop-blur-sm border border-border/50 text-sm text-foreground hover:border-primary/50 hover:bg-primary/5 transition-all shadow-sm"
-                  >
-                    {action.label}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Quick Actions */}
+      <div className="px-4 py-3 border-t border-border/30 bg-background/80 backdrop-blur-md">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            {quickActions.map((action, index) => (
+              <motion.button
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                onClick={() => {
+                  setInput(action.query);
+                  inputRef.current?.focus();
+                }}
+                className="flex-shrink-0 px-3 py-1.5 rounded-full bg-secondary/50 border border-border/50 text-xs font-medium text-foreground hover:bg-secondary hover:border-primary/30 transition-all"
+              >
+                {action.label}
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Input Area */}
-      <motion.div 
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="relative z-20 border-t border-border/30 bg-background/95 backdrop-blur-xl"
-      >
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
+      <div className="px-4 py-4 bg-background border-t border-border/50">
+        <div className="max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="flex items-center gap-2"
+          >
             {/* Voice Button */}
             <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setIsListening(!isListening)}
-              className={`p-3 rounded-xl transition-all shadow-sm ${
+              className={`p-3 rounded-xl transition-all ${
                 isListening 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-card border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30'
+                  ? 'bg-destructive text-destructive-foreground' 
+                  : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground'
               }`}
             >
-              {isListening ? (
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 0.5, repeat: Infinity }}
-                >
-                  <MicOff className="w-5 h-5" />
-                </motion.div>
-              ) : (
-                <Mic className="w-5 h-5" />
-              )}
+              {isListening ? <MicOff className="w-5 h-5" /> : <Mic className="w-5 h-5" />}
             </motion.button>
 
             {/* Input Field */}
@@ -475,28 +402,43 @@ const Chat = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Pergunte sobre a Segunda Guerra..."
-                className="w-full bg-card border border-border/50 rounded-xl px-5 py-3.5 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all text-sm shadow-sm"
+                placeholder="Digite sua mensagem..."
+                className="w-full px-4 py-3 pr-12 bg-secondary/30 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:bg-secondary/50 transition-all"
               />
             </div>
 
             {/* Send Button */}
             <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.92 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleSend}
               disabled={!input.trim()}
-              className="p-3 rounded-xl bg-primary text-primary-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg hover:shadow-primary/20"
+              className="p-3 rounded-xl bg-primary text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 transition-all shadow-lg shadow-primary/25"
             >
               <Send className="w-5 h-5" />
             </motion.button>
-          </div>
-          
-          <p className="text-[10px] text-muted-foreground/60 text-center mt-3">
-            Powered by <span className="text-primary/80 font-medium">Deep Reflection AI</span>
-          </p>
+          </motion.div>
+
+          {/* Listening Indicator */}
+          <AnimatePresence>
+            {isListening && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-3 flex items-center justify-center gap-2 text-destructive"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                  className="w-2 h-2 rounded-full bg-destructive"
+                />
+                <span className="text-sm font-medium">Ouvindo...</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
