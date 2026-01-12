@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import ViniHistoria from "./pages/ViniHistoria";
+import GersonJunior from "./pages/GersonJunior";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
@@ -21,6 +22,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/vinihistoria" element={<ViniHistoria />} />
+            <Route path="/gersonjunior" element={<GersonJunior />} />
             <Route path="/chat" element={<Chat />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
