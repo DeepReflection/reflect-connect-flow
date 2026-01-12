@@ -12,30 +12,6 @@ export const config: ThemeConfig = {
   category: 'light',
 };
 
-export const styles = {
-  css: `
-html.theme-arctic-frost {
-  --background: 210 30% 96%;
-  --foreground: 210 25% 12%;
-  --card: 210 25% 100%;
-  --card-foreground: 210 25% 12%;
-  --popover: 210 25% 98%;
-  --popover-foreground: 210 25% 12%;
-  --primary: 200 80% 45%;
-  --primary-foreground: 210 30% 98%;
-  --secondary: 210 20% 92%;
-  --secondary-foreground: 210 25% 15%;
-  --muted: 210 15% 90%;
-  --muted-foreground: 210 15% 45%;
-  --accent: 195 70% 40%;
-  --accent-foreground: 210 30% 98%;
-  --border: 210 20% 85%;
-  --input: 210 20% 92%;
-  --ring: 200 80% 45%;
-}
-  `,
-};
-
 export const assets = {
   bannerImage,
 };
@@ -50,7 +26,6 @@ export const components = {
 const theme: Theme = {
   config,
   components,
-  styles,
   assets,
 };
 

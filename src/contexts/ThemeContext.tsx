@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { HeroLayoutType } from '@/components/layouts/HeroLayouts';
+import { THEME_CSS_MAP } from '@/themes/types';
 
 export type ThemeName = 
   | 'vintage-sepia'
@@ -104,20 +105,49 @@ interface ThemeContextType {
   currentTheme: ThemeName;
   setTheme: (theme: ThemeName) => void;
   themes: Theme[];
+  isLoading: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+// Cache for loaded CSS modules
+const loadedThemes = new Set<string>();
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeName>(() => {
     const saved = localStorage.getItem('deeplink-theme');
     return (saved as ThemeName) || 'vintage-sepia';
   });
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Dynamic CSS loader
+  const loadThemeCSS = useCallback(async (themeId: string) => {
+    // Skip if already loaded
+    if (loadedThemes.has(themeId)) {
+      return;
+    }
+
+    const cssLoader = THEME_CSS_MAP[themeId];
+    if (cssLoader) {
+      setIsLoading(true);
+      try {
+        await cssLoader();
+        loadedThemes.add(themeId);
+      } catch (error) {
+        console.error(`Failed to load CSS for theme: ${themeId}`, error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }, []);
 
   // Apply theme on mount and when it changes
   useEffect(() => {
-    const applyTheme = () => {
+    const applyTheme = async () => {
       localStorage.setItem('deeplink-theme', currentTheme);
+      
+      // Load CSS dynamically
+      await loadThemeCSS(currentTheme);
       
       // Remove all theme classes from html element
       THEMES.forEach(theme => {
@@ -129,11 +159,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     };
     
     applyTheme();
-  }, [currentTheme]);
+  }, [currentTheme, loadThemeCSS]);
 
   // Also apply on initial render
   useEffect(() => {
-    document.documentElement.classList.add(`theme-${currentTheme}`);
+    loadThemeCSS(currentTheme).then(() => {
+      document.documentElement.classList.add(`theme-${currentTheme}`);
+    });
   }, []);
 
   const setTheme = (theme: ThemeName) => {
@@ -141,7 +173,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, setTheme, themes: THEMES }}>
+    <ThemeContext.Provider value={{ currentTheme, setTheme, themes: THEMES, isLoading }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -12,30 +12,6 @@ export const config: ThemeConfig = {
   category: 'light',
 };
 
-export const styles = {
-  css: `
-html.theme-cream-vanilla {
-  --background: 45 35% 95%;
-  --foreground: 40 30% 12%;
-  --card: 45 30% 100%;
-  --card-foreground: 40 30% 12%;
-  --popover: 45 30% 98%;
-  --popover-foreground: 40 30% 12%;
-  --primary: 40 55% 45%;
-  --primary-foreground: 45 35% 98%;
-  --secondary: 45 22% 92%;
-  --secondary-foreground: 40 30% 15%;
-  --muted: 45 18% 90%;
-  --muted-foreground: 40 18% 42%;
-  --accent: 35 50% 40%;
-  --accent-foreground: 45 35% 98%;
-  --border: 45 20% 88%;
-  --input: 45 22% 92%;
-  --ring: 40 55% 45%;
-}
-  `,
-};
-
 export const assets = { bannerImage };
 export const components = {
   HeroLayout: DefaultHeroLayout,
@@ -44,5 +20,5 @@ export const components = {
   ReflectionsSection: DefaultReflectionsSection,
 };
 
-const theme: Theme = { config, components, styles, assets };
+const theme: Theme = { config, components, assets };
 export default theme;
