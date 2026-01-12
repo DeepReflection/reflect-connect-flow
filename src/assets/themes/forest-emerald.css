@@ -1,0 +1,20 @@
+/* Forest Emerald Theme - Verde profundo e natural */
+html.theme-forest-emerald {
+  --background: 150 25% 6%;
+  --foreground: 140 15% 92%;
+  --card: 150 22% 10%;
+  --card-foreground: 140 15% 92%;
+  --popover: 150 22% 8%;
+  --popover-foreground: 140 15% 92%;
+  --primary: 155 70% 40%;
+  --primary-foreground: 150 25% 98%;
+  --secondary: 150 15% 15%;
+  --secondary-foreground: 140 15% 88%;
+  --muted: 150 12% 18%;
+  --muted-foreground: 140 10% 55%;
+  --accent: 45 70% 50%;
+  --accent-foreground: 150 25% 6%;
+  --border: 155 20% 18%;
+  --input: 150 15% 15%;
+  --ring: 155 70% 40%;
+}

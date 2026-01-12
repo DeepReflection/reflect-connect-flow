@@ -1,0 +1,20 @@
+/* Royal Purple Theme - Luxo e sofisticação imperial */
+html.theme-royal-purple {
+  --background: 270 25% 8%;
+  --foreground: 270 15% 92%;
+  --card: 270 22% 12%;
+  --card-foreground: 270 15% 92%;
+  --popover: 270 22% 10%;
+  --popover-foreground: 270 15% 92%;
+  --primary: 270 70% 55%;
+  --primary-foreground: 270 25% 98%;
+  --secondary: 270 15% 18%;
+  --secondary-foreground: 270 15% 88%;
+  --muted: 270 12% 20%;
+  --muted-foreground: 270 10% 55%;
+  --accent: 45 80% 55%;
+  --accent-foreground: 270 25% 8%;
+  --border: 270 20% 22%;
+  --input: 270 15% 18%;
+  --ring: 270 70% 55%;
+}

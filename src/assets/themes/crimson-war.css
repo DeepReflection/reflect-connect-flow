@@ -1,20 +1,20 @@
 /* Crimson War Theme - Vermelho dramático e intenso */
 html.theme-crimson-war {
-  --background: 0 15% 7%;
+  --background: 0 20% 6%;
   --foreground: 0 10% 92%;
-  --card: 0 12% 11%;
+  --card: 0 18% 10%;
   --card-foreground: 0 10% 92%;
-  --popover: 0 12% 9%;
+  --popover: 0 18% 8%;
   --popover-foreground: 0 10% 92%;
   --primary: 0 75% 50%;
-  --primary-foreground: 0 10% 98%;
-  --secondary: 0 10% 16%;
+  --primary-foreground: 0 20% 98%;
+  --secondary: 0 12% 18%;
   --secondary-foreground: 0 10% 88%;
-  --muted: 0 8% 18%;
+  --muted: 0 10% 20%;
   --muted-foreground: 0 8% 55%;
   --accent: 15 70% 45%;
-  --accent-foreground: 0 10% 98%;
-  --border: 0 20% 20%;
-  --input: 0 10% 16%;
+  --accent-foreground: 0 20% 98%;
+  --border: 0 20% 22%;
+  --input: 0 12% 18%;
   --ring: 0 75% 50%;
 }
