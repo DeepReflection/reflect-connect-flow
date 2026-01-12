@@ -1,0 +1,23 @@
+/* Nature Organic Theme - Formas fluidas da natureza */
+.theme-nature-organic {
+  --background: 90 30% 95%;
+  --foreground: 90 50% 15%;
+  --card: 90 30% 98%;
+  --card-foreground: 90 50% 15%;
+  --popover: 90 30% 96%;
+  --popover-foreground: 90 50% 15%;
+  --primary: 140 50% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 90 25% 88%;
+  --secondary-foreground: 90 50% 20%;
+  --muted: 90 25% 90%;
+  --muted-foreground: 90 30% 45%;
+  --accent: 35 70% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 90 25% 82%;
+  --input: 90 25% 88%;
+  --ring: 140 50% 40%;
+  --radius: 1.5rem;
+}

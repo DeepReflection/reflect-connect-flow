@@ -1,0 +1,23 @@
+/* Retro Wave Theme - Nostálgia anos 80 */
+.theme-retro-wave {
+  --background: 280 50% 8%;
+  --foreground: 300 100% 95%;
+  --card: 280 50% 12%;
+  --card-foreground: 300 100% 95%;
+  --popover: 280 50% 10%;
+  --popover-foreground: 300 100% 95%;
+  --primary: 325 100% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 280 45% 18%;
+  --secondary-foreground: 300 100% 90%;
+  --muted: 280 45% 15%;
+  --muted-foreground: 300 50% 60%;
+  --accent: 195 100% 55%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 280 50% 22%;
+  --input: 280 45% 18%;
+  --ring: 325 100% 60%;
+  --radius: 0;
+}

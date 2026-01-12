@@ -1,0 +1,23 @@
+/* Card Stack Theme - Cartões sobrepostos */
+.theme-card-stack {
+  --background: 220 30% 10%;
+  --foreground: 220 15% 95%;
+  --card: 220 30% 16%;
+  --card-foreground: 220 15% 95%;
+  --popover: 220 30% 13%;
+  --popover-foreground: 220 15% 95%;
+  --primary: 180 65% 50%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 220 25% 22%;
+  --secondary-foreground: 220 15% 90%;
+  --muted: 220 25% 18%;
+  --muted-foreground: 220 15% 60%;
+  --accent: 45 80% 55%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 25% 25%;
+  --input: 220 25% 22%;
+  --ring: 180 65% 50%;
+  --radius: 1rem;
+}

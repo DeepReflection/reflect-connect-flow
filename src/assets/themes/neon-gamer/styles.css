@@ -1,0 +1,23 @@
+/* Neon Gamer Theme - Cyber gaming com neon */
+.theme-neon-gamer {
+  --background: 270 50% 5%;
+  --foreground: 180 100% 90%;
+  --card: 270 50% 8%;
+  --card-foreground: 180 100% 90%;
+  --popover: 270 50% 7%;
+  --popover-foreground: 180 100% 90%;
+  --primary: 315 100% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 45% 15%;
+  --secondary-foreground: 180 100% 85%;
+  --muted: 270 45% 12%;
+  --muted-foreground: 180 50% 60%;
+  --accent: 180 100% 50%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 100% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 270 50% 18%;
+  --input: 270 45% 15%;
+  --ring: 315 100% 55%;
+  --radius: 0.875rem;
+}

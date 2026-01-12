@@ -1,0 +1,23 @@
+/* Magazine Editorial Theme - Estilo revista */
+.theme-magazine-editorial {
+  --background: 45 20% 8%;
+  --foreground: 45 10% 95%;
+  --card: 45 20% 12%;
+  --card-foreground: 45 10% 95%;
+  --popover: 45 20% 10%;
+  --popover-foreground: 45 10% 95%;
+  --primary: 0 75% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 45 15% 18%;
+  --secondary-foreground: 45 10% 90%;
+  --muted: 45 15% 15%;
+  --muted-foreground: 45 10% 60%;
+  --accent: 45 100% 50%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 45 15% 20%;
+  --input: 45 15% 18%;
+  --ring: 0 75% 55%;
+  --radius: 0;
+}

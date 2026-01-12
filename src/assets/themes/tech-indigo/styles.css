@@ -1,0 +1,23 @@
+/* Tech Indigo Theme - Azul-violeta tecnológico */
+.theme-tech-indigo {
+  --background: 245 30% 8%;
+  --foreground: 245 15% 95%;
+  --card: 245 30% 12%;
+  --card-foreground: 245 15% 95%;
+  --popover: 245 30% 10%;
+  --popover-foreground: 245 15% 95%;
+  --primary: 250 90% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 245 25% 18%;
+  --secondary-foreground: 245 15% 90%;
+  --muted: 245 25% 15%;
+  --muted-foreground: 245 15% 60%;
+  --accent: 280 70% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 245 25% 20%;
+  --input: 245 25% 18%;
+  --ring: 250 90% 60%;
+  --radius: 0.625rem;
+}
