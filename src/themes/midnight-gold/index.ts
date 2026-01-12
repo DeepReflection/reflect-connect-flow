@@ -12,30 +12,6 @@ export const config: ThemeConfig = {
   category: 'dark',
 };
 
-export const styles = {
-  css: `
-html.theme-midnight-gold {
-  --background: 240 20% 6%;
-  --foreground: 45 30% 95%;
-  --card: 240 18% 10%;
-  --card-foreground: 45 30% 95%;
-  --popover: 240 18% 8%;
-  --popover-foreground: 45 30% 95%;
-  --primary: 45 90% 55%;
-  --primary-foreground: 240 20% 6%;
-  --secondary: 240 15% 15%;
-  --secondary-foreground: 45 30% 90%;
-  --muted: 240 12% 18%;
-  --muted-foreground: 45 15% 55%;
-  --accent: 45 85% 50%;
-  --accent-foreground: 240 20% 6%;
-  --border: 45 25% 20%;
-  --input: 240 15% 15%;
-  --ring: 45 90% 55%;
-}
-  `,
-};
-
 export const assets = {
   bannerImage,
 };
@@ -50,7 +26,6 @@ export const components = {
 const theme: Theme = {
   config,
   components,
-  styles,
   assets,
 };
 

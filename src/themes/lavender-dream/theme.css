@@ -1,0 +1,20 @@
+/* Lavender Dream Theme - Lilás suave e relaxante */
+html.theme-lavender-dream {
+  --background: 270 25% 96%;
+  --foreground: 270 20% 15%;
+  --card: 270 20% 100%;
+  --card-foreground: 270 20% 15%;
+  --popover: 270 20% 98%;
+  --popover-foreground: 270 20% 15%;
+  --primary: 270 55% 55%;
+  --primary-foreground: 270 25% 98%;
+  --secondary: 270 18% 92%;
+  --secondary-foreground: 270 20% 18%;
+  --muted: 270 12% 90%;
+  --muted-foreground: 270 12% 45%;
+  --accent: 280 50% 50%;
+  --accent-foreground: 270 25% 98%;
+  --border: 270 18% 88%;
+  --input: 270 18% 92%;
+  --ring: 270 55% 55%;
+}
