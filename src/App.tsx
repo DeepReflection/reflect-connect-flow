@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import ViniHistoria from "./pages/ViniHistoria";
 import GersonJunior from "./pages/GersonJunior";
+import ClaudioFrydman from "./pages/ClaudioFrydman";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/vinihistoria" element={<ViniHistoria />} />
             <Route path="/gersonjunior" element={<GersonJunior />} />
+            <Route path="/claudiofrydman" element={<ClaudioFrydman />} />
             <Route path="/chat" element={<Chat />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
