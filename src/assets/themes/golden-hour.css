@@ -1,0 +1,20 @@
+/* Golden Hour Theme - Dourado quente e luminoso */
+html.theme-golden-hour {
+  --background: 45 45% 96%;
+  --foreground: 35 35% 12%;
+  --card: 45 40% 100%;
+  --card-foreground: 35 35% 12%;
+  --popover: 45 40% 98%;
+  --popover-foreground: 35 35% 12%;
+  --primary: 40 85% 50%;
+  --primary-foreground: 45 45% 8%;
+  --secondary: 45 28% 92%;
+  --secondary-foreground: 35 35% 15%;
+  --muted: 45 22% 90%;
+  --muted-foreground: 35 20% 45%;
+  --accent: 25 75% 50%;
+  --accent-foreground: 45 45% 98%;
+  --border: 45 25% 85%;
+  --input: 45 28% 92%;
+  --ring: 40 85% 50%;
+}

@@ -1,20 +1,20 @@
 /* Cream Vanilla Theme - Tons creme suaves e elegantes */
 html.theme-cream-vanilla {
-  --background: 45 35% 95%;
-  --foreground: 40 30% 12%;
+  --background: 45 35% 96%;
+  --foreground: 35 30% 15%;
   --card: 45 30% 100%;
-  --card-foreground: 40 30% 12%;
+  --card-foreground: 35 30% 15%;
   --popover: 45 30% 98%;
-  --popover-foreground: 40 30% 12%;
-  --primary: 40 55% 45%;
+  --popover-foreground: 35 30% 15%;
+  --primary: 35 60% 50%;
   --primary-foreground: 45 35% 98%;
   --secondary: 45 22% 92%;
-  --secondary-foreground: 40 30% 15%;
+  --secondary-foreground: 35 30% 18%;
   --muted: 45 18% 90%;
-  --muted-foreground: 40 18% 42%;
-  --accent: 35 50% 40%;
+  --muted-foreground: 35 16% 45%;
+  --accent: 25 55% 45%;
   --accent-foreground: 45 35% 98%;
   --border: 45 20% 88%;
   --input: 45 22% 92%;
-  --ring: 40 55% 45%;
+  --ring: 35 60% 50%;
 }
