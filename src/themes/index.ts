@@ -13,6 +13,6 @@ export type {
   ThemeName 
 } from './types';
 
-export { THEME_CSS_MAP } from './types';
+export { THEME_CSS_MAP, THEME_BANNER_MAP, ALL_THEME_IDS } from './types';
 export { themeRegistry, getTheme, getAllThemes, getThemesByCategory } from './registry';
 export { AGENDA_EVENTS, PRODUCTS, SERVICES, REFLECTIONS } from './shared/data';

@@ -3,28 +3,6 @@ import { Theme, ThemeConfig } from './types';
 import { DefaultHeroLayout } from './shared/DefaultHero';
 import { DefaultAgendaSection, DefaultProductsSection, DefaultReflectionsSection } from './shared/DefaultSections';
 
-// Import all banner images
-import bannerVintageSepia from '@/assets/banners/hero-vintage-sepia.jpg';
-import bannerMidnightGold from '@/assets/banners/hero-midnight-gold.jpg';
-import bannerMilitaryOlive from '@/assets/banners/hero-military-olive.jpg';
-import bannerOceanDeep from '@/assets/banners/hero-ocean-deep.jpg';
-import bannerCrimsonWar from '@/assets/banners/hero-crimson-war.jpg';
-import bannerSunsetBronze from '@/assets/banners/hero-sunset-bronze.jpg';
-import bannerRoyalPurple from '@/assets/banners/hero-royal-purple.jpg';
-import bannerForestEmerald from '@/assets/banners/hero-forest-emerald.jpg';
-import bannerArcticFrost from '@/assets/banners/hero-arctic-frost.jpg';
-import bannerDesertSand from '@/assets/banners/hero-desert-sand.jpg';
-import bannerCloudSilver from '@/assets/banners/hero-cloud-silver.jpg';
-import bannerRoseGarden from '@/assets/banners/hero-rose-garden.jpg';
-import bannerMintFresh from '@/assets/banners/hero-mint-fresh.jpg';
-import bannerLavenderDream from '@/assets/banners/hero-lavender-dream.jpg';
-import bannerPeachBlossom from '@/assets/banners/hero-peach-blossom.jpg';
-import bannerSkyBlue from '@/assets/banners/hero-sky-blue.jpg';
-import bannerCreamVanilla from '@/assets/banners/hero-cream-vanilla.jpg';
-import bannerSageMorning from '@/assets/banners/hero-sage-morning.jpg';
-import bannerCoralReef from '@/assets/banners/hero-coral-reef.jpg';
-import bannerGoldenHour from '@/assets/banners/hero-golden-hour.jpg';
-
 // Default components shared by all themes
 const defaultComponents = {
   HeroLayout: DefaultHeroLayout,
@@ -33,218 +11,303 @@ const defaultComponents = {
   ReflectionsSection: DefaultReflectionsSection,
 };
 
-// Theme configurations
-const themeConfigs: Record<string, { config: ThemeConfig; bannerImage: string }> = {
+// Theme configurations - banners are now loaded dynamically from theme folders
+const themeConfigs: Record<string, ThemeConfig> = {
+  // Dark themes
   'vintage-sepia': {
-    config: {
-      id: 'vintage-sepia',
-      name: 'Vintage Sépia',
-      description: 'Tom clássico de fotografias antigas',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerVintageSepia,
+    id: 'vintage-sepia',
+    name: 'Vintage Sépia',
+    description: 'Tom clássico de fotografias antigas',
+    isLight: false,
+    category: 'dark',
   },
   'midnight-gold': {
-    config: {
-      id: 'midnight-gold',
-      name: 'Meia-Noite Dourado',
-      description: 'Elegância noturna com acentos dourados',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerMidnightGold,
+    id: 'midnight-gold',
+    name: 'Meia-Noite Dourado',
+    description: 'Elegância noturna com acentos dourados',
+    isLight: false,
+    category: 'dark',
   },
   'military-olive': {
-    config: {
-      id: 'military-olive',
-      name: 'Militar Oliva',
-      description: 'Tons táticos e robustos',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerMilitaryOlive,
+    id: 'military-olive',
+    name: 'Militar Oliva',
+    description: 'Tons táticos e robustos',
+    isLight: false,
+    category: 'dark',
   },
   'ocean-deep': {
-    config: {
-      id: 'ocean-deep',
-      name: 'Oceano Profundo',
-      description: 'Azul marinho e tons aquáticos',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerOceanDeep,
+    id: 'ocean-deep',
+    name: 'Oceano Profundo',
+    description: 'Azul marinho e tons aquáticos',
+    isLight: false,
+    category: 'dark',
   },
   'crimson-war': {
-    config: {
-      id: 'crimson-war',
-      name: 'Carmesim de Guerra',
-      description: 'Vermelho dramático e intenso',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerCrimsonWar,
+    id: 'crimson-war',
+    name: 'Carmesim de Guerra',
+    description: 'Vermelho dramático e intenso',
+    isLight: false,
+    category: 'dark',
   },
   'sunset-bronze': {
-    config: {
-      id: 'sunset-bronze',
-      name: 'Pôr do Sol Bronze',
-      description: 'Cores quentes do entardecer',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerSunsetBronze,
+    id: 'sunset-bronze',
+    name: 'Pôr do Sol Bronze',
+    description: 'Cores quentes do entardecer',
+    isLight: false,
+    category: 'dark',
   },
   'royal-purple': {
-    config: {
-      id: 'royal-purple',
-      name: 'Púrpura Real',
-      description: 'Luxo e sofisticação imperial',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerRoyalPurple,
+    id: 'royal-purple',
+    name: 'Púrpura Real',
+    description: 'Luxo e sofisticação imperial',
+    isLight: false,
+    category: 'dark',
   },
   'forest-emerald': {
-    config: {
-      id: 'forest-emerald',
-      name: 'Floresta Esmeralda',
-      description: 'Verde profundo e natural',
-      isLight: false,
-      category: 'dark',
-    },
-    bannerImage: bannerForestEmerald,
+    id: 'forest-emerald',
+    name: 'Floresta Esmeralda',
+    description: 'Verde profundo e natural',
+    isLight: false,
+    category: 'dark',
   },
+  // Light themes
   'arctic-frost': {
-    config: {
-      id: 'arctic-frost',
-      name: 'Gelo Ártico',
-      description: 'Branco gelado com tons azuis',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerArcticFrost,
+    id: 'arctic-frost',
+    name: 'Gelo Ártico',
+    description: 'Branco gelado com tons azuis',
+    isLight: true,
+    category: 'light',
   },
   'desert-sand': {
-    config: {
-      id: 'desert-sand',
-      name: 'Areia do Deserto',
-      description: 'Tons terrosos e arenosos',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerDesertSand,
+    id: 'desert-sand',
+    name: 'Areia do Deserto',
+    description: 'Tons terrosos e arenosos',
+    isLight: true,
+    category: 'light',
   },
   'cloud-silver': {
-    config: {
-      id: 'cloud-silver',
-      name: 'Nuvem Prateada',
-      description: 'Cinza elegante e moderno',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerCloudSilver,
+    id: 'cloud-silver',
+    name: 'Nuvem Prateada',
+    description: 'Cinza elegante e moderno',
+    isLight: true,
+    category: 'light',
   },
   'rose-garden': {
-    config: {
-      id: 'rose-garden',
-      name: 'Jardim de Rosas',
-      description: 'Rosa suave e romântico',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerRoseGarden,
+    id: 'rose-garden',
+    name: 'Jardim de Rosas',
+    description: 'Rosa suave e romântico',
+    isLight: true,
+    category: 'light',
   },
   'mint-fresh': {
-    config: {
-      id: 'mint-fresh',
-      name: 'Menta Fresca',
-      description: 'Verde menta refrescante',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerMintFresh,
+    id: 'mint-fresh',
+    name: 'Menta Fresca',
+    description: 'Verde menta refrescante',
+    isLight: true,
+    category: 'light',
   },
   'lavender-dream': {
-    config: {
-      id: 'lavender-dream',
-      name: 'Sonho Lavanda',
-      description: 'Lilás suave e relaxante',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerLavenderDream,
+    id: 'lavender-dream',
+    name: 'Sonho Lavanda',
+    description: 'Lilás suave e relaxante',
+    isLight: true,
+    category: 'light',
   },
   'peach-blossom': {
-    config: {
-      id: 'peach-blossom',
-      name: 'Flor de Pêssego',
-      description: 'Pêssego delicado e acolhedor',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerPeachBlossom,
+    id: 'peach-blossom',
+    name: 'Flor de Pêssego',
+    description: 'Pêssego delicado e acolhedor',
+    isLight: true,
+    category: 'light',
   },
   'sky-blue': {
-    config: {
-      id: 'sky-blue',
-      name: 'Céu Azul',
-      description: 'Azul claro e sereno',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerSkyBlue,
+    id: 'sky-blue',
+    name: 'Céu Azul',
+    description: 'Azul claro e sereno',
+    isLight: true,
+    category: 'light',
   },
   'cream-vanilla': {
-    config: {
-      id: 'cream-vanilla',
-      name: 'Creme Baunilha',
-      description: 'Tons creme suaves e elegantes',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerCreamVanilla,
+    id: 'cream-vanilla',
+    name: 'Creme Baunilha',
+    description: 'Tons creme suaves e elegantes',
+    isLight: true,
+    category: 'light',
   },
   'sage-morning': {
-    config: {
-      id: 'sage-morning',
-      name: 'Sálvia Matinal',
-      description: 'Verde sálvia calmante',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerSageMorning,
+    id: 'sage-morning',
+    name: 'Sálvia Matinal',
+    description: 'Verde sálvia calmante',
+    isLight: true,
+    category: 'light',
   },
   'coral-reef': {
-    config: {
-      id: 'coral-reef',
-      name: 'Recife de Coral',
-      description: 'Coral vibrante e tropical',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerCoralReef,
+    id: 'coral-reef',
+    name: 'Recife de Coral',
+    description: 'Coral vibrante e tropical',
+    isLight: true,
+    category: 'light',
   },
   'golden-hour': {
-    config: {
-      id: 'golden-hour',
-      name: 'Hora Dourada',
-      description: 'Dourado quente e luminoso',
-      isLight: true,
-      category: 'light',
-    },
-    bannerImage: bannerGoldenHour,
+    id: 'golden-hour',
+    name: 'Hora Dourada',
+    description: 'Dourado quente e luminoso',
+    isLight: true,
+    category: 'light',
+  },
+  // Business themes
+  'corporate-navy': {
+    id: 'corporate-navy',
+    name: 'Corporativo Marinho',
+    description: 'Azul marinho profissional e confiável',
+    isLight: false,
+    category: 'business',
+  },
+  'executive-charcoal': {
+    id: 'executive-charcoal',
+    name: 'Executivo Carvão',
+    description: 'Cinza escuro sofisticado e moderno',
+    isLight: false,
+    category: 'business',
+  },
+  'startup-teal': {
+    id: 'startup-teal',
+    name: 'Startup Teal',
+    description: 'Verde-azulado inovador e dinâmico',
+    isLight: false,
+    category: 'business',
+  },
+  'finance-green': {
+    id: 'finance-green',
+    name: 'Finanças Verde',
+    description: 'Verde clássico de prosperidade',
+    isLight: false,
+    category: 'business',
+  },
+  'consulting-slate': {
+    id: 'consulting-slate',
+    name: 'Consultoria Ardósia',
+    description: 'Azul-cinza elegante e confiável',
+    isLight: false,
+    category: 'business',
+  },
+  'tech-indigo': {
+    id: 'tech-indigo',
+    name: 'Tech Índigo',
+    description: 'Azul-violeta tecnológico e futurista',
+    isLight: false,
+    category: 'business',
+  },
+  'luxury-black': {
+    id: 'luxury-black',
+    name: 'Luxo Preto',
+    description: 'Preto premium com dourado sutil',
+    isLight: false,
+    category: 'business',
+  },
+  'modern-graphite': {
+    id: 'modern-graphite',
+    name: 'Grafite Moderno',
+    description: 'Cinza neutro contemporâneo',
+    isLight: false,
+    category: 'business',
+  },
+  'innovation-blue': {
+    id: 'innovation-blue',
+    name: 'Inovação Azul',
+    description: 'Azul elétrico vibrante e criativo',
+    isLight: false,
+    category: 'business',
+  },
+  'prestige-burgundy': {
+    id: 'prestige-burgundy',
+    name: 'Prestígio Borgonha',
+    description: 'Vermelho vinho elegante e exclusivo',
+    isLight: false,
+    category: 'business',
+  },
+  // Layout themes
+  'neon-gamer': {
+    id: 'neon-gamer',
+    name: 'Neon Gamer',
+    description: 'Cyber gaming com efeitos neon vibrantes',
+    isLight: false,
+    category: 'layout',
+  },
+  'minimal-zen': {
+    id: 'minimal-zen',
+    name: 'Minimalista Zen',
+    description: 'Design ultra limpo e contemplativo',
+    isLight: true,
+    category: 'layout',
+  },
+  'magazine-editorial': {
+    id: 'magazine-editorial',
+    name: 'Magazine Editorial',
+    description: 'Estilo revista com layout assimétrico',
+    isLight: false,
+    category: 'layout',
+  },
+  'retro-wave': {
+    id: 'retro-wave',
+    name: 'Retro Wave',
+    description: 'Nostálgia anos 80 com visuais ousados',
+    isLight: false,
+    category: 'layout',
+  },
+  'nature-organic': {
+    id: 'nature-organic',
+    name: 'Natureza Orgânica',
+    description: 'Formas fluidas inspiradas na natureza',
+    isLight: true,
+    category: 'layout',
+  },
+  'brutalist-raw': {
+    id: 'brutalist-raw',
+    name: 'Brutalista Cru',
+    description: 'Design cru e impactante em blocos',
+    isLight: false,
+    category: 'layout',
+  },
+  'glassmorphism': {
+    id: 'glassmorphism',
+    name: 'Glassmorphism',
+    description: 'Efeitos de vidro fosco modernos',
+    isLight: false,
+    category: 'layout',
+  },
+  'split-screen': {
+    id: 'split-screen',
+    name: 'Tela Dividida',
+    description: 'Layout equilibrado em duas metades',
+    isLight: false,
+    category: 'layout',
+  },
+  'gradient-flow': {
+    id: 'gradient-flow',
+    name: 'Fluxo Gradiente',
+    description: 'Gradientes animados e fluidos',
+    isLight: false,
+    category: 'layout',
+  },
+  'card-stack': {
+    id: 'card-stack',
+    name: 'Cartões Empilhados',
+    description: 'Efeito de cartões sobrepostos',
+    isLight: false,
+    category: 'layout',
   },
 };
 
 // Build theme registry from configurations
+// Note: bannerImage is now dynamically loaded, placeholder empty string
 export const themeRegistry: Record<string, Theme> = Object.fromEntries(
-  Object.entries(themeConfigs).map(([id, { config, bannerImage }]) => [
+  Object.entries(themeConfigs).map(([id, config]) => [
     id,
     {
       config,
       components: defaultComponents,
-      assets: { bannerImage },
+      assets: { bannerImage: '' }, // Loaded dynamically
     },
   ])
 );

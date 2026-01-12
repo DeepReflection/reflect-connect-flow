@@ -1,0 +1,23 @@
+/* Startup Teal Theme - Verde-azulado inovador */
+.theme-startup-teal {
+  --background: 180 30% 8%;
+  --foreground: 180 15% 95%;
+  --card: 180 30% 12%;
+  --card-foreground: 180 15% 95%;
+  --popover: 180 30% 10%;
+  --popover-foreground: 180 15% 95%;
+  --primary: 175 70% 45%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 180 25% 18%;
+  --secondary-foreground: 180 15% 90%;
+  --muted: 180 25% 15%;
+  --muted-foreground: 180 15% 60%;
+  --accent: 160 60% 50%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 180 25% 20%;
+  --input: 180 25% 18%;
+  --ring: 175 70% 45%;
+  --radius: 0.75rem;
+}
