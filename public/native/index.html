@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outro Brasileiro no D-Day</title>
+  <meta name="description" content="Projeto dedicado à criação de conteúdos audiovisuais sobre a Segunda Guerra Mundial">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-vintage-sepia">
+  <!-- Theme Selector -->
+  <div id="theme-selector" class="theme-selector">
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Selecionar tema">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+    <div id="theme-dropdown" class="theme-dropdown hidden">
+      <div class="theme-category">
+        <h4>Temas Escuros</h4>
+        <button class="theme-option" data-theme="vintage-sepia">Sépia Vintage</button>
+        <button class="theme-option" data-theme="midnight-gold">Ouro da Meia-Noite</button>
+        <button class="theme-option" data-theme="military-olive">Oliva Militar</button>
+        <button class="theme-option" data-theme="ocean-deep">Oceano Profundo</button>
+        <button class="theme-option" data-theme="crimson-war">Carmesim de Guerra</button>
+        <button class="theme-option" data-theme="sunset-bronze">Bronze do Pôr do Sol</button>
+        <button class="theme-option" data-theme="royal-purple">Púrpura Real</button>
+        <button class="theme-option" data-theme="forest-emerald">Esmeralda da Floresta</button>
+      </div>
+      <div class="theme-category">
+        <h4>Temas Claros</h4>
+        <button class="theme-option" data-theme="arctic-frost">Gelo Ártico</button>
+        <button class="theme-option" data-theme="desert-sand">Areia do Deserto</button>
+        <button class="theme-option" data-theme="cloud-silver">Prata das Nuvens</button>
+        <button class="theme-option" data-theme="rose-garden">Jardim de Rosas</button>
+        <button class="theme-option" data-theme="mint-fresh">Menta Fresca</button>
+        <button class="theme-option" data-theme="lavender-dream">Sonho de Lavanda</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-banner">
+      <img id="hero-banner-img" src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=1200&h=400&fit=crop" alt="Banner">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="avatar-container">
+        <img src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" alt="Avatar" class="avatar">
+      </div>
+      <h1 class="hero-title">outrobrasileironodiad</h1>
+      <p class="hero-description">O Projeto Outro Brasileiro é uma iniciativa independente e sem fins lucrativos dedicada à criação de conteúdos audiovisuais sobre a Segunda Guerra Mundial, explorando de forma aprofundada seus principais eventos, batalhas, personagens e contextos históricos.</p>
+      <button class="share-btn" id="share-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+        Compartilhar
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- CTA Button -->
+    <a href="#contact" class="cta-button">Fale Comigo</a>
+
+    <!-- Social Links -->
+    <section class="social-links">
+      <a href="https://www.instagram.com/outrobrasileironodiad/" target="_blank" rel="noopener" class="social-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@outrobrasileironodiad9205" target="_blank" rel="noopener" class="social-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </section>
+  </main>
+
+  <!-- Agenda Section -->
+  <section class="section agenda-section">
+    <div class="container">
+      <h2 class="section-title">Agenda</h2>
+      <div class="events-grid" id="events-grid">
+        <!-- Events will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products-section">
+    <div class="container">
+      <h2 class="section-title">Produtos</h2>
+      <div class="products-grid" id="products-grid">
+        <!-- Products will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services-section">
+    <div class="container">
+      <h2 class="section-title">Serviços</h2>
+      <div class="services-grid" id="services-grid">
+        <!-- Services will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reflections Section -->
+  <section class="section reflections-section">
+    <div class="container">
+      <h2 class="section-title">Minhas Reflexões</h2>
+      <div class="reflections-grid" id="reflections-grid">
+        <!-- Reflections will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Outro Brasileiro no D-Day</p>
+    <p class="footer-subtitle">Preservando a história para as futuras gerações</p>
+  </footer>
+
+  <!-- Chatbot Button -->
+  <button id="chatbot-btn" class="chatbot-btn" aria-label="Abrir chat">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
