@@ -2,6 +2,15 @@
    Component Styles - Matching React Version
    ============================================ */
 
+/* Global Icon Styles */
+.icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* Theme Selector - Fixed top bar like React */
 .theme-selector-bar {
   position: fixed;
@@ -836,6 +845,27 @@
   font-size: 0.875rem;
   font-weight: 500;
   transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.event-btn .icon,
+.event-btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .event-btn {
+    font-size: 1rem;
+  }
+  .event-btn .icon,
+  .event-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
 
 .event-btn:hover {
@@ -843,7 +873,7 @@
 }
 
 .event-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 /* Products & Services Grid */
@@ -954,6 +984,26 @@
   font-weight: 500;
   transition: background-color 0.2s ease;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.product-btn .icon,
+.product-btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .product-btn {
+    font-size: 1rem;
+  }
+  .product-btn .icon,
+  .product-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
 
 .product-btn:hover {
@@ -961,7 +1011,7 @@
 }
 
 .product-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .service-btn {
@@ -978,6 +1028,26 @@
   font-weight: 500;
   transition: all 0.2s ease;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.service-btn .icon,
+.service-btn svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .service-btn {
+    font-size: 1rem;
+  }
+  .service-btn .icon,
+  .service-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
 
 .service-btn:hover {
@@ -985,7 +1055,7 @@
 }
 
 .service-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 /* Reflections Grid */
