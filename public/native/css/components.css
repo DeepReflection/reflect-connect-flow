@@ -266,20 +266,21 @@
 }
 
 /* Hero Section - Classic Layout matching React */
+/* React has pt-14 (3.5rem) wrapper div around HeroSection */
 .hero-section {
   position: relative;
   z-index: 10;
-  min-height: 50vh;
+  min-height: calc(50vh + 3.5rem);
   display: flex;
   align-items: flex-end;
   padding-bottom: 2rem;
+  padding-top: 3.5rem; /* Compensate for fixed theme selector bar */
   overflow-x: hidden;
-  padding-top: 3.5rem;
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    min-height: 60vh;
+    min-height: calc(60vh + 3.5rem);
   }
 }
 
