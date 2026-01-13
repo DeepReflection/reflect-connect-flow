@@ -460,7 +460,7 @@
 
 .hero-description {
   font-size: 0.75rem;
-  line-height: 1.7;
+  line-height: 1.625; /* leading-relaxed in Tailwind */
   color: hsl(var(--foreground) / 0.8);
 }
 
