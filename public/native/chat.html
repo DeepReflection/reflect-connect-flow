@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chat com Outro Brasileiro - Segunda Guerra Mundial">
+  <title>Chat - Outro Brasileiro</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chat.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Chat Page Specific Styles */
+    .chat-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: hsl(var(--background));
+    }
+    
+    /* Hero Banner Header */
+    .chat-hero {
+      position: relative;
+      height: 12rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    @media (min-width: 768px) {
+      .chat-hero {
+        height: 14rem;
+      }
+    }
+    
+    .chat-hero-banner {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .chat-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, 
+        hsl(var(--background) / 0.3) 0%, 
+        hsl(var(--background) / 0.5) 50%, 
+        hsl(var(--background)) 100%
+      );
+    }
+    
+    /* Particles overlay */
+    .chat-hero-particles {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      overflow: hidden;
+    }
+    
+    .chat-particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: hsl(var(--primary));
+      animation: particleFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes particleFloat {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-30px);
+        opacity: 1;
+      }
+    }
+    
+    /* Top Navigation */
+    .chat-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+    }
+    
+    .chat-nav-btn {
+      padding: 0.625rem;
+      border-radius: 9999px;
+      background: hsl(var(--background) / 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    .chat-nav-btn:hover {
+      background: hsl(var(--background) / 0.8);
+    }
+    
+    .chat-nav-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    
+    /* Profile Card */
+    .chat-profile {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 1rem 1.5rem;
+    }
+    
+    .chat-profile-inner {
+      max-width: 42rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .chat-avatar-wrapper {
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    
+    .chat-avatar-glow {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 3px solid hsl(var(--primary) / 0.5);
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+      animation: avatarGlow 2s ease-in-out infinite;
+    }
+    
+    @media (min-width: 768px) {
+      .chat-avatar-glow {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+    
+    @keyframes avatarGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+      }
+    }
+    
+    .chat-avatar-glow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .chat-profile-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+      text-shadow: 0 2px 10px hsl(var(--background) / 0.5);
+    }
+    
+    @media (min-width: 768px) {
+      .chat-profile-name {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .chat-profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0.625rem;
+      margin-top: 0.5rem;
+      border-radius: 9999px;
+      background: hsl(var(--primary) / 0.2);
+      backdrop-filter: blur(4px);
+      border: 1px solid hsl(var(--primary) / 0.3);
+    }
+    
+    .chat-profile-badge svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      color: hsl(var(--primary));
+    }
+    
+    .chat-profile-badge span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: hsl(var(--primary));
+    }
+    
+    /* Messages Area */
+    .chat-messages-area {
+      flex: 1;
+      overflow-y: auto;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .chat-messages-container {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Message */
+    .chat-message {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .chat-message.user {
+      flex-direction: row-reverse;
+    }
+    
+    .chat-message-avatar {
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+    
+    .chat-message-avatar-inner {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chat-message.assistant .chat-message-avatar-inner {
+      background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+      border: 1px solid hsl(var(--primary) / 0.3);
+    }
+    
+    .chat-message.user .chat-message-avatar-inner {
+      background: hsl(var(--muted));
+      border: 1px solid hsl(var(--border));
+    }
+    
+    .chat-message-avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .chat-message-avatar-inner svg {
+      width: 1rem;
+      height: 1rem;
+      color: hsl(var(--muted-foreground));
+    }
+    
+    .chat-message-content {
+      max-width: 85%;
+    }
+    
+    .chat-message-bubble {
+      border-radius: 1rem;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 1px 3px hsl(var(--foreground) / 0.05);
+    }
+    
+    .chat-message.assistant .chat-message-bubble {
+      background: hsl(var(--card) / 0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      border-top-left-radius: 0.375rem;
+    }
+    
+    .chat-message.user .chat-message-bubble {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      border-top-right-radius: 0.375rem;
+    }
+    
+    .chat-message-bubble p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    
+    .chat-message-time {
+      display: block;
+      font-size: 0.625rem;
+      color: hsl(var(--muted-foreground));
+      margin-top: 0.375rem;
+      padding: 0 0.25rem;
+    }
+    
+    .chat-message.user .chat-message-time {
+      text-align: right;
+    }
+    
+    /* Typing Indicator */
+    .chat-typing {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .chat-typing-dots {
+      display: flex;
+      gap: 0.375rem;
+      padding: 0.75rem 1rem;
+      background: hsl(var(--card) / 0.8);
+      backdrop-filter: blur(4px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      border-radius: 1rem;
+      border-top-left-radius: 0.375rem;
+    }
+    
+    .chat-typing-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: hsl(var(--primary) / 0.6);
+      animation: typingBounce 0.5s ease-in-out infinite;
+    }
+    
+    .chat-typing-dot:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    
+    .chat-typing-dot:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    
+    @keyframes typingBounce {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translateY(-5px);
+        opacity: 1;
+      }
+    }
+    
+    /* Quick Actions */
+    .chat-quick-actions {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid hsl(var(--border) / 0.3);
+      background: hsl(var(--background) / 0.8);
+      backdrop-filter: blur(12px);
+    }
+    
+    .chat-quick-actions-inner {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+    
+    .chat-quick-actions-scroll {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .chat-quick-actions-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .chat-quick-btn {
+      flex-shrink: 0;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      background: hsl(var(--secondary) / 0.5);
+      border: 1px solid hsl(var(--border) / 0.5);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .chat-quick-btn:hover {
+      background: hsl(var(--secondary));
+      border-color: hsl(var(--primary) / 0.3);
+    }
+    
+    /* Input Area */
+    .chat-input-area {
+      padding: 1rem;
+      background: hsl(var(--background));
+      border-top: 1px solid hsl(var(--border) / 0.5);
+    }
+    
+    .chat-input-container {
+      max-width: 42rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .chat-voice-btn {
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background: hsl(var(--secondary) / 0.5);
+      border: none;
+      color: hsl(var(--muted-foreground));
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .chat-voice-btn:hover {
+      background: hsl(var(--secondary));
+      color: hsl(var(--foreground));
+    }
+    
+    .chat-voice-btn.listening {
+      background: hsl(var(--destructive));
+      color: hsl(var(--destructive-foreground));
+    }
+    
+    .chat-voice-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    
+    .chat-input-wrapper {
+      flex: 1;
+      position: relative;
+    }
+    
+    .chat-input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: hsl(var(--secondary) / 0.3);
+      border: 1px solid hsl(var(--border) / 0.5);
+      border-radius: 0.75rem;
+      font-size: 0.875rem;
+      color: hsl(var(--foreground));
+      transition: all 0.2s ease;
+    }
+    
+    .chat-input-field::placeholder {
+      color: hsl(var(--muted-foreground));
+    }
+    
+    .chat-input-field:focus {
+      outline: none;
+      border-color: hsl(var(--primary) / 0.5);
+      background: hsl(var(--secondary) / 0.5);
+    }
+    
+    .chat-send-btn {
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background: hsl(var(--primary));
+      border: none;
+      color: hsl(var(--primary-foreground));
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px hsl(var(--primary) / 0.25);
+    }
+    
+    .chat-send-btn:hover {
+      background: hsl(var(--primary) / 0.9);
+    }
+    
+    .chat-send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .chat-send-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    
+    /* Listening indicator */
+    .chat-listening-indicator {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: hsl(var(--destructive) / 0.1);
+      border-radius: 9999px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    .chat-listening-indicator.active {
+      display: flex;
+    }
+    
+    .chat-listening-indicator svg {
+      width: 1rem;
+      height: 1rem;
+      color: hsl(var(--destructive));
+    }
+    
+    .chat-listening-indicator span {
+      font-size: 0.75rem;
+      color: hsl(var(--destructive));
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+<body data-theme="vintage-sepia" data-profile="default">
+  <div class="chat-page">
+    <!-- Hero Banner Header -->
+    <div class="chat-hero">
+      <!-- Banner Image -->
+      <img id="chat-banner" class="chat-hero-banner" src="assets/themes/vintage-sepia/images/banner.jpg" alt="Chat Banner">
+      
+      <!-- Gradient Overlay -->
+      <div class="chat-hero-overlay"></div>
+      
+      <!-- Particles Overlay -->
+      <div class="chat-hero-particles" id="chat-particles"></div>
+      
+      <!-- Top Navigation -->
+      <div class="chat-nav">
+        <a href="index.html" class="chat-nav-btn" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+          </svg>
+        </a>
+        
+        <button class="chat-nav-btn" aria-label="Mais opções">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="12" cy="5" r="1"></circle>
+            <circle cx="12" cy="19" r="1"></circle>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Profile Card -->
+      <div class="chat-profile">
+        <div class="chat-profile-inner">
+          <div class="chat-avatar-wrapper">
+            <div class="chat-avatar-glow">
+              <img id="chat-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" alt="AI Assistant">
+            </div>
+          </div>
+          <h1 class="chat-profile-name" id="chat-name">Outro Brasileiro IA</h1>
+          <div class="chat-profile-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+            </svg>
+            <span>Especialista WWII</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Messages Area -->
+    <div class="chat-messages-area">
+      <div class="chat-messages-container" id="chat-messages">
+        <!-- Messages will be inserted here -->
+      </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="chat-quick-actions">
+      <div class="chat-quick-actions-inner">
+        <div class="chat-quick-actions-scroll" id="chat-quick-actions">
+          <button class="chat-quick-btn" data-query="Me conte sobre o Dia D">🏖️ Dia D</button>
+          <button class="chat-quick-btn" data-query="Qual foi o papel do Brasil na guerra?">🇧🇷 FEB</button>
+          <button class="chat-quick-btn" data-query="Quem foram os principais generais?">⭐ Generais</button>
+          <button class="chat-quick-btn" data-query="Quais foram as batalhas decisivas?">⚔️ Batalhas</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <div class="chat-input-container">
+        <button class="chat-voice-btn" id="chat-voice-btn" aria-label="Gravar voz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" x2="12" y1="19" y2="22"></line>
+          </svg>
+        </button>
+        
+        <div class="chat-input-wrapper">
+          <input type="text" class="chat-input-field" id="chat-page-input" placeholder="Digite sua mensagem...">
+        </div>
+        
+        <button class="chat-send-btn" id="chat-send-btn" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 2-7 20-4-9-9-4Z"></path>
+            <path d="M22 2 11 13"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="chat-listening-indicator" id="chat-listening-indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" x2="12" y1="19" y2="22"></line>
+        </svg>
+        <span>Ouvindo...</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script>
+    // Initial messages
+    const INITIAL_MESSAGES = [
+      {
+        id: '1',
+        role: 'assistant',
+        content: 'Olá! Sou o assistente do Outro Brasileiro no D-Day. 🎖️ Posso te ajudar com informações sobre a Segunda Guerra Mundial, os vídeos do canal, ou responder suas curiosidades históricas. Como posso te ajudar hoje?',
+        timestamp: new Date(Date.now() - 300000),
+      },
+      {
+        id: '2',
+        role: 'user',
+        content: 'Oi! Quero saber mais sobre o Dia D. O que aconteceu nesse dia?',
+        timestamp: new Date(Date.now() - 280000),
+      },
+      {
+        id: '3',
+        role: 'assistant',
+        content: 'O Dia D, ocorrido em 6 de junho de 1944, foi a maior operação anfíbia da história militar! 🏖️⚔️\n\nNesse dia, mais de 156.000 soldados aliados desembarcaram nas praias da Normandia, na França, para libertar a Europa Ocidental do domínio nazista.\n\nAs cinco praias de desembarque foram:\n• Utah e Omaha (americanos)\n• Gold e Sword (britânicos)\n• Juno (canadenses)\n\nFoi um momento decisivo que mudou o rumo da Segunda Guerra Mundial!',
+        timestamp: new Date(Date.now() - 260000),
+      },
+      {
+        id: '4',
+        role: 'user',
+        content: 'Incrível! E o Brasil participou da guerra?',
+        timestamp: new Date(Date.now() - 200000),
+      },
+      {
+        id: '5',
+        role: 'assistant',
+        content: 'Sim! O Brasil teve uma participação muito importante! 🇧🇷\n\nA Força Expedicionária Brasileira (FEB) foi enviada à Itália em 1944 com cerca de 25.000 soldados. Eles lutaram bravamente em diversas batalhas, sendo a mais famosa a conquista de Monte Castello.\n\nOs pracinhas, como ficaram conhecidos, enfrentaram condições extremas nos Apeninos italianos e foram fundamentais para a vitória aliada na Campanha da Itália.\n\nO lema da FEB era "A cobra vai fumar" - e fumou! 🐍💨',
+        timestamp: new Date(Date.now() - 180000),
+      },
+      {
+        id: '6',
+        role: 'user',
+        content: 'Muito legal! Quem foi o General Patton?',
+        timestamp: new Date(Date.now() - 120000),
+      },
+      {
+        id: '7',
+        role: 'assistant',
+        content: 'George S. Patton foi um dos generais mais lendários da Segunda Guerra Mundial! ⭐\n\nConhecido por seu estilo agressivo e carismático, ele comandou o 3º Exército dos EUA e ficou famoso por:\n\n• Liderar a libertação da França após o Dia D\n• A incrível corrida através da Europa\n• Socorrer as tropas cercadas em Bastogne durante a Batalha do Bulge\n\nPatton acreditava que "a guerra é o inferno, mas a batalha é o teste supremo do homem". Era controverso, mas seus soldados o admiravam pela coragem e liderança no campo de batalha! 🎖️',
+        timestamp: new Date(Date.now() - 60000),
+      },
+    ];
+    
+    const AI_RESPONSES = [
+      'Excelente pergunta! A Segunda Guerra Mundial foi um conflito que envolveu praticamente todas as nações do mundo, divididas em duas alianças militares opostas: os Aliados e o Eixo.',
+      'O Dia D, ocorrido em 6 de junho de 1944, foi a maior invasão anfíbia da história. Mais de 156.000 soldados aliados desembarcaram nas praias da Normandia.',
+      'O General Patton foi um dos comandantes mais carismáticos e controversos da guerra, conhecido por sua liderança agressiva e estratégia audaciosa.',
+      'Os brasileiros da FEB (Força Expedicionária Brasileira) lutaram bravamente na Itália, sendo fundamentais na conquista de Monte Castello.',
+    ];
+    
+    let messages = [...INITIAL_MESSAGES];
+    let isTyping = false;
+    let isListening = false;
+    
+    const messagesContainer = document.getElementById('chat-messages');
+    const inputField = document.getElementById('chat-page-input');
+    const sendBtn = document.getElementById('chat-send-btn');
+    const voiceBtn = document.getElementById('chat-voice-btn');
+    const listeningIndicator = document.getElementById('chat-listening-indicator');
+    const quickActionsContainer = document.getElementById('chat-quick-actions');
+    const avatarUrl = 'https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png';
+    
+    // Create particles
+    function createParticles() {
+      const container = document.getElementById('chat-particles');
+      for (let i = 0; i < 12; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'chat-particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${3 + Math.random() * 2}s`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(particle);
+      }
+    }
+    
+    // Render a single message
+    function renderMessage(message) {
+      const div = document.createElement('div');
+      div.className = `chat-message ${message.role}`;
+      
+      const time = message.timestamp.toLocaleTimeString('pt-BR', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+      
+      if (message.role === 'assistant') {
+        div.innerHTML = `
+          <div class="chat-message-avatar">
+            <div class="chat-message-avatar-inner">
+              <img src="${avatarUrl}" alt="AI">
+            </div>
+          </div>
+          <div class="chat-message-content">
+            <div class="chat-message-bubble">
+              <p>${message.content}</p>
+            </div>
+            <span class="chat-message-time">${time}</span>
+          </div>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="chat-message-avatar">
+            <div class="chat-message-avatar-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="chat-message-content">
+            <div class="chat-message-bubble">
+              <p>${message.content}</p>
+            </div>
+            <span class="chat-message-time">${time}</span>
+          </div>
+        `;
+      }
+      
+      messagesContainer.appendChild(div);
+    }
+    
+    // Render all messages
+    function renderMessages() {
+      messagesContainer.innerHTML = '';
+      messages.forEach(renderMessage);
+      scrollToBottom();
+    }
+    
+    // Show typing indicator
+    function showTyping() {
+      const div = document.createElement('div');
+      div.className = 'chat-typing';
+      div.id = 'typing-indicator';
+      div.innerHTML = `
+        <div class="chat-message-avatar">
+          <div class="chat-message-avatar-inner">
+            <img src="${avatarUrl}" alt="AI">
+          </div>
+        </div>
+        <div class="chat-typing-dots">
+          <div class="chat-typing-dot"></div>
+          <div class="chat-typing-dot"></div>
+          <div class="chat-typing-dot"></div>
+        </div>
+      `;
+      messagesContainer.appendChild(div);
+      scrollToBottom();
+    }
+    
+    // Hide typing indicator
+    function hideTyping() {
+      const indicator = document.getElementById('typing-indicator');
+      indicator?.remove();
+    }
+    
+    // Scroll to bottom
+    function scrollToBottom() {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    // Send message
+    function sendMessage() {
+      const text = inputField.value.trim();
+      if (!text || isTyping) return;
+      
+      const userMessage = {
+        id: Date.now().toString(),
+        role: 'user',
+        content: text,
+        timestamp: new Date(),
+      };
+      
+      messages.push(userMessage);
+      renderMessage(userMessage);
+      inputField.value = '';
+      scrollToBottom();
+      
+      isTyping = true;
+      showTyping();
+      
+      setTimeout(() => {
+        hideTyping();
+        
+        const aiMessage = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: AI_RESPONSES[Math.floor(Math.random() * AI_RESPONSES.length)],
+          timestamp: new Date(),
+        };
+        
+        messages.push(aiMessage);
+        renderMessage(aiMessage);
+        scrollToBottom();
+        isTyping = false;
+      }, 1000 + Math.random() * 1000);
+    }
+    
+    // Toggle voice
+    function toggleVoice() {
+      isListening = !isListening;
+      voiceBtn.classList.toggle('listening', isListening);
+      listeningIndicator.classList.toggle('active', isListening);
+    }
+    
+    // Event listeners
+    sendBtn.addEventListener('click', sendMessage);
+    inputField.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+    voiceBtn.addEventListener('click', toggleVoice);
+    
+    // Quick actions
+    quickActionsContainer.querySelectorAll('.chat-quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        inputField.value = btn.dataset.query;
+        inputField.focus();
+      });
+    });
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      renderMessages();
+      
+      // Apply saved theme
+      const savedTheme = localStorage.getItem('selectedTheme') || 'vintage-sepia';
+      document.body.dataset.theme = savedTheme;
+      
+      // Update banner based on theme
+      const banner = document.getElementById('chat-banner');
+      if (banner) {
+        banner.src = `assets/themes/${savedTheme}/images/banner.jpg`;
+      }
+    });
+  </script>
+</body>
+</html>
