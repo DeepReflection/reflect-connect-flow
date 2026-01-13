@@ -55,6 +55,7 @@ class ThemeManager {
     this.currentTheme = localStorage.getItem('native-theme') || 'vintage-sepia';
     this.themeToggle = document.getElementById('theme-toggle');
     this.themeDropdown = document.getElementById('theme-dropdown');
+    this.bannerImg = document.getElementById('hero-banner-img');
     
     this.init();
   }
@@ -135,6 +136,11 @@ class ThemeManager {
     
     // Add current theme class
     document.body.classList.add(`theme-${themeId}`);
+    
+    // Update banner image - use local assets
+    if (this.bannerImg) {
+      this.bannerImg.src = `assets/themes/${themeId}/images/banner.jpg`;
+    }
     
     // Update active state in dropdown
     this.updateActiveState();
