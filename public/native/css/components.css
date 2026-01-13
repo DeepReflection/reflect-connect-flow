@@ -1017,8 +1017,22 @@
   object-fit: cover;
 }
 
+/* Show icon when image fails or while loading */
+.chatbot-btn img[src=""],
+.chatbot-btn img:not([src]) {
+  display: none;
+}
+
+.chatbot-btn:has(img[src=""]) svg,
+.chatbot-btn:has(img:not([src])) svg {
+  display: block;
+}
+
 .chatbot-btn svg {
   display: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: hsl(var(--foreground));
 }
 
 .chatbot-btn:hover {
