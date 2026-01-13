@@ -17,7 +17,7 @@ html.theme-cloud-silver {
   --border: 220 15% 85%;
   --input: 220 10% 90%;
   --ring: 220 25% 45%;
-  --gradient-hero: linear-gradient(180deg, hsla(220, 15%, 45%, 0.5) 0%, hsla(220, 15%, 85%, 0.85) 60%, hsl(220, 15%, 95%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Cloud Silver - Hero specific styles */

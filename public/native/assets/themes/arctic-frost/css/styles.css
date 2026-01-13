@@ -17,7 +17,7 @@ html.theme-arctic-frost {
   --border: 210 20% 85%;
   --input: 210 20% 92%;
   --ring: 200 80% 45%;
-  --gradient-hero: linear-gradient(180deg, hsla(210, 30%, 45%, 0.5) 0%, hsla(210, 30%, 85%, 0.85) 60%, hsl(210, 30%, 96%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Arctic Frost - Hero specific styles */

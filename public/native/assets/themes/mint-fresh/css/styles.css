@@ -17,7 +17,7 @@ html.theme-mint-fresh {
   --border: 160 18% 85%;
   --input: 160 20% 90%;
   --ring: 165 60% 40%;
-  --gradient-hero: linear-gradient(180deg, hsla(160, 30%, 40%, 0.5) 0%, hsla(160, 30%, 85%, 0.85) 60%, hsl(160, 30%, 95%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Mint Fresh - Hero specific styles */

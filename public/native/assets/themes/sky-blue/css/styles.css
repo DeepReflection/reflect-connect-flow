@@ -17,7 +17,7 @@ html.theme-sky-blue {
   --border: 200 20% 88%;
   --input: 200 22% 92%;
   --ring: 200 80% 50%;
-  --gradient-hero: linear-gradient(180deg, hsla(200, 35%, 45%, 0.5) 0%, hsla(200, 35%, 85%, 0.85) 60%, hsl(200, 35%, 96%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Sky Blue - Hero specific styles */
