@@ -272,7 +272,7 @@ html.theme-desert-sand {
   --border: 35 18% 82%;
   --input: 35 15% 88%;
   --ring: 30 65% 50%;
-  --gradient-hero: linear-gradient(180deg, hsla(35, 25%, 60%, 0.7) 0%, hsl(35, 25%, 94%) 100%);
+  --gradient-hero: linear-gradient(180deg, hsla(35, 25%, 78%, 0.3) 0%, hsl(35, 25%, 94%) 100%);
 }
 
 /* THEME: Cloud Silver (Light) */
