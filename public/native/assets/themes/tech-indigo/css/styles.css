@@ -1,0 +1,21 @@
+/* Tech Indigo Theme - Azul-violeta tecnológico e futurista */
+html.theme-tech-indigo {
+  --background: 250 30% 9%;
+  --foreground: 245 22% 92%;
+  --card: 250 28% 13%;
+  --card-foreground: 245 22% 92%;
+  --popover: 250 28% 11%;
+  --popover-foreground: 245 22% 92%;
+  --primary: 245 75% 60%;
+  --primary-foreground: 250 30% 8%;
+  --secondary: 250 22% 18%;
+  --secondary-foreground: 245 22% 88%;
+  --muted: 250 18% 20%;
+  --muted-foreground: 245 14% 55%;
+  --accent: 255 65% 55%;
+  --accent-foreground: 250 30% 8%;
+  --border: 250 22% 22%;
+  --input: 250 22% 16%;
+  --ring: 245 75% 60%;
+  --gradient-hero: linear-gradient(180deg, hsla(250, 30%, 5%, 0.3) 0%, hsl(250, 30%, 9%) 100%);
+}

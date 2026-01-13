@@ -1,0 +1,38 @@
+/* Peach Blossom Theme - Pêssego delicado e acolhedor */
+html.theme-peach-blossom {
+  --background: 25 40% 95%;
+  --foreground: 20 30% 15%;
+  --card: 25 35% 100%;
+  --card-foreground: 20 30% 15%;
+  --popover: 25 35% 98%;
+  --popover-foreground: 20 30% 15%;
+  --primary: 20 75% 55%;
+  --primary-foreground: 25 40% 98%;
+  --secondary: 25 25% 92%;
+  --secondary-foreground: 20 30% 18%;
+  --muted: 25 20% 90%;
+  --muted-foreground: 20 18% 45%;
+  --accent: 15 70% 50%;
+  --accent-foreground: 25 40% 98%;
+  --border: 25 22% 88%;
+  --input: 25 25% 92%;
+  --ring: 20 75% 55%;
+  --gradient-hero: linear-gradient(180deg, hsla(25, 40%, 45%, 0.5) 0%, hsla(25, 40%, 85%, 0.85) 60%, hsl(25, 40%, 95%) 100%);
+}
+
+/* Peach Blossom - Hero specific styles */
+html.theme-peach-blossom .hero-banner img {
+  filter: saturate(1.15) brightness(0.95);
+}
+html.theme-peach-blossom .avatar-wrapper {
+  border-color: hsl(20 75% 55% / 0.4);
+  box-shadow: 0 0 25px hsl(20 75% 55% / 0.25);
+}
+html.theme-peach-blossom .avatar-pulse {
+  border-color: hsl(20 75% 55% / 0.15);
+}
+html.theme-peach-blossom .hero-info-card {
+  background: hsl(25 35% 100% / 0.92);
+  border-color: hsl(25 22% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(25, 30%, 30%, 0.12);
+}

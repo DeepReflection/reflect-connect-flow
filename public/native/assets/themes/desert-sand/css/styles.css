@@ -1,0 +1,38 @@
+/* Desert Sand Theme - Tons terrosos e arenosos */
+html.theme-desert-sand {
+  --background: 35 25% 94%;
+  --foreground: 30 30% 15%;
+  --card: 35 20% 98%;
+  --card-foreground: 30 30% 15%;
+  --popover: 35 20% 96%;
+  --popover-foreground: 30 30% 15%;
+  --primary: 30 65% 50%;
+  --primary-foreground: 35 25% 98%;
+  --secondary: 35 15% 88%;
+  --secondary-foreground: 30 30% 18%;
+  --muted: 35 12% 85%;
+  --muted-foreground: 30 15% 45%;
+  --accent: 25 70% 45%;
+  --accent-foreground: 35 25% 98%;
+  --border: 35 18% 82%;
+  --input: 35 15% 88%;
+  --ring: 30 65% 50%;
+  --gradient-hero: linear-gradient(180deg, hsla(30, 30%, 40%, 0.6) 0%, hsla(35, 25%, 85%, 0.85) 60%, hsl(35, 25%, 94%) 100%);
+}
+
+/* Desert Sand - Hero specific styles */
+html.theme-desert-sand .hero-banner img {
+  filter: sepia(15%) saturate(1.1);
+}
+html.theme-desert-sand .avatar-wrapper {
+  border-color: hsl(30 65% 50% / 0.4);
+  box-shadow: 0 0 25px hsl(30 65% 50% / 0.25);
+}
+html.theme-desert-sand .avatar-pulse {
+  border-color: hsl(30 65% 50% / 0.15);
+}
+html.theme-desert-sand .hero-info-card {
+  background: hsl(35 20% 98% / 0.92);
+  border-color: hsl(35 18% 82% / 0.6);
+  box-shadow: 0 4px 20px hsla(30, 20%, 30%, 0.12);
+}

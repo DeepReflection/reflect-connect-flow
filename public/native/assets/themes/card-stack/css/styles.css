@@ -1,0 +1,38 @@
+/* Card Stack Theme - Efeito de cartões sobrepostos */
+html.theme-card-stack {
+  --background: 45 30% 94%;
+  --foreground: 40 30% 12%;
+  --card: 45 25% 100%;
+  --card-foreground: 40 30% 12%;
+  --popover: 45 25% 98%;
+  --popover-foreground: 40 30% 12%;
+  --primary: 40 50% 45%;
+  --primary-foreground: 45 30% 98%;
+  --secondary: 45 20% 90%;
+  --secondary-foreground: 40 30% 15%;
+  --muted: 45 15% 88%;
+  --muted-foreground: 40 18% 42%;
+  --accent: 35 45% 40%;
+  --accent-foreground: 45 30% 98%;
+  --border: 45 22% 85%;
+  --input: 45 20% 92%;
+  --ring: 40 50% 45%;
+  --gradient-hero: linear-gradient(180deg, hsla(45, 30%, 45%, 0.5) 0%, hsla(45, 30%, 85%, 0.85) 60%, hsl(45, 30%, 94%) 100%);
+}
+
+/* Card Stack - Hero specific styles */
+html.theme-card-stack .hero-banner img {
+  filter: sepia(8%) saturate(1.05) brightness(0.95);
+}
+html.theme-card-stack .avatar-wrapper {
+  border-color: hsl(40 50% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(40 50% 45% / 0.25);
+}
+html.theme-card-stack .avatar-pulse {
+  border-color: hsl(40 50% 45% / 0.15);
+}
+html.theme-card-stack .hero-info-card {
+  background: hsl(45 25% 100% / 0.92);
+  border-color: hsl(45 22% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(45, 25%, 30%, 0.12);
+}

@@ -1,0 +1,38 @@
+/* Arctic Frost Theme - Branco gelado com tons azuis */
+html.theme-arctic-frost {
+  --background: 210 30% 96%;
+  --foreground: 210 25% 12%;
+  --card: 210 25% 100%;
+  --card-foreground: 210 25% 12%;
+  --popover: 210 25% 98%;
+  --popover-foreground: 210 25% 12%;
+  --primary: 200 80% 45%;
+  --primary-foreground: 210 30% 98%;
+  --secondary: 210 20% 92%;
+  --secondary-foreground: 210 25% 15%;
+  --muted: 210 15% 90%;
+  --muted-foreground: 210 15% 45%;
+  --accent: 195 70% 40%;
+  --accent-foreground: 210 30% 98%;
+  --border: 210 20% 85%;
+  --input: 210 20% 92%;
+  --ring: 200 80% 45%;
+  --gradient-hero: linear-gradient(180deg, hsla(210, 30%, 45%, 0.5) 0%, hsla(210, 30%, 85%, 0.85) 60%, hsl(210, 30%, 96%) 100%);
+}
+
+/* Arctic Frost - Hero specific styles */
+html.theme-arctic-frost .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-arctic-frost .avatar-wrapper {
+  border-color: hsl(200 80% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(200 80% 45% / 0.25);
+}
+html.theme-arctic-frost .avatar-pulse {
+  border-color: hsl(200 80% 45% / 0.15);
+}
+html.theme-arctic-frost .hero-info-card {
+  background: hsl(210 25% 100% / 0.92);
+  border-color: hsl(210 20% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(210, 25%, 30%, 0.12);
+}

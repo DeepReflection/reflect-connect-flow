@@ -1,0 +1,21 @@
+/* Glassmorphism Theme - Efeitos de vidro fosco modernos */
+html.theme-glassmorphism {
+  --background: 220 40% 12%;
+  --foreground: 215 30% 95%;
+  --card: 220 35% 18%;
+  --card-foreground: 215 30% 95%;
+  --popover: 220 35% 15%;
+  --popover-foreground: 215 30% 95%;
+  --primary: 215 90% 65%;
+  --primary-foreground: 220 40% 10%;
+  --secondary: 220 28% 25%;
+  --secondary-foreground: 215 30% 90%;
+  --muted: 220 22% 28%;
+  --muted-foreground: 215 20% 60%;
+  --accent: 270 70% 60%;
+  --accent-foreground: 220 40% 10%;
+  --border: 220 30% 30%;
+  --input: 220 28% 22%;
+  --ring: 215 90% 65%;
+  --gradient-hero: linear-gradient(180deg, hsla(220, 40%, 6%, 0.3) 0%, hsl(220, 40%, 12%) 100%);
+}

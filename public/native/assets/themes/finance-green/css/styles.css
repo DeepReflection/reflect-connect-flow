@@ -1,0 +1,21 @@
+/* Finance Green Theme - Verde clássico de prosperidade */
+html.theme-finance-green {
+  --background: 150 25% 8%;
+  --foreground: 145 18% 92%;
+  --card: 150 22% 12%;
+  --card-foreground: 145 18% 92%;
+  --popover: 150 22% 10%;
+  --popover-foreground: 145 18% 92%;
+  --primary: 145 60% 42%;
+  --primary-foreground: 150 25% 8%;
+  --secondary: 150 18% 18%;
+  --secondary-foreground: 145 18% 88%;
+  --muted: 150 15% 20%;
+  --muted-foreground: 145 12% 55%;
+  --accent: 155 55% 38%;
+  --accent-foreground: 150 25% 8%;
+  --border: 150 18% 22%;
+  --input: 150 18% 16%;
+  --ring: 145 60% 42%;
+  --gradient-hero: linear-gradient(180deg, hsla(150, 25%, 4%, 0.3) 0%, hsl(150, 25%, 8%) 100%);
+}
