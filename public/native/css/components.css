@@ -1087,3 +1087,140 @@
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease forwards;
 }
+
+/* ============================================
+   MISSING UTILITIES FROM REACT VERSION
+   ============================================ */
+
+/* Text Gradient Bronze - Gradient text effect */
+.text-gradient-bronze {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+}
+
+/* Glow Primary - Box shadow glow effect */
+.glow-primary {
+  box-shadow: 0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
+}
+
+/* Link Card - Interactive link cards */
+.link-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  background: hsl(var(--card));
+}
+
+.link-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, transparent 100%);
+}
+
+.link-card:hover::before {
+  opacity: 1;
+}
+
+.link-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 10px 40px hsl(0 0% 0% / 0.4), 0 0 30px hsl(var(--primary) / 0.15);
+  transform: translateY(-2px);
+}
+
+/* Reflection Card - Hover effects */
+.reflection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  background: hsl(var(--card));
+}
+
+.reflection-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px hsl(0 0% 0% / 0.5), 0 0 40px hsl(var(--primary) / 0.2);
+}
+
+/* Primary Button - Gradient button */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  box-shadow: 0 4px 20px hsl(var(--primary) / 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 30px hsl(var(--primary) / 0.5);
+  transform: translateY(-2px);
+}
+
+/* Floating Particles Container */
+.floating-particles {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Individual Particle */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  background: hsl(var(--primary));
+  animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0.3;
+  }
+}
+
+/* Noise Overlay - Film grain texture */
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Vignette - Radial gradient overlay */
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, hsl(var(--background) / 0.6) 100%);
+}
+
+/* Text Shadow Utilities */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px hsl(0 0% 0% / 0.5);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 20px hsl(0 0% 0% / 0.8);
+}
+
+/* Font Utilities */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
