@@ -4,54 +4,78 @@
 
 const THEME_CONFIG = {
   // Dark themes
-  'vintage-sepia': { name: 'Vintage Sépia', isLight: false },
-  'midnight-gold': { name: 'Midnight Gold', isLight: false },
-  'military-olive': { name: 'Military Olive', isLight: false },
-  'ocean-deep': { name: 'Ocean Deep', isLight: false },
-  'crimson-war': { name: 'Crimson War', isLight: false },
-  'sunset-bronze': { name: 'Sunset Bronze', isLight: false },
-  'royal-purple': { name: 'Royal Purple', isLight: false },
-  'forest-emerald': { name: 'Forest Emerald', isLight: false },
+  'vintage-sepia': { name: 'Vintage Sépia', isLight: false, isLayout: false },
+  'midnight-gold': { name: 'Meia-Noite Dourado', isLight: false, isLayout: false },
+  'military-olive': { name: 'Militar Oliva', isLight: false, isLayout: false },
+  'ocean-deep': { name: 'Oceano Profundo', isLight: false, isLayout: false },
+  'crimson-war': { name: 'Carmesim de Guerra', isLight: false, isLayout: false },
+  'sunset-bronze': { name: 'Pôr do Sol Bronze', isLight: false, isLayout: false },
+  'royal-purple': { name: 'Púrpura Real', isLight: false, isLayout: false },
+  'forest-emerald': { name: 'Floresta Esmeralda', isLight: false, isLayout: false },
   // Light themes
-  'arctic-frost': { name: 'Arctic Frost', isLight: true },
-  'desert-sand': { name: 'Desert Sand', isLight: true },
-  'cloud-silver': { name: 'Cloud Silver', isLight: true },
-  'rose-garden': { name: 'Rose Garden', isLight: true },
-  'mint-fresh': { name: 'Mint Fresh', isLight: true },
-  'lavender-dream': { name: 'Lavender Dream', isLight: true },
-  'peach-blossom': { name: 'Peach Blossom', isLight: true },
-  'sky-blue': { name: 'Sky Blue', isLight: true },
-  'cream-vanilla': { name: 'Cream Vanilla', isLight: true },
-  'sage-morning': { name: 'Sage Morning', isLight: true },
-  'coral-reef': { name: 'Coral Reef', isLight: true },
-  'golden-hour': { name: 'Golden Hour', isLight: true },
+  'arctic-frost': { name: 'Gelo Ártico', isLight: true, isLayout: false },
+  'desert-sand': { name: 'Areia do Deserto', isLight: true, isLayout: false },
+  'cloud-silver': { name: 'Nuvem Prateada', isLight: true, isLayout: false },
+  'rose-garden': { name: 'Jardim de Rosas', isLight: true, isLayout: false },
+  'mint-fresh': { name: 'Menta Fresca', isLight: true, isLayout: false },
+  'lavender-dream': { name: 'Sonho Lavanda', isLight: true, isLayout: false },
+  'peach-blossom': { name: 'Flor de Pêssego', isLight: true, isLayout: false },
+  'sky-blue': { name: 'Céu Azul', isLight: true, isLayout: false },
+  'cream-vanilla': { name: 'Creme Baunilha', isLight: true, isLayout: false },
+  'sage-morning': { name: 'Sálvia Matinal', isLight: true, isLayout: false },
+  'coral-reef': { name: 'Recife de Coral', isLight: true, isLayout: false },
+  'golden-hour': { name: 'Hora Dourada', isLight: true, isLayout: false },
   // Business themes
-  'corporate-navy': { name: 'Corporate Navy', isLight: false },
-  'executive-charcoal': { name: 'Executive Charcoal', isLight: false },
-  'startup-teal': { name: 'Startup Teal', isLight: false },
-  'finance-green': { name: 'Finance Green', isLight: false },
-  'consulting-slate': { name: 'Consulting Slate', isLight: false },
-  'tech-indigo': { name: 'Tech Indigo', isLight: false },
-  'luxury-black': { name: 'Luxury Black', isLight: false },
-  'modern-graphite': { name: 'Modern Graphite', isLight: false },
-  'innovation-blue': { name: 'Innovation Blue', isLight: false },
-  'prestige-burgundy': { name: 'Prestige Burgundy', isLight: false },
+  'corporate-navy': { name: 'Corporativo Marinho', isLight: false, isLayout: true },
+  'executive-charcoal': { name: 'Executivo Carvão', isLight: false, isLayout: true },
+  'startup-teal': { name: 'Startup Teal', isLight: false, isLayout: true },
+  'finance-green': { name: 'Finanças Verde', isLight: false, isLayout: true },
+  'consulting-slate': { name: 'Consultoria Ardósia', isLight: false, isLayout: true },
+  'tech-indigo': { name: 'Tech Índigo', isLight: false, isLayout: true },
+  'luxury-black': { name: 'Luxo Preto', isLight: false, isLayout: true },
+  'modern-graphite': { name: 'Grafite Moderno', isLight: false, isLayout: true },
+  'innovation-blue': { name: 'Inovação Azul', isLight: false, isLayout: true },
+  'prestige-burgundy': { name: 'Prestígio Borgonha', isLight: false, isLayout: true },
   // Layout themes
-  'neon-gamer': { name: 'Neon Gamer', isLight: false },
-  'minimal-zen': { name: 'Minimal Zen', isLight: true },
-  'magazine-editorial': { name: 'Magazine Editorial', isLight: false },
-  'retro-wave': { name: 'Retro Wave', isLight: false },
-  'nature-organic': { name: 'Nature Organic', isLight: true },
-  'brutalist-raw': { name: 'Brutalist Raw', isLight: false },
-  'glassmorphism': { name: 'Glassmorphism', isLight: false },
-  'split-screen': { name: 'Split Screen', isLight: false },
-  'gradient-flow': { name: 'Gradient Flow', isLight: false },
-  'card-stack': { name: 'Card Stack', isLight: true }
+  'neon-gamer': { name: 'Neon Gamer', isLight: false, isLayout: true },
+  'minimal-zen': { name: 'Minimalista Zen', isLight: true, isLayout: true },
+  'magazine-editorial': { name: 'Magazine Editorial', isLight: false, isLayout: true },
+  'retro-wave': { name: 'Retro Wave', isLight: false, isLayout: true },
+  'nature-organic': { name: 'Natureza Orgânica', isLight: true, isLayout: true },
+  'brutalist-raw': { name: 'Brutalista Cru', isLight: false, isLayout: true },
+  'glassmorphism': { name: 'Glassmorphism', isLight: false, isLayout: true },
+  'split-screen': { name: 'Tela Dividida', isLight: false, isLayout: true },
+  'gradient-flow': { name: 'Fluxo Gradiente', isLight: false, isLayout: true },
+  'card-stack': { name: 'Cartões Empilhados', isLight: true, isLayout: true }
+};
+
+// SVG icons for dropdown
+const ICONS = {
+  sun: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>`,
+  moon: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>`,
+  layout: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+    <line x1="3" y1="9" x2="21" y2="9"></line>
+    <line x1="9" y1="21" x2="9" y2="9"></line>
+  </svg>`
 };
 
 class ThemeManager {
   constructor() {
     this.currentTheme = this.getSavedTheme() || 'vintage-sepia';
+    this.isOpen = false;
     this.init();
   }
 
@@ -59,21 +83,91 @@ class ThemeManager {
     // Apply saved theme on load
     this.applyTheme(this.currentTheme);
     
-    // Setup theme select dropdown
-    this.setupThemeSelect();
+    // Setup custom dropdown
+    this.setupCustomDropdown();
   }
 
-  setupThemeSelect() {
-    const themeSelect = document.getElementById('theme-select');
-    if (!themeSelect) return;
+  setupCustomDropdown() {
+    const dropdown = document.getElementById('theme-dropdown');
+    const trigger = document.getElementById('theme-dropdown-trigger');
+    const content = document.getElementById('theme-dropdown-content');
     
-    // Set current value
-    themeSelect.value = this.currentTheme;
+    if (!dropdown || !trigger || !content) return;
     
-    // Listen for changes
-    themeSelect.addEventListener('change', (e) => {
-      this.setTheme(e.target.value);
+    // Toggle dropdown on trigger click
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleDropdown();
     });
+    
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        this.closeDropdown();
+      }
+    });
+    
+    // Handle theme item clicks
+    const items = content.querySelectorAll('.theme-dropdown-item');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const themeId = item.dataset.theme;
+        if (themeId) {
+          this.setTheme(themeId);
+          this.closeDropdown();
+        }
+      });
+    });
+    
+    // Update display with current theme
+    this.updateDropdownDisplay();
+  }
+
+  toggleDropdown() {
+    const dropdown = document.getElementById('theme-dropdown');
+    if (!dropdown) return;
+    
+    this.isOpen = !this.isOpen;
+    dropdown.classList.toggle('open', this.isOpen);
+  }
+
+  closeDropdown() {
+    const dropdown = document.getElementById('theme-dropdown');
+    if (!dropdown) return;
+    
+    this.isOpen = false;
+    dropdown.classList.remove('open');
+  }
+
+  updateDropdownDisplay() {
+    const valueEl = document.getElementById('theme-dropdown-value');
+    const iconEl = document.getElementById('theme-dropdown-icon');
+    const content = document.getElementById('theme-dropdown-content');
+    
+    if (!valueEl || !iconEl) return;
+    
+    const config = THEME_CONFIG[this.currentTheme];
+    if (!config) return;
+    
+    // Update displayed name
+    valueEl.textContent = config.name;
+    
+    // Update icon based on theme type
+    if (config.isLayout) {
+      iconEl.innerHTML = ICONS.layout;
+    } else if (config.isLight) {
+      iconEl.innerHTML = ICONS.sun;
+    } else {
+      iconEl.innerHTML = ICONS.moon;
+    }
+    
+    // Update selected state on items
+    if (content) {
+      const items = content.querySelectorAll('.theme-dropdown-item');
+      items.forEach(item => {
+        item.classList.toggle('selected', item.dataset.theme === this.currentTheme);
+      });
+    }
   }
 
   getSavedTheme() {
@@ -117,11 +211,8 @@ class ThemeManager {
     // Update banner image
     this.updateBannerImage(themeId);
     
-    // Update select value if exists
-    const themeSelect = document.getElementById('theme-select');
-    if (themeSelect) {
-      themeSelect.value = themeId;
-    }
+    // Update dropdown display
+    this.updateDropdownDisplay();
   }
 
   updateBannerImage(themeId) {
