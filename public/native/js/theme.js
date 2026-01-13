@@ -25,16 +25,16 @@ const THEME_CONFIG = {
   'sage-morning': { name: 'Sálvia Matinal', isLight: true, isLayout: false, layout: 'classic' },
   'coral-reef': { name: 'Recife de Coral', isLight: true, isLayout: false, layout: 'classic' },
   'golden-hour': { name: 'Hora Dourada', isLight: true, isLayout: false, layout: 'classic' },
-  // Business themes (unique layouts)
+  // Business themes (unique layouts) - Matching React ThemeContext.tsx
   'corporate-navy': { name: 'Corporativo Marinho', isLight: false, isLayout: true, layout: 'corporate' },
   'executive-charcoal': { name: 'Executivo Carvão', isLight: false, isLayout: true, layout: 'executive' },
   'startup-teal': { name: 'Startup Teal', isLight: false, isLayout: true, layout: 'startup' },
-  'finance-green': { name: 'Finanças Verde', isLight: false, isLayout: true, layout: 'corporate' },
-  'consulting-slate': { name: 'Consultoria Ardósia', isLight: false, isLayout: true, layout: 'executive' },
-  'tech-indigo': { name: 'Tech Índigo', isLight: false, isLayout: true, layout: 'startup' },
+  'finance-green': { name: 'Finanças Verde', isLight: false, isLayout: true, layout: 'finance' },
+  'consulting-slate': { name: 'Consultoria Ardósia', isLight: false, isLayout: true, layout: 'consulting' },
+  'tech-indigo': { name: 'Tech Índigo', isLight: false, isLayout: true, layout: 'tech' },
   'luxury-black': { name: 'Luxo Preto', isLight: false, isLayout: true, layout: 'luxury' },
-  'modern-graphite': { name: 'Grafite Moderno', isLight: false, isLayout: true, layout: 'executive' },
-  'innovation-blue': { name: 'Inovação Azul', isLight: false, isLayout: true, layout: 'startup' },
+  'modern-graphite': { name: 'Grafite Moderno', isLight: false, isLayout: true, layout: 'graphite' },
+  'innovation-blue': { name: 'Inovação Azul', isLight: false, isLayout: true, layout: 'innovation' },
   'prestige-burgundy': { name: 'Prestígio Borgonha', isLight: false, isLayout: true, layout: 'prestige' },
   // Layout themes (unique layouts)
   'neon-gamer': { name: 'Neon Gamer', isLight: false, isLayout: true, layout: 'centered' },
@@ -49,12 +49,14 @@ const THEME_CONFIG = {
   'card-stack': { name: 'Cartões Empilhados', isLight: true, isLayout: true, layout: 'stacked' }
 };
 
-// All possible layout classes
+// All possible layout classes - Matching React HeroLayouts.tsx
 const LAYOUT_CLASSES = [
   'layout-classic', 'layout-centered', 'layout-minimal', 'layout-editorial',
   'layout-retro', 'layout-organic', 'layout-brutalist', 'layout-glass',
   'layout-split', 'layout-gradient', 'layout-stacked',
-  'layout-corporate', 'layout-executive', 'layout-startup', 'layout-luxury', 'layout-prestige'
+  'layout-corporate', 'layout-executive', 'layout-startup', 'layout-finance',
+  'layout-consulting', 'layout-tech', 'layout-luxury', 'layout-graphite',
+  'layout-innovation', 'layout-prestige'
 ];
 
 // SVG icons for dropdown
