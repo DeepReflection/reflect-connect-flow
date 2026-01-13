@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-vintage-sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo - Página Nativa</title>
+  <meta name="description" content="Página de demonstração usando recursos nativos HTML5, CSS e JavaScript.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/hero-layouts.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body data-profile="demo">
+  <!-- Theme Selector Bar -->
+  <div class="theme-selector-bar">
+    <div class="theme-selector-content">
+      <div class="theme-selector-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="palette-icon">
+          <circle cx="13.5" cy="6.5" r=".5"></circle>
+          <circle cx="17.5" cy="10.5" r=".5"></circle>
+          <circle cx="8.5" cy="7.5" r=".5"></circle>
+          <circle cx="6.5" cy="12.5" r=".5"></circle>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"></path>
+        </svg>
+        <span>Escolha seu tema</span>
+      </div>
+      <!-- Theme Dropdown -->
+      <div class="theme-dropdown" id="theme-dropdown">
+        <button class="theme-dropdown-trigger" id="theme-dropdown-trigger" type="button">
+          <span class="theme-dropdown-icon" id="theme-dropdown-icon">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-dropdown-value" id="theme-dropdown-value">Vintage Sépia</span>
+          <svg class="theme-dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="theme-dropdown-content" id="theme-dropdown-content">
+          <!-- Light Themes -->
+          <div class="theme-dropdown-category">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <span>Temas Claros</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="arctic-frost" data-light="true">
+            <span class="theme-item-name">Gelo Ártico</span>
+            <span class="theme-item-desc">Branco gelado com tons azuis</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="desert-sand" data-light="true">
+            <span class="theme-item-name">Areia do Deserto</span>
+            <span class="theme-item-desc">Tons terrosos e arenosos</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="cloud-silver" data-light="true">
+            <span class="theme-item-name">Nuvem Prateada</span>
+            <span class="theme-item-desc">Cinza elegante e moderno</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="rose-garden" data-light="true">
+            <span class="theme-item-name">Jardim de Rosas</span>
+            <span class="theme-item-desc">Rosa suave e romântico</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="mint-fresh" data-light="true">
+            <span class="theme-item-name">Menta Fresca</span>
+            <span class="theme-item-desc">Verde menta refrescante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="lavender-dream" data-light="true">
+            <span class="theme-item-name">Sonho Lavanda</span>
+            <span class="theme-item-desc">Lilás suave e relaxante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="peach-blossom" data-light="true">
+            <span class="theme-item-name">Flor de Pêssego</span>
+            <span class="theme-item-desc">Pêssego delicado e acolhedor</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="sky-blue" data-light="true">
+            <span class="theme-item-name">Céu Azul</span>
+            <span class="theme-item-desc">Azul claro e sereno</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="cream-vanilla" data-light="true">
+            <span class="theme-item-name">Creme Baunilha</span>
+            <span class="theme-item-desc">Tons creme suaves e elegantes</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="sage-morning" data-light="true">
+            <span class="theme-item-name">Sálvia Matinal</span>
+            <span class="theme-item-desc">Verde sálvia calmante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="coral-reef" data-light="true">
+            <span class="theme-item-name">Recife de Coral</span>
+            <span class="theme-item-desc">Coral vibrante e tropical</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="golden-hour" data-light="true">
+            <span class="theme-item-name">Hora Dourada</span>
+            <span class="theme-item-desc">Dourado quente e luminoso</span>
+          </div>
+          
+          <div class="theme-dropdown-separator"></div>
+          
+          <!-- Dark Themes -->
+          <div class="theme-dropdown-category">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span>Temas Escuros</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="vintage-sepia">
+            <span class="theme-item-name">Vintage Sépia</span>
+            <span class="theme-item-desc">Tom clássico de fotografias antigas</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="midnight-gold">
+            <span class="theme-item-name">Meia-Noite Dourado</span>
+            <span class="theme-item-desc">Elegância noturna com acentos dourados</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="military-olive">
+            <span class="theme-item-name">Militar Oliva</span>
+            <span class="theme-item-desc">Tons táticos e robustos</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="ocean-deep">
+            <span class="theme-item-name">Oceano Profundo</span>
+            <span class="theme-item-desc">Azul marinho e tons aquáticos</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="crimson-war">
+            <span class="theme-item-name">Carmesim de Guerra</span>
+            <span class="theme-item-desc">Vermelho dramático e intenso</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="sunset-bronze">
+            <span class="theme-item-name">Pôr do Sol Bronze</span>
+            <span class="theme-item-desc">Cores quentes do entardecer</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="royal-purple">
+            <span class="theme-item-name">Púrpura Real</span>
+            <span class="theme-item-desc">Luxo e sofisticação imperial</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="forest-emerald">
+            <span class="theme-item-name">Floresta Esmeralda</span>
+            <span class="theme-item-desc">Verde profundo e natural</span>
+          </div>
+          
+          <div class="theme-dropdown-separator"></div>
+          
+          <!-- Business Themes -->
+          <div class="theme-dropdown-category">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Temas de Negócio</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="corporate-navy" data-layout="true">
+            <span class="theme-item-name">Corporativo Marinho</span>
+            <span class="theme-item-desc">Azul marinho profissional</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="executive-charcoal" data-layout="true">
+            <span class="theme-item-name">Executivo Carvão</span>
+            <span class="theme-item-desc">Cinza escuro sofisticado</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="startup-teal" data-layout="true">
+            <span class="theme-item-name">Startup Teal</span>
+            <span class="theme-item-desc">Verde-azulado inovador</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="finance-green" data-layout="true">
+            <span class="theme-item-name">Finanças Verde</span>
+            <span class="theme-item-desc">Verde clássico de prosperidade</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="consulting-slate" data-layout="true">
+            <span class="theme-item-name">Consultoria Ardósia</span>
+            <span class="theme-item-desc">Azul-cinza elegante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="tech-indigo" data-layout="true">
+            <span class="theme-item-name">Tech Índigo</span>
+            <span class="theme-item-desc">Azul-violeta tecnológico</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="luxury-black" data-layout="true">
+            <span class="theme-item-name">Luxo Preto</span>
+            <span class="theme-item-desc">Preto premium com dourado</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="modern-graphite" data-layout="true">
+            <span class="theme-item-name">Grafite Moderno</span>
+            <span class="theme-item-desc">Cinza neutro contemporâneo</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="innovation-blue" data-layout="true">
+            <span class="theme-item-name">Inovação Azul</span>
+            <span class="theme-item-desc">Azul elétrico vibrante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="prestige-burgundy" data-layout="true">
+            <span class="theme-item-name">Prestígio Borgonha</span>
+            <span class="theme-item-desc">Vermelho vinho elegante</span>
+          </div>
+          
+          <div class="theme-dropdown-separator"></div>
+          
+          <!-- Layout Themes -->
+          <div class="theme-dropdown-category">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Temas com Layout Único</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="neon-gamer" data-layout="true">
+            <span class="theme-item-name">Neon Gamer</span>
+            <span class="theme-item-desc">Cyber gaming com efeitos neon</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="minimal-zen" data-layout="true" data-light="true">
+            <span class="theme-item-name">Minimalista Zen</span>
+            <span class="theme-item-desc">Design ultra limpo</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="magazine-editorial" data-layout="true">
+            <span class="theme-item-name">Magazine Editorial</span>
+            <span class="theme-item-desc">Estilo revista</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="retro-wave" data-layout="true">
+            <span class="theme-item-name">Retro Wave</span>
+            <span class="theme-item-desc">Nostálgia anos 80</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="nature-organic" data-layout="true" data-light="true">
+            <span class="theme-item-name">Natureza Orgânica</span>
+            <span class="theme-item-desc">Formas fluidas naturais</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="brutalist-raw" data-layout="true">
+            <span class="theme-item-name">Brutalista Cru</span>
+            <span class="theme-item-desc">Design cru e impactante</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="glassmorphism" data-layout="true">
+            <span class="theme-item-name">Glassmorphism</span>
+            <span class="theme-item-desc">Efeitos de vidro fosco</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="split-screen" data-layout="true">
+            <span class="theme-item-name">Tela Dividida</span>
+            <span class="theme-item-desc">Layout em duas metades</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="gradient-flow" data-layout="true">
+            <span class="theme-item-name">Fluxo Gradiente</span>
+            <span class="theme-item-desc">Gradientes animados</span>
+          </div>
+          <div class="theme-dropdown-item" data-theme="card-stack" data-layout="true" data-light="true">
+            <span class="theme-item-name">Cartões Empilhados</span>
+            <span class="theme-item-desc">Efeito de cartões sobrepostos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-banner">
+      <img id="hero-banner-img" src="assets/themes/vintage-sepia/images/banner.jpg" alt="Banner">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-flex">
+        <div class="avatar-container">
+          <div class="avatar-wrapper">
+            <img id="profile-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" alt="Avatar" class="avatar">
+          </div>
+          <div class="avatar-pulse"></div>
+        </div>
+        <div class="hero-info-card">
+          <div class="hero-header">
+            <h1 id="profile-name" class="hero-title">Demo Nativo</h1>
+            <button class="share-btn" id="share-btn" aria-label="Compartilhar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+            </button>
+          </div>
+          <p id="profile-description" class="hero-description">Página de demonstração utilizando exclusivamente recursos nativos HTML5, CSS e JavaScript - sem frameworks.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- CTA Button -->
+    <a href="#contact" class="cta-button" id="cta-chat">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Fale Comigo
+    </a>
+
+    <!-- Social Links -->
+    <section class="social-links" id="social-links"></section>
+  </main>
+
+  <!-- Agenda Section -->
+  <section class="section agenda-section">
+    <div class="section-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Agenda</h2>
+        <div class="section-title-bar"></div>
+      </div>
+      <div class="events-grid" id="events-grid"></div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products-section">
+    <div class="section-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Produtos</h2>
+        <div class="section-title-bar"></div>
+      </div>
+      <div class="products-grid" id="products-grid"></div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services-section">
+    <div class="section-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Serviços</h2>
+        <div class="section-title-bar"></div>
+      </div>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- Reflections Section -->
+  <section class="section reflections-section">
+    <div class="section-container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Minhas Reflexões</h2>
+        <div class="section-title-bar"></div>
+      </div>
+      <div class="reflections-grid" id="reflections-grid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <p>© 2024 Demo Nativo</p>
+    <p class="footer-subtitle">Feito com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <!-- Chatbot Button -->
+  <button class="chatbot-btn" id="chatbot-btn" aria-label="Abrir chat">
+    <img id="chatbot-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" alt="Chat" class="chatbot-avatar">
+  </button>
+
+  <!-- Chat Modal -->
+  <div class="chat-modal hidden" id="chat-modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <img id="chat-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" alt="Avatar" class="chat-avatar">
+          <div class="chat-header-text">
+            <span id="chat-name" class="chat-name">Demo Nativo</span>
+            <span class="chat-status">Online</span>
+          </div>
+        </div>
+        <button class="chat-close" id="chat-close" aria-label="Fechar chat">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-quick-actions" id="chat-quick-actions"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Digite sua mensagem...">
+        <button class="chat-send" id="chat-send" aria-label="Enviar mensagem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/profiles.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+  
+  <!-- Demo-specific initialization -->
+  <script>
+    // Demo profile data
+    const DEMO_PROFILE = {
+      name: "Demo Nativo",
+      description: "Página de demonstração utilizando exclusivamente recursos nativos HTML5, CSS3 e JavaScript - sem frameworks React ou similares.",
+      avatarUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png",
+      footerText: "© 2024 Demo Nativo",
+      footerSubtitle: "Feito com HTML5, CSS3 e JavaScript puro",
+      chatWelcome: "Olá! Bem-vindo à página de demonstração nativa! Como posso ajudá-lo?",
+      socialLinks: [
+        { type: 'instagram', url: 'https://instagram.com/demo', label: 'Instagram' },
+        { type: 'youtube', url: 'https://youtube.com/demo', label: 'YouTube' },
+        { type: 'linkedin', url: 'https://linkedin.com/in/demo', label: 'LinkedIn' },
+      ],
+      reflections: REFLECTIONS,
+      products: PRODUCTS,
+      services: SERVICES,
+      events: AGENDA_EVENTS,
+      quickActions: [
+        "O que é esta demo?",
+        "Tecnologias utilizadas",
+        "Como funciona?",
+        "Ver mais exemplos"
+      ]
+    };
+
+    // Override profile for demo page
+    PROFILES.demo = DEMO_PROFILE;
+    
+    // Re-populate after adding demo profile
+    document.addEventListener('DOMContentLoaded', () => {
+      populateProfile();
+    });
+  </script>
+</body>
+</html>
