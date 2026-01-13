@@ -3,51 +3,59 @@
 // ============================================
 
 const THEME_CONFIG = {
-  // Dark themes
-  'vintage-sepia': { name: 'Vintage Sépia', isLight: false, isLayout: false },
-  'midnight-gold': { name: 'Meia-Noite Dourado', isLight: false, isLayout: false },
-  'military-olive': { name: 'Militar Oliva', isLight: false, isLayout: false },
-  'ocean-deep': { name: 'Oceano Profundo', isLight: false, isLayout: false },
-  'crimson-war': { name: 'Carmesim de Guerra', isLight: false, isLayout: false },
-  'sunset-bronze': { name: 'Pôr do Sol Bronze', isLight: false, isLayout: false },
-  'royal-purple': { name: 'Púrpura Real', isLight: false, isLayout: false },
-  'forest-emerald': { name: 'Floresta Esmeralda', isLight: false, isLayout: false },
-  // Light themes
-  'arctic-frost': { name: 'Gelo Ártico', isLight: true, isLayout: false },
-  'desert-sand': { name: 'Areia do Deserto', isLight: true, isLayout: false },
-  'cloud-silver': { name: 'Nuvem Prateada', isLight: true, isLayout: false },
-  'rose-garden': { name: 'Jardim de Rosas', isLight: true, isLayout: false },
-  'mint-fresh': { name: 'Menta Fresca', isLight: true, isLayout: false },
-  'lavender-dream': { name: 'Sonho Lavanda', isLight: true, isLayout: false },
-  'peach-blossom': { name: 'Flor de Pêssego', isLight: true, isLayout: false },
-  'sky-blue': { name: 'Céu Azul', isLight: true, isLayout: false },
-  'cream-vanilla': { name: 'Creme Baunilha', isLight: true, isLayout: false },
-  'sage-morning': { name: 'Sálvia Matinal', isLight: true, isLayout: false },
-  'coral-reef': { name: 'Recife de Coral', isLight: true, isLayout: false },
-  'golden-hour': { name: 'Hora Dourada', isLight: true, isLayout: false },
-  // Business themes
-  'corporate-navy': { name: 'Corporativo Marinho', isLight: false, isLayout: true },
-  'executive-charcoal': { name: 'Executivo Carvão', isLight: false, isLayout: true },
-  'startup-teal': { name: 'Startup Teal', isLight: false, isLayout: true },
-  'finance-green': { name: 'Finanças Verde', isLight: false, isLayout: true },
-  'consulting-slate': { name: 'Consultoria Ardósia', isLight: false, isLayout: true },
-  'tech-indigo': { name: 'Tech Índigo', isLight: false, isLayout: true },
-  'luxury-black': { name: 'Luxo Preto', isLight: false, isLayout: true },
-  'modern-graphite': { name: 'Grafite Moderno', isLight: false, isLayout: true },
-  'innovation-blue': { name: 'Inovação Azul', isLight: false, isLayout: true },
-  'prestige-burgundy': { name: 'Prestígio Borgonha', isLight: false, isLayout: true },
-  // Layout themes
-  'neon-gamer': { name: 'Neon Gamer', isLight: false, isLayout: true },
-  'minimal-zen': { name: 'Minimalista Zen', isLight: true, isLayout: true },
-  'magazine-editorial': { name: 'Magazine Editorial', isLight: false, isLayout: true },
-  'retro-wave': { name: 'Retro Wave', isLight: false, isLayout: true },
-  'nature-organic': { name: 'Natureza Orgânica', isLight: true, isLayout: true },
-  'brutalist-raw': { name: 'Brutalista Cru', isLight: false, isLayout: true },
-  'glassmorphism': { name: 'Glassmorphism', isLight: false, isLayout: true },
-  'split-screen': { name: 'Tela Dividida', isLight: false, isLayout: true },
-  'gradient-flow': { name: 'Fluxo Gradiente', isLight: false, isLayout: true },
-  'card-stack': { name: 'Cartões Empilhados', isLight: true, isLayout: true }
+  // Dark themes (classic layout)
+  'vintage-sepia': { name: 'Vintage Sépia', isLight: false, isLayout: false, layout: 'classic' },
+  'midnight-gold': { name: 'Meia-Noite Dourado', isLight: false, isLayout: false, layout: 'classic' },
+  'military-olive': { name: 'Militar Oliva', isLight: false, isLayout: false, layout: 'classic' },
+  'ocean-deep': { name: 'Oceano Profundo', isLight: false, isLayout: false, layout: 'classic' },
+  'crimson-war': { name: 'Carmesim de Guerra', isLight: false, isLayout: false, layout: 'classic' },
+  'sunset-bronze': { name: 'Pôr do Sol Bronze', isLight: false, isLayout: false, layout: 'classic' },
+  'royal-purple': { name: 'Púrpura Real', isLight: false, isLayout: false, layout: 'classic' },
+  'forest-emerald': { name: 'Floresta Esmeralda', isLight: false, isLayout: false, layout: 'classic' },
+  // Light themes (classic layout)
+  'arctic-frost': { name: 'Gelo Ártico', isLight: true, isLayout: false, layout: 'classic' },
+  'desert-sand': { name: 'Areia do Deserto', isLight: true, isLayout: false, layout: 'classic' },
+  'cloud-silver': { name: 'Nuvem Prateada', isLight: true, isLayout: false, layout: 'classic' },
+  'rose-garden': { name: 'Jardim de Rosas', isLight: true, isLayout: false, layout: 'classic' },
+  'mint-fresh': { name: 'Menta Fresca', isLight: true, isLayout: false, layout: 'classic' },
+  'lavender-dream': { name: 'Sonho Lavanda', isLight: true, isLayout: false, layout: 'classic' },
+  'peach-blossom': { name: 'Flor de Pêssego', isLight: true, isLayout: false, layout: 'classic' },
+  'sky-blue': { name: 'Céu Azul', isLight: true, isLayout: false, layout: 'classic' },
+  'cream-vanilla': { name: 'Creme Baunilha', isLight: true, isLayout: false, layout: 'classic' },
+  'sage-morning': { name: 'Sálvia Matinal', isLight: true, isLayout: false, layout: 'classic' },
+  'coral-reef': { name: 'Recife de Coral', isLight: true, isLayout: false, layout: 'classic' },
+  'golden-hour': { name: 'Hora Dourada', isLight: true, isLayout: false, layout: 'classic' },
+  // Business themes (unique layouts)
+  'corporate-navy': { name: 'Corporativo Marinho', isLight: false, isLayout: true, layout: 'corporate' },
+  'executive-charcoal': { name: 'Executivo Carvão', isLight: false, isLayout: true, layout: 'executive' },
+  'startup-teal': { name: 'Startup Teal', isLight: false, isLayout: true, layout: 'startup' },
+  'finance-green': { name: 'Finanças Verde', isLight: false, isLayout: true, layout: 'corporate' },
+  'consulting-slate': { name: 'Consultoria Ardósia', isLight: false, isLayout: true, layout: 'executive' },
+  'tech-indigo': { name: 'Tech Índigo', isLight: false, isLayout: true, layout: 'startup' },
+  'luxury-black': { name: 'Luxo Preto', isLight: false, isLayout: true, layout: 'luxury' },
+  'modern-graphite': { name: 'Grafite Moderno', isLight: false, isLayout: true, layout: 'executive' },
+  'innovation-blue': { name: 'Inovação Azul', isLight: false, isLayout: true, layout: 'startup' },
+  'prestige-burgundy': { name: 'Prestígio Borgonha', isLight: false, isLayout: true, layout: 'prestige' },
+  // Layout themes (unique layouts)
+  'neon-gamer': { name: 'Neon Gamer', isLight: false, isLayout: true, layout: 'centered' },
+  'minimal-zen': { name: 'Minimalista Zen', isLight: true, isLayout: true, layout: 'minimal' },
+  'magazine-editorial': { name: 'Magazine Editorial', isLight: false, isLayout: true, layout: 'editorial' },
+  'retro-wave': { name: 'Retro Wave', isLight: false, isLayout: true, layout: 'retro' },
+  'nature-organic': { name: 'Natureza Orgânica', isLight: true, isLayout: true, layout: 'organic' },
+  'brutalist-raw': { name: 'Brutalista Cru', isLight: false, isLayout: true, layout: 'brutalist' },
+  'glassmorphism': { name: 'Glassmorphism', isLight: false, isLayout: true, layout: 'glass' },
+  'split-screen': { name: 'Tela Dividida', isLight: false, isLayout: true, layout: 'split' },
+  'gradient-flow': { name: 'Fluxo Gradiente', isLight: false, isLayout: true, layout: 'gradient' },
+  'card-stack': { name: 'Cartões Empilhados', isLight: true, isLayout: true, layout: 'stacked' }
 };
+
+// All possible layout classes
+const LAYOUT_CLASSES = [
+  'layout-classic', 'layout-centered', 'layout-minimal', 'layout-editorial',
+  'layout-retro', 'layout-organic', 'layout-brutalist', 'layout-glass',
+  'layout-split', 'layout-gradient', 'layout-stacked',
+  'layout-corporate', 'layout-executive', 'layout-startup', 'layout-luxury', 'layout-prestige'
+];
 
 // SVG icons for dropdown
 const ICONS = {
@@ -199,6 +207,8 @@ class ThemeManager {
 
   applyTheme(themeId) {
     const html = document.documentElement;
+    const heroSection = document.querySelector('.hero-section');
+    const config = THEME_CONFIG[themeId];
     
     // Remove all theme classes
     Object.keys(THEME_CONFIG).forEach(theme => {
@@ -207,6 +217,14 @@ class ThemeManager {
     
     // Add new theme class
     html.classList.add(`theme-${themeId}`);
+    
+    // Apply layout class to hero section
+    if (heroSection && config) {
+      // Remove all layout classes
+      LAYOUT_CLASSES.forEach(cls => heroSection.classList.remove(cls));
+      // Add the appropriate layout class
+      heroSection.classList.add(`layout-${config.layout}`);
+    }
     
     // Update banner image
     this.updateBannerImage(themeId);
