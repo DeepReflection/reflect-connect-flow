@@ -75,32 +75,9 @@ button {
   }
 }
 
-/* Section Title */
-.section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: hsl(var(--foreground));
-  position: relative;
-  display: inline-block;
-}
+/* Section Title - DEPRECATED: Use styles from components.css instead */
+/* Styles moved to components.css to match React SectionTitle component */
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 3rem;
-  height: 3px;
-  background: linear-gradient(90deg, hsl(var(--primary)), transparent);
-  border-radius: 2px;
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-}
 
 /* Glass Card Effect */
 .glass-card {

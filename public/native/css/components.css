@@ -677,6 +677,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent; /* Fallback */
 }
 
 @media (min-width: 768px) {
@@ -685,31 +686,31 @@
   }
 }
 
-/* Section title decoration - matching React */
+/* Section title decoration - matching React exactly */
 .section-title-decoration {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 0.75rem;
+  margin-top: 0.75rem; /* mt-3 */
 }
 
 .section-title-line-left {
   height: 1px;
-  width: 3rem;
+  width: 3rem; /* w-12 */
   background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.5));
 }
 
 .section-title-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
+  width: 0.5rem; /* w-2 */
+  height: 0.5rem; /* h-2 */
+  border-radius: 9999px; /* rounded-full */
   background: hsl(var(--primary) / 0.6);
 }
 
 .section-title-line-right {
   height: 1px;
-  width: 3rem;
+  width: 3rem; /* w-12 */
   background: linear-gradient(to left, transparent, hsl(var(--primary) / 0.5));
 }
 
