@@ -17,5 +17,4 @@ html.theme-military-olive {
   --border: 80 15% 22%;
   --input: 80 10% 18%;
   --ring: 80 50% 40%;
-  --gradient-hero: linear-gradient(180deg, hsla(80, 15%, 4%, 0.3) 0%, hsl(80, 15%, 8%) 100%);
 }

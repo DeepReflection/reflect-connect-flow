@@ -17,5 +17,4 @@ html.theme-forest-emerald {
   --border: 155 18% 20%;
   --input: 150 12% 16%;
   --ring: 155 70% 40%;
-  --gradient-hero: linear-gradient(180deg, hsla(150, 20%, 4%, 0.3) 0%, hsl(150, 20%, 7%) 100%);
 }

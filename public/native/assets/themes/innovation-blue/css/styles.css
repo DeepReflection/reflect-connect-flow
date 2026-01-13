@@ -17,5 +17,4 @@ html.theme-innovation-blue {
   --border: 225 28% 22%;
   --input: 225 30% 16%;
   --ring: 210 100% 55%;
-  --gradient-hero: linear-gradient(180deg, hsla(225, 40%, 4%, 0.3) 0%, hsl(225, 40%, 8%) 100%);
 }

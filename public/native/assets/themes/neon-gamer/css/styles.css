@@ -17,5 +17,4 @@ html.theme-neon-gamer {
   --border: 280 40% 20%;
   --input: 270 30% 14%;
   --ring: 280 100% 60%;
-  --gradient-hero: linear-gradient(180deg, hsla(270, 40%, 3%, 0.3) 0%, hsl(270, 40%, 6%) 100%);
 }

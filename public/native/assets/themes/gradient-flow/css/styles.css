@@ -17,5 +17,4 @@ html.theme-gradient-flow {
   --border: 290 28% 25%;
   --input: 280 25% 18%;
   --ring: 290 85% 60%;
-  --gradient-hero: linear-gradient(180deg, hsla(280, 35%, 5%, 0.3) 0%, hsl(280, 35%, 10%) 100%);
 }

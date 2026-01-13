@@ -17,5 +17,4 @@ html.theme-executive-charcoal {
   --border: 0 0% 22%;
   --input: 0 0% 16%;
   --ring: 0 0% 70%;
-  --gradient-hero: linear-gradient(180deg, hsla(0, 0%, 4%, 0.3) 0%, hsl(0, 0%, 9%) 100%);
 }

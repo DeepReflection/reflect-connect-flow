@@ -17,5 +17,4 @@ html.theme-tech-indigo {
   --border: 250 22% 22%;
   --input: 250 22% 16%;
   --ring: 245 75% 60%;
-  --gradient-hero: linear-gradient(180deg, hsla(250, 30%, 5%, 0.3) 0%, hsl(250, 30%, 9%) 100%);
 }
