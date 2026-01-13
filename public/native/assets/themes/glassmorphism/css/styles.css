@@ -17,5 +17,4 @@ html.theme-glassmorphism {
   --border: 220 30% 30%;
   --input: 220 28% 22%;
   --ring: 215 90% 65%;
-  --gradient-hero: linear-gradient(180deg, hsla(220, 40%, 6%, 0.3) 0%, hsl(220, 40%, 12%) 100%);
 }

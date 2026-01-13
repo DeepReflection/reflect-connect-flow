@@ -17,5 +17,4 @@ html.theme-retro-wave {
   --border: 320 30% 22%;
   --input: 300 22% 15%;
   --ring: 320 100% 65%;
-  --gradient-hero: linear-gradient(180deg, hsla(300, 30%, 4%, 0.3) 0%, hsl(300, 30%, 8%) 100%);
 }

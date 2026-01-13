@@ -17,5 +17,4 @@ html.theme-sunset-bronze {
   --border: 25 25% 22%;
   --input: 15 15% 18%;
   --ring: 25 85% 55%;
-  --gradient-hero: linear-gradient(180deg, hsla(15, 20%, 4%, 0.3) 0%, hsl(15, 20%, 8%) 100%);
 }
