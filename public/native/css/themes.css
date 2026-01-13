@@ -275,24 +275,305 @@ html.theme-desert-sand {
   --gradient-hero: linear-gradient(180deg, hsla(30, 30%, 40%, 0.6) 0%, hsla(35, 25%, 85%, 0.85) 60%, hsl(35, 25%, 94%) 100%);
 }
 
-/* Desert Sand - Hero specific styles */
+/* ============================================
+   LIGHT THEMES - Hero Specific Styles
+   ============================================ */
+
+/* Arctic Frost - Hero styles */
+html.theme-arctic-frost {
+  --gradient-hero: linear-gradient(180deg, hsla(210, 30%, 45%, 0.5) 0%, hsla(210, 30%, 85%, 0.85) 60%, hsl(210, 30%, 96%) 100%);
+}
+html.theme-arctic-frost .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-arctic-frost .avatar-wrapper {
+  border-color: hsl(200 80% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(200 80% 45% / 0.25);
+}
+html.theme-arctic-frost .avatar-pulse {
+  border-color: hsl(200 80% 45% / 0.15);
+}
+html.theme-arctic-frost .hero-info-card {
+  background: hsl(210 25% 100% / 0.92);
+  border-color: hsl(210 20% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(210, 25%, 30%, 0.12);
+}
+
+/* Desert Sand - Hero styles */
 html.theme-desert-sand .hero-banner img {
   filter: sepia(15%) saturate(1.1);
 }
-
 html.theme-desert-sand .avatar-wrapper {
   border-color: hsl(30 65% 50% / 0.4);
   box-shadow: 0 0 25px hsl(30 65% 50% / 0.25);
 }
-
 html.theme-desert-sand .avatar-pulse {
   border-color: hsl(30 65% 50% / 0.15);
 }
-
 html.theme-desert-sand .hero-info-card {
   background: hsl(35 20% 98% / 0.92);
   border-color: hsl(35 18% 82% / 0.6);
   box-shadow: 0 4px 20px hsla(30, 20%, 30%, 0.12);
+}
+
+/* Cloud Silver - Hero styles */
+html.theme-cloud-silver {
+  --gradient-hero: linear-gradient(180deg, hsla(220, 15%, 45%, 0.5) 0%, hsla(220, 15%, 85%, 0.85) 60%, hsl(220, 15%, 95%) 100%);
+}
+html.theme-cloud-silver .hero-banner img {
+  filter: saturate(0.9) brightness(0.95);
+}
+html.theme-cloud-silver .avatar-wrapper {
+  border-color: hsl(220 25% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(220 25% 45% / 0.25);
+}
+html.theme-cloud-silver .avatar-pulse {
+  border-color: hsl(220 25% 45% / 0.15);
+}
+html.theme-cloud-silver .hero-info-card {
+  background: hsl(220 12% 100% / 0.92);
+  border-color: hsl(220 15% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(220, 15%, 30%, 0.12);
+}
+
+/* Rose Garden - Hero styles */
+html.theme-rose-garden {
+  --gradient-hero: linear-gradient(180deg, hsla(350, 30%, 45%, 0.5) 0%, hsla(350, 30%, 85%, 0.85) 60%, hsl(350, 30%, 96%) 100%);
+}
+html.theme-rose-garden .hero-banner img {
+  filter: saturate(1.15) brightness(0.95);
+}
+html.theme-rose-garden .avatar-wrapper {
+  border-color: hsl(350 70% 55% / 0.4);
+  box-shadow: 0 0 25px hsl(350 70% 55% / 0.25);
+}
+html.theme-rose-garden .avatar-pulse {
+  border-color: hsl(350 70% 55% / 0.15);
+}
+html.theme-rose-garden .hero-info-card {
+  background: hsl(350 25% 100% / 0.92);
+  border-color: hsl(350 20% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(350, 25%, 30%, 0.12);
+}
+
+/* Mint Fresh - Hero styles */
+html.theme-mint-fresh {
+  --gradient-hero: linear-gradient(180deg, hsla(160, 30%, 40%, 0.5) 0%, hsla(160, 30%, 85%, 0.85) 60%, hsl(160, 30%, 95%) 100%);
+}
+html.theme-mint-fresh .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-mint-fresh .avatar-wrapper {
+  border-color: hsl(165 60% 40% / 0.4);
+  box-shadow: 0 0 25px hsl(165 60% 40% / 0.25);
+}
+html.theme-mint-fresh .avatar-pulse {
+  border-color: hsl(165 60% 40% / 0.15);
+}
+html.theme-mint-fresh .hero-info-card {
+  background: hsl(160 25% 100% / 0.92);
+  border-color: hsl(160 18% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(160, 25%, 30%, 0.12);
+}
+
+/* Lavender Dream - Hero styles */
+html.theme-lavender-dream {
+  --gradient-hero: linear-gradient(180deg, hsla(270, 25%, 45%, 0.5) 0%, hsla(270, 25%, 85%, 0.85) 60%, hsl(270, 25%, 96%) 100%);
+}
+html.theme-lavender-dream .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-lavender-dream .avatar-wrapper {
+  border-color: hsl(270 55% 55% / 0.4);
+  box-shadow: 0 0 25px hsl(270 55% 55% / 0.25);
+}
+html.theme-lavender-dream .avatar-pulse {
+  border-color: hsl(270 55% 55% / 0.15);
+}
+html.theme-lavender-dream .hero-info-card {
+  background: hsl(270 20% 100% / 0.92);
+  border-color: hsl(270 18% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(270, 20%, 30%, 0.12);
+}
+
+/* Peach Blossom - Hero styles */
+html.theme-peach-blossom {
+  --gradient-hero: linear-gradient(180deg, hsla(25, 40%, 45%, 0.5) 0%, hsla(25, 40%, 85%, 0.85) 60%, hsl(25, 40%, 95%) 100%);
+}
+html.theme-peach-blossom .hero-banner img {
+  filter: saturate(1.15) brightness(0.95);
+}
+html.theme-peach-blossom .avatar-wrapper {
+  border-color: hsl(20 75% 55% / 0.4);
+  box-shadow: 0 0 25px hsl(20 75% 55% / 0.25);
+}
+html.theme-peach-blossom .avatar-pulse {
+  border-color: hsl(20 75% 55% / 0.15);
+}
+html.theme-peach-blossom .hero-info-card {
+  background: hsl(25 35% 100% / 0.92);
+  border-color: hsl(25 22% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(25, 30%, 30%, 0.12);
+}
+
+/* Sky Blue - Hero styles */
+html.theme-sky-blue {
+  --gradient-hero: linear-gradient(180deg, hsla(200, 35%, 45%, 0.5) 0%, hsla(200, 35%, 85%, 0.85) 60%, hsl(200, 35%, 96%) 100%);
+}
+html.theme-sky-blue .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-sky-blue .avatar-wrapper {
+  border-color: hsl(200 80% 50% / 0.4);
+  box-shadow: 0 0 25px hsl(200 80% 50% / 0.25);
+}
+html.theme-sky-blue .avatar-pulse {
+  border-color: hsl(200 80% 50% / 0.15);
+}
+html.theme-sky-blue .hero-info-card {
+  background: hsl(200 30% 100% / 0.92);
+  border-color: hsl(200 20% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(200, 30%, 30%, 0.12);
+}
+
+/* Cream Vanilla - Hero styles */
+html.theme-cream-vanilla {
+  --gradient-hero: linear-gradient(180deg, hsla(45, 35%, 45%, 0.5) 0%, hsla(45, 35%, 85%, 0.85) 60%, hsl(45, 35%, 95%) 100%);
+}
+html.theme-cream-vanilla .hero-banner img {
+  filter: sepia(10%) saturate(1.05) brightness(0.95);
+}
+html.theme-cream-vanilla .avatar-wrapper {
+  border-color: hsl(40 55% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(40 55% 45% / 0.25);
+}
+html.theme-cream-vanilla .avatar-pulse {
+  border-color: hsl(40 55% 45% / 0.15);
+}
+html.theme-cream-vanilla .hero-info-card {
+  background: hsl(45 30% 100% / 0.92);
+  border-color: hsl(45 20% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(45, 25%, 30%, 0.12);
+}
+
+/* Sage Morning - Hero styles */
+html.theme-sage-morning {
+  --gradient-hero: linear-gradient(180deg, hsla(130, 20%, 40%, 0.5) 0%, hsla(130, 20%, 85%, 0.85) 60%, hsl(130, 20%, 94%) 100%);
+}
+html.theme-sage-morning .hero-banner img {
+  filter: saturate(1.05) brightness(0.95);
+}
+html.theme-sage-morning .avatar-wrapper {
+  border-color: hsl(135 35% 40% / 0.4);
+  box-shadow: 0 0 25px hsl(135 35% 40% / 0.25);
+}
+html.theme-sage-morning .avatar-pulse {
+  border-color: hsl(135 35% 40% / 0.15);
+}
+html.theme-sage-morning .hero-info-card {
+  background: hsl(130 18% 100% / 0.92);
+  border-color: hsl(130 15% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(130, 20%, 30%, 0.12);
+}
+
+/* Coral Reef - Hero styles */
+html.theme-coral-reef {
+  --gradient-hero: linear-gradient(180deg, hsla(15, 45%, 45%, 0.5) 0%, hsla(15, 45%, 85%, 0.85) 60%, hsl(15, 45%, 96%) 100%);
+}
+html.theme-coral-reef .hero-banner img {
+  filter: saturate(1.2) brightness(0.95);
+}
+html.theme-coral-reef .avatar-wrapper {
+  border-color: hsl(10 80% 60% / 0.4);
+  box-shadow: 0 0 25px hsl(10 80% 60% / 0.25);
+}
+html.theme-coral-reef .avatar-pulse {
+  border-color: hsl(10 80% 60% / 0.15);
+}
+html.theme-coral-reef .hero-info-card {
+  background: hsl(15 40% 100% / 0.92);
+  border-color: hsl(15 25% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(15, 35%, 30%, 0.12);
+}
+
+/* Golden Hour - Hero styles */
+html.theme-golden-hour {
+  --gradient-hero: linear-gradient(180deg, hsla(45, 45%, 45%, 0.5) 0%, hsla(45, 45%, 85%, 0.85) 60%, hsl(45, 45%, 95%) 100%);
+}
+html.theme-golden-hour .hero-banner img {
+  filter: sepia(15%) saturate(1.2) brightness(0.95);
+}
+html.theme-golden-hour .avatar-wrapper {
+  border-color: hsl(42 85% 50% / 0.4);
+  box-shadow: 0 0 25px hsl(42 85% 50% / 0.25);
+}
+html.theme-golden-hour .avatar-pulse {
+  border-color: hsl(42 85% 50% / 0.15);
+}
+html.theme-golden-hour .hero-info-card {
+  background: hsl(45 40% 100% / 0.92);
+  border-color: hsl(45 28% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(45, 35%, 30%, 0.12);
+}
+
+/* Minimal Zen (Light Layout) - Hero styles */
+html.theme-minimal-zen {
+  --gradient-hero: linear-gradient(180deg, hsla(40, 20%, 50%, 0.4) 0%, hsla(40, 20%, 88%, 0.85) 60%, hsl(40, 20%, 97%) 100%);
+}
+html.theme-minimal-zen .hero-banner img {
+  filter: saturate(0.85) brightness(0.95);
+}
+html.theme-minimal-zen .avatar-wrapper {
+  border-color: hsl(40 30% 35% / 0.4);
+  box-shadow: 0 0 25px hsl(40 30% 35% / 0.2);
+}
+html.theme-minimal-zen .avatar-pulse {
+  border-color: hsl(40 30% 35% / 0.1);
+}
+html.theme-minimal-zen .hero-info-card {
+  background: hsl(40 15% 100% / 0.92);
+  border-color: hsl(40 15% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(40, 15%, 30%, 0.1);
+}
+
+/* Nature Organic (Light Layout) - Hero styles */
+html.theme-nature-organic {
+  --gradient-hero: linear-gradient(180deg, hsla(100, 25%, 40%, 0.5) 0%, hsla(100, 25%, 85%, 0.85) 60%, hsl(100, 25%, 95%) 100%);
+}
+html.theme-nature-organic .hero-banner img {
+  filter: saturate(1.15) brightness(0.95);
+}
+html.theme-nature-organic .avatar-wrapper {
+  border-color: hsl(110 50% 40% / 0.4);
+  box-shadow: 0 0 25px hsl(110 50% 40% / 0.25);
+}
+html.theme-nature-organic .avatar-pulse {
+  border-color: hsl(110 50% 40% / 0.15);
+}
+html.theme-nature-organic .hero-info-card {
+  background: hsl(100 20% 100% / 0.92);
+  border-color: hsl(100 18% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(100, 25%, 30%, 0.12);
+}
+
+/* Card Stack (Light Layout) - Hero styles */
+html.theme-card-stack {
+  --gradient-hero: linear-gradient(180deg, hsla(45, 30%, 45%, 0.5) 0%, hsla(45, 30%, 85%, 0.85) 60%, hsl(45, 30%, 94%) 100%);
+}
+html.theme-card-stack .hero-banner img {
+  filter: sepia(8%) saturate(1.05) brightness(0.95);
+}
+html.theme-card-stack .avatar-wrapper {
+  border-color: hsl(40 50% 45% / 0.4);
+  box-shadow: 0 0 25px hsl(40 50% 45% / 0.25);
+}
+html.theme-card-stack .avatar-pulse {
+  border-color: hsl(40 50% 45% / 0.15);
+}
+html.theme-card-stack .hero-info-card {
+  background: hsl(45 25% 100% / 0.92);
+  border-color: hsl(45 22% 85% / 0.6);
+  box-shadow: 0 4px 20px hsla(45, 25%, 30%, 0.12);
 }
 
 /* THEME: Cloud Silver (Light) */
