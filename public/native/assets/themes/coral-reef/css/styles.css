@@ -1,0 +1,38 @@
+/* Coral Reef Theme - Coral vibrante e tropical */
+html.theme-coral-reef {
+  --background: 15 45% 96%;
+  --foreground: 10 35% 12%;
+  --card: 15 40% 100%;
+  --card-foreground: 10 35% 12%;
+  --popover: 15 40% 98%;
+  --popover-foreground: 10 35% 12%;
+  --primary: 10 80% 60%;
+  --primary-foreground: 15 45% 98%;
+  --secondary: 15 28% 92%;
+  --secondary-foreground: 10 35% 15%;
+  --muted: 15 22% 90%;
+  --muted-foreground: 10 20% 45%;
+  --accent: 5 75% 55%;
+  --accent-foreground: 15 45% 98%;
+  --border: 15 25% 88%;
+  --input: 15 28% 92%;
+  --ring: 10 80% 60%;
+  --gradient-hero: linear-gradient(180deg, hsla(15, 45%, 45%, 0.5) 0%, hsla(15, 45%, 85%, 0.85) 60%, hsl(15, 45%, 96%) 100%);
+}
+
+/* Coral Reef - Hero specific styles */
+html.theme-coral-reef .hero-banner img {
+  filter: saturate(1.2) brightness(0.95);
+}
+html.theme-coral-reef .avatar-wrapper {
+  border-color: hsl(10 80% 60% / 0.4);
+  box-shadow: 0 0 25px hsl(10 80% 60% / 0.25);
+}
+html.theme-coral-reef .avatar-pulse {
+  border-color: hsl(10 80% 60% / 0.15);
+}
+html.theme-coral-reef .hero-info-card {
+  background: hsl(15 40% 100% / 0.92);
+  border-color: hsl(15 25% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(15, 35%, 30%, 0.12);
+}

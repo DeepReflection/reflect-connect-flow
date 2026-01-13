@@ -1,0 +1,38 @@
+/* Sky Blue Theme - Azul claro e sereno */
+html.theme-sky-blue {
+  --background: 200 35% 96%;
+  --foreground: 205 30% 12%;
+  --card: 200 30% 100%;
+  --card-foreground: 205 30% 12%;
+  --popover: 200 30% 98%;
+  --popover-foreground: 205 30% 12%;
+  --primary: 200 80% 50%;
+  --primary-foreground: 200 35% 98%;
+  --secondary: 200 22% 92%;
+  --secondary-foreground: 205 30% 15%;
+  --muted: 200 18% 90%;
+  --muted-foreground: 200 18% 42%;
+  --accent: 195 75% 45%;
+  --accent-foreground: 200 35% 98%;
+  --border: 200 20% 88%;
+  --input: 200 22% 92%;
+  --ring: 200 80% 50%;
+  --gradient-hero: linear-gradient(180deg, hsla(200, 35%, 45%, 0.5) 0%, hsla(200, 35%, 85%, 0.85) 60%, hsl(200, 35%, 96%) 100%);
+}
+
+/* Sky Blue - Hero specific styles */
+html.theme-sky-blue .hero-banner img {
+  filter: saturate(1.1) brightness(0.95);
+}
+html.theme-sky-blue .avatar-wrapper {
+  border-color: hsl(200 80% 50% / 0.4);
+  box-shadow: 0 0 25px hsl(200 80% 50% / 0.25);
+}
+html.theme-sky-blue .avatar-pulse {
+  border-color: hsl(200 80% 50% / 0.15);
+}
+html.theme-sky-blue .hero-info-card {
+  background: hsl(200 30% 100% / 0.92);
+  border-color: hsl(200 20% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(200, 30%, 30%, 0.12);
+}

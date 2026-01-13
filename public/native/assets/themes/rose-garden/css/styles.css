@@ -1,0 +1,38 @@
+/* Rose Garden Theme - Rosa suave e romântico */
+html.theme-rose-garden {
+  --background: 350 30% 96%;
+  --foreground: 350 25% 15%;
+  --card: 350 25% 100%;
+  --card-foreground: 350 25% 15%;
+  --popover: 350 25% 98%;
+  --popover-foreground: 350 25% 15%;
+  --primary: 350 70% 55%;
+  --primary-foreground: 350 30% 98%;
+  --secondary: 350 20% 92%;
+  --secondary-foreground: 350 25% 18%;
+  --muted: 350 15% 90%;
+  --muted-foreground: 350 15% 45%;
+  --accent: 340 60% 50%;
+  --accent-foreground: 350 30% 98%;
+  --border: 350 20% 88%;
+  --input: 350 20% 92%;
+  --ring: 350 70% 55%;
+  --gradient-hero: linear-gradient(180deg, hsla(350, 30%, 45%, 0.5) 0%, hsla(350, 30%, 85%, 0.85) 60%, hsl(350, 30%, 96%) 100%);
+}
+
+/* Rose Garden - Hero specific styles */
+html.theme-rose-garden .hero-banner img {
+  filter: saturate(1.15) brightness(0.95);
+}
+html.theme-rose-garden .avatar-wrapper {
+  border-color: hsl(350 70% 55% / 0.4);
+  box-shadow: 0 0 25px hsl(350 70% 55% / 0.25);
+}
+html.theme-rose-garden .avatar-pulse {
+  border-color: hsl(350 70% 55% / 0.15);
+}
+html.theme-rose-garden .hero-info-card {
+  background: hsl(350 25% 100% / 0.92);
+  border-color: hsl(350 20% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(350, 25%, 30%, 0.12);
+}

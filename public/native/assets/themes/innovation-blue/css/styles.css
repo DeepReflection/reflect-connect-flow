@@ -1,0 +1,21 @@
+/* Innovation Blue Theme - Azul elétrico vibrante e criativo */
+html.theme-innovation-blue {
+  --background: 225 40% 8%;
+  --foreground: 220 25% 92%;
+  --card: 225 38% 12%;
+  --card-foreground: 220 25% 92%;
+  --popover: 225 38% 10%;
+  --popover-foreground: 220 25% 92%;
+  --primary: 210 100% 55%;
+  --primary-foreground: 225 40% 8%;
+  --secondary: 225 30% 18%;
+  --secondary-foreground: 220 25% 88%;
+  --muted: 225 25% 20%;
+  --muted-foreground: 220 18% 55%;
+  --accent: 200 90% 50%;
+  --accent-foreground: 225 40% 8%;
+  --border: 225 28% 22%;
+  --input: 225 30% 16%;
+  --ring: 210 100% 55%;
+  --gradient-hero: linear-gradient(180deg, hsla(225, 40%, 4%, 0.3) 0%, hsl(225, 40%, 8%) 100%);
+}

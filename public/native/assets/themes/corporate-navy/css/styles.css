@@ -1,0 +1,21 @@
+/* Corporate Navy Theme - Azul marinho profissional e confiável */
+html.theme-corporate-navy {
+  --background: 220 35% 10%;
+  --foreground: 210 25% 92%;
+  --card: 220 30% 14%;
+  --card-foreground: 210 25% 92%;
+  --popover: 220 30% 12%;
+  --popover-foreground: 210 25% 92%;
+  --primary: 210 80% 55%;
+  --primary-foreground: 220 35% 8%;
+  --secondary: 220 25% 20%;
+  --secondary-foreground: 210 25% 88%;
+  --muted: 220 20% 22%;
+  --muted-foreground: 210 15% 55%;
+  --accent: 200 70% 50%;
+  --accent-foreground: 220 35% 8%;
+  --border: 220 25% 25%;
+  --input: 220 25% 18%;
+  --ring: 210 80% 55%;
+  --gradient-hero: linear-gradient(180deg, hsla(220, 35%, 5%, 0.3) 0%, hsl(220, 35%, 10%) 100%);
+}

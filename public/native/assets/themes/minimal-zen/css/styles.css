@@ -1,0 +1,38 @@
+/* Minimal Zen Theme - Design ultra limpo e contemplativo */
+html.theme-minimal-zen {
+  --background: 40 20% 97%;
+  --foreground: 40 15% 15%;
+  --card: 40 15% 100%;
+  --card-foreground: 40 15% 15%;
+  --popover: 40 15% 99%;
+  --popover-foreground: 40 15% 15%;
+  --primary: 40 30% 35%;
+  --primary-foreground: 40 20% 98%;
+  --secondary: 40 12% 94%;
+  --secondary-foreground: 40 15% 20%;
+  --muted: 40 10% 92%;
+  --muted-foreground: 40 10% 45%;
+  --accent: 40 25% 30%;
+  --accent-foreground: 40 20% 98%;
+  --border: 40 15% 88%;
+  --input: 40 12% 94%;
+  --ring: 40 30% 35%;
+  --gradient-hero: linear-gradient(180deg, hsla(40, 20%, 50%, 0.4) 0%, hsla(40, 20%, 88%, 0.85) 60%, hsl(40, 20%, 97%) 100%);
+}
+
+/* Minimal Zen - Hero specific styles */
+html.theme-minimal-zen .hero-banner img {
+  filter: saturate(0.85) brightness(0.95);
+}
+html.theme-minimal-zen .avatar-wrapper {
+  border-color: hsl(40 30% 35% / 0.4);
+  box-shadow: 0 0 25px hsl(40 30% 35% / 0.2);
+}
+html.theme-minimal-zen .avatar-pulse {
+  border-color: hsl(40 30% 35% / 0.1);
+}
+html.theme-minimal-zen .hero-info-card {
+  background: hsl(40 15% 100% / 0.92);
+  border-color: hsl(40 15% 88% / 0.6);
+  box-shadow: 0 4px 20px hsla(40, 15%, 30%, 0.1);
+}
