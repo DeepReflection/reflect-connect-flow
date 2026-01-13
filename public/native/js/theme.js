@@ -3,6 +3,7 @@
 // ============================================
 
 const THEME_CONFIG = {
+  // Dark themes
   'vintage-sepia': { name: 'Vintage Sépia', isLight: false },
   'midnight-gold': { name: 'Midnight Gold', isLight: false },
   'military-olive': { name: 'Military Olive', isLight: false },
@@ -11,6 +12,7 @@ const THEME_CONFIG = {
   'sunset-bronze': { name: 'Sunset Bronze', isLight: false },
   'royal-purple': { name: 'Royal Purple', isLight: false },
   'forest-emerald': { name: 'Forest Emerald', isLight: false },
+  // Light themes
   'arctic-frost': { name: 'Arctic Frost', isLight: true },
   'desert-sand': { name: 'Desert Sand', isLight: true },
   'cloud-silver': { name: 'Cloud Silver', isLight: true },
@@ -23,6 +25,7 @@ const THEME_CONFIG = {
   'sage-morning': { name: 'Sage Morning', isLight: true },
   'coral-reef': { name: 'Coral Reef', isLight: true },
   'golden-hour': { name: 'Golden Hour', isLight: true },
+  // Business themes
   'corporate-navy': { name: 'Corporate Navy', isLight: false },
   'executive-charcoal': { name: 'Executive Charcoal', isLight: false },
   'startup-teal': { name: 'Startup Teal', isLight: false },
@@ -33,16 +36,17 @@ const THEME_CONFIG = {
   'modern-graphite': { name: 'Modern Graphite', isLight: false },
   'innovation-blue': { name: 'Innovation Blue', isLight: false },
   'prestige-burgundy': { name: 'Prestige Burgundy', isLight: false },
-  'neon-gamer': { name: 'Neon Gamer', isLight: false, layout: 'centered' },
-  'minimal-zen': { name: 'Minimal Zen', isLight: false, layout: 'minimal' },
-  'magazine-editorial': { name: 'Magazine Editorial', isLight: false, layout: 'editorial' },
-  'retro-wave': { name: 'Retro Wave', isLight: false, layout: 'retro' },
-  'nature-organic': { name: 'Nature Organic', isLight: false, layout: 'organic' },
-  'brutalist-raw': { name: 'Brutalist Raw', isLight: false, layout: 'brutalist' },
-  'glassmorphism': { name: 'Glassmorphism', isLight: false, layout: 'glass' },
-  'split-screen': { name: 'Split Screen', isLight: false, layout: 'split' },
-  'gradient-flow': { name: 'Gradient Flow', isLight: false, layout: 'gradient' },
-  'card-stack': { name: 'Card Stack', isLight: false, layout: 'stacked' }
+  // Layout themes
+  'neon-gamer': { name: 'Neon Gamer', isLight: false },
+  'minimal-zen': { name: 'Minimal Zen', isLight: true },
+  'magazine-editorial': { name: 'Magazine Editorial', isLight: false },
+  'retro-wave': { name: 'Retro Wave', isLight: false },
+  'nature-organic': { name: 'Nature Organic', isLight: true },
+  'brutalist-raw': { name: 'Brutalist Raw', isLight: false },
+  'glassmorphism': { name: 'Glassmorphism', isLight: false },
+  'split-screen': { name: 'Split Screen', isLight: false },
+  'gradient-flow': { name: 'Gradient Flow', isLight: false },
+  'card-stack': { name: 'Card Stack', isLight: true }
 };
 
 class ThemeManager {

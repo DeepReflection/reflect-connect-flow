@@ -134,7 +134,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: var(--gradient-hero, linear-gradient(180deg, hsl(20 15% 4% / 0.3) 0%, hsl(var(--background)) 100%));
+  background: var(--gradient-hero);
 }
 
 /* Hero Content - Flex layout like React ClassicHeroLayout */
