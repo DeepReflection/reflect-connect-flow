@@ -17,7 +17,7 @@ html.theme-coral-reef {
   --border: 15 25% 88%;
   --input: 15 28% 92%;
   --ring: 10 80% 60%;
-  --gradient-hero: linear-gradient(180deg, hsla(15, 45%, 45%, 0.5) 0%, hsla(15, 45%, 85%, 0.85) 60%, hsl(15, 45%, 96%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Coral Reef - Hero specific styles */

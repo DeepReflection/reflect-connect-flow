@@ -17,7 +17,7 @@ html.theme-sage-morning {
   --border: 130 15% 85%;
   --input: 130 15% 90%;
   --ring: 135 35% 40%;
-  --gradient-hero: linear-gradient(180deg, hsla(130, 20%, 40%, 0.5) 0%, hsla(130, 20%, 85%, 0.85) 60%, hsl(130, 20%, 94%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Sage Morning - Hero specific styles */

@@ -17,7 +17,7 @@ html.theme-nature-organic {
   --border: 100 18% 85%;
   --input: 100 18% 92%;
   --ring: 110 50% 40%;
-  --gradient-hero: linear-gradient(180deg, hsla(100, 25%, 40%, 0.5) 0%, hsla(100, 25%, 85%, 0.85) 60%, hsl(100, 25%, 95%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Nature Organic - Hero specific styles */

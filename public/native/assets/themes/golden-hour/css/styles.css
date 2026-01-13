@@ -17,7 +17,7 @@ html.theme-golden-hour {
   --border: 45 28% 88%;
   --input: 45 30% 92%;
   --ring: 42 85% 50%;
-  --gradient-hero: linear-gradient(180deg, hsla(45, 45%, 45%, 0.5) 0%, hsla(45, 45%, 85%, 0.85) 60%, hsl(45, 45%, 95%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Golden Hour - Hero specific styles */

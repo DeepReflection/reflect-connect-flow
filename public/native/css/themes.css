@@ -77,8 +77,8 @@
   --vintage-cream: 40 30% 92%;
   --smoke: 20 5% 40%;
   
-  /* Gradients - Darker overlay on banner transitioning to solid background like React */
-  --gradient-hero: linear-gradient(180deg, hsl(0 0% 0% / 0.6) 0%, hsl(0 0% 0% / 0.4) 40%, hsl(var(--background)) 100%);
+  /* Gradients - Match React preview (constant overlay) */
+  --gradient-hero: linear-gradient(180deg, hsl(20 15% 4% / 0.3) 0%, hsl(20 15% 8%) 100%);
   --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
   --gradient-bronze: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
   --gradient-glow: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15) 0%, transparent 70%);

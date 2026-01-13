@@ -17,7 +17,7 @@ html.theme-lavender-dream {
   --border: 270 18% 88%;
   --input: 270 18% 92%;
   --ring: 270 55% 55%;
-  --gradient-hero: linear-gradient(180deg, hsla(270, 25%, 45%, 0.5) 0%, hsla(270, 25%, 85%, 0.85) 60%, hsl(270, 25%, 96%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Lavender Dream - Hero specific styles */

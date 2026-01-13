@@ -17,7 +17,7 @@ html.theme-cream-vanilla {
   --border: 45 20% 88%;
   --input: 45 22% 92%;
   --ring: 40 55% 45%;
-  --gradient-hero: linear-gradient(180deg, hsla(45, 35%, 45%, 0.5) 0%, hsla(45, 35%, 85%, 0.85) 60%, hsl(45, 35%, 95%) 100%);
+  /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
 /* Cream Vanilla - Hero specific styles */
