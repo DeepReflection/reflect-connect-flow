@@ -105,15 +105,14 @@
         <div class="hero-info-card">
           <div class="hero-header">
             <h1 id="profile-name" class="hero-title"></h1>
-            <button class="share-btn" id="share-btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="share-btn" id="share-btn" aria-label="Compartilhar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="18" cy="5" r="3"></circle>
                 <circle cx="6" cy="12" r="3"></circle>
                 <circle cx="18" cy="19" r="3"></circle>
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
               </svg>
-              Compartilhar
             </button>
           </div>
           <p id="profile-description" class="hero-description"></p>
@@ -174,11 +173,9 @@
     <p class="footer-subtitle"></p>
   </footer>
 
-  <!-- Chatbot Button -->
+  <!-- Chatbot Button - Avatar style like React -->
   <button id="chatbot-btn" class="chatbot-btn" aria-label="Abrir chat">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
+    <img id="chatbot-avatar" src="" alt="Chat">
   </button>
 
   <!-- Chat Modal -->

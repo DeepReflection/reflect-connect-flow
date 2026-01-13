@@ -294,7 +294,7 @@ const themeConfigs: Record<string, ThemeConfig> = {
     id: 'card-stack',
     name: 'Cartões Empilhados',
     description: 'Efeito de cartões sobrepostos',
-    isLight: false,
+    isLight: true,
     category: 'layout',
   },
 };
