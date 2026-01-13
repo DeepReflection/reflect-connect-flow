@@ -387,14 +387,14 @@
   animation: pulse 2s infinite;
 }
 
-/* Hero Info Card - Glass effect */
+/* Hero Info Card - Glass effect matching React glass-card */
 .hero-info-card {
   text-align: center;
   flex: 1;
   min-width: 0;
-  background: hsl(var(--card));
+  background: hsl(var(--card) / 0.85); /* 85% opacity like React */
   border: 1px solid hsl(var(--border));
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px); /* blur-md in Tailwind */
   box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.2);
   padding: 1rem;
   border-radius: 0.75rem;
