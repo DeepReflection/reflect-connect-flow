@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="theme-vintage-sepia">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,66 +13,156 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="theme-vintage-sepia" data-profile="vinihistoria">
-  <!-- Theme Selector -->
-  <div id="theme-selector" class="theme-selector">
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Selecionar tema">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-      </svg>
-    </button>
-    <div id="theme-dropdown" class="theme-dropdown hidden"></div>
+<body data-profile="vinihistoria">
+  <!-- Theme Selector Bar - Fixed top like React -->
+  <div class="theme-selector-bar">
+    <div class="theme-selector-content">
+      <div class="theme-selector-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="13.5" cy="6.5" r=".5"></circle>
+          <circle cx="17.5" cy="10.5" r=".5"></circle>
+          <circle cx="8.5" cy="7.5" r=".5"></circle>
+          <circle cx="6.5" cy="12.5" r=".5"></circle>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"></path>
+        </svg>
+        <span>Escolha seu tema</span>
+      </div>
+      <div class="theme-select-wrapper">
+        <select id="theme-select" class="theme-select">
+          <optgroup label="☀️ Temas Claros">
+            <option value="arctic-frost">Arctic Frost</option>
+            <option value="desert-sand">Desert Sand</option>
+            <option value="cloud-silver">Cloud Silver</option>
+            <option value="rose-garden">Rose Garden</option>
+            <option value="mint-fresh">Mint Fresh</option>
+            <option value="lavender-dream">Lavender Dream</option>
+            <option value="peach-blossom">Peach Blossom</option>
+            <option value="sky-blue">Sky Blue</option>
+            <option value="cream-vanilla">Cream Vanilla</option>
+            <option value="sage-morning">Sage Morning</option>
+            <option value="coral-reef">Coral Reef</option>
+            <option value="golden-hour">Golden Hour</option>
+          </optgroup>
+          <optgroup label="🌙 Temas Escuros">
+            <option value="vintage-sepia" selected>Vintage Sépia</option>
+            <option value="midnight-gold">Midnight Gold</option>
+            <option value="military-olive">Military Olive</option>
+            <option value="ocean-deep">Ocean Deep</option>
+            <option value="crimson-war">Crimson War</option>
+            <option value="sunset-bronze">Sunset Bronze</option>
+            <option value="royal-purple">Royal Purple</option>
+            <option value="forest-emerald">Forest Emerald</option>
+          </optgroup>
+          <optgroup label="💼 Temas de Negócio">
+            <option value="corporate-navy">Corporate Navy</option>
+            <option value="executive-charcoal">Executive Charcoal</option>
+            <option value="startup-teal">Startup Teal</option>
+            <option value="finance-green">Finance Green</option>
+            <option value="consulting-slate">Consulting Slate</option>
+            <option value="tech-indigo">Tech Indigo</option>
+            <option value="luxury-black">Luxury Black</option>
+            <option value="modern-graphite">Modern Graphite</option>
+            <option value="innovation-blue">Innovation Blue</option>
+            <option value="prestige-burgundy">Prestige Burgundy</option>
+          </optgroup>
+          <optgroup label="🎨 Layouts Únicos">
+            <option value="neon-gamer">Neon Gamer</option>
+            <option value="minimal-zen">Minimal Zen</option>
+            <option value="magazine-editorial">Magazine Editorial</option>
+            <option value="retro-wave">Retro Wave</option>
+            <option value="nature-organic">Nature Organic</option>
+            <option value="brutalist-raw">Brutalist Raw</option>
+            <option value="glassmorphism">Glassmorphism</option>
+            <option value="split-screen">Split Screen</option>
+            <option value="gradient-flow">Gradient Flow</option>
+            <option value="card-stack">Card Stack</option>
+          </optgroup>
+        </select>
+        <svg class="theme-select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </div>
   </div>
 
   <!-- Particle Background -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- Hero Section -->
+  <!-- Hero Section - Classic Layout -->
   <header class="hero-section">
     <div class="hero-banner">
-      <img id="hero-banner-img" src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=1200&h=400&fit=crop" alt="Banner">
+      <img id="hero-banner-img" src="assets/themes/vintage-sepia/images/banner.jpg" alt="Banner">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <div class="avatar-container">
-        <img id="profile-avatar" src="" alt="Avatar" class="avatar">
+      <div class="hero-flex">
+        <div class="avatar-container">
+          <div class="avatar-wrapper">
+            <img id="profile-avatar" src="" alt="Avatar" class="avatar">
+          </div>
+          <div class="avatar-pulse"></div>
+        </div>
+        <div class="hero-info-card">
+          <div class="hero-header">
+            <h1 id="profile-name" class="hero-title"></h1>
+            <button class="share-btn" id="share-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              Compartilhar
+            </button>
+          </div>
+          <p id="profile-description" class="hero-description"></p>
+        </div>
       </div>
-      <h1 id="profile-name" class="hero-title"></h1>
-      <p id="profile-description" class="hero-description"></p>
-      <button class="share-btn" id="share-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-        </svg>
-        Compartilhar
-      </button>
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="main-content">
     <!-- CTA Button -->
-    <a href="#contact" class="cta-button">Fale Comigo</a>
+    <a href="#contact" class="cta-button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Fale Comigo
+    </a>
 
     <!-- Social Links -->
     <section class="social-links" id="social-links"></section>
   </main>
 
+  <!-- Agenda Section -->
+  <section class="section agenda-section">
+    <div class="section-container">
+      <h2 class="section-title">Agenda</h2>
+      <div class="events-grid" id="events-grid"></div>
+    </div>
+  </section>
+
   <!-- Products Section -->
   <section class="section products-section">
-    <div class="container">
+    <div class="section-container">
       <h2 class="section-title">Produtos</h2>
       <div class="products-grid" id="products-grid"></div>
     </div>
   </section>
 
+  <!-- Services Section -->
+  <section class="section services-section">
+    <div class="section-container">
+      <h2 class="section-title">Serviços</h2>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
   <!-- Reflections Section -->
   <section class="section reflections-section">
-    <div class="container">
+    <div class="section-container">
       <h2 class="section-title">Minhas Reflexões</h2>
       <div class="reflections-grid" id="reflections-grid"></div>
     </div>
