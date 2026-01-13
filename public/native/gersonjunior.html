@@ -133,7 +133,7 @@
       <div class="hero-flex">
         <div class="avatar-container">
           <div class="avatar-wrapper">
-            <img id="profile-avatar" src="" alt="Avatar" class="avatar">
+            <img id="profile-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/280.png" alt="Avatar" class="avatar">
           </div>
           <div class="avatar-pulse"></div>
         </div>
@@ -222,7 +222,10 @@
 
   <!-- Chatbot Button - Avatar style like React -->
   <button id="chatbot-btn" class="chatbot-btn" aria-label="Abrir chat">
-    <img id="chatbot-avatar" src="" alt="Chat">
+    <img id="chatbot-avatar" src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/280.png" alt="Chat" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
   </button>
 
   <!-- Chat Modal -->
