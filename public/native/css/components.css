@@ -661,30 +661,56 @@
   margin: 0 auto;
 }
 
-/* Section Title - Centered like React */
+/* Section Title - Centered like React SectionTitle component */
 .section-title-wrapper {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .section-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: hsl(var(--foreground));
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
   font-family: 'Playfair Display', serif;
+  display: inline-block;
+  /* text-gradient-bronze effect */
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.25rem;
+    font-size: 1.875rem; /* text-3xl */
   }
 }
 
-.section-title-bar {
-  width: 4rem;
-  height: 0.25rem;
-  background: hsl(var(--primary));
-  margin: 1rem auto 0;
+/* Section title decoration - matching React */
+.section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.section-title-line-left {
+  height: 1px;
+  width: 3rem;
+  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.5));
+}
+
+.section-title-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: hsl(var(--primary) / 0.6);
+}
+
+.section-title-line-right {
+  height: 1px;
+  width: 3rem;
+  background: linear-gradient(to left, transparent, hsl(var(--primary) / 0.5));
 }
 
 /* Event Cards */
