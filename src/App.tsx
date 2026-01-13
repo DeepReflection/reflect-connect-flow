@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import ViniHistoria from "./pages/ViniHistoria";
 import GersonJunior from "./pages/GersonJunior";
 import ClaudioFrydman from "./pages/ClaudioFrydman";
+import Demo from "./pages/Demo";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/vinihistoria" element={<ViniHistoria />} />
             <Route path="/gersonjunior" element={<GersonJunior />} />
             <Route path="/claudiofrydman" element={<ClaudioFrydman />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/chat" element={<Chat />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
