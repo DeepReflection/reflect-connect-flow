@@ -231,8 +231,25 @@ class ThemeManager {
     // Update banner image
     this.updateBannerImage(themeId);
     
+    // Update section subtitles based on theme
+    this.updateSectionSubtitles(themeId);
+    
     // Update dropdown display
     this.updateDropdownDisplay();
+  }
+
+  updateSectionSubtitles(themeId) {
+    const subtitles = document.querySelectorAll('.section-subtitle');
+    
+    subtitles.forEach(subtitle => {
+      // Check which data attribute to use based on theme
+      if (themeId === 'executive-charcoal' && subtitle.dataset.executive) {
+        subtitle.textContent = subtitle.dataset.executive;
+      } else if (themeId === 'corporate-navy' && subtitle.dataset.corporate) {
+        subtitle.textContent = subtitle.dataset.corporate;
+      }
+      // Other themes use the default text (already in the element)
+    });
   }
 
   updateBannerImage(themeId) {
