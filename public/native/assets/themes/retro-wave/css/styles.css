@@ -1,20 +1,163 @@
 /* Retro Wave Theme - Nostálgia anos 80 com visuais ousados */
 html.theme-retro-wave {
-  --background: 300 30% 8%;
-  --foreground: 320 25% 95%;
-  --card: 300 28% 12%;
-  --card-foreground: 320 25% 95%;
-  --popover: 300 28% 10%;
-  --popover-foreground: 320 25% 95%;
-  --primary: 320 100% 65%;
-  --primary-foreground: 300 30% 8%;
-  --secondary: 300 22% 18%;
-  --secondary-foreground: 320 25% 90%;
-  --muted: 300 18% 20%;
-  --muted-foreground: 320 15% 55%;
-  --accent: 180 100% 50%;
-  --accent-foreground: 300 30% 8%;
-  --border: 320 30% 22%;
-  --input: 300 22% 15%;
-  --ring: 320 100% 65%;
+  --background: 280 50% 8%;
+  --foreground: 300 100% 95%;
+  --card: 280 50% 12%;
+  --card-foreground: 300 100% 95%;
+  --popover: 280 50% 10%;
+  --popover-foreground: 300 100% 95%;
+  --primary: 325 100% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 280 45% 18%;
+  --secondary-foreground: 300 100% 90%;
+  --muted: 280 45% 15%;
+  --muted-foreground: 300 50% 60%;
+  --accent: 195 100% 55%;
+  --accent-foreground: 0 0% 5%;
+  --border: 280 50% 22%;
+  --input: 280 45% 18%;
+  --ring: 325 100% 60%;
+  --radius: 0;
+}
+
+/* Retro Wave - Hero specific styles */
+html.theme-retro-wave .hero-banner img {
+  filter: saturate(1.4) hue-rotate(-10deg) brightness(0.85);
+}
+html.theme-retro-wave .hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, 
+    hsl(280 50% 8% / 0.3) 0%,
+    hsl(325 100% 60% / 0.1) 50%,
+    hsl(280 50% 8%) 100%
+  );
+}
+html.theme-retro-wave .avatar-wrapper {
+  border-color: hsl(325 100% 60% / 0.6);
+  box-shadow: 0 0 30px hsl(325 100% 60% / 0.4), 0 0 60px hsl(195 100% 55% / 0.2);
+}
+html.theme-retro-wave .avatar-pulse {
+  border-color: hsl(195 100% 55% / 0.4);
+}
+html.theme-retro-wave .hero-info-card {
+  background: hsl(280 50% 12% / 0.9);
+  border: 2px solid hsl(325 100% 60% / 0.5);
+  box-shadow: 0 0 40px hsl(325 100% 60% / 0.2);
+}
+
+/* Retro Wave - Section styles */
+html.theme-retro-wave .section-title-wrapper {
+  text-align: center;
+}
+html.theme-retro-wave .section-subtitle {
+  color: hsl(195 100% 55%);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+html.theme-retro-wave .section-title {
+  color: hsl(300 100% 95%);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px hsl(325 100% 60% / 0.5), 0 0 40px hsl(325 100% 60% / 0.3);
+}
+html.theme-retro-wave .section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+html.theme-retro-wave .section-title-line-left,
+html.theme-retro-wave .section-title-line-right {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(325 100% 60%), hsl(195 100% 55%));
+}
+html.theme-retro-wave .section-title-dot {
+  display: none;
+}
+
+/* Retro Wave - Grid layouts */
+html.theme-retro-wave .events-grid,
+html.theme-retro-wave .products-grid,
+html.theme-retro-wave .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-retro-wave .event-card,
+html.theme-retro-wave .product-card,
+html.theme-retro-wave .service-card {
+  background: linear-gradient(135deg, hsl(280 50% 12%) 0%, hsl(280 50% 8%) 100%);
+  border: 2px solid hsl(280 50% 22%);
+  border-radius: 0;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+html.theme-retro-wave .event-card::before,
+html.theme-retro-wave .product-card::before,
+html.theme-retro-wave .service-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, hsl(325 100% 60%), hsl(195 100% 55%));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+html.theme-retro-wave .event-card:hover::before,
+html.theme-retro-wave .product-card:hover::before,
+html.theme-retro-wave .service-card:hover::before {
+  opacity: 1;
+}
+
+html.theme-retro-wave .event-card:hover,
+html.theme-retro-wave .product-card:hover,
+html.theme-retro-wave .service-card:hover {
+  border-color: transparent;
+  transform: scale(1.02);
+}
+
+/* Retro Wave - Reflections grid */
+html.theme-retro-wave .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-retro-wave .reflection-card {
+  background: hsl(280 50% 12% / 0.8);
+  border-left: 4px solid hsl(325 100% 60%);
+  border-radius: 0;
+  padding: 1.5rem;
+}
+
+/* Retro Wave - Sunset grid lines effect */
+html.theme-retro-wave .section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent,
+    transparent 4px,
+    hsl(325 100% 60% / 0.1) 4px,
+    hsl(325 100% 60% / 0.1) 5px
+  );
+  pointer-events: none;
+  z-index: 0;
 }

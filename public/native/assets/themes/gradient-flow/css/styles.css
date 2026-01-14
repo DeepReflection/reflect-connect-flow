@@ -1,20 +1,211 @@
 /* Gradient Flow Theme - Gradientes animados e fluidos */
 html.theme-gradient-flow {
-  --background: 280 35% 10%;
-  --foreground: 290 25% 95%;
-  --card: 280 32% 14%;
-  --card-foreground: 290 25% 95%;
-  --popover: 280 32% 12%;
-  --popover-foreground: 290 25% 95%;
-  --primary: 290 85% 60%;
-  --primary-foreground: 280 35% 8%;
-  --secondary: 280 25% 20%;
-  --secondary-foreground: 290 25% 90%;
-  --muted: 280 20% 24%;
-  --muted-foreground: 290 15% 55%;
-  --accent: 30 90% 55%;
-  --accent-foreground: 280 35% 8%;
-  --border: 290 28% 25%;
-  --input: 280 25% 18%;
-  --ring: 290 85% 60%;
+  --background: 260 40% 10%;
+  --foreground: 260 20% 95%;
+  --card: 260 40% 15%;
+  --card-foreground: 260 20% 95%;
+  --popover: 260 40% 12%;
+  --popover-foreground: 260 20% 95%;
+  --primary: 320 80% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 260 35% 22%;
+  --secondary-foreground: 260 20% 90%;
+  --muted: 260 35% 18%;
+  --muted-foreground: 260 20% 60%;
+  --accent: 200 90% 55%;
+  --accent-foreground: 0 0% 100%;
+  --border: 260 35% 25%;
+  --input: 260 35% 22%;
+  --ring: 320 80% 55%;
+  --radius: 0.75rem;
+}
+
+/* Gradient Flow - Animated background */
+html.theme-gradient-flow body {
+  position: relative;
+}
+html.theme-gradient-flow body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 30%, hsl(320 80% 55% / 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, hsl(200 90% 55% / 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, hsl(260 40% 10%) 0%, hsl(260 40% 5%) 100%);
+  z-index: -1;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Gradient Flow - Hero specific styles */
+html.theme-gradient-flow .hero-banner img {
+  filter: saturate(1.2) brightness(0.8);
+}
+html.theme-gradient-flow .hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    hsl(320 80% 55% / 0.3) 0%,
+    transparent 50%,
+    hsl(200 90% 55% / 0.3) 100%
+  );
+}
+html.theme-gradient-flow .avatar-wrapper {
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, hsl(320 80% 55%), hsl(200 90% 55%)) border-box;
+  box-shadow: 0 0 30px hsl(320 80% 55% / 0.3);
+}
+html.theme-gradient-flow .avatar-pulse {
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, hsl(320 80% 55% / 0.3), hsl(200 90% 55% / 0.3)) border-box;
+}
+html.theme-gradient-flow .hero-info-card {
+  background: linear-gradient(135deg, hsl(260 40% 15% / 0.9), hsl(260 40% 12% / 0.9));
+  border: 1px solid hsl(320 80% 55% / 0.2);
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.3);
+  border-radius: 1rem;
+}
+
+/* Gradient Flow - Section styles */
+html.theme-gradient-flow .section-title-wrapper {
+  text-align: center;
+}
+html.theme-gradient-flow .section-subtitle {
+  background: linear-gradient(90deg, hsl(320 80% 55%), hsl(200 90% 55%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+html.theme-gradient-flow .section-title {
+  color: hsl(260 20% 95%);
+}
+html.theme-gradient-flow .section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+html.theme-gradient-flow .section-title-line-left {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(320 80% 55%));
+}
+html.theme-gradient-flow .section-title-line-right {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(200 90% 55%), transparent);
+}
+html.theme-gradient-flow .section-title-dot {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, hsl(320 80% 55%), hsl(200 90% 55%));
+  border-radius: 50%;
+}
+
+/* Gradient Flow - Grid layouts */
+html.theme-gradient-flow .events-grid,
+html.theme-gradient-flow .products-grid,
+html.theme-gradient-flow .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-gradient-flow .event-card,
+html.theme-gradient-flow .product-card,
+html.theme-gradient-flow .service-card {
+  background: linear-gradient(135deg, hsl(260 40% 15%), hsl(260 40% 12%));
+  border: 1px solid hsl(260 35% 25%);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+html.theme-gradient-flow .event-card::before,
+html.theme-gradient-flow .product-card::before,
+html.theme-gradient-flow .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(320 80% 55%), hsl(200 90% 55%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+html.theme-gradient-flow .event-card:hover::before,
+html.theme-gradient-flow .product-card:hover::before,
+html.theme-gradient-flow .service-card:hover::before {
+  opacity: 1;
+}
+
+html.theme-gradient-flow .event-card:hover,
+html.theme-gradient-flow .product-card:hover,
+html.theme-gradient-flow .service-card:hover {
+  border-color: hsl(320 80% 55% / 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px hsl(320 80% 55% / 0.15);
+}
+
+/* Gradient Flow - Reflections grid */
+html.theme-gradient-flow .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-gradient-flow .reflection-card {
+  background: linear-gradient(135deg, hsl(260 40% 15% / 0.8), hsl(260 40% 12% / 0.8));
+  border: 1px solid hsl(260 35% 25%);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border-left: 3px solid;
+  border-image: linear-gradient(180deg, hsl(320 80% 55%), hsl(200 90% 55%)) 1;
+}
+
+/* Gradient Flow - CTA button */
+html.theme-gradient-flow .cta-button {
+  background: linear-gradient(135deg, hsl(320 80% 55%), hsl(200 90% 55%));
+  border: none;
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+html.theme-gradient-flow .cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(200 90% 55%), hsl(320 80% 55%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+html.theme-gradient-flow .cta-button:hover::before {
+  opacity: 1;
+}
+
+/* Gradient Flow - Social links */
+html.theme-gradient-flow .social-link {
+  background: hsl(260 40% 15%);
+  border: 1px solid hsl(260 35% 25%);
+  border-radius: 0.75rem;
+}
+
+html.theme-gradient-flow .social-link:hover {
+  border-color: hsl(320 80% 55% / 0.5);
 }

@@ -1,20 +1,145 @@
 /* Neon Gamer Theme - Cyber gaming com efeitos neon vibrantes */
 html.theme-neon-gamer {
-  --background: 270 40% 6%;
-  --foreground: 280 30% 95%;
-  --card: 270 35% 10%;
-  --card-foreground: 280 30% 95%;
-  --popover: 270 35% 8%;
-  --popover-foreground: 280 30% 95%;
-  --primary: 280 100% 60%;
-  --primary-foreground: 270 40% 6%;
-  --secondary: 270 30% 15%;
-  --secondary-foreground: 280 30% 90%;
-  --muted: 270 25% 18%;
-  --muted-foreground: 280 20% 55%;
-  --accent: 190 100% 50%;
-  --accent-foreground: 270 40% 6%;
-  --border: 280 40% 20%;
-  --input: 270 30% 14%;
-  --ring: 280 100% 60%;
+  --background: 270 50% 5%;
+  --foreground: 180 100% 90%;
+  --card: 270 50% 8%;
+  --card-foreground: 180 100% 90%;
+  --popover: 270 50% 7%;
+  --popover-foreground: 180 100% 90%;
+  --primary: 315 100% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 45% 15%;
+  --secondary-foreground: 180 100% 85%;
+  --muted: 270 45% 12%;
+  --muted-foreground: 180 50% 60%;
+  --accent: 180 100% 50%;
+  --accent-foreground: 0 0% 5%;
+  --border: 270 50% 18%;
+  --input: 270 45% 15%;
+  --ring: 315 100% 55%;
+  --radius: 0.875rem;
+}
+
+/* Neon Gamer - Hero specific styles */
+html.theme-neon-gamer .hero-banner img {
+  filter: saturate(1.3) contrast(1.1) brightness(0.85);
+}
+html.theme-neon-gamer .avatar-wrapper {
+  border-color: hsl(315 100% 55% / 0.6);
+  box-shadow: 0 0 30px hsl(315 100% 55% / 0.4), 0 0 60px hsl(180 100% 50% / 0.2);
+}
+html.theme-neon-gamer .avatar-pulse {
+  border-color: hsl(180 100% 50% / 0.3);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+html.theme-neon-gamer .hero-info-card {
+  background: hsl(270 50% 8% / 0.92);
+  border: 1px solid hsl(315 100% 55% / 0.3);
+  box-shadow: 0 0 20px hsl(315 100% 55% / 0.15), inset 0 0 20px hsl(270 50% 5% / 0.5);
+}
+
+/* Neon Gamer - Section styles */
+html.theme-neon-gamer .section-title-wrapper {
+  text-align: center;
+}
+html.theme-neon-gamer .section-subtitle {
+  color: hsl(180 100% 50%);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+html.theme-neon-gamer .section-title {
+  color: hsl(180 100% 90%);
+  text-shadow: 0 0 10px hsl(315 100% 55% / 0.5);
+}
+html.theme-neon-gamer .section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+html.theme-neon-gamer .section-title-line-left,
+html.theme-neon-gamer .section-title-line-right {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(315 100% 55%), transparent);
+}
+html.theme-neon-gamer .section-title-dot {
+  width: 8px;
+  height: 8px;
+  background: hsl(180 100% 50%);
+  box-shadow: 0 0 10px hsl(180 100% 50%);
+}
+
+/* Neon Gamer - Grid layouts */
+html.theme-neon-gamer .events-grid,
+html.theme-neon-gamer .products-grid,
+html.theme-neon-gamer .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-neon-gamer .event-card,
+html.theme-neon-gamer .product-card,
+html.theme-neon-gamer .service-card {
+  background: hsl(270 50% 8% / 0.9);
+  border: 1px solid hsl(315 100% 55% / 0.2);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+html.theme-neon-gamer .event-card::before,
+html.theme-neon-gamer .product-card::before,
+html.theme-neon-gamer .service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(315 100% 55%), hsl(180 100% 50%));
+}
+
+html.theme-neon-gamer .event-card:hover,
+html.theme-neon-gamer .product-card:hover,
+html.theme-neon-gamer .service-card:hover {
+  border-color: hsl(180 100% 50% / 0.4);
+  box-shadow: 0 0 30px hsl(315 100% 55% / 0.2);
+  transform: translateY(-5px);
+}
+
+/* Neon Gamer - Reflections grid */
+html.theme-neon-gamer .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-neon-gamer .reflection-card {
+  background: hsl(270 50% 8% / 0.85);
+  border: 1px solid hsl(270 50% 18%);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  position: relative;
+}
+
+html.theme-neon-gamer .reflection-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(180 100% 50% / 0.5), transparent);
+}
+
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 20px hsl(180 100% 50% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(315 100% 55% / 0.5); }
 }
