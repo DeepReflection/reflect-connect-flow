@@ -117,8 +117,17 @@ html.theme-gradient-flow .events-grid,
 html.theme-gradient-flow .products-grid,
 html.theme-gradient-flow .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-gradient-flow .events-grid,
+  html.theme-gradient-flow .products-grid,
+  html.theme-gradient-flow .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-gradient-flow .event-card,
@@ -127,10 +136,18 @@ html.theme-gradient-flow .service-card {
   background: linear-gradient(135deg, hsl(260 40% 15%), hsl(260 40% 12%));
   border: 1px solid hsl(260 35% 25%);
   border-radius: 0.75rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  html.theme-gradient-flow .event-card,
+  html.theme-gradient-flow .product-card,
+  html.theme-gradient-flow .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-gradient-flow .event-card::before,
@@ -164,17 +181,30 @@ html.theme-gradient-flow .service-card:hover {
 /* Gradient Flow - Reflections grid */
 html.theme-gradient-flow .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-gradient-flow .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-gradient-flow .reflection-card {
   background: linear-gradient(135deg, hsl(260 40% 15% / 0.8), hsl(260 40% 12% / 0.8));
   border: 1px solid hsl(260 35% 25%);
   border-radius: 0.75rem;
-  padding: 1.5rem;
+  padding: 1rem;
   border-left: 3px solid;
   border-image: linear-gradient(180deg, hsl(320 80% 55%), hsl(200 90% 55%)) 1;
+}
+
+@media (min-width: 640px) {
+  html.theme-gradient-flow .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Gradient Flow - CTA button */

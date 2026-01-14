@@ -88,8 +88,17 @@ html.theme-glassmorphism .events-grid,
 html.theme-glassmorphism .products-grid,
 html.theme-glassmorphism .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-glassmorphism .events-grid,
+  html.theme-glassmorphism .products-grid,
+  html.theme-glassmorphism .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-glassmorphism .event-card,
@@ -99,9 +108,17 @@ html.theme-glassmorphism .service-card {
   backdrop-filter: blur(20px);
   border: 1px solid hsl(220 20% 95% / 0.1);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   box-shadow: 0 8px 32px hsl(0 0% 0% / 0.1), inset 0 1px 0 hsl(220 20% 95% / 0.05);
   transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  html.theme-glassmorphism .event-card,
+  html.theme-glassmorphism .product-card,
+  html.theme-glassmorphism .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-glassmorphism .event-card:hover,
@@ -116,8 +133,15 @@ html.theme-glassmorphism .service-card:hover {
 /* Glassmorphism - Reflections grid */
 html.theme-glassmorphism .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-glassmorphism .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-glassmorphism .reflection-card {
@@ -125,7 +149,13 @@ html.theme-glassmorphism .reflection-card {
   backdrop-filter: blur(15px);
   border: 1px solid hsl(220 20% 95% / 0.08);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-glassmorphism .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Glassmorphism - CTA button */

@@ -84,8 +84,17 @@ html.theme-card-stack .events-grid,
 html.theme-card-stack .products-grid,
 html.theme-card-stack .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-card-stack .events-grid,
+  html.theme-card-stack .products-grid,
+  html.theme-card-stack .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
 }
 
 html.theme-card-stack .event-card,
@@ -94,12 +103,20 @@ html.theme-card-stack .service-card {
   background: hsl(220 30% 16%);
   border: 1px solid hsl(220 25% 25%);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 
     3px 3px 0 hsl(220 30% 12%),
     6px 6px 0 hsl(220 30% 8%);
+}
+
+@media (min-width: 640px) {
+  html.theme-card-stack .event-card,
+  html.theme-card-stack .product-card,
+  html.theme-card-stack .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-card-stack .event-card:hover,
@@ -115,19 +132,32 @@ html.theme-card-stack .service-card:hover {
 /* Card Stack - Reflections grid */
 html.theme-card-stack .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-card-stack .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
 }
 
 html.theme-card-stack .reflection-card {
   background: hsl(220 30% 16%);
   border: 1px solid hsl(220 25% 25%);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
   box-shadow: 
     3px 3px 0 hsl(220 30% 12%),
     6px 6px 0 hsl(220 30% 8%);
+}
+
+@media (min-width: 640px) {
+  html.theme-card-stack .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-card-stack .reflection-card::before {

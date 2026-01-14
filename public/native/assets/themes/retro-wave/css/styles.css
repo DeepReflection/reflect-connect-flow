@@ -86,8 +86,17 @@ html.theme-retro-wave .events-grid,
 html.theme-retro-wave .products-grid,
 html.theme-retro-wave .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-retro-wave .events-grid,
+  html.theme-retro-wave .products-grid,
+  html.theme-retro-wave .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-retro-wave .event-card,
@@ -96,9 +105,17 @@ html.theme-retro-wave .service-card {
   background: linear-gradient(135deg, hsl(280 50% 12%) 0%, hsl(280 50% 8%) 100%);
   border: 2px solid hsl(280 50% 22%);
   border-radius: 0;
-  padding: 1.5rem;
+  padding: 1.25rem;
   position: relative;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  html.theme-retro-wave .event-card,
+  html.theme-retro-wave .product-card,
+  html.theme-retro-wave .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-retro-wave .event-card::before,
@@ -132,15 +149,28 @@ html.theme-retro-wave .service-card:hover {
 /* Retro Wave - Reflections grid */
 html.theme-retro-wave .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-retro-wave .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-retro-wave .reflection-card {
   background: hsl(280 50% 12% / 0.8);
   border-left: 4px solid hsl(325 100% 60%);
   border-radius: 0;
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-retro-wave .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 /* Retro Wave - Sunset grid lines effect */

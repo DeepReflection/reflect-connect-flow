@@ -81,8 +81,17 @@ html.theme-nature-organic .events-grid,
 html.theme-nature-organic .products-grid,
 html.theme-nature-organic .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-nature-organic .events-grid,
+  html.theme-nature-organic .products-grid,
+  html.theme-nature-organic .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-nature-organic .event-card,
@@ -91,10 +100,18 @@ html.theme-nature-organic .service-card {
   background: hsl(90 30% 98%);
   border: 1px solid hsl(90 25% 82%);
   border-radius: 1.5rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  html.theme-nature-organic .event-card,
+  html.theme-nature-organic .product-card,
+  html.theme-nature-organic .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-nature-organic .event-card::before,
@@ -121,16 +138,29 @@ html.theme-nature-organic .service-card:hover {
 /* Nature Organic - Reflections grid */
 html.theme-nature-organic .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-nature-organic .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-nature-organic .reflection-card {
   background: hsl(90 30% 98%);
   border: 1px solid hsl(90 25% 82%);
   border-radius: 1.5rem;
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
+}
+
+@media (min-width: 640px) {
+  html.theme-nature-organic .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-nature-organic .reflection-card::after {
