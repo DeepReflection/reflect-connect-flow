@@ -958,3 +958,121 @@
 .theme-executive-charcoal .reflection-card:hover .reflection-title {
   color: hsl(var(--foreground));
 }
+
+/* ===========================================
+   REMAINING BUSINESS THEMES - Simplified Styles
+   Apply similar grid layouts to match React components
+   =========================================== */
+
+/* Startup Teal - 4 column grids, rounded cards */
+.theme-startup-teal .section-title-wrapper { text-align: left; padding-left: 1.5rem; position: relative; }
+.theme-startup-teal .section-title-wrapper::before { content: ''; position: absolute; left: 0; top: 0; width: 0.5rem; height: 3rem; background: hsl(var(--primary)); border-radius: 9999px; }
+.theme-startup-teal .section-title-wrapper .section-title-decoration { display: none; }
+.theme-startup-teal .section-title { background: none; -webkit-text-fill-color: hsl(var(--foreground)); font-weight: 700; }
+.theme-startup-teal .events-grid, .theme-startup-teal .products-grid, .theme-startup-teal .services-grid { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .theme-startup-teal .events-grid, .theme-startup-teal .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .theme-startup-teal .events-grid, .theme-startup-teal .products-grid, .theme-startup-teal .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-startup-teal .event-card, .theme-startup-teal .product-card, .theme-startup-teal .service-card { border-radius: 1rem; border: 2px solid transparent; transition: all 0.3s; }
+.theme-startup-teal .event-card:hover, .theme-startup-teal .product-card:hover, .theme-startup-teal .service-card:hover { border-color: hsl(var(--primary)); box-shadow: 0 20px 40px hsl(var(--primary) / 0.2); }
+.theme-startup-teal .service-image { display: none; }
+
+/* Finance Green - Table-like layout */
+.theme-finance-green .section-title-wrapper { border-bottom: 1px solid hsl(var(--border)); padding-bottom: 1rem; }
+.theme-finance-green .section-title-wrapper .section-title-decoration { display: none; }
+.theme-finance-green .section-title { background: none; -webkit-text-fill-color: hsl(var(--foreground)); font-weight: 600; }
+.theme-finance-green .events-grid { display: flex; flex-direction: column; border: 1px solid hsl(var(--border)); border-radius: 0.5rem; }
+.theme-finance-green .event-card { flex-direction: row; padding: 1rem; border-bottom: 1px solid hsl(var(--border)); border-radius: 0; }
+.theme-finance-green .event-card:last-child { border-bottom: none; }
+.theme-finance-green .event-image { width: 2.5rem; height: 2.5rem; border-radius: 0.25rem; }
+.theme-finance-green .event-date-badge { display: none; }
+.theme-finance-green .products-grid, .theme-finance-green .services-grid { display: grid; gap: 1rem; }
+@media (min-width: 1024px) { .theme-finance-green .products-grid { grid-template-columns: repeat(2, 1fr); } .theme-finance-green .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-finance-green .service-image { display: none; }
+
+/* Consulting Slate - Clean professional */
+.theme-consulting-slate .section-title-wrapper { text-align: left; max-width: 42rem; }
+.theme-consulting-slate .section-title-wrapper .section-title-decoration { display: none; }
+.theme-consulting-slate .section-subtitle { display: block; color: hsl(var(--primary)); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem; font-weight: 500; }
+.theme-consulting-slate .section-title { background: none; -webkit-text-fill-color: hsl(var(--foreground)); font-weight: 700; }
+.theme-consulting-slate .events-grid, .theme-consulting-slate .products-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 1024px) { .theme-consulting-slate .events-grid, .theme-consulting-slate .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.theme-consulting-slate .event-card, .theme-consulting-slate .product-card { display: flex; gap: 1.25rem; padding: 1.5rem; border-radius: 0.5rem; }
+.theme-consulting-slate .event-image, .theme-consulting-slate .product-image { width: 5rem; height: 5rem; border-radius: 0.5rem; flex-shrink: 0; }
+.theme-consulting-slate .event-date-badge { display: none; }
+.theme-consulting-slate .services-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 1024px) { .theme-consulting-slate .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-consulting-slate .service-image { display: none; }
+
+/* Tech Indigo - Gradient cards with glow */
+.theme-tech-indigo .section-title-wrapper { text-align: left; display: flex; align-items: center; gap: 0.75rem; }
+.theme-tech-indigo .section-title-wrapper::before { content: ''; width: 2.5rem; height: 2.5rem; background: hsl(var(--primary) / 0.2); border-radius: 0.5rem; }
+.theme-tech-indigo .section-title-wrapper .section-title-decoration { display: none; }
+.theme-tech-indigo .section-title { background: none; -webkit-text-fill-color: hsl(var(--foreground)); font-weight: 700; }
+.theme-tech-indigo .events-grid, .theme-tech-indigo .products-grid { display: grid; gap: 1rem; }
+@media (min-width: 768px) { .theme-tech-indigo .events-grid, .theme-tech-indigo .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.theme-tech-indigo .event-card, .theme-tech-indigo .product-card { background: linear-gradient(to bottom right, hsl(var(--card)), hsl(var(--primary) / 0.05)); border-radius: 0.75rem; padding: 1.25rem; display: flex; gap: 1rem; }
+.theme-tech-indigo .event-card:hover, .theme-tech-indigo .product-card:hover { border-color: hsl(var(--primary) / 0.5); }
+.theme-tech-indigo .event-image, .theme-tech-indigo .product-image { width: 4rem; height: 4rem; border-radius: 0.5rem; flex-shrink: 0; }
+.theme-tech-indigo .event-date-badge { display: none; }
+.theme-tech-indigo .services-grid { display: grid; gap: 1rem; }
+@media (min-width: 1024px) { .theme-tech-indigo .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-tech-indigo .service-card { background: linear-gradient(to bottom right, hsl(var(--card)), hsl(var(--primary) / 0.05)); border-radius: 0.75rem; }
+.theme-tech-indigo .service-image { display: none; }
+
+/* Luxury Black - Grayscale elegant */
+.theme-luxury-black .section-title-wrapper { text-align: center; }
+.theme-luxury-black .section-title-wrapper .section-title-decoration { display: none; }
+.theme-luxury-black .section-subtitle { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5em; color: hsl(var(--primary) / 0.7); }
+.theme-luxury-black .section-title { font-weight: 300; letter-spacing: 0.05em; background: none; -webkit-text-fill-color: hsl(var(--foreground)); }
+.theme-luxury-black .events-grid, .theme-luxury-black .products-grid { display: grid; gap: 2rem; }
+@media (min-width: 768px) { .theme-luxury-black .events-grid, .theme-luxury-black .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.theme-luxury-black .event-card, .theme-luxury-black .product-card { display: flex; border: 1px solid hsl(var(--border) / 0.5); border-radius: 2px; }
+.theme-luxury-black .event-image, .theme-luxury-black .product-image { filter: grayscale(100%); transition: filter 0.7s; }
+.theme-luxury-black .event-card:hover .event-image, .theme-luxury-black .product-card:hover .product-image { filter: grayscale(0); }
+.theme-luxury-black .event-date-badge { display: none; }
+.theme-luxury-black .services-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 1024px) { .theme-luxury-black .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-luxury-black .service-card { text-align: center; border: 1px solid hsl(var(--border) / 0.5); border-radius: 2px; }
+.theme-luxury-black .service-image { display: none; }
+
+/* Modern Graphite - Industrial minimal */
+.theme-modern-graphite .section-title-wrapper .section-title-decoration { display: none; }
+.theme-modern-graphite .section-title { font-weight: 900; text-transform: uppercase; background: none; -webkit-text-fill-color: hsl(var(--foreground)); }
+.theme-modern-graphite .events-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+.theme-modern-graphite .event-card { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: 0.25rem; }
+.theme-modern-graphite .event-image { width: 3.5rem; height: 3.5rem; border-radius: 0.25rem; }
+.theme-modern-graphite .event-date-badge, .theme-modern-graphite .event-description, .theme-modern-graphite .event-btn { display: none; }
+.theme-modern-graphite .products-grid, .theme-modern-graphite .services-grid { display: grid; gap: 1rem; }
+@media (min-width: 768px) { .theme-modern-graphite .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .theme-modern-graphite .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-modern-graphite .service-image { display: none; }
+
+/* Innovation Blue - Rounded with gradient */
+.theme-innovation-blue .section-title-wrapper { text-align: left; padding-left: 1.5rem; position: relative; }
+.theme-innovation-blue .section-title-wrapper::before { content: ''; position: absolute; left: 0; top: 0; width: 0.25rem; height: 100%; background: linear-gradient(to bottom, hsl(var(--primary)), transparent); border-radius: 9999px; }
+.theme-innovation-blue .section-title-wrapper .section-title-decoration { display: none; }
+.theme-innovation-blue .section-title { background: none; -webkit-text-fill-color: hsl(var(--foreground)); font-weight: 700; }
+.theme-innovation-blue .events-grid, .theme-innovation-blue .products-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 768px) { .theme-innovation-blue .events-grid, .theme-innovation-blue .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.theme-innovation-blue .event-card, .theme-innovation-blue .product-card { border-radius: 1rem; overflow: hidden; }
+.theme-innovation-blue .event-card:hover, .theme-innovation-blue .product-card:hover { border-color: hsl(var(--primary) / 0.5); box-shadow: 0 20px 25px hsl(var(--primary) / 0.1); }
+.theme-innovation-blue .services-grid { display: grid; gap: 1rem; }
+@media (min-width: 1024px) { .theme-innovation-blue .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-innovation-blue .service-card { border-radius: 1rem; }
+.theme-innovation-blue .service-image { display: none; }
+
+/* Prestige Burgundy - Sepia elegant */
+.theme-prestige-burgundy .section-title-wrapper { text-align: center; }
+.theme-prestige-burgundy .section-title-wrapper .section-title-decoration { display: none; }
+.theme-prestige-burgundy .section-subtitle { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: hsl(var(--primary)); }
+.theme-prestige-burgundy .section-title { font-family: 'Playfair Display', serif; font-weight: 400; background: none; -webkit-text-fill-color: hsl(var(--foreground)); }
+.theme-prestige-burgundy .events-grid, .theme-prestige-burgundy .products-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 768px) { .theme-prestige-burgundy .events-grid, .theme-prestige-burgundy .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.theme-prestige-burgundy .event-card, .theme-prestige-burgundy .product-card { display: flex; border-radius: 0.25rem; }
+.theme-prestige-burgundy .event-image, .theme-prestige-burgundy .product-image { filter: sepia(100%); transition: filter 0.5s; }
+.theme-prestige-burgundy .event-card:hover .event-image, .theme-prestige-burgundy .product-card:hover .product-image { filter: sepia(0); }
+.theme-prestige-burgundy .event-date-badge { display: none; }
+.theme-prestige-burgundy .services-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 1024px) { .theme-prestige-burgundy .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-prestige-burgundy .service-card { text-align: center; border-radius: 0.25rem; }
+.theme-prestige-burgundy .service-image { display: none; }
