@@ -44,6 +44,8 @@ function renderEventCard(event, index) {
       </div>
       <div class="event-content">
         <div class="event-meta">
+          <span>${event.date}</span>
+          <span>|</span>
           <span>${Icons.clock} ${event.time}</span>
           ${event.location ? `<span>${Icons.mapPin} ${event.location}</span>` : ''}
         </div>
