@@ -18,3 +18,242 @@ html.theme-innovation-blue {
   --input: 225 30% 16%;
   --ring: 210 100% 55%;
 }
+
+/* ===========================================
+   INNOVATION BLUE - Modern Innovation Style
+   Section Headers
+   =========================================== */
+
+.theme-innovation-blue .section-title-wrapper {
+  text-align: left;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.theme-innovation-blue .section-title-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.25rem;
+  height: 100%;
+  background: linear-gradient(to bottom, hsl(var(--primary)), transparent);
+  border-radius: 9999px;
+}
+
+.theme-innovation-blue .section-title-wrapper .section-title-decoration {
+  display: none;
+}
+
+.theme-innovation-blue .section-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  color: hsl(var(--primary));
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.theme-innovation-blue .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: none;
+  -webkit-text-fill-color: hsl(var(--foreground));
+}
+
+/* ===========================================
+   INNOVATION BLUE - Events Grid
+   =========================================== */
+
+.theme-innovation-blue .events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .theme-innovation-blue .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-innovation-blue .event-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.theme-innovation-blue .event-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 20px 25px hsl(var(--primary) / 0.1);
+}
+
+.theme-innovation-blue .event-image {
+  height: 10rem;
+}
+
+.theme-innovation-blue .event-date-badge {
+  display: none;
+}
+
+.theme-innovation-blue .event-content {
+  padding: 1.25rem;
+}
+
+.theme-innovation-blue .event-meta span:first-child {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+.theme-innovation-blue .event-btn {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 9999px;
+}
+
+/* ===========================================
+   INNOVATION BLUE - Products Grid
+   =========================================== */
+
+.theme-innovation-blue .products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .theme-innovation-blue .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-innovation-blue .product-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.theme-innovation-blue .product-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 20px 25px hsl(var(--primary) / 0.1);
+}
+
+.theme-innovation-blue .product-image {
+  height: 10rem;
+}
+
+.theme-innovation-blue .product-btn {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 9999px;
+}
+
+/* ===========================================
+   INNOVATION BLUE - Services Grid
+   =========================================== */
+
+.theme-innovation-blue .services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  counter-reset: service-counter;
+}
+
+@media (min-width: 640px) {
+  .theme-innovation-blue .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-innovation-blue .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.theme-innovation-blue .service-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.theme-innovation-blue .service-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.theme-innovation-blue .service-image {
+  display: none;
+}
+
+.theme-innovation-blue .service-content::before {
+  content: counter(service-counter, decimal-leading-zero);
+  counter-increment: service-counter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 50%;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* ===========================================
+   INNOVATION BLUE - Reflections Grid
+   =========================================== */
+
+.theme-innovation-blue .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .theme-innovation-blue .reflections-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .theme-innovation-blue .reflections-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-innovation-blue .reflections-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+.theme-innovation-blue .reflection-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.theme-innovation-blue .reflection-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 12px 24px hsl(var(--primary) / 0.15);
+}
+
+.theme-innovation-blue .reflection-image {
+  aspect-ratio: 1;
+}
+
+.theme-innovation-blue .reflection-title {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 500;
+}

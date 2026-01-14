@@ -18,3 +18,257 @@ html.theme-luxury-black {
   --input: 40 5% 14%;
   --ring: 45 75% 55%;
 }
+
+/* ===========================================
+   LUXURY BLACK - Elegant Premium Style
+   Section Headers
+   =========================================== */
+
+.theme-luxury-black .section-title-wrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.theme-luxury-black .section-title-wrapper .section-title-decoration {
+  display: none;
+}
+
+.theme-luxury-black .section-subtitle {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: hsl(var(--primary) / 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.theme-luxury-black .section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  background: none;
+  -webkit-text-fill-color: hsl(var(--foreground));
+}
+
+.theme-luxury-black .section-title-wrapper::after {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 1px;
+  background: hsl(var(--primary) / 0.5);
+  margin: 1.5rem auto 0;
+}
+
+/* ===========================================
+   LUXURY BLACK - Events Grid
+   =========================================== */
+
+.theme-luxury-black .events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .theme-luxury-black .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-luxury-black .event-card {
+  display: flex;
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.theme-luxury-black .event-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.theme-luxury-black .event-image {
+  width: 8rem;
+  height: 8rem;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+
+.theme-luxury-black .event-card:hover .event-image {
+  filter: grayscale(0);
+}
+
+.theme-luxury-black .event-date-badge {
+  display: none;
+}
+
+.theme-luxury-black .event-content {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.theme-luxury-black .event-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.theme-luxury-black .event-meta span:first-child {
+  color: hsl(var(--primary));
+}
+
+.theme-luxury-black .event-title {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.theme-luxury-black .event-btn {
+  display: none;
+}
+
+/* ===========================================
+   LUXURY BLACK - Products Grid
+   =========================================== */
+
+.theme-luxury-black .products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .theme-luxury-black .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-luxury-black .product-card {
+  display: flex;
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.theme-luxury-black .product-image {
+  width: 40%;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+
+.theme-luxury-black .product-card:hover .product-image {
+  filter: grayscale(0);
+}
+
+.theme-luxury-black .product-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.theme-luxury-black .product-title {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ===========================================
+   LUXURY BLACK - Services Grid
+   =========================================== */
+
+.theme-luxury-black .services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  counter-reset: service-counter;
+}
+
+@media (min-width: 640px) {
+  .theme-luxury-black .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-luxury-black .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.theme-luxury-black .service-card {
+  text-align: center;
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 2px;
+  padding: 2rem 1.5rem;
+}
+
+.theme-luxury-black .service-image {
+  display: none;
+}
+
+.theme-luxury-black .service-content::before {
+  content: counter(service-counter, decimal-leading-zero);
+  counter-increment: service-counter;
+  display: block;
+  font-size: 2rem;
+  font-weight: 200;
+  color: hsl(var(--primary) / 0.5);
+  margin-bottom: 1rem;
+}
+
+.theme-luxury-black .service-title {
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.theme-luxury-black .service-btn {
+  display: none;
+}
+
+/* ===========================================
+   LUXURY BLACK - Reflections Grid
+   =========================================== */
+
+.theme-luxury-black .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .theme-luxury-black .reflections-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .theme-luxury-black .reflections-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-luxury-black .reflections-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+.theme-luxury-black .reflection-card {
+  border: 1px solid hsl(var(--border) / 0.3);
+  overflow: hidden;
+}
+
+.theme-luxury-black .reflection-image {
+  aspect-ratio: 1;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+
+.theme-luxury-black .reflection-card:hover .reflection-image {
+  filter: grayscale(0);
+}
+
+.theme-luxury-black .reflection-title {
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
