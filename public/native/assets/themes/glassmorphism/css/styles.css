@@ -1,20 +1,156 @@
 /* Glassmorphism Theme - Efeitos de vidro fosco modernos */
 html.theme-glassmorphism {
-  --background: 220 40% 12%;
-  --foreground: 215 30% 95%;
-  --card: 220 35% 18%;
-  --card-foreground: 215 30% 95%;
-  --popover: 220 35% 15%;
-  --popover-foreground: 215 30% 95%;
-  --primary: 215 90% 65%;
-  --primary-foreground: 220 40% 10%;
-  --secondary: 220 28% 25%;
-  --secondary-foreground: 215 30% 90%;
-  --muted: 220 22% 28%;
-  --muted-foreground: 215 20% 60%;
-  --accent: 270 70% 60%;
-  --accent-foreground: 220 40% 10%;
-  --border: 220 30% 30%;
-  --input: 220 28% 22%;
-  --ring: 215 90% 65%;
+  --background: 220 40% 15%;
+  --foreground: 220 20% 95%;
+  --card: 220 40% 25%;
+  --card-foreground: 220 20% 95%;
+  --popover: 220 40% 20%;
+  --popover-foreground: 220 20% 95%;
+  --primary: 200 90% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 35% 30%;
+  --secondary-foreground: 220 20% 90%;
+  --muted: 220 35% 25%;
+  --muted-foreground: 220 20% 65%;
+  --accent: 280 70% 65%;
+  --accent-foreground: 0 0% 100%;
+  --border: 220 30% 35%;
+  --input: 220 35% 30%;
+  --ring: 200 90% 60%;
+  --radius: 1rem;
+}
+
+/* Glassmorphism - Hero specific styles */
+html.theme-glassmorphism .hero-banner img {
+  filter: blur(0) saturate(1.2) brightness(0.85);
+}
+html.theme-glassmorphism .hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, hsl(200 90% 60% / 0.2) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, hsl(280 70% 65% / 0.2) 0%, transparent 50%);
+}
+html.theme-glassmorphism .avatar-wrapper {
+  border-color: hsl(220 20% 95% / 0.3);
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.2);
+  backdrop-filter: blur(10px);
+}
+html.theme-glassmorphism .avatar-pulse {
+  border-color: hsl(200 90% 60% / 0.2);
+}
+html.theme-glassmorphism .hero-info-card {
+  background: hsl(220 40% 25% / 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(220 20% 95% / 0.1);
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.2), inset 0 1px 0 hsl(220 20% 95% / 0.1);
+  border-radius: 1.5rem;
+}
+
+/* Glassmorphism - Section styles */
+html.theme-glassmorphism .section-title-wrapper {
+  text-align: center;
+}
+html.theme-glassmorphism .section-subtitle {
+  color: hsl(200 90% 60%);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+html.theme-glassmorphism .section-title {
+  color: hsl(220 20% 95%);
+  font-weight: 500;
+}
+html.theme-glassmorphism .section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+html.theme-glassmorphism .section-title-line-left,
+html.theme-glassmorphism .section-title-line-right {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(220 20% 95% / 0.3), transparent);
+}
+html.theme-glassmorphism .section-title-dot {
+  width: 6px;
+  height: 6px;
+  background: hsl(200 90% 60%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px hsl(200 90% 60% / 0.5);
+}
+
+/* Glassmorphism - Grid layouts */
+html.theme-glassmorphism .events-grid,
+html.theme-glassmorphism .products-grid,
+html.theme-glassmorphism .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-glassmorphism .event-card,
+html.theme-glassmorphism .product-card,
+html.theme-glassmorphism .service-card {
+  background: hsl(220 40% 25% / 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(220 20% 95% / 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.1), inset 0 1px 0 hsl(220 20% 95% / 0.05);
+  transition: all 0.3s ease;
+}
+
+html.theme-glassmorphism .event-card:hover,
+html.theme-glassmorphism .product-card:hover,
+html.theme-glassmorphism .service-card:hover {
+  background: hsl(220 40% 25% / 0.7);
+  border-color: hsl(200 90% 60% / 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px hsl(0 0% 0% / 0.2), 0 0 20px hsl(200 90% 60% / 0.1);
+}
+
+/* Glassmorphism - Reflections grid */
+html.theme-glassmorphism .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+html.theme-glassmorphism .reflection-card {
+  background: hsl(220 40% 25% / 0.4);
+  backdrop-filter: blur(15px);
+  border: 1px solid hsl(220 20% 95% / 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+/* Glassmorphism - CTA button */
+html.theme-glassmorphism .cta-button {
+  background: hsl(200 90% 60% / 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(200 90% 60% / 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px hsl(200 90% 60% / 0.3);
+}
+
+html.theme-glassmorphism .cta-button:hover {
+  background: hsl(200 90% 60%);
+  box-shadow: 0 8px 30px hsl(200 90% 60% / 0.4);
+}
+
+/* Glassmorphism - Social links */
+html.theme-glassmorphism .social-link {
+  background: hsl(220 40% 25% / 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(220 20% 95% / 0.1);
+  border-radius: 1rem;
+}
+
+html.theme-glassmorphism .social-link:hover {
+  background: hsl(220 40% 25% / 0.7);
+  border-color: hsl(200 90% 60% / 0.3);
 }

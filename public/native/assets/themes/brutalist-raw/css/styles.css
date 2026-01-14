@@ -1,20 +1,149 @@
 /* Brutalist Raw Theme - Design cru e impactante em blocos */
 html.theme-brutalist-raw {
-  --background: 0 0% 8%;
+  --background: 0 0% 5%;
   --foreground: 0 0% 95%;
-  --card: 0 0% 12%;
+  --card: 0 0% 10%;
   --card-foreground: 0 0% 95%;
-  --popover: 0 0% 10%;
+  --popover: 0 0% 8%;
   --popover-foreground: 0 0% 95%;
   --primary: 0 0% 100%;
-  --primary-foreground: 0 0% 8%;
-  --secondary: 0 0% 18%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 15%;
   --secondary-foreground: 0 0% 90%;
-  --muted: 0 0% 22%;
-  --muted-foreground: 0 0% 55%;
-  --accent: 0 0% 80%;
-  --accent-foreground: 0 0% 8%;
-  --border: 0 0% 30%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 50 100% 50%;
+  --accent-foreground: 0 0% 0%;
+  --border: 0 0% 25%;
   --input: 0 0% 15%;
   --ring: 0 0% 100%;
+  --radius: 0;
+}
+
+/* Brutalist Raw - Hero specific styles */
+html.theme-brutalist-raw .hero-banner img {
+  filter: grayscale(100%) contrast(1.2);
+}
+html.theme-brutalist-raw .avatar-wrapper {
+  border: 4px solid hsl(0 0% 100%);
+  box-shadow: none;
+  border-radius: 0;
+}
+html.theme-brutalist-raw .avatar {
+  border-radius: 0;
+}
+html.theme-brutalist-raw .avatar-pulse {
+  display: none;
+}
+html.theme-brutalist-raw .hero-info-card {
+  background: hsl(0 0% 0%);
+  border: 4px solid hsl(0 0% 100%);
+  box-shadow: 10px 10px 0 hsl(0 0% 100%);
+  border-radius: 0;
+}
+
+/* Brutalist Raw - Section styles */
+html.theme-brutalist-raw .section-title-wrapper {
+  text-align: left;
+  border-bottom: 4px solid hsl(0 0% 100%);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+html.theme-brutalist-raw .section-subtitle {
+  color: hsl(50 100% 50%);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+html.theme-brutalist-raw .section-title {
+  color: hsl(0 0% 100%);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+html.theme-brutalist-raw .section-title-decoration {
+  display: none;
+}
+
+/* Brutalist Raw - Grid layouts */
+html.theme-brutalist-raw .events-grid,
+html.theme-brutalist-raw .products-grid,
+html.theme-brutalist-raw .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0;
+}
+
+html.theme-brutalist-raw .event-card,
+html.theme-brutalist-raw .product-card,
+html.theme-brutalist-raw .service-card {
+  background: hsl(0 0% 5%);
+  border: 2px solid hsl(0 0% 100%);
+  border-radius: 0;
+  padding: 2rem;
+  margin: -1px;
+  transition: all 0.1s ease;
+}
+
+html.theme-brutalist-raw .event-card:hover,
+html.theme-brutalist-raw .product-card:hover,
+html.theme-brutalist-raw .service-card:hover {
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
+  z-index: 1;
+}
+
+html.theme-brutalist-raw .event-card:hover *,
+html.theme-brutalist-raw .product-card:hover *,
+html.theme-brutalist-raw .service-card:hover * {
+  color: hsl(0 0% 0%);
+}
+
+/* Brutalist Raw - Reflections grid */
+html.theme-brutalist-raw .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0;
+}
+
+html.theme-brutalist-raw .reflection-card {
+  background: hsl(0 0% 10%);
+  border: 2px solid hsl(0 0% 100%);
+  border-radius: 0;
+  padding: 2rem;
+  margin: -1px;
+}
+
+html.theme-brutalist-raw .reflection-card:nth-child(odd) {
+  background: hsl(0 0% 5%);
+}
+
+/* Brutalist Raw - CTA button */
+html.theme-brutalist-raw .cta-button {
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
+  border: 4px solid hsl(0 0% 100%);
+  border-radius: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+html.theme-brutalist-raw .cta-button:hover {
+  background: hsl(50 100% 50%);
+  border-color: hsl(50 100% 50%);
+  box-shadow: 5px 5px 0 hsl(0 0% 100%);
+}
+
+/* Brutalist Raw - Social links */
+html.theme-brutalist-raw .social-link {
+  background: transparent;
+  border: 2px solid hsl(0 0% 100%);
+  border-radius: 0;
+}
+
+html.theme-brutalist-raw .social-link:hover {
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
 }

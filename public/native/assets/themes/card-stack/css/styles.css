@@ -1,38 +1,177 @@
 /* Card Stack Theme - Efeito de cartões sobrepostos */
 html.theme-card-stack {
-  --background: 45 30% 94%;
-  --foreground: 40 30% 12%;
-  --card: 45 25% 100%;
-  --card-foreground: 40 30% 12%;
-  --popover: 45 25% 98%;
-  --popover-foreground: 40 30% 12%;
-  --primary: 40 50% 45%;
-  --primary-foreground: 45 30% 98%;
-  --secondary: 45 20% 90%;
-  --secondary-foreground: 40 30% 15%;
-  --muted: 45 15% 88%;
-  --muted-foreground: 40 18% 42%;
-  --accent: 35 45% 40%;
-  --accent-foreground: 45 30% 98%;
-  --border: 45 22% 85%;
-  --input: 45 20% 92%;
-  --ring: 40 50% 45%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  --background: 220 30% 10%;
+  --foreground: 220 15% 95%;
+  --card: 220 30% 16%;
+  --card-foreground: 220 15% 95%;
+  --popover: 220 30% 13%;
+  --popover-foreground: 220 15% 95%;
+  --primary: 180 65% 50%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 220 25% 22%;
+  --secondary-foreground: 220 15% 90%;
+  --muted: 220 25% 18%;
+  --muted-foreground: 220 15% 60%;
+  --accent: 45 80% 55%;
+  --accent-foreground: 0 0% 5%;
+  --border: 220 25% 25%;
+  --input: 220 25% 22%;
+  --ring: 180 65% 50%;
+  --radius: 1rem;
 }
 
 /* Card Stack - Hero specific styles */
 html.theme-card-stack .hero-banner img {
-  filter: sepia(8%) saturate(1.05) brightness(0.95);
+  filter: saturate(1.1) brightness(0.85);
 }
 html.theme-card-stack .avatar-wrapper {
-  border-color: hsl(40 50% 45% / 0.4);
-  box-shadow: 0 0 25px hsl(40 50% 45% / 0.25);
+  border-color: hsl(180 65% 50% / 0.4);
+  box-shadow: 
+    0 5px 0 hsl(220 30% 12%),
+    0 10px 0 hsl(220 30% 8%),
+    0 15px 30px hsl(0 0% 0% / 0.3);
 }
 html.theme-card-stack .avatar-pulse {
-  border-color: hsl(40 50% 45% / 0.15);
+  border-color: hsl(180 65% 50% / 0.2);
 }
 html.theme-card-stack .hero-info-card {
-  background: hsl(45 25% 100% / 0.92);
-  border-color: hsl(45 22% 85% / 0.6);
-  box-shadow: 0 4px 20px hsla(45, 25%, 30%, 0.12);
+  background: hsl(220 30% 16%);
+  border: 1px solid hsl(220 25% 25%);
+  box-shadow: 
+    5px 5px 0 hsl(220 30% 12%),
+    10px 10px 0 hsl(220 30% 8%),
+    15px 15px 30px hsl(0 0% 0% / 0.3);
+  border-radius: 1rem;
+}
+
+/* Card Stack - Section styles */
+html.theme-card-stack .section-title-wrapper {
+  text-align: center;
+}
+html.theme-card-stack .section-subtitle {
+  color: hsl(180 65% 50%);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+html.theme-card-stack .section-title {
+  color: hsl(220 15% 95%);
+}
+html.theme-card-stack .section-title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+html.theme-card-stack .section-title-line-left,
+html.theme-card-stack .section-title-line-right {
+  width: 40px;
+  height: 2px;
+  background: hsl(220 25% 25%);
+}
+html.theme-card-stack .section-title-dot {
+  width: 8px;
+  height: 8px;
+  background: hsl(45 80% 55%);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+/* Card Stack - Grid layouts */
+html.theme-card-stack .events-grid,
+html.theme-card-stack .products-grid,
+html.theme-card-stack .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+html.theme-card-stack .event-card,
+html.theme-card-stack .product-card,
+html.theme-card-stack .service-card {
+  background: hsl(220 30% 16%);
+  border: 1px solid hsl(220 25% 25%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    3px 3px 0 hsl(220 30% 12%),
+    6px 6px 0 hsl(220 30% 8%);
+}
+
+html.theme-card-stack .event-card:hover,
+html.theme-card-stack .product-card:hover,
+html.theme-card-stack .service-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 
+    6px 6px 0 hsl(220 30% 12%),
+    12px 12px 0 hsl(220 30% 8%),
+    18px 18px 30px hsl(0 0% 0% / 0.2);
+}
+
+/* Card Stack - Reflections grid */
+html.theme-card-stack .reflections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+html.theme-card-stack .reflection-card {
+  background: hsl(220 30% 16%);
+  border: 1px solid hsl(220 25% 25%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 
+    3px 3px 0 hsl(220 30% 12%),
+    6px 6px 0 hsl(220 30% 8%);
+}
+
+html.theme-card-stack .reflection-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 3px;
+  background: hsl(180 65% 50%);
+  border-radius: 0 0 2px 2px;
+}
+
+/* Card Stack - CTA button */
+html.theme-card-stack .cta-button {
+  background: hsl(180 65% 50%);
+  color: hsl(0 0% 5%);
+  border-radius: 1rem;
+  box-shadow: 
+    3px 3px 0 hsl(180 65% 35%),
+    6px 6px 0 hsl(180 65% 25%);
+  transition: all 0.2s ease;
+}
+
+html.theme-card-stack .cta-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    5px 5px 0 hsl(180 65% 35%),
+    10px 10px 0 hsl(180 65% 25%);
+}
+
+/* Card Stack - Social links */
+html.theme-card-stack .social-link {
+  background: hsl(220 30% 16%);
+  border: 1px solid hsl(220 25% 25%);
+  border-radius: 1rem;
+  box-shadow: 
+    2px 2px 0 hsl(220 30% 12%),
+    4px 4px 0 hsl(220 30% 8%);
+}
+
+html.theme-card-stack .social-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    4px 4px 0 hsl(220 30% 12%),
+    8px 8px 0 hsl(220 30% 8%);
 }
