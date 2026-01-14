@@ -676,6 +676,15 @@
   margin-bottom: 2rem;
 }
 
+/* Section subtitle - hidden by default, shown in business themes */
+.section-subtitle {
+  display: none;
+}
+
+.section-header-content {
+  display: contents;
+}
+
 .section-title {
   font-size: 1.5rem; /* text-2xl */
   font-weight: 600; /* font-semibold */
