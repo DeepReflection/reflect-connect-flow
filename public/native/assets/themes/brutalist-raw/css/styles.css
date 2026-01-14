@@ -71,8 +71,16 @@ html.theme-brutalist-raw .events-grid,
 html.theme-brutalist-raw .products-grid,
 html.theme-brutalist-raw .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 0;
+}
+
+@media (min-width: 640px) {
+  html.theme-brutalist-raw .events-grid,
+  html.theme-brutalist-raw .products-grid,
+  html.theme-brutalist-raw .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
 html.theme-brutalist-raw .event-card,
@@ -81,9 +89,17 @@ html.theme-brutalist-raw .service-card {
   background: hsl(0 0% 5%);
   border: 2px solid hsl(0 0% 100%);
   border-radius: 0;
-  padding: 2rem;
+  padding: 1.5rem;
   margin: -1px;
   transition: all 0.1s ease;
+}
+
+@media (min-width: 640px) {
+  html.theme-brutalist-raw .event-card,
+  html.theme-brutalist-raw .product-card,
+  html.theme-brutalist-raw .service-card {
+    padding: 2rem;
+  }
 }
 
 html.theme-brutalist-raw .event-card:hover,
@@ -103,16 +119,28 @@ html.theme-brutalist-raw .service-card:hover * {
 /* Brutalist Raw - Reflections grid */
 html.theme-brutalist-raw .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
+}
+
+@media (min-width: 640px) {
+  html.theme-brutalist-raw .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
 html.theme-brutalist-raw .reflection-card {
   background: hsl(0 0% 10%);
   border: 2px solid hsl(0 0% 100%);
   border-radius: 0;
-  padding: 2rem;
+  padding: 1.25rem;
   margin: -1px;
+}
+
+@media (min-width: 640px) {
+  html.theme-brutalist-raw .reflection-card {
+    padding: 2rem;
+  }
 }
 
 html.theme-brutalist-raw .reflection-card:nth-child(odd) {

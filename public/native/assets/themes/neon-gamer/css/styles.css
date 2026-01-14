@@ -78,8 +78,17 @@ html.theme-neon-gamer .events-grid,
 html.theme-neon-gamer .products-grid,
 html.theme-neon-gamer .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-neon-gamer .events-grid,
+  html.theme-neon-gamer .products-grid,
+  html.theme-neon-gamer .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-neon-gamer .event-card,
@@ -88,10 +97,18 @@ html.theme-neon-gamer .service-card {
   background: hsl(270 50% 8% / 0.9);
   border: 1px solid hsl(315 100% 55% / 0.2);
   border-radius: 0.875rem;
-  padding: 1.5rem;
+  padding: 1.25rem;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  html.theme-neon-gamer .event-card,
+  html.theme-neon-gamer .product-card,
+  html.theme-neon-gamer .service-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-neon-gamer .event-card::before,
@@ -117,16 +134,29 @@ html.theme-neon-gamer .service-card:hover {
 /* Neon Gamer - Reflections grid */
 html.theme-neon-gamer .reflections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  html.theme-neon-gamer .reflections-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 html.theme-neon-gamer .reflection-card {
   background: hsl(270 50% 8% / 0.85);
   border: 1px solid hsl(270 50% 18%);
   border-radius: 0.875rem;
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
+}
+
+@media (min-width: 640px) {
+  html.theme-neon-gamer .reflection-card {
+    padding: 1.5rem;
+  }
 }
 
 html.theme-neon-gamer .reflection-card::after {
