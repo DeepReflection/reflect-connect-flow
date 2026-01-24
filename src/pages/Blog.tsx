@@ -50,7 +50,7 @@ const Blog = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6"
+            className="inline-flex w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6"
           >
             <img 
               src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
