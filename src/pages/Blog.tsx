@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { UserCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import ParticleBackground from '@/components/ParticleBackground';
 import ThemeSelector from '@/components/ThemeSelector';
@@ -50,9 +50,13 @@ const Blog = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 mb-6"
+            className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 mb-6"
           >
-            <UserCircle className="w-10 h-10 text-primary" />
+            <img 
+              src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
+              alt="Perfil do autor"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
 
           <motion.h1
