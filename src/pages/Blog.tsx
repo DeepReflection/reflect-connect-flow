@@ -7,7 +7,7 @@ import BlogHeader from '@/components/blog/BlogHeader';
 import BlogCard from '@/components/blog/BlogCard';
 import { blogPosts, categories } from '@/data/blogPosts';
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 3;
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
