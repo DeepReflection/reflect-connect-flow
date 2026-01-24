@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BlogNew from "./pages/BlogNew";
 import BlogEdit from "./pages/BlogEdit";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/claudiofrydman" element={<ClaudioFrydman />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/new" element={<BlogNew />} />
             <Route path="/blog/edit/:slug" element={<BlogEdit />} />
