@@ -43,15 +43,18 @@ const BlogPost = () => {
     const lines = content.split('\n');
     const elements: React.ReactNode[] = [];
     let currentSectionTitle = '';
-    let imageInserted = false;
+    let skipFirstH1 = true; // Skip the first H1 as it's already shown in the header
 
     lines.forEach((line, i) => {
-      // H1 Headers
+      // H1 Headers - skip the first one (article title)
       if (line.startsWith('# ')) {
+        if (skipFirstH1) {
+          skipFirstH1 = false;
+          return; // Skip this H1
+        }
         currentSectionTitle = line.slice(2);
-        imageInserted = false;
         elements.push(
-          <h1 key={i} className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 mt-8 first:mt-0">
+          <h1 key={i} className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 mt-8">
             {currentSectionTitle}
           </h1>
         );
@@ -61,7 +64,6 @@ const BlogPost = () => {
       // H2 Headers - with image after
       if (line.startsWith('## ')) {
         currentSectionTitle = line.slice(3);
-        imageInserted = false;
         elements.push(
           <h2 key={i} className="text-2xl font-display font-semibold text-foreground mb-4 mt-10">
             {currentSectionTitle}
@@ -78,7 +80,6 @@ const BlogPost = () => {
               caption={currentSectionTitle}
             />
           );
-          imageInserted = true;
         }
         return;
       }
