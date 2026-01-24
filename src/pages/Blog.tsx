@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { UserCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import ParticleBackground from '@/components/ParticleBackground';
 import ThemeSelector from '@/components/ThemeSelector';
@@ -52,7 +52,7 @@ const Blog = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 mb-6"
           >
-            <BookOpen className="w-10 h-10 text-primary" />
+            <UserCircle className="w-10 h-10 text-primary" />
           </motion.div>
 
           <motion.h1
