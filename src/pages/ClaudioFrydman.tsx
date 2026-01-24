@@ -8,6 +8,7 @@ import SectionTitle from '@/components/SectionTitle';
 import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
 import ChatbotButton from '@/components/ChatbotButton';
+import BlogCTA from '@/components/blog/BlogCTA';
 
 const PROFILE_DATA = {
   name: "Claudio Frydman",
@@ -84,9 +85,12 @@ const ClaudioFrydman = () => {
       </div>
 
       {/* Main Content - Narrow sections */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
+      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
         {/* CTA Button */}
         <CTAButton text="Fale Comigo" />
+
+        {/* Blog CTA */}
+        <BlogCTA variant="button" />
 
         {/* Social Links */}
         <section className="space-y-3">

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-vintage-sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Outro Brasileiro no D-Day</title>
+  <meta name="description" content="Artigos, análises e reflexões sobre a Segunda Guerra Mundial e seus personagens históricos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body data-profile="outro-brasileiro">
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <div class="blog-header-inner">
+      <div class="blog-header-left">
+        <a href="blog.html" class="blog-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+          </svg>
+          <span>Blog</span>
+        </a>
+      </div>
+      <a href="index.html" class="blog-home-link">← Voltar ao início</a>
+    </div>
+  </header>
+
+  <!-- Blog Hero -->
+  <section class="blog-hero">
+    <div class="blog-hero-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+      </svg>
+    </div>
+    <h1>Blog</h1>
+    <p>Artigos, análises e reflexões sobre a Segunda Guerra Mundial e seus personagens históricos.</p>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <div class="category-filter-inner" id="category-filter">
+      <!-- Categories will be populated by JS -->
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="posts-grid" id="posts-grid">
+    <!-- Posts will be populated by JS -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <p>© 2024 Outro Brasileiro no D-Day</p>
+    <p>Preservando a história para as futuras gerações</p>
+  </footer>
+
+  <script src="js/blog-data.js"></script>
+  <script src="js/particles.js"></script>
+  <script>
+    let selectedCategory = null;
+
+    function renderCategories() {
+      const container = document.getElementById('category-filter');
+      
+      let html = `<button class="category-btn ${!selectedCategory ? 'active' : ''}" onclick="filterByCategory(null)">Todos</button>`;
+      
+      BLOG_CATEGORIES.forEach(category => {
+        html += `<button class="category-btn ${selectedCategory === category ? 'active' : ''}" onclick="filterByCategory('${category}')">${category}</button>`;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    function renderPosts() {
+      const container = document.getElementById('posts-grid');
+      const posts = selectedCategory 
+        ? BLOG_POSTS.filter(post => post.category === selectedCategory)
+        : BLOG_POSTS;
+      
+      if (posts.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: hsl(var(--muted-foreground)); padding: 4rem 0;">Nenhum artigo encontrado nesta categoria.</p>';
+        return;
+      }
+      
+      let html = '';
+      posts.forEach((post, index) => {
+        const isFeatured = index === 0 && !selectedCategory;
+        html += `
+          <a href="blog-post.html?slug=${post.slug}" class="blog-card ${isFeatured ? 'featured' : ''}">
+            <div class="blog-card-inner">
+              <div class="blog-card-image">
+                <img src="${post.coverImage}" alt="${post.title}">
+                <div class="blog-card-image-overlay"></div>
+                <span class="blog-card-category">${post.category}</span>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-meta">
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                      <line x1="16" x2="16" y1="2" y2="6"/>
+                      <line x1="8" x2="8" y1="2" y2="6"/>
+                      <line x1="3" x2="21" y1="10" y2="10"/>
+                    </svg>
+                    ${formatDate(post.publishedAt)}
+                  </span>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    ${post.readingTime}
+                  </span>
+                </div>
+                <h3 class="blog-card-title">${post.title}</h3>
+                <p class="blog-card-excerpt">${post.excerpt}</p>
+                <div class="blog-card-read-more">
+                  Ler mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    function filterByCategory(category) {
+      selectedCategory = category;
+      renderCategories();
+      renderPosts();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Apply saved theme
+      const savedTheme = localStorage.getItem('selected-theme');
+      if (savedTheme) {
+        document.documentElement.className = `theme-${savedTheme}`;
+      }
+      
+      renderCategories();
+      renderPosts();
+      console.log('📚 Blog loaded successfully!');
+    });
+  </script>
+</body>
+</html>

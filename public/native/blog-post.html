@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-vintage-sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Outro Brasileiro no D-Day</title>
+  <meta name="description" content="Artigos, análises e reflexões sobre a Segunda Guerra Mundial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body data-profile="outro-brasileiro">
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <div class="blog-header-inner">
+      <div class="blog-header-left">
+        <a href="blog.html" class="blog-back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+          </svg>
+          <span>Voltar</span>
+        </a>
+        <a href="blog.html" class="blog-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+          </svg>
+          <span>Blog</span>
+        </a>
+      </div>
+      <a href="index.html" class="blog-home-link">← Voltar ao início</a>
+    </div>
+  </header>
+
+  <!-- Post Hero Image -->
+  <section class="blog-post-hero" id="post-hero">
+    <!-- Will be populated by JS -->
+  </section>
+
+  <!-- Post Article -->
+  <article class="blog-post-article" id="post-article">
+    <!-- Will be populated by JS -->
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts" id="related-posts" style="display: none;">
+    <h2>Artigos Relacionados</h2>
+    <div class="related-posts-grid" id="related-posts-grid">
+      <!-- Will be populated by JS -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <p>© 2024 Outro Brasileiro no D-Day</p>
+  </footer>
+
+  <script src="js/blog-data.js"></script>
+  <script src="js/particles.js"></script>
+  <script>
+    function getSlugFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('slug');
+    }
+
+    function renderPost(post) {
+      // Update page title
+      document.title = `${post.title} - Blog`;
+
+      // Render hero
+      const heroContainer = document.getElementById('post-hero');
+      heroContainer.innerHTML = `
+        <div class="blog-post-cover">
+          <img src="${post.coverImage}" alt="${post.title}">
+          <div class="blog-post-cover-overlay"></div>
+        </div>
+      `;
+
+      // Render article
+      const articleContainer = document.getElementById('post-article');
+      articleContainer.innerHTML = `
+        <div class="blog-post-card">
+          <span class="blog-post-category">${post.category}</span>
+          <h1 class="blog-post-title">${post.title}</h1>
+          
+          <div class="blog-post-meta">
+            <div class="blog-post-author">
+              <img src="${post.author.avatar}" alt="${post.author.name}">
+              <span>${post.author.name}</span>
+            </div>
+            <span class="blog-post-meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+              </svg>
+              ${formatFullDate(post.publishedAt)}
+            </span>
+            <span class="blog-post-meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              ${post.readingTime}
+            </span>
+          </div>
+          
+          <div class="blog-post-content">
+            ${post.content}
+          </div>
+          
+          <div class="blog-post-tags">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/>
+              <path d="M7 7h.01"/>
+            </svg>
+            ${post.tags.map(tag => `<span class="blog-post-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      // Render related posts
+      const relatedPosts = getRelatedPosts(post, 3);
+      if (relatedPosts.length > 0) {
+        const relatedSection = document.getElementById('related-posts');
+        const relatedGrid = document.getElementById('related-posts-grid');
+        
+        relatedSection.style.display = 'block';
+        
+        let html = '';
+        relatedPosts.forEach(relatedPost => {
+          html += `
+            <a href="blog-post.html?slug=${relatedPost.slug}" class="blog-card">
+              <div class="blog-card-inner">
+                <div class="blog-card-image">
+                  <img src="${relatedPost.coverImage}" alt="${relatedPost.title}">
+                  <div class="blog-card-image-overlay"></div>
+                  <span class="blog-card-category">${relatedPost.category}</span>
+                </div>
+                <div class="blog-card-content">
+                  <div class="blog-card-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                      </svg>
+                      ${formatDate(relatedPost.publishedAt)}
+                    </span>
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      ${relatedPost.readingTime}
+                    </span>
+                  </div>
+                  <h3 class="blog-card-title">${relatedPost.title}</h3>
+                  <p class="blog-card-excerpt">${relatedPost.excerpt}</p>
+                  <div class="blog-card-read-more">
+                    Ler mais
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"/>
+                      <path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          `;
+        });
+        
+        relatedGrid.innerHTML = html;
+      }
+    }
+
+    function renderNotFound() {
+      const articleContainer = document.getElementById('post-article');
+      articleContainer.innerHTML = `
+        <div class="blog-post-card" style="text-align: center; padding: 4rem 2rem;">
+          <h1 class="blog-post-title">Artigo não encontrado</h1>
+          <p style="color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">O artigo que você está procurando não existe.</p>
+          <a href="blog.html" class="blog-cta-btn" style="display: inline-flex; max-width: 15rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="M19 12H5"/>
+            </svg>
+            Voltar ao Blog
+          </a>
+        </div>
+      `;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Apply saved theme
+      const savedTheme = localStorage.getItem('selected-theme');
+      if (savedTheme) {
+        document.documentElement.className = `theme-${savedTheme}`;
+      }
+      
+      const slug = getSlugFromURL();
+      if (slug) {
+        const post = getPostBySlug(slug);
+        if (post) {
+          renderPost(post);
+        } else {
+          renderNotFound();
+        }
+      } else {
+        renderNotFound();
+      }
+      
+      console.log('📖 Blog post loaded successfully!');
+    });
+  </script>
+</body>
+</html>

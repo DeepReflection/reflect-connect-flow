@@ -12,6 +12,7 @@ import ChatbotButton from '@/components/ChatbotButton';
 import ThemedProductsSection from '@/components/sections/ThemedProductsSection';
 import ThemedReflectionsSection from '@/components/sections/ThemedReflectionsSection';
 import ThemedAgendaSection from '@/components/sections/ThemedAgendaSection';
+import BlogCTA from '@/components/blog/BlogCTA';
 import { useTheme, ThemeName } from '@/contexts/ThemeContext';
 
 const PROFILE_DATA = {
@@ -122,9 +123,12 @@ const Index = () => {
       </div>
 
       {/* Main Content - Narrow sections */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-12">
+      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
         {/* CTA Button */}
         <CTAButton text="Fale Comigo" />
+
+        {/* Blog CTA */}
+        <BlogCTA variant="button" />
 
         {/* Social Links */}
         <section className="space-y-3">
