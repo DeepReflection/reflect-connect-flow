@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
 import ThemeSelector from '@/components/ThemeSelector';
 import BlogHeader from '@/components/blog/BlogHeader';
@@ -63,10 +64,25 @@ const Blog = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6"
           >
             Artigos, análises e reflexões sobre a Segunda Guerra Mundial e seus personagens históricos.
           </motion.p>
+
+          {/* New Article Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Link
+              to="/blog/new"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              Novo Artigo
+            </Link>
+          </motion.div>
 
         </div>
       </section>
