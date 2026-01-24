@@ -1,6 +1,6 @@
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Tag } from 'lucide-react';
+import { Calendar, Clock, Tag, Edit } from 'lucide-react';
 import ParticleBackground from '@/components/ParticleBackground';
 import ThemeSelector from '@/components/ThemeSelector';
 import BlogHeader from '@/components/blog/BlogHeader';
@@ -169,10 +169,19 @@ const BlogPost = () => {
             {post.category}
           </span>
 
-          {/* Title */}
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-            {post.title}
-          </h1>
+          {/* Title with Edit Button */}
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground flex-1">
+              {post.title}
+            </h1>
+            <Link
+              to={`/blog/edit/${post.slug}`}
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium shrink-0"
+            >
+              <Edit className="w-4 h-4" />
+              Editar
+            </Link>
+          </div>
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-8 pb-8 border-b border-border/50">
