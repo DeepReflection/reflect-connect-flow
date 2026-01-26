@@ -573,6 +573,36 @@
   box-shadow: 0 2px 15px hsl(var(--primary) / 0.4);
 }
 
+/* Dashboard Link - Matching React version */
+.dashboard-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dashboard-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.dashboard-link:hover {
+  background: #e2e8f0;
+}
+
 /* Social Links - Matching React SocialLink component */
 .social-links {
   display: flex;
