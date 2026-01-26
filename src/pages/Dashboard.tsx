@@ -1,4 +1,4 @@
-import { ArrowLeft, TrendingUp, HelpCircle, Clock, FileText, MessageSquare, Sparkles } from 'lucide-react';
+import { ArrowLeft, TrendingUp, HelpCircle, Clock, FileText, MessageSquare, Sparkles, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -150,8 +150,25 @@ const Dashboard = () => {
           </Card>
         </div>
 
+        {/* SEO Insights Link */}
+        <Link 
+          to="/seo-insights"
+          className="mb-8 flex items-center justify-between p-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl text-white hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg"
+        >
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-white/20 rounded-lg">
+              <Search className="w-6 h-6" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold">SEO Insights</h3>
+              <p className="text-blue-100 text-sm">Análise completa de keywords, backlinks e performance</p>
+            </div>
+          </div>
+          <ArrowLeft className="w-5 h-5 rotate-180" />
+        </Link>
+
         {/* Additional Info */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="bg-white border-slate-200 shadow-sm">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-semibold text-slate-900">
