@@ -220,13 +220,13 @@ const Chat = () => {
         >
           <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
             {/* Avatar with glow effect */}
-            <div className="relative mb-3">
+            <div className="relative mb-4">
               <motion.div
                 animate={{ 
-                  boxShadow: ['0 0 20px hsl(var(--primary) / 0.3)', '0 0 40px hsl(var(--primary) / 0.5)', '0 0 20px hsl(var(--primary) / 0.3)']
+                  boxShadow: ['0 0 30px hsl(var(--primary) / 0.4)', '0 0 60px hsl(var(--primary) / 0.6)', '0 0 30px hsl(var(--primary) / 0.4)']
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-primary/50"
+                className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-primary/50"
               >
                 <img 
                   src="https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png" 
