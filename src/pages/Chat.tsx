@@ -240,12 +240,6 @@ const Chat = () => {
             <h1 className="font-display text-xl md:text-2xl font-bold text-foreground drop-shadow-lg">
               Outro Brasileiro IA
             </h1>
-            <div className="flex items-center gap-2 mt-2 flex-wrap justify-center">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
-                <Sparkles className="w-3 h-3 text-primary" />
-                <span className="text-xs font-medium text-primary">Especialista WWII</span>
-              </span>
-            </div>
           </div>
         </motion.div>
       </div>
