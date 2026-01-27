@@ -156,10 +156,6 @@ const BlogAutomation = () => {
               <span className="text-sm">Voltar ao Blog</span>
             </Link>
           </div>
-          <Button onClick={() => setIsFormOpen(true)} className="gap-2">
-            <Plus className="w-4 h-4" />
-            Novo Projeto
-          </Button>
         </div>
       </header>
 
@@ -179,10 +175,18 @@ const BlogAutomation = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Projetos de Automação
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Crie projetos para gerar artigos automaticamente com IA. 
               Configure temas e agende publicações recorrentes.
             </p>
+            <Button 
+              onClick={() => setIsFormOpen(true)} 
+              size="lg"
+              className="gap-2 text-base px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+            >
+              <Plus className="w-5 h-5" />
+              Novo Projeto
+            </Button>
           </motion.div>
 
           {/* Stats Cards */}
