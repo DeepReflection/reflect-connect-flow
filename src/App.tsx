@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BlogNew from "./pages/BlogNew";
 import BlogEdit from "./pages/BlogEdit";
+import BlogAutomation from "./pages/BlogAutomation";
 import Dashboard from "./pages/Dashboard";
 import SEOInsights from "./pages/SEOInsights";
 import NotFound from "./pages/NotFound";
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/new" element={<BlogNew />} />
             <Route path="/blog/edit/:slug" element={<BlogEdit />} />
+            <Route path="/blog/automation" element={<BlogAutomation />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

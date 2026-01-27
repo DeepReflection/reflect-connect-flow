@@ -1,0 +1,59 @@
+import { AutomationProject } from '@/types/blogAutomation';
+
+// Sample data for demonstration
+export const sampleProjects: AutomationProject[] = [
+  {
+    id: '1',
+    name: 'Heróis da Segunda Guerra',
+    theme: 'Histórias de bravura e sacrifício de soldados durante a Segunda Guerra Mundial',
+    description: 'Artigos semanais destacando histórias pouco conhecidas de heróis de guerra.',
+    recurrence: 'weekly',
+    scheduledDays: [1], // Monday
+    scheduledTime: '09:00',
+    status: 'active',
+    postsGenerated: 12,
+    nextRunDate: new Date('2026-02-03T09:00:00'),
+    createdAt: new Date('2025-11-15'),
+    updatedAt: new Date('2026-01-20'),
+  },
+  {
+    id: '2',
+    name: 'Batalhas Decisivas',
+    theme: 'Análise detalhada das batalhas que mudaram o rumo da guerra',
+    description: 'Cobertura mensal das principais batalhas com mapas e estratégias.',
+    recurrence: 'monthly',
+    scheduledTime: '10:00',
+    status: 'active',
+    postsGenerated: 8,
+    nextRunDate: new Date('2026-02-01T10:00:00'),
+    createdAt: new Date('2025-10-01'),
+    updatedAt: new Date('2026-01-15'),
+  },
+  {
+    id: '3',
+    name: 'Tecnologia Bélica',
+    theme: 'Inovações tecnológicas desenvolvidas durante o conflito',
+    description: 'Artigos sobre armas, veículos e tecnologias que surgiram na guerra.',
+    recurrence: 'biweekly',
+    scheduledTime: '14:00',
+    status: 'paused',
+    postsGenerated: 5,
+    nextRunDate: new Date('2026-02-10T14:00:00'),
+    createdAt: new Date('2025-12-01'),
+    updatedAt: new Date('2026-01-10'),
+  },
+  {
+    id: '4',
+    name: 'Mulheres na Guerra',
+    theme: 'O papel fundamental das mulheres durante a Segunda Guerra Mundial',
+    description: 'Série sobre enfermeiras, espiãs, pilotos e resistentes.',
+    recurrence: 'weekly',
+    scheduledDays: [4], // Thursday
+    scheduledTime: '08:00',
+    status: 'draft',
+    postsGenerated: 0,
+    nextRunDate: new Date('2026-01-30T08:00:00'),
+    createdAt: new Date('2026-01-25'),
+    updatedAt: new Date('2026-01-25'),
+  },
+];
