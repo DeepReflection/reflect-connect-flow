@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Plus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Plus, Zap } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
@@ -69,11 +69,12 @@ const Blog = () => {
             Artigos, análises e reflexões sobre a Segunda Guerra Mundial e seus personagens históricos.
           </motion.p>
 
-          {/* New Article Button */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-3"
           >
             <Link
               to="/blog/new"
@@ -81,6 +82,13 @@ const Blog = () => {
             >
               <Plus className="w-4 h-4" />
               Novo Artigo
+            </Link>
+            <Link
+              to="/blog/automation"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 text-primary font-medium text-sm hover:bg-primary/10 transition-colors"
+            >
+              <Zap className="w-4 h-4" />
+              Automação
             </Link>
           </motion.div>
 
