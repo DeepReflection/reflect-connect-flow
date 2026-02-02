@@ -29,6 +29,11 @@ const BLOG_POSTS = [
       <p>O Dia D representou o início do fim para o regime nazista. Apesar das enormes baixas, o sucesso da operação abriu caminho para a libertação da França e, eventualmente, a derrota da Alemanha nazista.</p>
       <p>Hoje, 80 anos depois, lembramos o sacrifício de milhares de soldados que deram suas vidas pela liberdade.</p>
     `,
+    contentImages: {
+      'O Planejamento': 'https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=800&h=450&fit=crop',
+      'As Praias da Normandia': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+      'O Legado': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -57,6 +62,11 @@ const BLOG_POSTS = [
       <h2>O Cerco e a Rendição</h2>
       <p>Em novembro de 1942, a Operação Urano cercou o 6º Exército Alemão. Em 2 de fevereiro de 1943, o marechal Friedrich Paulus se rendeu, marcando a primeira grande derrota alemã na guerra.</p>
     `,
+    contentImages: {
+      'O Avanço Alemão': 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&h=450&fit=crop',
+      'A Resistência Soviética': 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=450&fit=crop',
+      'O Cerco e a Rendição': 'https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -88,6 +98,12 @@ const BLOG_POSTS = [
       <h2>Douglas MacArthur</h2>
       <p>O comandante do Pacífico liderou a estratégia de "island hopping" que levou as forças americanas até as portas do Japão.</p>
     `,
+    contentImages: {
+      'George S. Patton': 'https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?w=800&h=450&fit=crop',
+      'Bernard Montgomery': 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&h=450&fit=crop',
+      'Georgy Zhukov': 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=450&fit=crop',
+      'Douglas MacArthur': 'https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -116,6 +132,11 @@ const BLOG_POSTS = [
       <h2>Consequências</h2>
       <p>Midway eliminou a superioridade aérea naval japonesa e iniciou a ofensiva americana no Pacífico que culminaria na rendição do Japão em 1945.</p>
     `,
+    contentImages: {
+      'A Armadilha Americana': 'https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=800&h=450&fit=crop',
+      'A Batalha': 'https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=800&h=450&fit=crop',
+      'Consequências': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -157,6 +178,12 @@ const BLOG_POSTS = [
       <h2>A Era Atômica</h2>
       <p>A guerra terminou com a introdução da arma mais devastadora já criada: a bomba atômica.</p>
     `,
+    contentImages: {
+      'Tanques': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop',
+      'Aviação': 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&h=450&fit=crop',
+      'Armas Navais': 'https://images.unsplash.com/photo-1569974498991-d3c12a504f95?w=800&h=450&fit=crop',
+      'A Era Atômica': 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -194,6 +221,12 @@ const BLOG_POSTS = [
       <h2>O Legado</h2>
       <p>A Resistência Francesa provou que mesmo sob a mais brutal ocupação, o espírito de liberdade não pode ser extinto.</p>
     `,
+    contentImages: {
+      'O Início': 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=450&fit=crop',
+      'Ações de Sabotagem': 'https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=800&h=450&fit=crop',
+      'Jean Moulin': 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&h=450&fit=crop',
+      'O Legado': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop',
+    },
     coverImage: 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&h=450&fit=crop',
     author: {
       name: 'Outro Brasileiro',
@@ -207,6 +240,7 @@ const BLOG_POSTS = [
 ];
 
 const BLOG_CATEGORIES = ['Batalhas', 'Personagens', 'Tecnologia'];
+const POSTS_PER_PAGE = 3;
 
 function getPostBySlug(slug) {
   return BLOG_POSTS.find(post => post.slug === slug);
@@ -234,4 +268,34 @@ function formatFullDate(dateString) {
     month: 'long',
     year: 'numeric',
   });
+}
+
+// Render content with inline images after H2 headers
+function renderContentWithImages(content, contentImages) {
+  if (!contentImages || Object.keys(contentImages).length === 0) {
+    return content;
+  }
+  
+  // Parse HTML and insert images after matching H2 headers
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = content;
+  
+  const h2Elements = tempDiv.querySelectorAll('h2');
+  h2Elements.forEach(h2 => {
+    const sectionTitle = h2.textContent.trim();
+    if (contentImages[sectionTitle]) {
+      const figure = document.createElement('figure');
+      figure.className = 'content-image';
+      figure.innerHTML = `
+        <div class="content-image-wrapper">
+          <img src="${contentImages[sectionTitle]}" alt="${sectionTitle}" loading="lazy">
+          <div class="content-image-overlay"></div>
+        </div>
+        <figcaption>${sectionTitle}</figcaption>
+      `;
+      h2.insertAdjacentElement('afterend', figure);
+    }
+  });
+  
+  return tempDiv.innerHTML;
 }

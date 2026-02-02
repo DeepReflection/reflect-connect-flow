@@ -67,6 +67,26 @@
     <!-- Posts will be populated by JS -->
   </section>
 
+  <!-- Pagination -->
+  <section class="pagination-container" id="pagination-container" style="display: none;">
+    <div class="pagination-inner">
+      <button class="pagination-btn pagination-prev" id="pagination-prev" aria-label="Página anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </button>
+      <div class="pagination-numbers" id="pagination-numbers">
+        <!-- Page numbers will be populated by JS -->
+      </div>
+      <button class="pagination-btn pagination-next" id="pagination-next" aria-label="Próxima página">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+    <p class="pagination-info" id="pagination-info"></p>
+  </section>
+
   <!-- Footer -->
   <footer class="blog-footer">
     <p>© 2024 Outro Brasileiro no D-Day</p>
@@ -76,6 +96,7 @@
   <script src="js/blog-data.js"></script>
   <script>
     let selectedCategory = null;
+    let currentPage = 1;
 
     function renderCategories() {
       const container = document.getElementById('category-filter');
@@ -89,20 +110,35 @@
       container.innerHTML = html;
     }
 
-    function renderPosts() {
-      const container = document.getElementById('posts-grid');
-      const posts = selectedCategory 
+    function getFilteredPosts() {
+      return selectedCategory 
         ? BLOG_POSTS.filter(post => post.category === selectedCategory)
         : BLOG_POSTS;
+    }
+
+    function getTotalPages() {
+      return Math.ceil(getFilteredPosts().length / POSTS_PER_PAGE);
+    }
+
+    function getPaginatedPosts() {
+      const filteredPosts = getFilteredPosts();
+      const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+      return filteredPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+    }
+
+    function renderPosts() {
+      const container = document.getElementById('posts-grid');
+      const paginatedPosts = getPaginatedPosts();
+      const filteredPosts = getFilteredPosts();
       
-      if (posts.length === 0) {
+      if (filteredPosts.length === 0) {
         container.innerHTML = '<p style="text-align: center; color: hsl(var(--muted-foreground)); padding: 4rem 0;">Nenhum artigo encontrado nesta categoria.</p>';
         return;
       }
       
       let html = '';
-      posts.forEach((post, index) => {
-        const isFeatured = index === 0 && !selectedCategory;
+      paginatedPosts.forEach((post, index) => {
+        const isFeatured = index === 0 && currentPage === 1 && !selectedCategory;
         html += `
           <a href="blog-post.html?slug=${post.slug}" class="blog-card ${isFeatured ? 'featured' : ''}">
             <div class="blog-card-inner">
@@ -146,10 +182,58 @@
       });
       
       container.innerHTML = html;
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const totalPages = getTotalPages();
+      const container = document.getElementById('pagination-container');
+      const numbersContainer = document.getElementById('pagination-numbers');
+      const infoContainer = document.getElementById('pagination-info');
+      const prevBtn = document.getElementById('pagination-prev');
+      const nextBtn = document.getElementById('pagination-next');
+      const filteredPosts = getFilteredPosts();
+
+      if (totalPages <= 1) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+
+      // Render page numbers
+      let numbersHtml = '';
+      for (let i = 1; i <= totalPages; i++) {
+        numbersHtml += `<button class="pagination-page ${currentPage === i ? 'active' : ''}" onclick="goToPage(${i})" aria-label="Página ${i}" ${currentPage === i ? 'aria-current="page"' : ''}>${i}</button>`;
+      }
+      numbersContainer.innerHTML = numbersHtml;
+
+      // Update prev/next buttons
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.classList.toggle('disabled', currentPage === 1);
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.classList.toggle('disabled', currentPage === totalPages);
+
+      // Update info text
+      infoContainer.textContent = `Página ${currentPage} de ${totalPages} • ${filteredPosts.length} artigo${filteredPosts.length !== 1 ? 's' : ''}`;
+
+      // Setup button handlers
+      prevBtn.onclick = () => goToPage(currentPage - 1);
+      nextBtn.onclick = () => goToPage(currentPage + 1);
+    }
+
+    function goToPage(page) {
+      const totalPages = getTotalPages();
+      if (page < 1 || page > totalPages) return;
+      
+      currentPage = page;
+      renderPosts();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function filterByCategory(category) {
       selectedCategory = category;
+      currentPage = 1; // Reset to first page when category changes
       renderCategories();
       renderPosts();
     }
