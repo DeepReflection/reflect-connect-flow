@@ -625,13 +625,14 @@
   color: hsl(var(--primary));
 }
 
-/* Blog Footer */
+/* Blog Footer - matches React py-8 px-6 */
 .blog-footer {
   position: relative;
   z-index: 10;
   text-align: center;
   padding: 2rem 1.5rem;
   border-top: 1px solid hsl(var(--border) / 0.5);
+  margin-top: 2rem;
 }
 
 .blog-footer p {
@@ -642,7 +643,7 @@
 .blog-footer p:last-child {
   margin-top: 0.5rem;
   font-size: 0.75rem;
-  opacity: 0.5;
+  color: hsl(var(--muted-foreground) / 0.5);
 }
 
 /* ============================================
