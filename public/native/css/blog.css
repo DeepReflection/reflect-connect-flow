@@ -79,6 +79,10 @@
   text-align: center;
 }
 
+.blog-hero.blog-hero-minimal {
+  padding: 4rem 1rem 2rem;
+}
+
 .blog-hero-icon {
   display: inline-flex;
   align-items: center;
@@ -96,6 +100,23 @@
   color: hsl(var(--primary));
 }
 
+/* Author Avatar - matches React style */
+.blog-author-avatar {
+  display: inline-flex;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid hsl(var(--primary) / 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.blog-author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .blog-hero h1 {
   font-family: var(--font-display);
   font-size: 3rem;
@@ -109,6 +130,19 @@
   color: hsl(var(--muted-foreground));
   max-width: 42rem;
   margin: 0 auto;
+}
+
+.blog-hero-description {
+  font-size: 1.125rem;
+  color: hsl(var(--muted-foreground));
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .blog-hero-description {
+    font-size: 1.25rem;
+  }
 }
 
 /* Category Filter */
@@ -1418,24 +1452,23 @@
   opacity: 1;
 }
 
-/* Blog Hero Buttons */
+/* Blog Hero Buttons - Matches React pill style */
 .blog-hero-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.75rem;
 }
 
 .blog-hero-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   transition: all 0.2s;
 }
 
@@ -1446,16 +1479,15 @@
 }
 
 .blog-hero-btn-primary:hover {
-  opacity: 0.9;
+  background: hsl(var(--primary) / 0.9);
 }
 
 .blog-hero-btn-secondary {
-  color: hsl(var(--foreground));
+  color: hsl(var(--primary));
   background: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
+  border: 1px solid hsl(var(--primary) / 0.3);
 }
 
 .blog-hero-btn-secondary:hover {
-  border-color: hsl(var(--primary) / 0.5);
-  background: hsl(var(--primary) / 0.05);
+  background: hsl(var(--primary) / 0.1);
 }
