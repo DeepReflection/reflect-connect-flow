@@ -15,7 +15,10 @@
 .blog-header-inner {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
