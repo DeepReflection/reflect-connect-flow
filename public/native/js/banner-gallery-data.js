@@ -156,6 +156,16 @@ const BANNER_CATEGORIES = [
   { id: 'vintage', name: 'Vintage', count: 10 },
   { id: 'yoga', name: 'Yoga', count: 10 },
   { id: 'zumbis', name: 'Zumbis', count: 20 },
+  // New categories added
+  { id: 'bebes', name: 'Bebês', count: 20 },
+  { id: 'criancas-felizes', name: 'Crianças Felizes', count: 10 },
+  { id: 'idosos', name: 'Idosos', count: 10 },
+  { id: 'modelos-passarela', name: 'Modelos Passarela', count: 10 },
+  { id: 'minimalista', name: 'Minimalista', count: 20 },
+  { id: 'geologia', name: 'Geologia', count: 10 },
+  { id: 'biologia', name: 'Biologia', count: 10 },
+  { id: 'quimica', name: 'Química', count: 10 },
+  { id: 'cultura-afro', name: 'Cultura Afro', count: 10 },
 ];
 
 // Generate banner URLs for a category
