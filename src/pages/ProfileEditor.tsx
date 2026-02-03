@@ -135,6 +135,7 @@ const ProfileEditor = () => {
                     onImageChange={updateBanner}
                     label="Banner (opcional)"
                     aspectRatio="banner"
+                    showGallery={true}
                   />
                 </div>
 

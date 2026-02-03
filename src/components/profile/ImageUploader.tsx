@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Camera, Upload, X, Image as ImageIcon } from 'lucide-react';
+import { Camera, Upload, Image as ImageIcon, Images } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,18 +11,26 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import BannerGallery from './BannerGallery';
 
 interface ImageUploaderProps {
   currentImage?: string;
   onImageChange: (url: string) => void;
   label: string;
   aspectRatio?: 'square' | 'banner';
+  showGallery?: boolean;
 }
 
-const ImageUploader = ({ currentImage, onImageChange, label, aspectRatio = 'square' }: ImageUploaderProps) => {
+const ImageUploader = ({ 
+  currentImage, 
+  onImageChange, 
+  label, 
+  aspectRatio = 'square',
+  showGallery = false 
+}: ImageUploaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [urlInput, setUrlInput] = useState('');
-  const [previewUrl, setPreviewUrl] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleUrlSubmit = () => {
@@ -39,7 +47,6 @@ const ImageUploader = ({ currentImage, onImageChange, label, aspectRatio = 'squa
       const reader = new FileReader();
       reader.onloadend = () => {
         const result = reader.result as string;
-        setPreviewUrl(result);
         onImageChange(result);
         setIsOpen(false);
       };
@@ -47,9 +54,17 @@ const ImageUploader = ({ currentImage, onImageChange, label, aspectRatio = 'squa
     }
   };
 
+  const handleGallerySelect = (url: string) => {
+    onImageChange(url);
+    setIsGalleryOpen(false);
+    setIsOpen(false);
+  };
+
   const containerClass = aspectRatio === 'banner' 
     ? 'w-full h-32 md:h-48' 
     : 'w-24 h-24 md:w-32 md:h-32';
+
+  const tabCount = showGallery ? 3 : 2;
 
   return (
     <div className="space-y-2">
@@ -84,9 +99,12 @@ const ImageUploader = ({ currentImage, onImageChange, label, aspectRatio = 'squa
             <DialogTitle>Alterar {label}</DialogTitle>
           </DialogHeader>
           <Tabs defaultValue="url" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="url">URL da Imagem</TabsTrigger>
+            <TabsList className={`grid w-full grid-cols-${tabCount}`}>
+              <TabsTrigger value="url">URL</TabsTrigger>
               <TabsTrigger value="upload">Upload</TabsTrigger>
+              {showGallery && (
+                <TabsTrigger value="gallery">Galeria</TabsTrigger>
+              )}
             </TabsList>
             <TabsContent value="url" className="space-y-4">
               <div className="space-y-2">
@@ -135,9 +153,35 @@ const ImageUploader = ({ currentImage, onImageChange, label, aspectRatio = 'squa
                 Formatos aceitos: JPG, PNG, WebP. Máximo 5MB.
               </p>
             </TabsContent>
+            {showGallery && (
+              <TabsContent value="gallery" className="space-y-4">
+                <div className="text-center py-4">
+                  <Images className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Escolha entre mais de 2.500 banners profissionais organizados por categoria.
+                  </p>
+                  <Button 
+                    onClick={() => setIsGalleryOpen(true)}
+                    className="w-full"
+                  >
+                    <Images className="w-4 h-4 mr-2" />
+                    Abrir Galeria de Banners
+                  </Button>
+                </div>
+              </TabsContent>
+            )}
           </Tabs>
         </DialogContent>
       </Dialog>
+      
+      {/* Banner Gallery Dialog */}
+      {showGallery && (
+        <BannerGallery
+          open={isGalleryOpen}
+          onOpenChange={setIsGalleryOpen}
+          onSelect={handleGallerySelect}
+        />
+      )}
     </div>
   );
 };
