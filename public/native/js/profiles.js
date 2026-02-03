@@ -2,23 +2,40 @@
 // Profile Data - Native HTML5 Version
 // ============================================
 
+const PROFILE_STORAGE_KEY = 'profile-data';
+
+// Get stored profile from localStorage (synced with React version)
+function getStoredProfile() {
+  const stored = localStorage.getItem(PROFILE_STORAGE_KEY);
+  if (stored) {
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 const PROFILES = {
-  // Default profile (index page)
+  // Default profile (index page) - will be overridden by stored data
   default: {
     name: "outrobrasileironodiad",
     description: "O Projeto Outro Brasileiro é uma iniciativa independente e sem fins lucrativos dedicada à criação de conteúdos audiovisuais sobre a Segunda Guerra Mundial, explorando de forma aprofundada seus principais eventos, batalhas, personagens e contextos históricos.",
     avatarUrl: "https://vortice-deep-reflection-production.s3.amazonaws.com/resources/286.png",
+    bannerUrl: "",
     footerText: "© 2024 Outro Brasileiro no D-Day",
     footerSubtitle: "Preservando a história para as futuras gerações",
     chatWelcome: "Olá! Bem-vindo ao Projeto Outro Brasileiro. Como posso ajudá-lo hoje?",
     socialLinks: [
-      { type: 'instagram', url: 'https://www.instagram.com/outrobrasileironodiad/', label: 'Instagram' },
-      { type: 'youtube', url: 'https://www.youtube.com/@outrobrasileironodiad9205', label: 'YouTube' },
+      { id: '1', type: 'instagram', iconType: 'instagram', url: 'https://www.instagram.com/outrobrasileironodiad/', label: 'Instagram' },
+      { id: '2', type: 'youtube', iconType: 'youtube', url: 'https://www.youtube.com/@outrobrasileironodiad9205', label: 'YouTube' },
     ],
     reflections: REFLECTIONS,
     products: PRODUCTS,
     services: SERVICES,
     events: AGENDA_EVENTS,
+    agendaEvents: AGENDA_EVENTS,
     quickActions: [
       "O que é o Projeto?",
       "Sobre a Segunda Guerra",
@@ -132,6 +149,33 @@ const PROFILES = {
 // Get current profile based on page
 function getCurrentProfile() {
   const profileId = document.body.dataset.profile || 'default';
+  
+  // For default profile, try to get stored data from localStorage
+  if (profileId === 'default') {
+    const storedProfile = getStoredProfile();
+    if (storedProfile) {
+      // Merge stored data with defaults
+      const defaultProfile = PROFILES.default;
+      return {
+        ...defaultProfile,
+        name: storedProfile.name || defaultProfile.name,
+        description: storedProfile.description || defaultProfile.description,
+        avatarUrl: storedProfile.avatarUrl || defaultProfile.avatarUrl,
+        bannerUrl: storedProfile.bannerUrl || '',
+        footerText: `© 2024 ${storedProfile.name || defaultProfile.name}`,
+        socialLinks: storedProfile.socialLinks ? storedProfile.socialLinks.map(link => ({
+          ...link,
+          type: link.iconType || link.type || 'website'
+        })) : defaultProfile.socialLinks,
+        reflections: storedProfile.reflections || defaultProfile.reflections,
+        products: storedProfile.products || defaultProfile.products,
+        services: storedProfile.services || defaultProfile.services,
+        events: storedProfile.agendaEvents || defaultProfile.events,
+        agendaEvents: storedProfile.agendaEvents || defaultProfile.agendaEvents,
+      };
+    }
+  }
+  
   return PROFILES[profileId] || PROFILES.default;
 }
 
@@ -144,10 +188,16 @@ function populateProfile() {
   const nameEl = document.getElementById('profile-name');
   const descriptionEl = document.getElementById('profile-description');
   const footerEl = document.getElementById('footer');
+  const bannerEl = document.getElementById('hero-banner-img');
   
   if (avatarEl) avatarEl.src = profile.avatarUrl;
   if (nameEl) nameEl.textContent = profile.name;
   if (descriptionEl) descriptionEl.textContent = profile.description;
+  
+  // Update banner if custom banner is set
+  if (bannerEl && profile.bannerUrl) {
+    bannerEl.src = profile.bannerUrl;
+  }
   
   if (footerEl) {
     footerEl.innerHTML = `
