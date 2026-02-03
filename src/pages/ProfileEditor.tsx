@@ -12,7 +12,7 @@ import { useProfile } from '@/contexts/ProfileContext';
 import ImageUploader from '@/components/profile/ImageUploader';
 import SocialLinkEditor from '@/components/profile/SocialLinkEditor';
 import ItemListEditor from '@/components/profile/ItemListEditor';
-import { AgendaEvent, Product, Service, Reflection } from '@/themes/types';
+import { AgendaEvent, Product, Service } from '@/themes/types';
 
 const AGENDA_FIELDS = [
   { key: 'title', label: 'Título', type: 'text' as const, required: true },
@@ -37,10 +37,6 @@ const SERVICE_FIELDS = [
   { key: 'linkUrl', label: 'Link do Serviço', type: 'url' as const, required: false },
 ];
 
-const REFLECTION_FIELDS = [
-  { key: 'title', label: 'Título', type: 'text' as const, required: true },
-  { key: 'imageUrl', label: 'URL da Imagem', type: 'url' as const, required: true },
-];
 
 const ProfileEditor = () => {
   const { toast } = useToast();
@@ -109,12 +105,11 @@ const ProfileEditor = () => {
       {/* Content */}
       <main className="container max-w-4xl py-8 px-4">
         <Tabs defaultValue="basic" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
             <TabsTrigger value="basic">Básico</TabsTrigger>
             <TabsTrigger value="links">Links</TabsTrigger>
             <TabsTrigger value="agenda">Agenda</TabsTrigger>
             <TabsTrigger value="products">Produtos</TabsTrigger>
-            <TabsTrigger value="more">Mais</TabsTrigger>
           </TabsList>
 
           {/* Basic Info */}
@@ -249,28 +244,6 @@ const ProfileEditor = () => {
             </Card>
           </TabsContent>
 
-          {/* More (Reflections) */}
-          <TabsContent value="more">
-            <Card>
-              <CardHeader>
-                <CardTitle>Reflexões</CardTitle>
-                <CardDescription>
-                  Adicione imagens e títulos para a seção de reflexões.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ItemListEditor<Reflection>
-                  title="Reflexões"
-                  items={profile.reflections}
-                  fields={REFLECTION_FIELDS}
-                  onAdd={addReflection}
-                  onUpdate={updateReflection}
-                  onRemove={removeReflection}
-                  titleField="title"
-                />
-              </CardContent>
-            </Card>
-          </TabsContent>
         </Tabs>
       </main>
     </div>
