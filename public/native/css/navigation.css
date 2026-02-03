@@ -8,14 +8,14 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 60;
+  z-index: 100;
   height: 56px;
   transition: all 0.3s ease;
-  background: transparent;
+  background: hsl(var(--background));
 }
 
 .nav-menu.scrolled {
-  background: hsla(var(--background), 0.9);
+  background: hsla(var(--background), 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid hsla(var(--border), 0.5);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
@@ -111,7 +111,7 @@
 .nav-mobile-overlay {
   position: fixed;
   inset: 0;
-  z-index: 55;
+  z-index: 95;
   display: none;
 }
 
@@ -181,15 +181,17 @@
 /* Adjust page content for fixed nav - only affects theme bar now */
 .theme-selector-bar {
   top: 56px !important;
+  z-index: 90 !important;
 }
 
-/* Adjust hero section padding */
+/* Adjust hero section padding - account for nav + theme bar */
 .hero-section {
-  padding-top: 56px;
+  padding-top: 112px;
 }
 
 /* Edit profile button position adjustment */
 .edit-profile-btn {
-  top: 70px !important;
+  top: 126px !important;
   right: 1rem !important;
+  z-index: 80 !important;
 }
