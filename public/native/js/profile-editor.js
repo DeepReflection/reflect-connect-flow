@@ -452,6 +452,11 @@ function handleFileUpload(event) {
   }
 }
 
+// Open banner gallery page
+function openBannerGallery() {
+  window.location.href = 'banner-gallery.html';
+}
+
 // Reset to default
 function resetToDefault() {
   if (confirm('Tem certeza que deseja restaurar os dados padrão? Todas as alterações serão perdidas.')) {

@@ -377,6 +377,12 @@ body:has(.editor-header) {
   color: var(--editor-text-muted);
 }
 
+/* Gallery Button */
+.editor-gallery-btn {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
 /* List Headers */
 .editor-list-header {
   display: flex;
