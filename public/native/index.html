@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/hero-layouts.css">
+  <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="css/blog.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,7 +270,7 @@
   <canvas id="particles-canvas"></canvas>
 
   <!-- Hero Section - Classic Layout -->
-  <header class="hero-section">
+  <header id="hero" class="hero-section">
     <div class="hero-banner">
       <img id="hero-banner-img" src="assets/themes/vintage-sepia/images/banner.jpg" alt="Banner">
       <div class="hero-overlay"></div>
@@ -302,7 +303,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main id="social" class="main-content">
     <!-- CTA Button - Links to chat page like React -->
     <a href="chat.html" class="cta-button">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -325,7 +326,7 @@
   </main>
 
   <!-- Agenda Section -->
-  <section class="section agenda-section">
+  <section id="agenda" class="section agenda-section">
     <div class="section-container">
       <div class="section-title-wrapper">
         <div class="section-header-content">
@@ -343,7 +344,7 @@
   </section>
 
   <!-- Products Section -->
-  <section class="section products-section">
+  <section id="products" class="section products-section">
     <div class="section-container">
       <div class="section-title-wrapper">
         <div class="section-header-content">
@@ -379,7 +380,7 @@
   </section>
 
   <!-- Reflections Section -->
-  <section class="section reflections-section">
+  <section id="reflections" class="section reflections-section">
     <div class="section-container">
       <div class="section-title-wrapper">
         <div class="section-header-content">
@@ -449,6 +450,13 @@
   <script src="js/theme.js"></script>
   <script src="js/components.js"></script>
   <script src="js/chat.js"></script>
+  <script src="js/navigation.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const profileName = document.getElementById('profile-name')?.textContent || 'Menu';
+      new NavigationMenu({ profileName: profileName || 'Outro Brasileiro no D-Day' });
+    });
+  </script>
 </body>
 </html>

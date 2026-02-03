@@ -1,0 +1,195 @@
+/* ============================================
+   Navigation Menu - Native HTML5 Version
+   ============================================ */
+
+/* Navigation Bar */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 56px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-menu.scrolled {
+  background: hsla(var(--background), 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsla(var(--border), 0.5);
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+}
+
+.nav-menu-content {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand/Logo */
+.nav-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-brand:hover {
+  color: hsl(var(--primary));
+}
+
+/* Desktop Menu Items */
+.nav-items {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .nav-items {
+    display: flex;
+  }
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: hsl(var(--foreground));
+  background: hsla(var(--muted), 0.5);
+}
+
+.nav-item.active {
+  color: hsl(var(--primary));
+  background: hsla(var(--primary), 0.1);
+}
+
+/* Mobile Menu Button */
+.nav-mobile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-mobile-btn:hover {
+  background: hsla(var(--muted), 0.5);
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-btn {
+    display: none;
+  }
+}
+
+/* Mobile Menu Overlay */
+.nav-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  display: none;
+}
+
+.nav-mobile-overlay.open {
+  display: block;
+}
+
+.nav-mobile-backdrop {
+  position: absolute;
+  inset: 0;
+  background: hsla(var(--background), 0.8);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+.nav-mobile-panel {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  bottom: 0;
+  width: 256px;
+  background: hsl(var(--card));
+  border-left: 1px solid hsl(var(--border));
+  box-shadow: -4px 0 20px hsla(0, 0%, 0%, 0.2);
+  animation: slideInRight 0.25s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.nav-mobile-items {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-mobile-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-mobile-item:hover {
+  background: hsla(var(--muted), 0.5);
+}
+
+.nav-mobile-item.active {
+  color: hsl(var(--primary));
+  background: hsla(var(--primary), 0.1);
+  font-weight: 500;
+}
+
+/* Adjust page content for fixed nav - only affects theme bar now */
+.theme-selector-bar {
+  top: 56px !important;
+}
+
+/* Adjust hero section padding */
+.hero-section {
+  padding-top: 56px;
+}
+
+/* Edit profile button position adjustment */
+.edit-profile-btn {
+  top: 70px !important;
+  right: 1rem !important;
+}
