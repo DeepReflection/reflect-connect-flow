@@ -9,6 +9,7 @@ import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
 import ChatbotButton from '@/components/ChatbotButton';
 import BlogCTA from '@/components/blog/BlogCTA';
+import NavigationMenu from '@/components/NavigationMenu';
 
 const PROFILE_DATA = {
   name: "Vini Historia",
@@ -67,20 +68,21 @@ const REFLECTIONS = [
 const ViniHistoria = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <NavigationMenu profileName={PROFILE_DATA.name} />
       <ThemeSelector />
       <ParticleBackground />
       
       {/* Hero Section */}
-      <div className="pt-14">
+      <section id="hero" className="pt-14">
         <HeroSection
           name={PROFILE_DATA.name}
           description={PROFILE_DATA.description}
           avatarUrl={PROFILE_DATA.avatarUrl}
         />
-      </div>
+      </section>
 
       {/* Main Content - Narrow sections */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
+      <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
         {/* CTA Button */}
         <CTAButton text="Fale Comigo" />
 
@@ -101,13 +103,18 @@ const ViniHistoria = () => {
         </section>
       </main>
 
+      {/* Agenda Section Placeholder */}
+      <section id="agenda" className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
+        {/* Add agenda content here if needed */}
+      </section>
+
       {/* Products & Services - Full width */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
+      <section id="products" className="relative z-10 px-6 md:px-12 lg:px-20 py-12">
         <ProductsSection />
-      </div>
+      </section>
 
       {/* Reflections - Full width */}
-      <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
+      <section id="reflections" className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
         <div className="max-w-7xl mx-auto">
           <SectionTitle title="Minhas Reflexões" />
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
@@ -121,7 +128,7 @@ const ViniHistoria = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 px-6">

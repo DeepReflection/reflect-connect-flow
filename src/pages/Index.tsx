@@ -14,6 +14,7 @@ import ThemedProductsSection from '@/components/sections/ThemedProductsSection';
 import ThemedReflectionsSection from '@/components/sections/ThemedReflectionsSection';
 import ThemedAgendaSection from '@/components/sections/ThemedAgendaSection';
 import BlogCTA from '@/components/blog/BlogCTA';
+import NavigationMenu from '@/components/NavigationMenu';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useProfile } from '@/contexts/ProfileContext';
 import { Button } from '@/components/ui/button';
@@ -41,13 +42,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
+      <NavigationMenu profileName={profile.name} />
       <ThemeSelector />
       <ParticleBackground />
       
       {/* Edit Profile Button */}
       <Link 
         to="/profile/edit" 
-        className="fixed top-4 right-4 z-50"
+        className="fixed top-4 right-16 z-50"
       >
         <Button variant="secondary" size="icon" className="shadow-lg">
           <Settings className="w-5 h-5" />
@@ -55,16 +57,16 @@ const Index = () => {
       </Link>
       
       {/* Hero Section */}
-      <div className="pt-14">
+      <section id="hero" className="pt-14">
         <HeroSection
           name={profile.name}
           description={profile.description}
           avatarUrl={profile.avatarUrl}
         />
-      </div>
+      </section>
 
       {/* Main Content - Narrow sections */}
-      <main className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
+      <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
         {/* CTA Button */}
         <CTAButton text="Fale Comigo" />
 
@@ -95,7 +97,7 @@ const Index = () => {
       </main>
 
       {/* Agenda Section - Full width */}
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+      <section id="agenda" className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
         {hasUniqueLayout ? (
           <div className="w-full">
             <ThemedAgendaSection />
@@ -105,10 +107,10 @@ const Index = () => {
             <AgendaSection />
           </div>
         )}
-      </div>
+      </section>
 
       {/* Products & Services - Full width */}
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+      <section id="products" className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
         {hasUniqueLayout ? (
           <div className="w-full">
             <ThemedProductsSection />
@@ -118,30 +120,32 @@ const Index = () => {
             <ProductsSection />
           </div>
         )}
-      </div>
+      </section>
 
       {/* Reflections - Full width */}
-      {hasUniqueLayout ? (
-        <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
-          <ThemedReflectionsSection reflections={profile.reflections} />
-        </div>
-      ) : (
-        <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
-          <div className="max-w-7xl mx-auto">
-            <SectionTitle title="Minhas Reflexões" />
-            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
-              {profile.reflections.map((reflection, index) => (
-                <ReflectionCard
-                  key={reflection.title}
-                  title={reflection.title}
-                  imageUrl={reflection.imageUrl}
-                  index={index}
-                />
-              ))}
+      <section id="reflections">
+        {hasUniqueLayout ? (
+          <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+            <ThemedReflectionsSection reflections={profile.reflections} />
+          </div>
+        ) : (
+          <div className="relative z-10 w-full px-4 md:px-8 lg:px-12 py-12">
+            <div className="max-w-7xl mx-auto">
+              <SectionTitle title="Minhas Reflexões" />
+              <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6">
+                {profile.reflections.map((reflection, index) => (
+                  <ReflectionCard
+                    key={reflection.title}
+                    title={reflection.title}
+                    imageUrl={reflection.imageUrl}
+                    index={index}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </section>
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 px-6">
