@@ -18,6 +18,10 @@ html.theme-gradient-flow {
   --input: 260 35% 22%;
   --ring: 320 80% 55%;
   --radius: 0.75rem;
+  /* Seções alternadas */
+  --section-dark-bg: 260 45% 14%;
+  --section-dark-fg: 260 20% 95%;
+  --section-dark-muted: 260 25% 60%;
 }
 
 /* Gradient Flow - Animated background */

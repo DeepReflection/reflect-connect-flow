@@ -18,6 +18,10 @@ html.theme-split-screen {
   --input: 0 0% 18%;
   --ring: 210 100% 55%;
   --radius: 0.5rem;
+  /* Seções alternadas */
+  --section-dark-bg: 0 0% 12%;
+  --section-dark-fg: 0 0% 95%;
+  --section-dark-muted: 0 0% 60%;
 }
 
 /* Split Screen - Hero specific styles */

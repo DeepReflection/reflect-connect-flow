@@ -18,6 +18,10 @@ html.theme-neon-gamer {
   --input: 270 45% 15%;
   --ring: 315 100% 55%;
   --radius: 0.875rem;
+  /* Seções alternadas */
+  --section-dark-bg: 270 55% 8%;
+  --section-dark-fg: 180 100% 90%;
+  --section-dark-muted: 180 60% 55%;
 }
 
 /* Neon Gamer - Hero specific styles */

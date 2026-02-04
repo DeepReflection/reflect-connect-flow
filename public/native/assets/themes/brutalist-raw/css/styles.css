@@ -18,6 +18,10 @@ html.theme-brutalist-raw {
   --input: 0 0% 15%;
   --ring: 0 0% 100%;
   --radius: 0;
+  /* Seções alternadas */
+  --section-dark-bg: 0 0% 8%;
+  --section-dark-fg: 0 0% 95%;
+  --section-dark-muted: 0 0% 60%;
 }
 
 /* Brutalist Raw - Hero specific styles */

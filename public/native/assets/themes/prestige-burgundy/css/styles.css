@@ -17,4 +17,8 @@ html.theme-prestige-burgundy {
   --border: 345 22% 22%;
   --input: 345 22% 16%;
   --ring: 345 60% 45%;
+  /* Seções alternadas */
+  --section-dark-bg: 345 32% 14%;
+  --section-dark-fg: 340 18% 92%;
+  --section-dark-muted: 345 25% 50%;
 }

@@ -17,4 +17,8 @@ html.theme-crimson-war {
   --border: 0 20% 20%;
   --input: 0 10% 16%;
   --ring: 0 75% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 0 18% 12%;
+  --section-dark-fg: 0 10% 92%;
+  --section-dark-muted: 0 15% 50%;
 }

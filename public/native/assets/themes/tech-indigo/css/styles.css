@@ -17,4 +17,8 @@ html.theme-tech-indigo {
   --border: 250 22% 22%;
   --input: 250 22% 16%;
   --ring: 245 75% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 250 30% 14%;
+  --section-dark-fg: 245 22% 92%;
+  --section-dark-muted: 245 18% 55%;
 }

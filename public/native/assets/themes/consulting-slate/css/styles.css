@@ -17,4 +17,8 @@ html.theme-consulting-slate {
   --border: 215 15% 25%;
   --input: 215 15% 18%;
   --ring: 210 40% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 215 22% 16%;
+  --section-dark-fg: 210 18% 92%;
+  --section-dark-muted: 210 15% 50%;
 }

@@ -17,4 +17,8 @@ html.theme-modern-graphite {
   --border: 220 8% 24%;
   --input: 220 8% 16%;
   --ring: 220 15% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 220 10% 14%;
+  --section-dark-fg: 220 8% 92%;
+  --section-dark-muted: 220 8% 55%;
 }

@@ -18,6 +18,12 @@ html.theme-nature-organic {
   --input: 90 25% 88%;
   --ring: 140 50% 40%;
   --radius: 1.5rem;
+  /* Seções alternadas - fundo verde escuro natural */
+  --section-dark-bg: 90 35% 18%;
+  --section-dark-fg: 90 30% 95%;
+  --section-dark-muted: 90 25% 55%;
+  --section-dark-card: 90 30% 98%;
+  --section-dark-card-fg: 90 50% 15%;
 }
 
 /* Nature Organic - Hero specific styles */
