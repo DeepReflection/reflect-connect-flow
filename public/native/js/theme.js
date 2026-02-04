@@ -234,8 +234,25 @@ class ThemeManager {
     // Update section subtitles based on theme
     this.updateSectionSubtitles(themeId);
     
+    // Apply alternating section backgrounds for specific themes
+    this.applyAlternatingSections(themeId);
+    
     // Update dropdown display
     this.updateDropdownDisplay();
+  }
+
+  applyAlternatingSections(themeId) {
+    const alternatingSectionThemes = ['desert-sand'];
+    const agendaSection = document.querySelector('#agenda');
+    const reflectionsSection = document.querySelector('#reflections');
+    
+    if (alternatingSectionThemes.includes(themeId)) {
+      agendaSection?.classList.add('section-dark');
+      reflectionsSection?.classList.add('section-dark');
+    } else {
+      agendaSection?.classList.remove('section-dark');
+      reflectionsSection?.classList.remove('section-dark');
+    }
   }
 
   updateSectionSubtitles(themeId) {

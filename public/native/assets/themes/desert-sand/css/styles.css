@@ -17,6 +17,14 @@ html.theme-desert-sand {
   --border: 35 18% 82%;
   --input: 35 15% 88%;
   --ring: 30 65% 50%;
+  
+  /* Seções alternadas - fundo escuro para contraste */
+  --section-dark-bg: 200 25% 25%;
+  --section-dark-fg: 40 20% 95%;
+  --section-dark-card: 200 20% 98%;
+  --section-dark-card-fg: 200 25% 15%;
+  --section-dark-muted: 200 15% 35%;
+  --section-dark-border: 200 20% 40%;
   /* --gradient-hero: inherited from :root (matches React preview) */
 }
 
@@ -35,4 +43,40 @@ html.theme-desert-sand .hero-info-card {
   background: hsl(35 20% 98% / 0.92);
   border-color: hsl(35 18% 82% / 0.6);
   box-shadow: 0 4px 20px hsla(30, 20%, 30%, 0.12);
+}
+
+/* Desert Sand - Seções alternadas com fundo escuro */
+html.theme-desert-sand .section-dark {
+  background-color: hsl(var(--section-dark-bg));
+  color: hsl(var(--section-dark-fg));
+}
+
+html.theme-desert-sand .section-dark .section-title,
+html.theme-desert-sand .section-dark h1,
+html.theme-desert-sand .section-dark h2,
+html.theme-desert-sand .section-dark h3,
+html.theme-desert-sand .section-dark h4 {
+  color: hsl(var(--section-dark-fg));
+}
+
+html.theme-desert-sand .section-dark .section-subtitle {
+  color: hsl(200 15% 70%);
+}
+
+html.theme-desert-sand .section-dark .agenda-card,
+html.theme-desert-sand .section-dark .product-card,
+html.theme-desert-sand .section-dark .reflection-card {
+  background-color: hsl(var(--section-dark-card));
+  color: hsl(var(--section-dark-card-fg));
+  border-color: hsl(var(--section-dark-border) / 0.3);
+}
+
+html.theme-desert-sand .section-dark .agenda-card h3,
+html.theme-desert-sand .section-dark .product-card h3 {
+  color: hsl(var(--section-dark-card-fg));
+}
+
+html.theme-desert-sand .section-dark .agenda-card p,
+html.theme-desert-sand .section-dark .product-card p {
+  color: hsl(200 15% 40%);
 }

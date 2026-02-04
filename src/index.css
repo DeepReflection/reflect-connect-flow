@@ -285,6 +285,14 @@ html.theme-desert-sand {
   --border: 30 20% 80%;
   --input: 35 15% 88%;
   --ring: 30 60% 45%;
+  
+  /* Seções alternadas - fundo escuro para contraste */
+  --section-dark-bg: 200 25% 25%;
+  --section-dark-fg: 40 20% 95%;
+  --section-dark-card: 200 20% 98%;
+  --section-dark-card-fg: 200 25% 15%;
+  --section-dark-muted: 200 15% 35%;
+  --section-dark-border: 200 20% 40%;
 }
 
 /* THEME: Cloud Silver (Light) */

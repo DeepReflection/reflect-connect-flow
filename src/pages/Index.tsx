@@ -35,10 +35,14 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 // Layout themes that have unique section layouts
 const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green', 'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite', 'innovation-blue', 'prestige-burgundy'];
 
+// Themes with alternating section backgrounds
+const alternatingBgThemes: string[] = ['desert-sand'];
+
 const Index = () => {
   const { currentTheme } = useTheme();
   const { profile } = useProfile();
   const hasUniqueLayout = layoutThemes.includes(currentTheme);
+  const hasAlternatingBg = alternatingBgThemes.includes(currentTheme);
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -96,8 +100,11 @@ const Index = () => {
         </section>
       </main>
 
-      {/* Agenda Section - Full width */}
-      <section id="agenda" className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
+      {/* Agenda Section - Full width with alternating background */}
+      <section 
+        id="agenda" 
+        className={`relative z-10 px-4 md:px-8 lg:px-12 py-12 ${hasAlternatingBg ? 'section-dark' : ''}`}
+      >
         {hasUniqueLayout ? (
           <div className="w-full">
             <ThemedAgendaSection />
@@ -122,8 +129,11 @@ const Index = () => {
         )}
       </section>
 
-      {/* Reflections - Full width */}
-      <section id="reflections">
+      {/* Reflections - Full width with alternating background */}
+      <section 
+        id="reflections"
+        className={hasAlternatingBg ? 'section-dark' : ''}
+      >
         {hasUniqueLayout ? (
           <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
             <ThemedReflectionsSection reflections={profile.reflections} />
