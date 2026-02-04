@@ -17,7 +17,10 @@ html.theme-golden-hour {
   --border: 45 28% 88%;
   --input: 45 30% 92%;
   --ring: 42 85% 50%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - dourado escuro */
+  --section-dark-bg: 40 40% 20%;
+  --section-dark-fg: 45 40% 95%;
+  --section-dark-muted: 45 28% 55%;
 }
 
 /* Golden Hour - Hero specific styles */

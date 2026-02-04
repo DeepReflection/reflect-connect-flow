@@ -17,7 +17,10 @@ html.theme-lavender-dream {
   --border: 270 18% 88%;
   --input: 270 18% 92%;
   --ring: 270 55% 55%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - lavanda escura */
+  --section-dark-bg: 270 30% 25%;
+  --section-dark-fg: 270 20% 95%;
+  --section-dark-muted: 270 18% 60%;
 }
 
 /* Lavender Dream - Hero specific styles */

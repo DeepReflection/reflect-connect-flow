@@ -17,7 +17,10 @@ html.theme-arctic-frost {
   --border: 210 20% 85%;
   --input: 210 20% 92%;
   --ring: 200 80% 45%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - azul gelo escuro */
+  --section-dark-bg: 210 35% 22%;
+  --section-dark-fg: 210 25% 95%;
+  --section-dark-muted: 210 20% 60%;
 }
 
 /* Arctic Frost - Hero specific styles */

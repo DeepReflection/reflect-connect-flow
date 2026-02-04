@@ -17,7 +17,10 @@ html.theme-cloud-silver {
   --border: 220 15% 85%;
   --input: 220 10% 90%;
   --ring: 220 25% 45%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - cinza escuro */
+  --section-dark-bg: 220 18% 25%;
+  --section-dark-fg: 220 12% 95%;
+  --section-dark-muted: 220 12% 60%;
 }
 
 /* Cloud Silver - Hero specific styles */

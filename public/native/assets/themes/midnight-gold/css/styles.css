@@ -17,4 +17,8 @@ html.theme-midnight-gold {
   --border: 45 25% 20%;
   --input: 240 15% 15%;
   --ring: 45 90% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 240 22% 12%;
+  --section-dark-fg: 45 30% 95%;
+  --section-dark-muted: 45 20% 50%;
 }

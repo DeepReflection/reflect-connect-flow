@@ -17,4 +17,8 @@ html.theme-royal-purple {
   --border: 280 20% 22%;
   --input: 270 15% 18%;
   --ring: 280 70% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 270 28% 14%;
+  --section-dark-fg: 280 20% 92%;
+  --section-dark-muted: 280 18% 50%;
 }

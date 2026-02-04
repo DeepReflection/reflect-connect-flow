@@ -242,7 +242,23 @@ class ThemeManager {
   }
 
   applyAlternatingSections(themeId) {
-    const alternatingSectionThemes = ['desert-sand'];
+    // All themes now have alternating section backgrounds
+    const alternatingSectionThemes = [
+      // Light themes
+      'desert-sand', 'arctic-frost', 'cloud-silver', 'rose-garden', 'mint-fresh',
+      'lavender-dream', 'peach-blossom', 'sky-blue', 'cream-vanilla', 'sage-morning',
+      'coral-reef', 'golden-hour', 'minimal-zen', 'nature-organic', 'card-stack',
+      // Dark themes
+      'vintage-sepia', 'midnight-gold', 'military-olive', 'ocean-deep', 'crimson-war',
+      'sunset-bronze', 'royal-purple', 'forest-emerald',
+      // Business themes
+      'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green',
+      'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite',
+      'innovation-blue', 'prestige-burgundy',
+      // Layout themes
+      'neon-gamer', 'magazine-editorial', 'retro-wave', 'brutalist-raw',
+      'glassmorphism', 'split-screen', 'gradient-flow'
+    ];
     const agendaSection = document.querySelector('#agenda');
     const reflectionsSection = document.querySelector('#reflections');
     
