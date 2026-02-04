@@ -286,13 +286,13 @@ html.theme-desert-sand {
   --input: 35 15% 88%;
   --ring: 30 60% 45%;
   
-  /* Seções alternadas - fundo escuro para contraste */
-  --section-dark-bg: 200 25% 25%;
-  --section-dark-fg: 40 20% 95%;
-  --section-dark-card: 200 20% 98%;
-  --section-dark-card-fg: 200 25% 15%;
-  --section-dark-muted: 200 15% 35%;
-  --section-dark-border: 200 20% 40%;
+  /* Seções alternadas - fundo escuro terroso */
+  --section-dark-bg: 25 35% 18%;
+  --section-dark-fg: 35 25% 92%;
+  --section-dark-card: 35 20% 98%;
+  --section-dark-card-fg: 30 30% 15%;
+  --section-dark-muted: 30 20% 35%;
+  --section-dark-border: 30 25% 30%;
 }
 
 /* THEME: Cloud Silver (Light) */
