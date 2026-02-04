@@ -17,7 +17,10 @@ html.theme-sky-blue {
   --border: 200 20% 88%;
   --input: 200 22% 92%;
   --ring: 200 80% 50%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - céu escuro */
+  --section-dark-bg: 200 40% 22%;
+  --section-dark-fg: 200 30% 95%;
+  --section-dark-muted: 200 25% 58%;
 }
 
 /* Sky Blue - Hero specific styles */

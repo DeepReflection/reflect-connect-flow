@@ -96,6 +96,10 @@ html.theme-vintage-sepia {
   --border: 38 20% 22%;
   --input: 20 10% 18%;
   --ring: 38 70% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 20 18% 14%;
+  --section-dark-fg: 40 20% 90%;
+  --section-dark-muted: 38 15% 45%;
 }
 
 /* THEME: Midnight Gold */
@@ -117,6 +121,10 @@ html.theme-midnight-gold {
   --border: 45 25% 20%;
   --input: 240 15% 15%;
   --ring: 45 90% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 240 22% 12%;
+  --section-dark-fg: 45 30% 95%;
+  --section-dark-muted: 45 20% 50%;
 }
 
 /* THEME: Military Olive */
@@ -138,6 +146,10 @@ html.theme-military-olive {
   --border: 80 15% 22%;
   --input: 80 10% 18%;
   --ring: 80 50% 40%;
+  /* Seções alternadas */
+  --section-dark-bg: 80 18% 14%;
+  --section-dark-fg: 60 20% 90%;
+  --section-dark-muted: 80 12% 50%;
 }
 
 /* THEME: Ocean Deep */
@@ -159,6 +171,10 @@ html.theme-ocean-deep {
   --border: 195 25% 22%;
   --input: 210 20% 18%;
   --ring: 195 80% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 210 38% 14%;
+  --section-dark-fg: 200 30% 92%;
+  --section-dark-muted: 200 20% 50%;
 }
 
 /* THEME: Crimson War */
@@ -180,6 +196,10 @@ html.theme-crimson-war {
   --border: 0 20% 20%;
   --input: 0 10% 16%;
   --ring: 0 75% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 0 18% 13%;
+  --section-dark-fg: 0 10% 92%;
+  --section-dark-muted: 0 12% 50%;
 }
 
 /* THEME: Arctic Frost (Light) */
@@ -201,6 +221,10 @@ html.theme-arctic-frost {
   --border: 210 20% 85%;
   --input: 210 20% 92%;
   --ring: 200 80% 45%;
+  /* Seções alternadas - azul gelo escuro */
+  --section-dark-bg: 210 35% 22%;
+  --section-dark-fg: 210 25% 95%;
+  --section-dark-muted: 210 20% 60%;
 }
 
 /* THEME: Sunset Bronze */
@@ -222,6 +246,10 @@ html.theme-sunset-bronze {
   --border: 25 25% 22%;
   --input: 15 15% 18%;
   --ring: 25 85% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 15 25% 14%;
+  --section-dark-fg: 30 30% 92%;
+  --section-dark-muted: 25 20% 50%;
 }
 
 /* THEME: Royal Purple */
@@ -243,6 +271,10 @@ html.theme-royal-purple {
   --border: 280 20% 22%;
   --input: 270 15% 18%;
   --ring: 280 70% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 270 28% 14%;
+  --section-dark-fg: 280 20% 92%;
+  --section-dark-muted: 280 18% 50%;
 }
 
 /* THEME: Forest Emerald */
@@ -264,6 +296,10 @@ html.theme-forest-emerald {
   --border: 155 18% 20%;
   --input: 150 12% 16%;
   --ring: 155 70% 40%;
+  /* Seções alternadas */
+  --section-dark-bg: 150 25% 13%;
+  --section-dark-fg: 140 20% 92%;
+  --section-dark-muted: 150 18% 50%;
 }
 
 /* THEME: Desert Sand (Light) */
@@ -314,6 +350,10 @@ html.theme-cloud-silver {
   --border: 220 15% 85%;
   --input: 220 10% 90%;
   --ring: 220 25% 45%;
+  /* Seções alternadas - cinza escuro */
+  --section-dark-bg: 220 18% 25%;
+  --section-dark-fg: 220 12% 95%;
+  --section-dark-muted: 220 12% 60%;
 }
 
 /* THEME: Rose Garden (Light) */
@@ -335,6 +375,10 @@ html.theme-rose-garden {
   --border: 350 20% 88%;
   --input: 350 20% 92%;
   --ring: 350 70% 55%;
+  /* Seções alternadas - rosa escuro */
+  --section-dark-bg: 350 35% 25%;
+  --section-dark-fg: 350 25% 95%;
+  --section-dark-muted: 350 20% 60%;
 }
 
 /* THEME: Mint Fresh (Light) */
@@ -356,6 +400,10 @@ html.theme-mint-fresh {
   --border: 160 18% 85%;
   --input: 160 20% 90%;
   --ring: 165 60% 40%;
+  /* Seções alternadas - verde menta escuro */
+  --section-dark-bg: 160 35% 22%;
+  --section-dark-fg: 160 25% 95%;
+  --section-dark-muted: 160 20% 58%;
 }
 
 /* THEME: Lavender Dream (Light) */
@@ -377,6 +425,10 @@ html.theme-lavender-dream {
   --border: 270 18% 88%;
   --input: 270 18% 92%;
   --ring: 270 55% 55%;
+  /* Seções alternadas - lavanda escura */
+  --section-dark-bg: 270 30% 25%;
+  --section-dark-fg: 270 20% 95%;
+  --section-dark-muted: 270 18% 60%;
 }
 
 /* THEME: Peach Blossom (Light) */
@@ -398,6 +450,10 @@ html.theme-peach-blossom {
   --border: 25 22% 88%;
   --input: 25 25% 92%;
   --ring: 20 75% 55%;
+  /* Seções alternadas - pêssego escuro */
+  --section-dark-bg: 20 40% 22%;
+  --section-dark-fg: 25 35% 95%;
+  --section-dark-muted: 25 25% 58%;
 }
 
 /* THEME: Sky Blue (Light) */
@@ -419,6 +475,10 @@ html.theme-sky-blue {
   --border: 200 20% 88%;
   --input: 200 22% 92%;
   --ring: 200 80% 50%;
+  /* Seções alternadas - céu escuro */
+  --section-dark-bg: 200 40% 22%;
+  --section-dark-fg: 200 30% 95%;
+  --section-dark-muted: 200 25% 58%;
 }
 
 /* THEME: Cream Vanilla (Light) */
@@ -440,6 +500,10 @@ html.theme-cream-vanilla {
   --border: 45 20% 88%;
   --input: 45 22% 92%;
   --ring: 40 55% 45%;
+  /* Seções alternadas - baunilha escura */
+  --section-dark-bg: 40 35% 20%;
+  --section-dark-fg: 45 30% 95%;
+  --section-dark-muted: 45 22% 55%;
 }
 
 /* THEME: Sage Morning (Light) */
@@ -461,6 +525,10 @@ html.theme-sage-morning {
   --border: 130 15% 85%;
   --input: 130 15% 90%;
   --ring: 135 35% 40%;
+  /* Seções alternadas - sálvia escura */
+  --section-dark-bg: 135 25% 22%;
+  --section-dark-fg: 130 18% 95%;
+  --section-dark-muted: 130 18% 55%;
 }
 
 /* THEME: Coral Reef (Light) */
@@ -482,6 +550,10 @@ html.theme-coral-reef {
   --border: 15 25% 88%;
   --input: 15 28% 92%;
   --ring: 10 80% 60%;
+  /* Seções alternadas - coral escuro */
+  --section-dark-bg: 10 45% 22%;
+  --section-dark-fg: 15 40% 95%;
+  --section-dark-muted: 15 28% 58%;
 }
 
 /* THEME: Golden Hour (Light) */
@@ -503,6 +575,10 @@ html.theme-golden-hour {
   --border: 45 28% 88%;
   --input: 45 30% 92%;
   --ring: 42 85% 50%;
+  /* Seções alternadas - dourado escuro */
+  --section-dark-bg: 40 40% 20%;
+  --section-dark-fg: 45 40% 95%;
+  --section-dark-muted: 45 28% 55%;
 }
 
 /* ============================================
@@ -528,6 +604,10 @@ html.theme-corporate-navy {
   --border: 220 25% 25%;
   --input: 220 25% 18%;
   --ring: 210 80% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 220 38% 16%;
+  --section-dark-fg: 210 25% 92%;
+  --section-dark-muted: 210 18% 50%;
 }
 
 /* THEME: Executive Charcoal - Sophisticated and modern */
@@ -549,6 +629,10 @@ html.theme-executive-charcoal {
   --border: 0 0% 22%;
   --input: 0 0% 16%;
   --ring: 0 0% 70%;
+  /* Seções alternadas */
+  --section-dark-bg: 0 0% 15%;
+  --section-dark-fg: 0 0% 92%;
+  --section-dark-muted: 0 0% 50%;
 }
 
 /* THEME: Startup Teal - Innovative and dynamic */
@@ -570,6 +654,10 @@ html.theme-startup-teal {
   --border: 180 20% 22%;
   --input: 180 18% 16%;
   --ring: 175 70% 45%;
+  /* Seções alternadas */
+  --section-dark-bg: 180 28% 14%;
+  --section-dark-fg: 175 20% 92%;
+  --section-dark-muted: 175 15% 50%;
 }
 
 /* THEME: Finance Green - Classic prosperity */
@@ -591,6 +679,10 @@ html.theme-finance-green {
   --border: 150 18% 22%;
   --input: 150 18% 16%;
   --ring: 145 60% 42%;
+  /* Seções alternadas */
+  --section-dark-bg: 150 28% 14%;
+  --section-dark-fg: 145 18% 92%;
+  --section-dark-muted: 145 15% 50%;
 }
 
 /* THEME: Consulting Slate - Elegant and reliable */
@@ -612,6 +704,10 @@ html.theme-consulting-slate {
   --border: 215 15% 25%;
   --input: 215 15% 18%;
   --ring: 210 40% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 215 22% 16%;
+  --section-dark-fg: 210 18% 92%;
+  --section-dark-muted: 210 12% 50%;
 }
 
 /* THEME: Tech Indigo - Futuristic technology */
@@ -633,6 +729,10 @@ html.theme-tech-indigo {
   --border: 250 22% 22%;
   --input: 250 22% 16%;
   --ring: 245 75% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 250 32% 15%;
+  --section-dark-fg: 245 22% 92%;
+  --section-dark-muted: 245 18% 50%;
 }
 
 /* THEME: Luxury Black - Premium with subtle gold */
@@ -654,6 +754,10 @@ html.theme-luxury-black {
   --border: 45 12% 18%;
   --input: 40 5% 14%;
   --ring: 45 75% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 40 8% 12%;
+  --section-dark-fg: 45 15% 92%;
+  --section-dark-muted: 45 10% 48%;
 }
 
 /* THEME: Modern Graphite - Contemporary neutral */
@@ -675,6 +779,10 @@ html.theme-modern-graphite {
   --border: 220 8% 24%;
   --input: 220 8% 16%;
   --ring: 220 15% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 220 10% 16%;
+  --section-dark-fg: 220 8% 92%;
+  --section-dark-muted: 220 8% 52%;
 }
 
 /* THEME: Innovation Blue - Vibrant and creative */
@@ -696,6 +804,10 @@ html.theme-innovation-blue {
   --border: 225 28% 22%;
   --input: 225 30% 16%;
   --ring: 210 100% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 225 42% 14%;
+  --section-dark-fg: 220 25% 92%;
+  --section-dark-muted: 220 20% 50%;
 }
 
 /* THEME: Prestige Burgundy - Elegant wine red */
@@ -717,6 +829,10 @@ html.theme-prestige-burgundy {
   --border: 345 22% 22%;
   --input: 345 22% 16%;
   --ring: 345 60% 45%;
+  /* Seções alternadas */
+  --section-dark-bg: 345 32% 15%;
+  --section-dark-fg: 340 18% 92%;
+  --section-dark-muted: 340 15% 50%;
 }
 
 /* ============================================
@@ -742,6 +858,10 @@ html.theme-neon-gamer {
   --border: 280 40% 20%;
   --input: 270 30% 14%;
   --ring: 280 100% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 270 42% 12%;
+  --section-dark-fg: 280 30% 95%;
+  --section-dark-muted: 280 25% 50%;
 }
 
 /* THEME: Minimal Zen - Ultra clean light */
@@ -763,6 +883,10 @@ html.theme-minimal-zen {
   --border: 40 15% 88%;
   --input: 40 12% 94%;
   --ring: 40 30% 35%;
+  /* Seções alternadas - tom zen escuro */
+  --section-dark-bg: 40 20% 22%;
+  --section-dark-fg: 40 15% 95%;
+  --section-dark-muted: 40 15% 55%;
 }
 
 /* THEME: Magazine Editorial - Bold editorial */
@@ -784,6 +908,10 @@ html.theme-magazine-editorial {
   --border: 45 15% 15%;
   --input: 45 5% 12%;
   --ring: 45 85% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 45 10% 11%;
+  --section-dark-fg: 45 20% 95%;
+  --section-dark-muted: 45 12% 48%;
 }
 
 /* THEME: Retro Wave - 80s synthwave */
@@ -805,6 +933,10 @@ html.theme-retro-wave {
   --border: 320 30% 22%;
   --input: 300 22% 15%;
   --ring: 320 100% 65%;
+  /* Seções alternadas */
+  --section-dark-bg: 300 32% 14%;
+  --section-dark-fg: 320 25% 95%;
+  --section-dark-muted: 320 20% 52%;
 }
 
 /* THEME: Nature Organic - Natural light */
@@ -826,6 +958,10 @@ html.theme-nature-organic {
   --border: 100 18% 85%;
   --input: 100 18% 92%;
   --ring: 110 50% 40%;
+  /* Seções alternadas - verde orgânico escuro */
+  --section-dark-bg: 110 30% 22%;
+  --section-dark-fg: 100 20% 95%;
+  --section-dark-muted: 100 18% 55%;
 }
 
 /* THEME: Brutalist Raw - Raw blocks */
@@ -847,6 +983,10 @@ html.theme-brutalist-raw {
   --border: 0 0% 30%;
   --input: 0 0% 15%;
   --ring: 0 0% 100%;
+  /* Seções alternadas */
+  --section-dark-bg: 0 0% 14%;
+  --section-dark-fg: 0 0% 95%;
+  --section-dark-muted: 0 0% 52%;
 }
 
 /* THEME: Glassmorphism - Frosted glass */
@@ -868,6 +1008,10 @@ html.theme-glassmorphism {
   --border: 220 30% 30%;
   --input: 220 28% 22%;
   --ring: 215 90% 65%;
+  /* Seções alternadas */
+  --section-dark-bg: 220 42% 18%;
+  --section-dark-fg: 215 30% 95%;
+  --section-dark-muted: 215 25% 55%;
 }
 
 /* THEME: Split Screen - Dual contrast */
@@ -889,6 +1033,10 @@ html.theme-split-screen {
   --border: 25 25% 22%;
   --input: 25 22% 15%;
   --ring: 25 90% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 25 32% 14%;
+  --section-dark-fg: 30 25% 95%;
+  --section-dark-muted: 30 18% 50%;
 }
 
 /* THEME: Gradient Flow - Fluid gradients */
@@ -910,6 +1058,10 @@ html.theme-gradient-flow {
   --border: 290 28% 25%;
   --input: 280 25% 18%;
   --ring: 290 85% 60%;
+  /* Seções alternadas */
+  --section-dark-bg: 280 38% 16%;
+  --section-dark-fg: 290 25% 95%;
+  --section-dark-muted: 290 20% 52%;
 }
 
 /* THEME: Card Stack - Layered cards */
@@ -931,6 +1083,10 @@ html.theme-card-stack {
   --border: 45 22% 85%;
   --input: 45 20% 92%;
   --ring: 40 50% 45%;
+  /* Seções alternadas - cartão escuro */
+  --section-dark-bg: 40 32% 20%;
+  --section-dark-fg: 45 25% 95%;
+  --section-dark-muted: 45 20% 55%;
 }
 
 @layer base {
@@ -1054,4 +1210,31 @@ html.theme-card-stack {
   .text-shadow-lg {
     text-shadow: 0 4px 20px hsl(0 0% 0% / 0.8);
   }
+}
+
+/* ============================================
+   SECTION ALTERNATING BACKGROUNDS
+   ============================================ */
+
+/* Global section-dark styles using CSS variables from each theme */
+.section-dark {
+  background-color: hsl(var(--section-dark-bg));
+  color: hsl(var(--section-dark-fg));
+}
+
+.section-dark .text-foreground,
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: hsl(var(--section-dark-fg));
+}
+
+.section-dark .text-muted-foreground {
+  color: hsl(var(--section-dark-muted));
+}
+
+.section-dark .bg-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
 }

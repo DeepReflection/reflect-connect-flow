@@ -17,4 +17,8 @@ html.theme-ocean-deep {
   --border: 195 25% 22%;
   --input: 210 20% 18%;
   --ring: 195 80% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 210 38% 14%;
+  --section-dark-fg: 200 30% 92%;
+  --section-dark-muted: 200 20% 50%;
 }

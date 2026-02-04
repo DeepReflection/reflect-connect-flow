@@ -17,7 +17,10 @@ html.theme-sage-morning {
   --border: 130 15% 85%;
   --input: 130 15% 90%;
   --ring: 135 35% 40%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - sálvia escura */
+  --section-dark-bg: 135 25% 22%;
+  --section-dark-fg: 130 18% 95%;
+  --section-dark-muted: 130 18% 55%;
 }
 
 /* Sage Morning - Hero specific styles */

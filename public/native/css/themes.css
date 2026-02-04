@@ -69,6 +69,11 @@
   --ring: 38 70% 50%;
   --radius: 0.5rem;
   
+  /* Section alternating default */
+  --section-dark-bg: 20 18% 14%;
+  --section-dark-fg: 40 20% 90%;
+  --section-dark-muted: 38 15% 45%;
+  
   /* Custom tokens */
   --bronze: 38 70% 50%;
   --bronze-light: 40 60% 65%;
@@ -87,4 +92,43 @@
   --shadow-card: 0 4px 30px hsl(0 0% 0% / 0.4);
   --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
   --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
+}
+
+/* ============================================
+   SECTION ALTERNATING BACKGROUNDS (Global)
+   ============================================ */
+
+.section-dark {
+  background-color: hsl(var(--section-dark-bg));
+  color: hsl(var(--section-dark-fg));
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark .section-title {
+  color: hsl(var(--section-dark-fg));
+}
+
+.section-dark .section-subtitle,
+.section-dark .text-muted-foreground {
+  color: hsl(var(--section-dark-muted));
+}
+
+.section-dark .agenda-card,
+.section-dark .product-card,
+.section-dark .reflection-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+.section-dark .agenda-card h3,
+.section-dark .product-card h3 {
+  color: hsl(var(--card-foreground));
+}
+
+.section-dark .agenda-card p,
+.section-dark .product-card p {
+  color: hsl(var(--muted-foreground));
 }

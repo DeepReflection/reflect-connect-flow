@@ -17,7 +17,10 @@ html.theme-cream-vanilla {
   --border: 45 20% 88%;
   --input: 45 22% 92%;
   --ring: 40 55% 45%;
-  /* --gradient-hero: inherited from :root (matches React preview) */
+  /* Seções alternadas - baunilha escura */
+  --section-dark-bg: 40 35% 20%;
+  --section-dark-fg: 45 30% 95%;
+  --section-dark-muted: 45 22% 55%;
 }
 
 /* Cream Vanilla - Hero specific styles */

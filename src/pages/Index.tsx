@@ -35,8 +35,23 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 // Layout themes that have unique section layouts
 const layoutThemes: string[] = ['magazine-editorial', 'brutalist-raw', 'split-screen', 'glassmorphism', 'gradient-flow', 'card-stack', 'retro-wave', 'neon-gamer', 'nature-organic', 'minimal-zen', 'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green', 'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite', 'innovation-blue', 'prestige-burgundy'];
 
-// Themes with alternating section backgrounds
-const alternatingBgThemes: string[] = ['desert-sand'];
+// All themes now have alternating section backgrounds
+const alternatingBgThemes: string[] = [
+  // Light themes
+  'desert-sand', 'arctic-frost', 'cloud-silver', 'rose-garden', 'mint-fresh',
+  'lavender-dream', 'peach-blossom', 'sky-blue', 'cream-vanilla', 'sage-morning',
+  'coral-reef', 'golden-hour', 'minimal-zen', 'nature-organic', 'card-stack',
+  // Dark themes
+  'vintage-sepia', 'midnight-gold', 'military-olive', 'ocean-deep', 'crimson-war',
+  'sunset-bronze', 'royal-purple', 'forest-emerald',
+  // Business themes
+  'corporate-navy', 'executive-charcoal', 'startup-teal', 'finance-green',
+  'consulting-slate', 'tech-indigo', 'luxury-black', 'modern-graphite',
+  'innovation-blue', 'prestige-burgundy',
+  // Layout themes
+  'neon-gamer', 'magazine-editorial', 'retro-wave', 'brutalist-raw',
+  'glassmorphism', 'split-screen', 'gradient-flow'
+];
 
 const Index = () => {
   const { currentTheme } = useTheme();

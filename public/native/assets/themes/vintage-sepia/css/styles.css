@@ -17,4 +17,8 @@ html.theme-vintage-sepia {
   --border: 38 20% 22%;
   --input: 20 10% 18%;
   --ring: 38 70% 50%;
+  /* Seções alternadas */
+  --section-dark-bg: 20 18% 14%;
+  --section-dark-fg: 40 20% 90%;
+  --section-dark-muted: 38 15% 45%;
 }

@@ -17,4 +17,8 @@ html.theme-military-olive {
   --border: 80 15% 22%;
   --input: 80 10% 18%;
   --ring: 80 50% 40%;
+  /* Seções alternadas */
+  --section-dark-bg: 80 18% 14%;
+  --section-dark-fg: 60 20% 90%;
+  --section-dark-muted: 80 12% 50%;
 }
