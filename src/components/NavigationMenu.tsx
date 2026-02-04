@@ -65,10 +65,10 @@ const NavigationMenu = ({ items = defaultItems, profileName = 'Menu' }: Navigati
     <>
       {/* Desktop Navigation */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-[52px] left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-sm' 
-            : 'bg-transparent'
+            : 'bg-background/50 backdrop-blur-sm'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
@@ -134,7 +134,7 @@ const NavigationMenu = ({ items = defaultItems, profileName = 'Menu' }: Navigati
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-14 bottom-0 w-64 bg-card border-l border-border shadow-xl"
+              className="absolute right-0 top-[56px] bottom-0 w-64 bg-card border-l border-border shadow-xl"
             >
               <div className="p-4 space-y-2">
                 {items.map((item, index) => (
