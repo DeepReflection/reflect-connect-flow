@@ -17,6 +17,10 @@ html.theme-luxury-black {
   --border: 45 12% 18%;
   --input: 40 5% 14%;
   --ring: 45 75% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 40 8% 9%;
+  --section-dark-fg: 45 15% 92%;
+  --section-dark-muted: 45 10% 45%;
 }
 
 /* ===========================================

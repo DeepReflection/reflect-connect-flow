@@ -17,6 +17,10 @@ html.theme-finance-green {
   --border: 150 18% 22%;
   --input: 150 18% 16%;
   --ring: 145 60% 42%;
+  /* Seções alternadas */
+  --section-dark-bg: 150 28% 12%;
+  --section-dark-fg: 145 18% 92%;
+  --section-dark-muted: 145 15% 50%;
 }
 
 /* ===========================================

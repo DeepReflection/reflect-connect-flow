@@ -17,6 +17,10 @@ html.theme-innovation-blue {
   --border: 225 28% 22%;
   --input: 225 30% 16%;
   --ring: 210 100% 55%;
+  /* Seções alternadas */
+  --section-dark-bg: 225 42% 12%;
+  --section-dark-fg: 220 25% 92%;
+  --section-dark-muted: 220 20% 55%;
 }
 
 /* ===========================================

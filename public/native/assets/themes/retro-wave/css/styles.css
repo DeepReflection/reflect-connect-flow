@@ -18,6 +18,10 @@ html.theme-retro-wave {
   --input: 280 45% 18%;
   --ring: 325 100% 60%;
   --radius: 0;
+  /* Seções alternadas */
+  --section-dark-bg: 280 55% 12%;
+  --section-dark-fg: 300 100% 95%;
+  --section-dark-muted: 300 60% 65%;
 }
 
 /* Retro Wave - Hero specific styles */

@@ -18,6 +18,10 @@ html.theme-magazine-editorial {
   --input: 45 15% 18%;
   --ring: 0 75% 55%;
   --radius: 0;
+  /* Seções alternadas */
+  --section-dark-bg: 45 22% 12%;
+  --section-dark-fg: 45 10% 95%;
+  --section-dark-muted: 45 12% 55%;
 }
 
 /* Magazine Editorial - Hero specific styles */

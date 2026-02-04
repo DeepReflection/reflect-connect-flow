@@ -18,6 +18,10 @@ html.theme-glassmorphism {
   --input: 220 35% 30%;
   --ring: 200 90% 60%;
   --radius: 1rem;
+  /* Seções alternadas */
+  --section-dark-bg: 220 42% 18%;
+  --section-dark-fg: 220 20% 95%;
+  --section-dark-muted: 220 25% 60%;
 }
 
 /* Glassmorphism - Hero specific styles */

@@ -18,6 +18,12 @@ html.theme-card-stack {
   --input: 220 25% 22%;
   --ring: 180 65% 50%;
   --radius: 1rem;
+  /* Seções alternadas - fundo escuro azulado */
+  --section-dark-bg: 220 35% 12%;
+  --section-dark-fg: 220 15% 95%;
+  --section-dark-muted: 220 20% 60%;
+  --section-dark-card: 220 30% 16%;
+  --section-dark-card-fg: 220 15% 95%;
 }
 
 /* Card Stack - Hero specific styles */

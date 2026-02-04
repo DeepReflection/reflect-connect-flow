@@ -17,6 +17,10 @@ html.theme-startup-teal {
   --border: 180 20% 22%;
   --input: 180 18% 16%;
   --ring: 175 70% 45%;
+  /* Seções alternadas */
+  --section-dark-bg: 180 28% 12%;
+  --section-dark-fg: 175 20% 92%;
+  --section-dark-muted: 175 18% 50%;
 }
 
 /* ===========================================

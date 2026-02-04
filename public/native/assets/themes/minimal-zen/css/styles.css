@@ -18,6 +18,12 @@ html.theme-minimal-zen {
   --input: 60 5% 92%;
   --ring: 0 0% 20%;
   --radius: 0.25rem;
+  /* Seções alternadas - fundo escuro elegante */
+  --section-dark-bg: 60 5% 15%;
+  --section-dark-fg: 60 10% 95%;
+  --section-dark-muted: 0 0% 60%;
+  --section-dark-card: 60 10% 99%;
+  --section-dark-card-fg: 0 0% 15%;
 }
 
 /* Minimal Zen - Hero specific styles */
