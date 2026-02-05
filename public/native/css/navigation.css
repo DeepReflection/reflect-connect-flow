@@ -1,5 +1,5 @@
 /* ============================================
-   Navigation Menu - Native HTML5 Version
+   Navigation Menu - Native HTML5 Version (Unified with Theme Selector)
    ============================================ */
 
 /* Navigation Bar */
@@ -8,15 +8,16 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 50;
   height: 56px;
   transition: all 0.3s ease;
-  background: hsl(var(--background));
+  background: hsla(var(--background), 0.5);
+  backdrop-filter: blur(8px);
 }
 
 .nav-menu.scrolled {
-  background: hsla(var(--background), 0.95);
-  backdrop-filter: blur(12px);
+  background: hsla(var(--background), 0.9);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid hsla(var(--border), 0.5);
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
 }
@@ -31,20 +32,120 @@
   justify-content: space-between;
 }
 
-/* Brand/Logo */
-.nav-brand {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: hsl(var(--foreground));
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
+/* Theme Dropdown in Navigation */
+.nav-theme-dropdown {
+  position: relative;
 }
 
-.nav-brand:hover {
+.nav-theme-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+  background: hsla(var(--card), 0.5);
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+@media (min-width: 640px) {
+  .nav-theme-trigger {
+    min-width: 220px;
+  }
+}
+
+.nav-theme-trigger:hover {
+  border-color: hsla(var(--primary), 0.5);
+}
+
+.nav-theme-icon {
+  display: flex;
+  align-items: center;
   color: hsl(var(--primary));
+}
+
+.nav-theme-value {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-theme-content {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 280px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.nav-theme-dropdown.open .nav-theme-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-theme-category {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+}
+
+.nav-theme-separator {
+  height: 1px;
+  background: hsl(var(--border));
+  margin: 0.5rem 0;
+}
+
+.nav-theme-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.625rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-theme-item:hover {
+  background: hsl(var(--accent));
+}
+
+.nav-theme-item.selected {
+  background: hsla(var(--primary), 0.1);
+}
+
+.nav-theme-item.selected .nav-theme-item-name {
+  color: hsl(var(--primary));
+}
+
+.nav-theme-item-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.nav-theme-item-desc {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
 }
 
 /* Desktop Menu Items */
@@ -178,20 +279,14 @@
   font-weight: 500;
 }
 
-/* Adjust page content for fixed nav - only affects theme bar now */
-.theme-selector-bar {
-  top: 56px !important;
-  z-index: 90 !important;
-}
-
-/* Adjust hero section padding - account for nav + theme bar */
+/* Adjust hero section padding - single nav bar only */
 .hero-section {
-  padding-top: 112px;
+  padding-top: 56px;
 }
 
 /* Edit profile button position adjustment */
 .edit-profile-btn {
-  top: 126px !important;
+  top: 60px !important;
   right: 1rem !important;
   z-index: 80 !important;
 }

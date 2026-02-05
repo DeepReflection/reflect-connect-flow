@@ -5,7 +5,6 @@ import SocialLink from '@/components/SocialLink';
 import ReflectionCard from '@/components/ReflectionCard';
 import CTAButton from '@/components/CTAButton';
 import SectionTitle from '@/components/SectionTitle';
-import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
 import ChatbotButton from '@/components/ChatbotButton';
 import BlogCTA from '@/components/blog/BlogCTA';
@@ -73,12 +72,11 @@ const REFLECTIONS = [
 const ClaudioFrydman = () => {
   return (
     <div className="min-h-screen bg-background relative">
-      <NavigationMenu profileName={PROFILE_DATA.name} />
-      <ThemeSelector />
+      <NavigationMenu />
       <ParticleBackground />
       
       {/* Hero Section */}
-      <section id="hero" className="pt-14">
+      <section id="hero" className="pt-14 sm:pt-14">
         <HeroSection
           name={PROFILE_DATA.name}
           description={PROFILE_DATA.description}
