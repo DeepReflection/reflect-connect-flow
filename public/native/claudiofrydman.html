@@ -16,111 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body data-profile="claudiofrydman">
-  <!-- Theme Selector Bar - Fixed top like React -->
-  <div class="theme-selector-bar">
-    <div class="theme-selector-content">
-      <div class="theme-selector-label">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="palette-icon">
-          <circle cx="13.5" cy="6.5" r=".5"></circle>
-          <circle cx="17.5" cy="10.5" r=".5"></circle>
-          <circle cx="8.5" cy="7.5" r=".5"></circle>
-          <circle cx="6.5" cy="12.5" r=".5"></circle>
-          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2z"></path>
-        </svg>
-        <span>Escolha seu tema</span>
-      </div>
-      <!-- Custom Dropdown like React -->
-      <div class="theme-dropdown" id="theme-dropdown">
-        <button class="theme-dropdown-trigger" id="theme-dropdown-trigger" type="button">
-          <span class="theme-dropdown-icon" id="theme-dropdown-icon">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </span>
-          <span class="theme-dropdown-value" id="theme-dropdown-value">Vintage Sépia</span>
-          <svg class="theme-dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="theme-dropdown-content" id="theme-dropdown-content">
-          <!-- Light Themes -->
-          <div class="theme-dropdown-category">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <span>Temas Claros</span>
-          </div>
-          <div class="theme-dropdown-item" data-theme="arctic-frost" data-light="true"><span class="theme-item-name">Gelo Ártico</span><span class="theme-item-desc">Branco gelado com tons azuis</span></div>
-          <div class="theme-dropdown-item" data-theme="desert-sand" data-light="true"><span class="theme-item-name">Areia do Deserto</span><span class="theme-item-desc">Tons terrosos e arenosos</span></div>
-          <div class="theme-dropdown-item" data-theme="cloud-silver" data-light="true"><span class="theme-item-name">Nuvem Prateada</span><span class="theme-item-desc">Cinza elegante e moderno</span></div>
-          <div class="theme-dropdown-item" data-theme="rose-garden" data-light="true"><span class="theme-item-name">Jardim de Rosas</span><span class="theme-item-desc">Rosa suave e romântico</span></div>
-          <div class="theme-dropdown-item" data-theme="mint-fresh" data-light="true"><span class="theme-item-name">Menta Fresca</span><span class="theme-item-desc">Verde menta refrescante</span></div>
-          <div class="theme-dropdown-item" data-theme="lavender-dream" data-light="true"><span class="theme-item-name">Sonho Lavanda</span><span class="theme-item-desc">Lilás suave e relaxante</span></div>
-          <div class="theme-dropdown-item" data-theme="peach-blossom" data-light="true"><span class="theme-item-name">Flor de Pêssego</span><span class="theme-item-desc">Pêssego delicado e acolhedor</span></div>
-          <div class="theme-dropdown-item" data-theme="sky-blue" data-light="true"><span class="theme-item-name">Céu Azul</span><span class="theme-item-desc">Azul claro e sereno</span></div>
-          <div class="theme-dropdown-item" data-theme="cream-vanilla" data-light="true"><span class="theme-item-name">Creme Baunilha</span><span class="theme-item-desc">Tons creme suaves e elegantes</span></div>
-          <div class="theme-dropdown-item" data-theme="sage-morning" data-light="true"><span class="theme-item-name">Sálvia Matinal</span><span class="theme-item-desc">Verde sálvia calmante</span></div>
-          <div class="theme-dropdown-item" data-theme="coral-reef" data-light="true"><span class="theme-item-name">Recife de Coral</span><span class="theme-item-desc">Coral vibrante e tropical</span></div>
-          <div class="theme-dropdown-item" data-theme="golden-hour" data-light="true"><span class="theme-item-name">Hora Dourada</span><span class="theme-item-desc">Dourado quente e luminoso</span></div>
-          <div class="theme-dropdown-separator"></div>
-          <!-- Dark Themes -->
-          <div class="theme-dropdown-category">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <span>Temas Escuros</span>
-          </div>
-          <div class="theme-dropdown-item" data-theme="vintage-sepia"><span class="theme-item-name">Vintage Sépia</span><span class="theme-item-desc">Tom clássico de fotografias antigas</span></div>
-          <div class="theme-dropdown-item" data-theme="midnight-gold"><span class="theme-item-name">Meia-Noite Dourado</span><span class="theme-item-desc">Elegância noturna com acentos dourados</span></div>
-          <div class="theme-dropdown-item" data-theme="military-olive"><span class="theme-item-name">Militar Oliva</span><span class="theme-item-desc">Tons táticos e robustos</span></div>
-          <div class="theme-dropdown-item" data-theme="ocean-deep"><span class="theme-item-name">Oceano Profundo</span><span class="theme-item-desc">Azul marinho e tons aquáticos</span></div>
-          <div class="theme-dropdown-item" data-theme="crimson-war"><span class="theme-item-name">Carmesim de Guerra</span><span class="theme-item-desc">Vermelho dramático e intenso</span></div>
-          <div class="theme-dropdown-item" data-theme="sunset-bronze"><span class="theme-item-name">Pôr do Sol Bronze</span><span class="theme-item-desc">Cores quentes do entardecer</span></div>
-          <div class="theme-dropdown-item" data-theme="royal-purple"><span class="theme-item-name">Púrpura Real</span><span class="theme-item-desc">Luxo e sofisticação imperial</span></div>
-          <div class="theme-dropdown-item" data-theme="forest-emerald"><span class="theme-item-name">Floresta Esmeralda</span><span class="theme-item-desc">Verde profundo e natural</span></div>
-          <div class="theme-dropdown-separator"></div>
-          <!-- Business Themes -->
-          <div class="theme-dropdown-category">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-            <span>Temas de Negócio</span>
-          </div>
-          <div class="theme-dropdown-item" data-theme="corporate-navy" data-layout="true"><span class="theme-item-name">Corporativo Marinho</span><span class="theme-item-desc">Azul marinho profissional e confiável</span></div>
-          <div class="theme-dropdown-item" data-theme="executive-charcoal" data-layout="true"><span class="theme-item-name">Executivo Carvão</span><span class="theme-item-desc">Cinza escuro sofisticado e moderno</span></div>
-          <div class="theme-dropdown-item" data-theme="startup-teal" data-layout="true"><span class="theme-item-name">Startup Teal</span><span class="theme-item-desc">Verde-azulado inovador e dinâmico</span></div>
-          <div class="theme-dropdown-item" data-theme="finance-green" data-layout="true"><span class="theme-item-name">Finanças Verde</span><span class="theme-item-desc">Verde clássico de prosperidade</span></div>
-          <div class="theme-dropdown-item" data-theme="consulting-slate" data-layout="true"><span class="theme-item-name">Consultoria Ardósia</span><span class="theme-item-desc">Azul-cinza elegante e confiável</span></div>
-          <div class="theme-dropdown-item" data-theme="tech-indigo" data-layout="true"><span class="theme-item-name">Tech Índigo</span><span class="theme-item-desc">Azul-violeta tecnológico e futurista</span></div>
-          <div class="theme-dropdown-item" data-theme="luxury-black" data-layout="true"><span class="theme-item-name">Luxo Preto</span><span class="theme-item-desc">Preto premium com dourado sutil</span></div>
-          <div class="theme-dropdown-item" data-theme="modern-graphite" data-layout="true"><span class="theme-item-name">Grafite Moderno</span><span class="theme-item-desc">Cinza neutro contemporâneo</span></div>
-          <div class="theme-dropdown-item" data-theme="innovation-blue" data-layout="true"><span class="theme-item-name">Inovação Azul</span><span class="theme-item-desc">Azul elétrico vibrante e criativo</span></div>
-          <div class="theme-dropdown-item" data-theme="prestige-burgundy" data-layout="true"><span class="theme-item-name">Prestígio Borgonha</span><span class="theme-item-desc">Vermelho vinho elegante e exclusivo</span></div>
-          <div class="theme-dropdown-separator"></div>
-          <!-- Layout Themes -->
-          <div class="theme-dropdown-category">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-            <span>Temas com Layout Único</span>
-          </div>
-          <div class="theme-dropdown-item" data-theme="neon-gamer" data-layout="true"><span class="theme-item-name">Neon Gamer</span><span class="theme-item-desc">Cyber gaming com efeitos neon vibrantes</span></div>
-          <div class="theme-dropdown-item" data-theme="minimal-zen" data-layout="true" data-light="true"><span class="theme-item-name">Minimalista Zen</span><span class="theme-item-desc">Design ultra limpo e contemplativo</span></div>
-          <div class="theme-dropdown-item" data-theme="magazine-editorial" data-layout="true"><span class="theme-item-name">Magazine Editorial</span><span class="theme-item-desc">Estilo revista com layout assimétrico</span></div>
-          <div class="theme-dropdown-item" data-theme="retro-wave" data-layout="true"><span class="theme-item-name">Retro Wave</span><span class="theme-item-desc">Nostálgia anos 80 com visuais ousados</span></div>
-          <div class="theme-dropdown-item" data-theme="nature-organic" data-layout="true" data-light="true"><span class="theme-item-name">Natureza Orgânica</span><span class="theme-item-desc">Formas fluidas inspiradas na natureza</span></div>
-          <div class="theme-dropdown-item" data-theme="brutalist-raw" data-layout="true"><span class="theme-item-name">Brutalista Cru</span><span class="theme-item-desc">Design cru e impactante em blocos</span></div>
-          <div class="theme-dropdown-item" data-theme="glassmorphism" data-layout="true"><span class="theme-item-name">Glassmorphism</span><span class="theme-item-desc">Efeitos de vidro fosco modernos</span></div>
-          <div class="theme-dropdown-item" data-theme="split-screen" data-layout="true"><span class="theme-item-name">Tela Dividida</span><span class="theme-item-desc">Layout equilibrado em duas metades</span></div>
-          <div class="theme-dropdown-item" data-theme="gradient-flow" data-layout="true"><span class="theme-item-name">Fluxo Gradiente</span><span class="theme-item-desc">Gradientes animados e fluidos</span></div>
-          <div class="theme-dropdown-item" data-theme="card-stack" data-layout="true" data-light="true"><span class="theme-item-name">Cartões Empilhados</span><span class="theme-item-desc">Efeito de cartões sobrepostos</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <!-- Navigation Menu with integrated Theme Selector is created dynamically by JS -->
+  
   <!-- Particle Background -->
   <canvas id="particles-canvas"></canvas>
 
@@ -300,7 +197,7 @@
   <script src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      new NavigationMenu({ profileName: 'Claudio Frydman' });
+      new NavigationMenu();
     });
   </script>
 </body>
