@@ -6,7 +6,6 @@ import SocialLink from '@/components/SocialLink';
 import ReflectionCard from '@/components/ReflectionCard';
 import CTAButton from '@/components/CTAButton';
 import SectionTitle from '@/components/SectionTitle';
-import ThemeSelector from '@/components/ThemeSelector';
 import ProductsSection from '@/components/ProductsSection';
 import AgendaSection from '@/components/AgendaSection';
 import ChatbotButton from '@/components/ChatbotButton';
@@ -61,14 +60,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <NavigationMenu profileName={profile.name} />
-      <ThemeSelector />
+      <NavigationMenu />
       <ParticleBackground />
       
       {/* Edit Profile Button */}
       <Link 
         to="/profile/edit" 
-        className="fixed top-[116px] right-4 z-40"
+        className="fixed top-[60px] right-4 z-40"
       >
         <Button variant="secondary" size="icon" className="shadow-lg">
           <Settings className="w-5 h-5" />
@@ -76,7 +74,7 @@ const Index = () => {
       </Link>
       
       {/* Hero Section */}
-      <section id="hero" className="pt-[108px]">
+      <section id="hero" className="pt-14">
         <HeroSection
           name={profile.name}
           description={profile.description}
