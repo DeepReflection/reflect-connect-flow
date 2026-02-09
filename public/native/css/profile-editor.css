@@ -4,8 +4,9 @@
    ============================================ */
 
 /* Editor uses theme variables instead of hardcoded colors */
-body:has(.editor-header) {
+body.profile-editor-page {
   background: hsl(var(--background));
+  color: hsl(var(--foreground));
   min-height: 100vh;
 }
 
@@ -523,15 +524,17 @@ body:has(.editor-header) {
 }
 
 .editor-dialog {
-  background: hsl(var(--card));
+  background-color: hsl(var(--card));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
   border-radius: 0.75rem;
   width: 100%;
   max-width: 28rem;
   max-height: 90vh;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+  position: relative;
+  z-index: 101;
 }
 
 .editor-dialog-header {
