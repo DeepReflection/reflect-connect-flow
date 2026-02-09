@@ -406,14 +406,7 @@ function removeItem(type, index) {
   }
 }
 
-// Image dialog functions
-function openImageDialog(target) {
-  currentImageTarget = target;
-  document.getElementById('image-dialog').classList.add('open');
-  document.getElementById('image-url-input').value = '';
-  document.getElementById('url-preview').classList.remove('has-image');
-}
-
+// closeImageDialog and applyImageUrl remain here
 function closeImageDialog(event) {
   if (event && event.target !== document.getElementById('image-dialog')) return;
   document.getElementById('image-dialog').classList.remove('open');
@@ -452,9 +445,168 @@ function handleFileUpload(event) {
   }
 }
 
-// Open banner gallery page
+// ============================================
+// Inline Banner Gallery (inside profile editor)
+// ============================================
+let galleryViewMode = 'grid';
+let gallerySelectedCategory = null;
+let gallerySearchQuery = '';
+
+// Open image dialog - show gallery tab only for banner
+function openImageDialog(target) {
+  currentImageTarget = target;
+  document.getElementById('image-dialog').classList.add('open');
+  document.getElementById('image-url-input').value = '';
+  document.getElementById('url-preview').classList.remove('has-image');
+  
+  // Show/hide gallery tab based on target
+  const galleryTabBtn = document.getElementById('dialog-tab-gallery-btn');
+  if (target === 'banner') {
+    galleryTabBtn.style.display = '';
+  } else {
+    galleryTabBtn.style.display = 'none';
+    // If gallery tab was active, switch to url
+    if (document.querySelector('.editor-dialog-tab[data-dialog-tab="gallery"]').classList.contains('active')) {
+      document.querySelectorAll('.editor-dialog-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.editor-dialog-tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelector('.editor-dialog-tab[data-dialog-tab="url"]').classList.add('active');
+      document.getElementById('dialog-tab-url').classList.add('active');
+    }
+  }
+}
+
+function openInlineGallery() {
+  gallerySelectedCategory = null;
+  gallerySearchQuery = '';
+  document.getElementById('inline-gallery-search').value = '';
+  document.getElementById('inline-gallery-search-clear').classList.add('hidden');
+  document.getElementById('inline-gallery').classList.add('open');
+  renderGalleryContent();
+}
+
+function closeInlineGallery(event) {
+  if (event && event.target !== document.getElementById('inline-gallery')) return;
+  document.getElementById('inline-gallery').classList.remove('open');
+}
+
+function setGalleryView(mode) {
+  galleryViewMode = mode;
+  document.querySelectorAll('.inline-gallery-view-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.gview === mode);
+  });
+  renderGalleryContent();
+}
+
+function galleryGoBack() {
+  gallerySelectedCategory = null;
+  gallerySearchQuery = '';
+  document.getElementById('inline-gallery-search').value = '';
+  document.getElementById('inline-gallery-search-clear').classList.add('hidden');
+  renderGalleryContent();
+}
+
+function onGallerySearch(query) {
+  gallerySearchQuery = query.trim();
+  gallerySelectedCategory = null;
+  document.getElementById('inline-gallery-search-clear').classList.toggle('hidden', !gallerySearchQuery);
+  renderGalleryContent();
+}
+
+function clearGallerySearch() {
+  gallerySearchQuery = '';
+  document.getElementById('inline-gallery-search').value = '';
+  document.getElementById('inline-gallery-search-clear').classList.add('hidden');
+  renderGalleryContent();
+}
+
+function renderGalleryContent() {
+  const body = document.getElementById('inline-gallery-body');
+  const backBtn = document.getElementById('inline-gallery-back');
+  const title = document.getElementById('inline-gallery-title');
+
+  // Search mode
+  if (gallerySearchQuery) {
+    backBtn.classList.add('hidden');
+    title.textContent = 'Galeria de Banners';
+    const matchingCats = searchCategories(gallerySearchQuery);
+    
+    if (matchingCats.length === 0) {
+      body.innerHTML = '<div class="gallery-empty"><p>Nenhum banner encontrado para "' + gallerySearchQuery + '"</p></div>';
+      return;
+    }
+
+    let html = '';
+    matchingCats.forEach(cat => {
+      const banners = getBannersForCategory(cat.id);
+      html += '<div class="gallery-search-group">';
+      html += '<div class="gallery-search-group-header">';
+      html += '<span class="gallery-search-group-title">' + cat.name + '</span>';
+      html += '<span class="gallery-search-group-badge">' + banners.length + '</span>';
+      html += '</div>';
+      html += '<div class="' + (galleryViewMode === 'grid' ? 'gallery-banners-grid' : 'gallery-banners-list') + '">';
+      banners.forEach(b => {
+        html += '<div class="gallery-banner-card" onclick="selectGalleryBanner(\'' + b.url + '\')">';
+        html += '<img src="' + b.url + '" alt="' + b.id + '" loading="lazy">';
+        html += '</div>';
+      });
+      html += '</div></div>';
+    });
+    body.innerHTML = html;
+    return;
+  }
+
+  // Category view
+  if (gallerySelectedCategory) {
+    backBtn.classList.remove('hidden');
+    title.textContent = gallerySelectedCategory.name;
+    const banners = getBannersForCategory(gallerySelectedCategory.id);
+    
+    let html = '<div class="' + (galleryViewMode === 'grid' ? 'gallery-banners-grid' : 'gallery-banners-list') + '">';
+    banners.forEach(b => {
+      html += '<div class="gallery-banner-card" onclick="selectGalleryBanner(\'' + b.url + '\')">';
+      html += '<img src="' + b.url + '" alt="' + b.id + '" loading="lazy">';
+      html += '</div>';
+    });
+    html += '</div>';
+    body.innerHTML = html;
+    return;
+  }
+
+  // Categories grid (default)
+  backBtn.classList.add('hidden');
+  title.textContent = 'Galeria de Banners';
+  
+  let html = '<div class="gallery-categories-grid">';
+  BANNER_CATEGORIES.forEach(cat => {
+    const thumbUrl = '../extras/' + cat.id + '-01.jpg';
+    html += '<div class="gallery-category-card" onclick="selectGalleryCategory(\'' + cat.id + '\')">';
+    html += '<img src="' + thumbUrl + '" alt="' + cat.name + '" loading="lazy">';
+    html += '<div class="category-overlay"></div>';
+    html += '<div class="category-info">';
+    html += '<div class="category-name">' + cat.name + '</div>';
+    html += '<div class="category-count">' + cat.count + ' banners</div>';
+    html += '</div></div>';
+  });
+  html += '</div>';
+  body.innerHTML = html;
+}
+
+function selectGalleryCategory(categoryId) {
+  gallerySelectedCategory = getCategoryById(categoryId);
+  renderGalleryContent();
+}
+
+function selectGalleryBanner(url) {
+  profileData.bannerUrl = url;
+  saveProfile();
+  renderBasicInfo();
+  closeInlineGallery();
+  closeImageDialog();
+}
+
+// Open banner gallery (from the external button)
 function openBannerGallery() {
-  window.location.href = 'banner-gallery.html';
+  openInlineGallery();
 }
 
 // Reset to default
