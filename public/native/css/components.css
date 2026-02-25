@@ -573,6 +573,43 @@
   box-shadow: 0 2px 15px hsl(var(--primary) / 0.4);
 }
 
+/* Blog CTA Button - Matching React BlogCTA button variant */
+.blog-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--primary) / 0.3);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blog-cta-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: hsl(var(--primary));
+}
+
+.blog-cta-button:hover {
+  border-color: hsl(var(--primary) / 0.6);
+  background: hsl(var(--primary) / 0.05);
+  transform: scale(1.02);
+}
+
+.blog-cta-button:active {
+  transform: scale(0.98);
+}
+
 /* Dashboard Link - Matching React version */
 .dashboard-link {
   display: flex;
