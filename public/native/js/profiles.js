@@ -243,6 +243,9 @@ function populateProfile() {
     const agendaSection = document.querySelector('.agenda-section');
     if (agendaSection) agendaSection.style.display = 'none';
   }
+  
+  // Render blog preview
+  renderBlogPreview();
 }
 
 function renderSocialLinks(links) {
@@ -320,4 +323,44 @@ function renderProfileEvents(events) {
   container.innerHTML = events.map((event, index) => 
     renderEventCard(event, index)
   ).join('');
+}
+
+// Render Blog Preview Cards (latest 4 posts)
+function renderBlogPreview() {
+  const container = document.getElementById('blog-preview-grid');
+  if (!container || typeof BLOG_POSTS === 'undefined') return;
+  
+  const latestPosts = BLOG_POSTS.slice(0, 4);
+  
+  container.innerHTML = latestPosts.map((post, index) => {
+    const date = new Date(post.publishedAt);
+    const formattedDate = date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' });
+    
+    return `
+      <a href="blog-post.html?slug=${post.slug}" class="blog-preview-card" style="animation-delay: ${index * 0.1}s">
+        <div class="blog-preview-card-image">
+          <img src="${post.coverImage}" alt="${post.title}" loading="lazy">
+          <span class="blog-preview-card-category">${post.category}</span>
+        </div>
+        <div class="blog-preview-card-content">
+          <div class="blog-preview-card-meta">
+            <span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              ${formattedDate}
+            </span>
+            <span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ${post.readingTime}
+            </span>
+          </div>
+          <h3 class="blog-preview-card-title">${post.title}</h3>
+          <p class="blog-preview-card-excerpt">${post.excerpt}</p>
+          <div class="blog-preview-card-readmore">
+            Ler mais
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+    `;
+  }).join('');
 }
