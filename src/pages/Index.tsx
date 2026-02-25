@@ -12,6 +12,7 @@ import ChatbotButton from '@/components/ChatbotButton';
 import ThemedProductsSection from '@/components/sections/ThemedProductsSection';
 import ThemedReflectionsSection from '@/components/sections/ThemedReflectionsSection';
 import ThemedAgendaSection from '@/components/sections/ThemedAgendaSection';
+import BlogPreviewSection from '@/components/sections/BlogPreviewSection';
 import BlogCTA from '@/components/blog/BlogCTA';
 import NavigationMenu from '@/components/NavigationMenu';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -142,10 +143,15 @@ const Index = () => {
         )}
       </section>
 
+      {/* Blog Preview Section - Latest Posts */}
+      <section className={`relative z-10 px-4 md:px-8 lg:px-12 py-12 ${hasAlternatingBg ? 'section-dark' : ''}`}>
+        <BlogPreviewSection />
+      </section>
+
       {/* Reflections - Full width with alternating background */}
       <section 
         id="reflections"
-        className={hasAlternatingBg ? 'section-dark' : ''}
+        className={hasAlternatingBg ? '' : ''}
       >
         {hasUniqueLayout ? (
           <div className="relative z-10 px-4 md:px-8 lg:px-12 py-12">
