@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Hub - Configuração de Email</title>
+  <meta name="description" content="Configure sua conta de email para leitura e resposta automática diária.">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/social-hub.css">
+</head>
+<body>
+  <div class="social-hub-layout">
+    <!-- Sidebar -->
+    <aside class="social-sidebar">
+      <div class="social-sidebar-header">
+        <h2 class="social-sidebar-title">Social Hub</h2>
+        <p class="social-sidebar-subtitle">Gerenciamento de Redes</p>
+      </div>
+      <nav class="social-sidebar-nav">
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="social-email.html" class="social-nav-item active">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>Email</span>
+        </a>
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          <span>Instagram</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          <span>X (Twitter)</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>TikTok</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Configurações</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="social-main">
+      <div class="social-content">
+        <div class="social-page-header">
+          <h1 class="social-page-title">Configuração de Email</h1>
+          <p class="social-page-description">Configure sua conta de email para leitura e resposta automática diária.</p>
+        </div>
+
+        <div class="social-email-grid">
+          <!-- Servidor de Email -->
+          <div class="social-card">
+            <div class="social-card-header">
+              <div class="social-card-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h3 class="social-card-title">Servidor de Email</h3>
+                <p class="social-card-subtitle">IMAP & SMTP</p>
+              </div>
+            </div>
+
+            <div class="social-form-group">
+              <label class="social-label">Email *</label>
+              <input type="email" id="email-address" class="social-input" placeholder="seu@email.com">
+            </div>
+
+            <div class="social-form-group">
+              <label class="social-label">Senha / App Password *</label>
+              <div class="social-input-wrapper">
+                <input type="password" id="email-password" class="social-input" placeholder="••••••••••">
+                <button type="button" class="social-input-toggle" onclick="togglePassword()">
+                  <svg id="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="social-form-row">
+              <div class="social-form-group" style="flex:2">
+                <label class="social-label">IMAP Host *</label>
+                <input type="text" id="imap-host" class="social-input" placeholder="imap.gmail.com" value="imap.gmail.com">
+              </div>
+              <div class="social-form-group" style="flex:1">
+                <label class="social-label">Porta</label>
+                <input type="text" id="imap-port" class="social-input" placeholder="993" value="993">
+              </div>
+            </div>
+
+            <div class="social-form-row">
+              <div class="social-form-group" style="flex:2">
+                <label class="social-label">SMTP Host *</label>
+                <input type="text" id="smtp-host" class="social-input" placeholder="smtp.gmail.com" value="smtp.gmail.com">
+              </div>
+              <div class="social-form-group" style="flex:1">
+                <label class="social-label">Porta</label>
+                <input type="text" id="smtp-port" class="social-input" placeholder="587" value="587">
+              </div>
+            </div>
+
+            <div class="social-form-group">
+              <label class="social-label">Protocolo</label>
+              <select id="email-protocol" class="social-select">
+                <option value="imap">IMAP (SSL/TLS)</option>
+                <option value="pop3">POP3 (SSL/TLS)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Automação -->
+          <div class="social-card">
+            <div class="social-card-header">
+              <div class="social-card-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h3 class="social-card-title">Automação</h3>
+                <p class="social-card-subtitle">Job diário de leitura e resposta</p>
+              </div>
+            </div>
+
+            <div class="social-toggle-row">
+              <div>
+                <p class="social-toggle-label">Resposta Automática</p>
+                <p class="social-toggle-description">Ativar IA para responder emails</p>
+              </div>
+              <label class="social-switch">
+                <input type="checkbox" id="auto-reply" checked>
+                <span class="social-switch-slider"></span>
+              </label>
+            </div>
+
+            <div class="social-form-group">
+              <label class="social-label">Intervalo de Verificação</label>
+              <select id="check-interval" class="social-select">
+                <option value="30m">A cada 30 minutos</option>
+                <option value="1h" selected>A cada 1 hora</option>
+                <option value="2h">A cada 2 horas</option>
+                <option value="6h">A cada 6 horas</option>
+                <option value="12h">A cada 12 horas</option>
+                <option value="24h">A cada 24 horas</option>
+              </select>
+            </div>
+
+            <div class="social-form-group">
+              <label class="social-label">Prompt da IA</label>
+              <textarea id="ai-prompt" class="social-textarea" placeholder="Descreva como a IA deve responder os emails...">Você é um assistente profissional. Responda os emails de forma educada e objetiva, mantendo o tom profissional.</textarea>
+              <p class="social-form-hint">Este prompt será usado pela IA para gerar respostas automáticas.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status & Actions -->
+        <div class="social-card social-status-card">
+          <div class="social-status-content">
+            <div class="social-status-info">
+              <div class="social-status-dot" id="status-dot"></div>
+              <div>
+                <p class="social-status-title">Segurança & Status</p>
+                <p class="social-status-subtitle">Teste a conexão antes de salvar</p>
+              </div>
+            </div>
+            <div class="social-status-actions">
+              <button class="social-btn social-btn-outline" onclick="testConnection()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span id="test-btn-text">Testar Conexão</span>
+              </button>
+              <button class="social-btn social-btn-primary" onclick="saveConfig()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                Salvar Configurações
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById('email-password');
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+    }
+
+    function testConnection() {
+      const dot = document.getElementById('status-dot');
+      const btnText = document.getElementById('test-btn-text');
+      const email = document.getElementById('email-address').value;
+      const password = document.getElementById('email-password').value;
+
+      dot.className = 'social-status-dot testing';
+      btnText.textContent = 'Testando...';
+
+      setTimeout(() => {
+        if (email && password) {
+          dot.className = 'social-status-dot success';
+          btnText.textContent = 'Testar Conexão';
+          showToast('Conexão bem-sucedida!', 'Servidor de email respondeu corretamente.');
+        } else {
+          dot.className = 'social-status-dot error';
+          btnText.textContent = 'Testar Conexão';
+          showToast('Falha na conexão', 'Verifique suas credenciais.', true);
+        }
+      }, 2000);
+    }
+
+    function saveConfig() {
+      const config = {
+        email: document.getElementById('email-address').value,
+        imapHost: document.getElementById('imap-host').value,
+        imapPort: document.getElementById('imap-port').value,
+        smtpHost: document.getElementById('smtp-host').value,
+        smtpPort: document.getElementById('smtp-port').value,
+        protocol: document.getElementById('email-protocol').value,
+        autoReply: document.getElementById('auto-reply').checked,
+        checkInterval: document.getElementById('check-interval').value,
+        aiPrompt: document.getElementById('ai-prompt').value,
+      };
+      localStorage.setItem('socialEmailConfig', JSON.stringify(config));
+      showToast('Configurações salvas!', 'As configurações de email foram atualizadas.');
+    }
+
+    function showToast(title, message, isError) {
+      const toast = document.createElement('div');
+      toast.className = 'social-toast' + (isError ? ' social-toast-error' : '');
+      toast.innerHTML = '<strong>' + title + '</strong><p>' + message + '</p>';
+      document.body.appendChild(toast);
+      setTimeout(() => { toast.classList.add('show'); }, 10);
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // Load saved config
+    (function() {
+      const saved = localStorage.getItem('socialEmailConfig');
+      if (saved) {
+        const c = JSON.parse(saved);
+        if (c.email) document.getElementById('email-address').value = c.email;
+        if (c.imapHost) document.getElementById('imap-host').value = c.imapHost;
+        if (c.imapPort) document.getElementById('imap-port').value = c.imapPort;
+        if (c.smtpHost) document.getElementById('smtp-host').value = c.smtpHost;
+        if (c.smtpPort) document.getElementById('smtp-port').value = c.smtpPort;
+        if (c.protocol) document.getElementById('email-protocol').value = c.protocol;
+        if (c.autoReply !== undefined) document.getElementById('auto-reply').checked = c.autoReply;
+        if (c.checkInterval) document.getElementById('check-interval').value = c.checkInterval;
+        if (c.aiPrompt) document.getElementById('ai-prompt').value = c.aiPrompt;
+      }
+    })();
+  </script>
+</body>
+</html>
