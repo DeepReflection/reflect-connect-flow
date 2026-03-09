@@ -19,6 +19,7 @@ import BlogAutomation from "./pages/BlogAutomation";
 import Dashboard from "./pages/Dashboard";
 import SEOInsights from "./pages/SEOInsights";
 import ProfileEditor from "./pages/ProfileEditor";
+import SocialEmail from "./pages/SocialEmail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
