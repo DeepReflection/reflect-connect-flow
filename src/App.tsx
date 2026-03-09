@@ -19,6 +19,7 @@ import BlogAutomation from "./pages/BlogAutomation";
 import Dashboard from "./pages/Dashboard";
 import SEOInsights from "./pages/SEOInsights";
 import ProfileEditor from "./pages/ProfileEditor";
+import SocialEmail from "./pages/SocialEmail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/blog/edit/:slug" element={<BlogEdit />} />
               <Route path="/blog/automation" element={<BlogAutomation />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/social/email" element={<SocialEmail />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
