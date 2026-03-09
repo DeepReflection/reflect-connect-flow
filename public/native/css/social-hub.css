@@ -552,12 +552,18 @@
 @media (max-width: 768px) {
   .social-hub-layout {
     flex-direction: column;
+    padding-top: 52px;
   }
 
   .social-sidebar {
     width: 100%;
+    position: static;
     border-right: none;
     border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .social-main {
+    margin-left: 0;
   }
 
   .social-sidebar-nav {
@@ -595,5 +601,13 @@
   .social-btn {
     flex: 1;
     justify-content: center;
+  }
+
+  .social-theme-label span {
+    display: none;
+  }
+
+  .social-theme-select {
+    width: 200px;
   }
 }
