@@ -8,9 +8,69 @@
   <link rel="icon" href="/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/social-hub.css">
 </head>
 <body>
+  <!-- Theme Bar -->
+  <div class="social-theme-bar">
+    <div class="social-theme-bar-inner">
+      <div class="social-theme-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        <span>Escolha seu tema</span>
+      </div>
+      <select id="theme-selector" class="social-theme-select" onchange="changeTheme(this.value)">
+        <optgroup label="☀ Temas Claros">
+          <option value="arctic-frost">Arctic Frost</option>
+          <option value="desert-sand">Desert Sand</option>
+          <option value="cloud-silver">Cloud Silver</option>
+          <option value="rose-garden">Rose Garden</option>
+          <option value="mint-fresh">Mint Fresh</option>
+          <option value="lavender-dream">Lavender Dream</option>
+          <option value="peach-blossom">Peach Blossom</option>
+          <option value="cream-vanilla">Cream & Vanilla</option>
+          <option value="sage-morning">Sage Morning</option>
+          <option value="sky-blue">Sky Blue</option>
+        </optgroup>
+        <optgroup label="🌙 Temas Escuros">
+          <option value="vintage-sepia" selected>Vintage Sepia</option>
+          <option value="midnight-gold">Midnight Gold</option>
+          <option value="ocean-deep">Ocean Deep</option>
+          <option value="forest-emerald">Forest Emerald</option>
+          <option value="crimson-war">Crimson War</option>
+          <option value="royal-purple">Royal Purple</option>
+          <option value="golden-hour">Golden Hour</option>
+          <option value="coral-reef">Coral Reef</option>
+          <option value="sunset-bronze">Sunset Bronze</option>
+          <option value="military-olive">Military Olive</option>
+          <option value="neon-gamer">Neon Gamer</option>
+          <option value="retro-wave">Retro Wave</option>
+          <option value="nature-organic">Nature Organic</option>
+        </optgroup>
+        <optgroup label="💼 Temas de Negócio">
+          <option value="corporate-navy">Corporate Navy</option>
+          <option value="executive-charcoal">Executive Charcoal</option>
+          <option value="startup-teal">Startup Teal</option>
+          <option value="finance-green">Finance Green</option>
+          <option value="consulting-slate">Consulting Slate</option>
+          <option value="tech-indigo">Tech Indigo</option>
+          <option value="luxury-black">Luxury Black</option>
+          <option value="modern-graphite">Modern Graphite</option>
+          <option value="innovation-blue">Innovation Blue</option>
+          <option value="prestige-burgundy">Prestige Burgundy</option>
+        </optgroup>
+        <optgroup label="🎨 Temas com Layout Único">
+          <option value="glassmorphism">Glassmorphism</option>
+          <option value="brutalist-raw">Brutalist Raw</option>
+          <option value="gradient-flow">Gradient Flow</option>
+          <option value="minimal-zen">Minimal Zen</option>
+          <option value="card-stack">Card Stack</option>
+          <option value="magazine-editorial">Magazine Editorial</option>
+          <option value="split-screen">Split Screen</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
   <div class="social-hub-layout">
     <!-- Sidebar -->
     <aside class="social-sidebar">
