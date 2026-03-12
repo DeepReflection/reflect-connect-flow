@@ -527,10 +527,10 @@
   z-index: 10;
   max-width: 42rem;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 1.5rem 1.5rem 3rem; /* Reduced top padding to match React's pt-6 */
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem; /* Reduced from 3rem for tighter spacing */
 }
 
 /* CTA Button - Matching React CTAButton component */
@@ -540,11 +540,9 @@
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  max-width: 20rem;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: hsl(var(--primary-foreground));
   background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
@@ -561,10 +559,11 @@
 .cta-button svg {
   width: 1.25rem;
   height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .cta-button:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: scale(1.02);
   box-shadow: 0 6px 30px hsl(var(--primary) / 0.5);
 }
 
@@ -580,10 +579,8 @@
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  max-width: 20rem;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   color: hsl(var(--foreground));
   background: hsl(var(--card));
@@ -598,6 +595,7 @@
   width: 1.25rem;
   height: 1.25rem;
   color: hsl(var(--primary));
+  flex-shrink: 0;
 }
 
 .blog-cta-button:hover {
@@ -610,6 +608,13 @@
   transform: scale(0.98);
 }
 
+/* CTA Buttons Grid - Side by side like React */
+.cta-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /* Dashboard Link - Matching React version */
 .dashboard-link {
   display: flex;
@@ -617,14 +622,12 @@
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  max-width: 20rem;
-  margin: 0 auto;
   padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -634,76 +637,62 @@
 .dashboard-link svg {
   width: 1.25rem;
   height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .dashboard-link:hover {
-  background: #e2e8f0;
+  background: hsl(var(--muted) / 0.8);
 }
 
-/* Social Links - Matching React SocialLink component */
-.social-links {
+/* Social Icons - Horizontal layout matching React */
+.social-icons {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 1rem;
-  padding: 1rem;
-  background: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
-  border-radius: 0.75rem;
-  color: hsl(var(--foreground));
-  transition: all 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
+  flex-wrap: wrap;
 }
 
-.social-link:hover {
-  border-color: hsl(var(--primary) / 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px hsl(0 0% 0% / 0.4), 0 0 30px hsl(var(--primary) / 0.15);
-}
-
-.social-link:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 5px 20px hsl(0 0% 0% / 0.3);
-}
-
-.social-link .icon-wrapper {
+.social-icon-link {
   width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
-  background: hsl(var(--primary) / 0.1);
-  color: hsl(var(--primary));
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover .icon-wrapper {
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
-
-.social-link .icon-wrapper svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.social-link span {
-  font-weight: 500;
-  flex: 1;
-  color: hsl(var(--foreground) / 0.9);
-}
-
-.social-link .external-icon {
+  background: hsl(var(--muted) / 0.5);
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
   color: hsl(var(--muted-foreground));
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.social-icon-link:hover {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--border));
+  color: hsl(var(--primary));
+  transform: scale(1.1);
+}
+
+.social-icon-link:active {
+  transform: scale(0.95);
+}
+
+.social-icon-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Legacy Social Links - Card style (deprecated) */
+.social-links {
+  display: none;
+}
+
+.social-link {
+  display: none;
+}
 }
 
 .social-link:hover .external-icon {
