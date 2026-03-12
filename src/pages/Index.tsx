@@ -85,7 +85,7 @@ const Index = () => {
       </section>
 
       {/* Main Content - Narrow sections */}
-      <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
+      <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 pt-6 pb-12 space-y-6">
         {/* Social Links - Horizontal Icons (Primeiro) */}
         <section className="flex justify-center gap-4 flex-wrap">
           {profile.socialLinks.map((link, index) => (
