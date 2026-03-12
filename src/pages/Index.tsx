@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Twitter, Facebook, Linkedin, Globe, MessageCircle, Mail, BarChart3, Settings } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
 import HeroSection from '@/components/HeroSection';
