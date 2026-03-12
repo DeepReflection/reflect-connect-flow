@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Twitter, Facebook, Linkedin, Globe, MessageCircle, Mail, BarChart3, Settings } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ParticleBackground from '@/components/ParticleBackground';
 import HeroSection from '@/components/HeroSection';
@@ -85,31 +86,39 @@ const Index = () => {
 
       {/* Main Content - Narrow sections */}
       <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
-        {/* CTA Button */}
-        <CTAButton text="Fale Comigo" />
-
-        {/* Blog CTA */}
-        <BlogCTA variant="button" />
+        {/* CTA Buttons - Side by Side */}
+        <div className="grid grid-cols-2 gap-4">
+          <CTAButton text="Fale Comigo" />
+          <BlogCTA variant="button" />
+        </div>
 
         {/* Dashboard Link */}
         <Link 
           to="/dashboard"
-          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-all duration-300 border border-slate-200"
+          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-muted hover:bg-muted/80 text-muted-foreground rounded-xl transition-all duration-300 border border-border"
         >
           <BarChart3 className="w-5 h-5" />
           <span className="font-medium">Dashboard de Insights</span>
         </Link>
 
-        {/* Social Links */}
-        <section className="space-y-3">
+        {/* Social Links - Horizontal Icons */}
+        <section className="flex justify-center gap-4 flex-wrap">
           {profile.socialLinks.map((link, index) => (
-            <SocialLink
+            <motion.a
               key={link.id}
-              url={link.url}
-              icon={ICON_MAP[link.iconType] || <Globe className="w-6 h-6" />}
-              label={link.label}
-              index={index}
-            />
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-xl bg-muted/50 hover:bg-primary/10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary transition-colors duration-300"
+              aria-label={link.label}
+            >
+              {ICON_MAP[link.iconType] || <Globe className="w-5 h-5" />}
+            </motion.a>
           ))}
         </section>
       </main>
