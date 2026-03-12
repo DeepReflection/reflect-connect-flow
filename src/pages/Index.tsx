@@ -95,7 +95,7 @@ const Index = () => {
         {/* Dashboard Link */}
         <Link 
           to="/dashboard"
-          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition-all duration-300 border border-slate-200"
+          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-muted hover:bg-muted/80 text-muted-foreground rounded-xl transition-all duration-300 border border-border"
         >
           <BarChart3 className="w-5 h-5" />
           <span className="font-medium">Dashboard de Insights</span>
