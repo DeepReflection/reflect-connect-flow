@@ -63,23 +63,19 @@ const BlogCTA = ({ variant = 'button' }: BlogCTAProps) => {
 
   // Default button variant
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.3 }}
-    >
-      <Link to="/blog">
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-card border border-primary/30 text-foreground font-semibold text-lg w-full max-w-xs mx-auto hover:border-primary/60 hover:bg-primary/5 transition-all"
-        >
-          <BookOpen className="w-5 h-5 text-primary" />
-          Visitar Blog
-        </motion.button>
-      </Link>
-    </motion.div>
+    <Link to="/blog" className="w-full">
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="flex items-center justify-center gap-3 px-6 py-4 rounded-full bg-card border border-primary/30 text-foreground font-semibold w-full hover:border-primary/60 hover:bg-primary/5 transition-all"
+      >
+        <BookOpen className="w-5 h-5 text-primary" />
+        Visitar Blog
+      </motion.button>
+    </Link>
   );
 };
 
