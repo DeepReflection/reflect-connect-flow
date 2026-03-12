@@ -86,22 +86,7 @@ const Index = () => {
 
       {/* Main Content - Narrow sections */}
       <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
-        {/* CTA Buttons - Side by Side */}
-        <div className="grid grid-cols-2 gap-4">
-          <CTAButton text="Fale Comigo" />
-          <BlogCTA variant="button" />
-        </div>
-
-        {/* Dashboard Link */}
-        <Link 
-          to="/dashboard"
-          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-muted hover:bg-muted/80 text-muted-foreground rounded-xl transition-all duration-300 border border-border"
-        >
-          <BarChart3 className="w-5 h-5" />
-          <span className="font-medium">Dashboard de Insights</span>
-        </Link>
-
-        {/* Social Links - Horizontal Icons */}
+        {/* Social Links - Horizontal Icons (Primeiro) */}
         <section className="flex justify-center gap-4 flex-wrap">
           {profile.socialLinks.map((link, index) => (
             <motion.a
@@ -121,6 +106,21 @@ const Index = () => {
             </motion.a>
           ))}
         </section>
+
+        {/* CTA Buttons - Side by Side */}
+        <div className="grid grid-cols-2 gap-4">
+          <CTAButton text="Fale Comigo" />
+          <BlogCTA variant="button" />
+        </div>
+
+        {/* Dashboard Link */}
+        <Link 
+          to="/dashboard"
+          className="flex items-center justify-center gap-3 w-full py-4 px-6 bg-muted hover:bg-muted/80 text-muted-foreground rounded-xl transition-all duration-300 border border-border"
+        >
+          <BarChart3 className="w-5 h-5" />
+          <span className="font-medium">Dashboard de Insights</span>
+        </Link>
       </main>
 
       {/* Agenda Section - Full width with alternating background */}
