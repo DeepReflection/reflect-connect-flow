@@ -622,14 +622,12 @@
   justify-content: center;
   gap: 0.75rem;
   width: 100%;
-  max-width: 20rem;
-  margin: 0 auto;
   padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -639,10 +637,11 @@
 .dashboard-link svg {
   width: 1.25rem;
   height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .dashboard-link:hover {
-  background: #e2e8f0;
+  background: hsl(var(--muted) / 0.8);
 }
 
 /* Social Links - Matching React SocialLink component */
