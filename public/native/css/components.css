@@ -644,70 +644,55 @@
   background: hsl(var(--muted) / 0.8);
 }
 
-/* Social Links - Matching React SocialLink component */
-.social-links {
+/* Social Icons - Horizontal layout matching React */
+.social-icons {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 1rem;
-  padding: 1rem;
-  background: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
-  border-radius: 0.75rem;
-  color: hsl(var(--foreground));
-  transition: all 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
+  flex-wrap: wrap;
 }
 
-.social-link:hover {
-  border-color: hsl(var(--primary) / 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px hsl(0 0% 0% / 0.4), 0 0 30px hsl(var(--primary) / 0.15);
-}
-
-.social-link:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 5px 20px hsl(0 0% 0% / 0.3);
-}
-
-.social-link .icon-wrapper {
+.social-icon-link {
   width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
-  background: hsl(var(--primary) / 0.1);
-  color: hsl(var(--primary));
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover .icon-wrapper {
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
-
-.social-link .icon-wrapper svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.social-link span {
-  font-weight: 500;
-  flex: 1;
-  color: hsl(var(--foreground) / 0.9);
-}
-
-.social-link .external-icon {
+  background: hsl(var(--muted) / 0.5);
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
   color: hsl(var(--muted-foreground));
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.social-icon-link:hover {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--border));
+  color: hsl(var(--primary));
+  transform: scale(1.1);
+}
+
+.social-icon-link:active {
+  transform: scale(0.95);
+}
+
+.social-icon-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Legacy Social Links - Card style (deprecated) */
+.social-links {
+  display: none;
+}
+
+.social-link {
+  display: none;
+}
 }
 
 .social-link:hover .external-icon {
