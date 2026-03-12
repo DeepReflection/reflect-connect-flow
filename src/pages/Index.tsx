@@ -85,11 +85,11 @@ const Index = () => {
 
       {/* Main Content - Narrow sections */}
       <main id="social" className="relative z-10 max-w-2xl mx-auto px-6 py-12 space-y-6">
-        {/* CTA Button */}
-        <CTAButton text="Fale Comigo" />
-
-        {/* Blog CTA */}
-        <BlogCTA variant="button" />
+        {/* CTA Buttons - Side by Side */}
+        <div className="grid grid-cols-2 gap-4">
+          <CTAButton text="Fale Comigo" />
+          <BlogCTA variant="button" />
+        </div>
 
         {/* Dashboard Link */}
         <Link 
@@ -100,16 +100,24 @@ const Index = () => {
           <span className="font-medium">Dashboard de Insights</span>
         </Link>
 
-        {/* Social Links */}
-        <section className="space-y-3">
+        {/* Social Links - Horizontal Icons */}
+        <section className="flex justify-center gap-4 flex-wrap">
           {profile.socialLinks.map((link, index) => (
-            <SocialLink
+            <motion.a
               key={link.id}
-              url={link.url}
-              icon={ICON_MAP[link.iconType] || <Globe className="w-6 h-6" />}
-              label={link.label}
-              index={index}
-            />
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-12 h-12 rounded-xl bg-muted/50 hover:bg-primary/10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary transition-colors duration-300"
+              aria-label={link.label}
+            >
+              {ICON_MAP[link.iconType] || <Globe className="w-5 h-5" />}
+            </motion.a>
           ))}
         </section>
       </main>
