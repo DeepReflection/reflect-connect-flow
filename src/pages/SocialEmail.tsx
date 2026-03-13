@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Clock, Shield, Eye, EyeOff, Save, Zap } from 'lucide-react';
+import { Mail, Clock, Eye, EyeOff, Save, Zap, User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -11,13 +11,9 @@ import { useToast } from '@/hooks/use-toast';
 import SocialHubLayout from '@/components/social/SocialHubLayout';
 
 interface EmailConfig {
-  email: string;
-  password: string;
-  imapHost: string;
-  imapPort: string;
-  smtpHost: string;
-  smtpPort: string;
-  protocol: string;
+  emailAddress: string;
+  emailPassword: string;
+  displayName: string;
   autoReply: boolean;
   checkInterval: string;
   aiPrompt: string;
@@ -29,13 +25,9 @@ const SocialEmail = () => {
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
 
   const [config, setConfig] = useState<EmailConfig>({
-    email: '',
-    password: '',
-    imapHost: 'imap.gmail.com',
-    imapPort: '993',
-    smtpHost: 'smtp.gmail.com',
-    smtpPort: '587',
-    protocol: 'imap',
+    emailAddress: '',
+    emailPassword: '',
+    displayName: '',
     autoReply: true,
     checkInterval: '1h',
     aiPrompt: 'Você é um assistente profissional. Responda os emails de forma educada e objetiva, mantendo o tom profissional.',
@@ -48,9 +40,9 @@ const SocialEmail = () => {
   const handleTestConnection = () => {
     setConnectionStatus('testing');
     setTimeout(() => {
-      if (config.email && config.password) {
+      if (config.emailAddress && config.emailPassword) {
         setConnectionStatus('success');
-        toast({ title: 'Conexão bem-sucedida!', description: 'Servidor de email respondeu corretamente.' });
+        toast({ title: 'Conexão bem-sucedida!', description: 'Servidor detectado automaticamente e respondeu corretamente.' });
       } else {
         setConnectionStatus('error');
         toast({ title: 'Falha na conexão', description: 'Verifique suas credenciais.', variant: 'destructive' });
@@ -59,6 +51,11 @@ const SocialEmail = () => {
   };
 
   const handleSave = () => {
+    const payload = {
+      emailAddress: config.emailAddress,
+      emailPassword: config.emailPassword,
+      displayName: config.displayName || undefined,
+    };
     localStorage.setItem('socialEmailConfig', JSON.stringify(config));
     toast({ title: 'Configurações salvas!', description: 'As configurações de email foram atualizadas.' });
   };
@@ -72,7 +69,7 @@ const SocialEmail = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Servidor de Email */}
+          {/* Conta de Email */}
           <Card className="border-border bg-card">
             <CardContent className="p-6">
               <div className="flex items-center gap-3 mb-6">
@@ -80,8 +77,8 @@ const SocialEmail = () => {
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Servidor de Email</h3>
-                  <p className="text-xs text-muted-foreground">IMAP & SMTP</p>
+                  <h3 className="font-semibold text-foreground">Conta de Email</h3>
+                  <p className="text-xs text-muted-foreground">Servidor detectado automaticamente</p>
                 </div>
               </div>
 
@@ -91,10 +88,13 @@ const SocialEmail = () => {
                   <Input
                     type="email"
                     placeholder="seu@email.com"
-                    value={config.email}
-                    onChange={(e) => updateConfig('email', e.target.value)}
+                    value={config.emailAddress}
+                    onChange={(e) => updateConfig('emailAddress', e.target.value)}
                     className="mt-1.5"
                   />
+                  <p className="text-xs text-muted-foreground mt-1.5">
+                    IMAP/SMTP será configurado automaticamente com base no domínio.
+                  </p>
                 </div>
 
                 <div>
@@ -103,8 +103,8 @@ const SocialEmail = () => {
                     <Input
                       type={showPassword ? 'text' : 'password'}
                       placeholder="••••••••••"
-                      value={config.password}
-                      onChange={(e) => updateConfig('password', e.target.value)}
+                      value={config.emailPassword}
+                      onChange={(e) => updateConfig('emailPassword', e.target.value)}
                       className="pr-10"
                     />
                     <button
@@ -117,59 +117,19 @@ const SocialEmail = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="col-span-2">
-                    <Label className="text-xs uppercase tracking-wider text-muted-foreground">IMAP Host *</Label>
-                    <Input
-                      placeholder="imap.gmail.com"
-                      value={config.imapHost}
-                      onChange={(e) => updateConfig('imapHost', e.target.value)}
-                      className="mt-1.5"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-xs uppercase tracking-wider text-muted-foreground">Porta</Label>
-                    <Input
-                      placeholder="993"
-                      value={config.imapPort}
-                      onChange={(e) => updateConfig('imapPort', e.target.value)}
-                      className="mt-1.5"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="col-span-2">
-                    <Label className="text-xs uppercase tracking-wider text-muted-foreground">SMTP Host *</Label>
-                    <Input
-                      placeholder="smtp.gmail.com"
-                      value={config.smtpHost}
-                      onChange={(e) => updateConfig('smtpHost', e.target.value)}
-                      className="mt-1.5"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-xs uppercase tracking-wider text-muted-foreground">Porta</Label>
-                    <Input
-                      placeholder="587"
-                      value={config.smtpPort}
-                      onChange={(e) => updateConfig('smtpPort', e.target.value)}
-                      className="mt-1.5"
-                    />
-                  </div>
-                </div>
-
                 <div>
-                  <Label className="text-xs uppercase tracking-wider text-muted-foreground">Protocolo</Label>
-                  <Select value={config.protocol} onValueChange={(v) => updateConfig('protocol', v)}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="imap">IMAP (SSL/TLS)</SelectItem>
-                      <SelectItem value="pop3">POP3 (SSL/TLS)</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label className="text-xs uppercase tracking-wider text-muted-foreground">Nome de Exibição</Label>
+                  <div className="relative mt-1.5">
+                    <Input
+                      type="text"
+                      placeholder="João Silva"
+                      value={config.displayName}
+                      onChange={(e) => updateConfig('displayName', e.target.value)}
+                      className="pl-9"
+                    />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1.5">Opcional. Nome usado no remetente dos emails.</p>
                 </div>
               </div>
             </CardContent>
