@@ -210,14 +210,6 @@ const SocialEmail = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button
-                  variant="outline"
-                  onClick={handleTestConnection}
-                  disabled={connectionStatus === 'testing'}
-                >
-                  <Zap className="w-4 h-4 mr-2" />
-                  {connectionStatus === 'testing' ? 'Testando...' : 'Testar Conexão'}
-                </Button>
                 <Button onClick={handleSave}>
                   <Save className="w-4 h-4 mr-2" />
                   Salvar Configurações
