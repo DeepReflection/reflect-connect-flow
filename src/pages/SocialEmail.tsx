@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Clock, Eye, EyeOff, Save, Zap, User } from 'lucide-react';
+import { Mail, Clock, Eye, EyeOff, Save, User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -22,7 +22,6 @@ interface EmailConfig {
 const SocialEmail = () => {
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle');
 
   const [config, setConfig] = useState<EmailConfig>({
     emailAddress: '',
@@ -37,44 +36,30 @@ const SocialEmail = () => {
     setConfig(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleTestConnection = () => {
-    setConnectionStatus('testing');
-    setTimeout(() => {
-      if (config.emailAddress && config.emailPassword) {
-        setConnectionStatus('success');
-        toast({ title: 'Conexão bem-sucedida!', description: 'Servidor detectado automaticamente e respondeu corretamente.' });
-      } else {
-        setConnectionStatus('error');
-        toast({ title: 'Falha na conexão', description: 'Verifique suas credenciais.', variant: 'destructive' });
-      }
-    }, 2000);
-  };
-
   const handleSave = () => {
     const payload = {
       emailAddress: config.emailAddress,
       emailPassword: config.emailPassword,
       displayName: config.displayName || undefined,
     };
-    localStorage.setItem('socialEmailConfig', JSON.stringify(config));
+    localStorage.setItem('socialEmailConfig', JSON.stringify(payload));
     toast({ title: 'Configurações salvas!', description: 'As configurações de email foram atualizadas.' });
   };
 
   return (
     <SocialHubLayout>
-      <div className="p-8 max-w-5xl">
+      <div className="max-w-5xl p-8">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-foreground font-display">Configuração de Email</h1>
-          <p className="text-muted-foreground mt-1">Configure sua conta de email para leitura e resposta automática diária.</p>
+          <h1 className="font-display text-2xl font-bold text-foreground">Configuração de Email</h1>
+          <p className="mt-1 text-muted-foreground">Configure sua conta de email para leitura e resposta automática diária.</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Conta de Email */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Card className="border-border bg-card">
             <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Mail className="w-4 h-4 text-primary" />
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                  <Mail className="h-4 w-4 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Conta de Email</h3>
@@ -92,9 +77,7 @@ const SocialEmail = () => {
                     onChange={(e) => updateConfig('emailAddress', e.target.value)}
                     className="mt-1.5"
                   />
-                  <p className="text-xs text-muted-foreground mt-1.5">
-                    IMAP/SMTP será configurado automaticamente com base no domínio.
-                  </p>
+                  <p className="mt-1.5 text-xs text-muted-foreground">IMAP/SMTP será configurado automaticamente com base no domínio.</p>
                 </div>
 
                 <div>
@@ -110,9 +93,9 @@ const SocialEmail = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
                   </div>
                 </div>
@@ -127,20 +110,19 @@ const SocialEmail = () => {
                       onChange={(e) => updateConfig('displayName', e.target.value)}
                       className="pl-9"
                     />
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1.5">Opcional. Nome usado no remetente dos emails.</p>
+                  <p className="mt-1.5 text-xs text-muted-foreground">Opcional. Nome usado no remetente dos emails.</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Automação */}
           <Card className="border-border bg-card">
             <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Clock className="w-4 h-4 text-primary" />
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                  <Clock className="h-4 w-4 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Automação</h3>
@@ -149,15 +131,12 @@ const SocialEmail = () => {
               </div>
 
               <div className="space-y-5">
-                <div className="flex items-center justify-between p-4 rounded-lg bg-muted/30 border border-border">
+                <div className="flex items-center justify-between rounded-lg border border-border bg-muted/30 p-4">
                   <div>
-                    <p className="font-medium text-foreground text-sm">Resposta Automática</p>
+                    <p className="text-sm font-medium text-foreground">Resposta Automática</p>
                     <p className="text-xs text-muted-foreground">Ativar IA para responder emails</p>
                   </div>
-                  <Switch
-                    checked={config.autoReply}
-                    onCheckedChange={(v) => updateConfig('autoReply', v)}
-                  />
+                  <Switch checked={config.autoReply} onCheckedChange={(v) => updateConfig('autoReply', v)} />
                 </div>
 
                 <div>
@@ -185,36 +164,25 @@ const SocialEmail = () => {
                     onChange={(e) => updateConfig('aiPrompt', e.target.value)}
                     className="mt-1.5 min-h-[120px] resize-none"
                   />
-                  <p className="text-xs text-muted-foreground mt-1.5">Este prompt será usado pela IA para gerar respostas automáticas.</p>
+                  <p className="mt-1.5 text-xs text-muted-foreground">Este prompt será usado pela IA para gerar respostas automáticas.</p>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Status & Actions */}
-        <Card className="border-border bg-card mt-6">
+        <Card className="mt-6 border-border bg-card">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className={`w-3 h-3 rounded-full ${
-                  connectionStatus === 'success' ? 'bg-green-500' :
-                  connectionStatus === 'error' ? 'bg-destructive' :
-                  connectionStatus === 'testing' ? 'bg-yellow-500 animate-pulse' :
-                  'bg-muted-foreground/30'
-                }`} />
-                <div>
-                  <p className="font-semibold text-foreground text-sm">Segurança & Status</p>
-                  <p className="text-xs text-muted-foreground">Teste a conexão antes de salvar</p>
-                </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">Segurança & Status</p>
+                <p className="text-xs text-muted-foreground">Salve apenas email, senha e nome de exibição.</p>
               </div>
 
-              <div className="flex gap-3">
-                <Button onClick={handleSave}>
-                  <Save className="w-4 h-4 mr-2" />
-                  Salvar Configurações
-                </Button>
-              </div>
+              <Button onClick={handleSave}>
+                <Save className="mr-2 h-4 w-4" />
+                Salvar Configurações
+              </Button>
             </div>
           </CardContent>
         </Card>
