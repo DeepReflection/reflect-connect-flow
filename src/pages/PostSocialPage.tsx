@@ -19,7 +19,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import {
-  ALLOWED_POST_TYPES,
   getCaptionLabel,
   getDefaultPostType,
   getLinkLabel,
@@ -31,13 +30,13 @@ import {
   VISIBLE_FIELDS,
 } from '@/data/socialPostConfig';
 import {
-  GeneratedFieldKey,
-  IdeaPromptResponse,
-  LocalMediaSocial,
+  type GeneratedFieldKey,
+  type IdeaPromptResponse,
+  type LocalMediaSocial,
   MediaSocialTypeEnum,
   PostSocialStatusEnum,
   PostSocialTypeEnum,
-  SocialAccountOption,
+  type SocialAccountOption,
   SocialMediaEnum,
 } from '@/types/socialPost';
 
@@ -48,7 +47,13 @@ const buildMediaItem = (file: File, mediaType?: MediaSocialTypeEnum): LocalMedia
   file,
   previewUrl: file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined,
   s3Url: '',
-  mediaType: mediaType ?? (file.type.startsWith('video/') ? MediaSocialTypeEnum.VIDEO : file.type === 'application/pdf' ? MediaSocialTypeEnum.DOCUMENT : MediaSocialTypeEnum.IMAGE),
+  mediaType:
+    mediaType ??
+    (file.type.startsWith('video/')
+      ? MediaSocialTypeEnum.VIDEO
+      : file.type === 'application/pdf'
+        ? MediaSocialTypeEnum.DOCUMENT
+        : MediaSocialTypeEnum.IMAGE),
   mimeType: file.type || 'application/octet-stream',
   fileSize: file.size,
 });
@@ -72,7 +77,7 @@ const PostSocialPage = () => {
   const visibleFields = VISIBLE_FIELDS[socialMedia];
 
   const [postType, setPostType] = useState<PostSocialTypeEnum>(getDefaultPostType(socialMedia));
-  const [status, setStatus] = useState<PostSocialStatusEnum>('DRAFT');
+  const [status, setStatus] = useState<PostSocialStatusEnum>(PostSocialStatusEnum.DRAFT);
   const [socialAccountId, setSocialAccountId] = useState<number>(DEFAULT_SOCIAL_ACCOUNTS[socialMedia][0].id);
   const [accounts, setAccounts] = useState<SocialAccountOption[]>(DEFAULT_SOCIAL_ACCOUNTS[socialMedia]);
   const [idea, setIdea] = useState('');
@@ -95,7 +100,7 @@ const PostSocialPage = () => {
   useEffect(() => {
     const defaultType = getDefaultPostType(socialMedia);
     setPostType(defaultType);
-    setStatus('DRAFT');
+    setStatus(PostSocialStatusEnum.DRAFT);
     setSocialAccountId(DEFAULT_SOCIAL_ACCOUNTS[socialMedia][0].id);
     setAccounts(DEFAULT_SOCIAL_ACCOUNTS[socialMedia]);
     setTitle('');
@@ -124,14 +129,14 @@ const PostSocialPage = () => {
         const response = await fetch(`${API_BASE_URL}/post-social/${postId}`);
         if (!response.ok) throw new Error('Não foi possível carregar o post');
         const data = await response.json();
-        setStatus(data.status ?? 'DRAFT');
+        setStatus(data.status ?? PostSocialStatusEnum.DRAFT);
         setPostType(data.postType ?? getDefaultPostType(socialMedia));
         setTitle(data.title ?? '');
         setCaption(data.caption ?? '');
         setTags(data.tags ?? []);
         setLinkUrl(data.linkUrl ?? '');
         setSocialAccountId(data.socialAccountId ?? DEFAULT_SOCIAL_ACCOUNTS[socialMedia][0].id);
-      } catch (error) {
+      } catch {
         toast({ title: 'Falha ao carregar post', description: 'Abrindo um novo rascunho.', variant: 'destructive' });
       } finally {
         setIsLoadingPost(false);
@@ -225,7 +230,7 @@ const PostSocialPage = () => {
       if (result.title !== undefined) nextGenerated.push('title');
       if (result.tags) nextGenerated.push('tags');
       setGeneratedFields(nextGenerated);
-    } catch (error) {
+    } catch {
       toast({ title: 'Falha ao gerar conteúdo', description: 'Verifique a integração da IA e tente novamente.', variant: 'destructive' });
     } finally {
       setIsGenerating(false);
@@ -267,7 +272,7 @@ const PostSocialPage = () => {
       }
 
       setStatus(nextStatus);
-      toast({ title: nextStatus === 'SCHEDULED' ? 'Post agendado' : 'Rascunho salvo', description: 'Os dados do post foram atualizados.' });
+      toast({ title: nextStatus === PostSocialStatusEnum.SCHEDULED ? 'Post agendado' : 'Rascunho salvo', description: 'Os dados do post foram atualizados.' });
     } catch {
       toast({ title: 'Erro ao salvar', description: 'Revise os dados e tente novamente.', variant: 'destructive' });
     } finally {
@@ -323,7 +328,9 @@ const PostSocialPage = () => {
           onAdd={addMediaFiles}
           onRemove={(tempId) => setMediaList((current) => current.filter((item) => item.tempId !== tempId))}
           onReorder={reorderCarousel}
-          onUpdateMeta={(tempId, updates) => setMediaList((current) => current.map((item) => item.tempId === tempId ? { ...item, ...updates } : item))}
+          onUpdateMeta={(tempId, updates) =>
+            setMediaList((current) => current.map((item) => (item.tempId === tempId ? { ...item, ...updates } : item)))
+          }
           mediaType={mediaConfig.primaryMediaType}
         />
       );
@@ -342,10 +349,10 @@ const PostSocialPage = () => {
           mediaType={mediaConfig.primaryMediaType}
         />
         <MediaUploadSingle
-          label={mediaConfig.secondaryMediaType === 'THUMBNAIL' ? 'Thumbnail' : 'Capa'}
+          label={mediaConfig.secondaryMediaType === MediaSocialTypeEnum.THUMBNAIL ? 'Thumbnail' : 'Capa'}
           description="Upload secundário opcional para enriquecer a publicação."
           accept={mediaConfig.secondaryAccept}
-          aspectHint={mediaConfig.secondaryMediaType === 'THUMBNAIL' ? '16:9' : undefined}
+          aspectHint={mediaConfig.secondaryMediaType === MediaSocialTypeEnum.THUMBNAIL ? '16:9' : undefined}
           value={secondaryMedia}
           onChange={(file, type) => setSecondaryMedia(buildMediaItem(file, type))}
           onRemove={() => setSecondaryMedia(null)}
@@ -368,7 +375,7 @@ const PostSocialPage = () => {
               </div>
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">Post Social</p>
-                <h1 className="text-3xl font-bold text-foreground font-display">{socialMeta.label}</h1>
+                <h1 className="font-display text-3xl font-bold text-foreground">{socialMeta.label}</h1>
                 <p className="mt-1 text-sm text-muted-foreground">Criação e edição dinâmica com texto gerado por IA e mídia manual.</p>
               </div>
             </div>
@@ -410,27 +417,23 @@ const PostSocialPage = () => {
 
                     <div className="space-y-2">
                       <Label>Status</Label>
-                      <Select value={status} onValueChange={(value: PostSocialStatusEnum) => setStatus(value)}>
+                      <Select value={status} onValueChange={(value) => setStatus(value as PostSocialStatusEnum)}>
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="DRAFT">DRAFT</SelectItem>
-                          <SelectItem value="SCHEDULED">SCHEDULED</SelectItem>
-                          <SelectItem value="PROCESSING">PROCESSING</SelectItem>
-                          <SelectItem value="PUBLISHED">PUBLISHED</SelectItem>
-                          <SelectItem value="FAILED">FAILED</SelectItem>
-                          <SelectItem value="CANCELLED">CANCELLED</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.DRAFT}>DRAFT</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.SCHEDULED}>SCHEDULED</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.PROCESSING}>PROCESSING</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.PUBLISHED}>PUBLISHED</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.FAILED}>FAILED</SelectItem>
+                          <SelectItem value={PostSocialStatusEnum.CANCELLED}>CANCELLED</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
-                  <PostTypeSelector
-                    socialMedia={socialMedia}
-                    value={postType}
-                    onChange={(value) => setPostType(value)}
-                  />
+                  <PostTypeSelector socialMedia={socialMedia} value={postType} onChange={(value) => setPostType(value)} />
 
                   <section className="space-y-4">
                     <div>
@@ -488,11 +491,11 @@ const PostSocialPage = () => {
                   </section>
 
                   <div className="flex flex-wrap gap-3">
-                    <Button onClick={() => savePost('DRAFT')} disabled={isSaving}>
+                    <Button onClick={() => savePost(PostSocialStatusEnum.DRAFT)} disabled={isSaving}>
                       {isSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                       Salvar Rascunho
                     </Button>
-                    <Button variant="secondary" onClick={() => savePost('SCHEDULED')} disabled={isSaving}>
+                    <Button variant="secondary" onClick={() => savePost(PostSocialStatusEnum.SCHEDULED)} disabled={isSaving}>
                       <CalendarClock className="h-4 w-4" />
                       Agendar
                     </Button>
@@ -513,7 +516,9 @@ const PostSocialPage = () => {
               caption={caption}
               tags={tags}
               linkUrl={linkUrl}
-              media={[...mediaList, ...(secondaryMedia ? [secondaryMedia] : [])].filter((item) => item.mediaType !== MediaSocialTypeEnum.THUMBNAIL && item.mediaType !== MediaSocialTypeEnum.COVER_IMAGE)}
+              media={[...mediaList, ...(secondaryMedia ? [secondaryMedia] : [])].filter(
+                (item) => item.mediaType !== MediaSocialTypeEnum.THUMBNAIL && item.mediaType !== MediaSocialTypeEnum.COVER_IMAGE,
+              )}
             />
           </div>
         </div>
