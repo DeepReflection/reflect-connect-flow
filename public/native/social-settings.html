@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Hub - Contas Sociais</title>
+  <meta name="description" content="Gerencie as contas conectadas de cada rede social.">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/social-hub.css">
+</head>
+<body>
+  <!-- Theme Bar -->
+  <div class="social-theme-bar">
+    <div class="social-theme-bar-inner">
+      <div class="social-theme-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        <span>Escolha seu tema</span>
+      </div>
+      <select id="theme-selector" class="social-theme-select" onchange="changeTheme(this.value)">
+        <optgroup label="☀ Temas Claros">
+          <option value="arctic-frost">Arctic Frost</option>
+          <option value="desert-sand">Desert Sand</option>
+          <option value="cloud-silver">Cloud Silver</option>
+          <option value="rose-garden">Rose Garden</option>
+          <option value="mint-fresh">Mint Fresh</option>
+          <option value="lavender-dream">Lavender Dream</option>
+          <option value="peach-blossom">Peach Blossom</option>
+          <option value="cream-vanilla">Cream & Vanilla</option>
+          <option value="sage-morning">Sage Morning</option>
+          <option value="sky-blue">Sky Blue</option>
+        </optgroup>
+        <optgroup label="🌙 Temas Escuros">
+          <option value="vintage-sepia" selected>Vintage Sepia</option>
+          <option value="midnight-gold">Midnight Gold</option>
+          <option value="ocean-deep">Ocean Deep</option>
+          <option value="forest-emerald">Forest Emerald</option>
+          <option value="crimson-war">Crimson War</option>
+          <option value="royal-purple">Royal Purple</option>
+          <option value="golden-hour">Golden Hour</option>
+          <option value="coral-reef">Coral Reef</option>
+          <option value="sunset-bronze">Sunset Bronze</option>
+          <option value="military-olive">Military Olive</option>
+          <option value="neon-gamer">Neon Gamer</option>
+          <option value="retro-wave">Retro Wave</option>
+          <option value="nature-organic">Nature Organic</option>
+        </optgroup>
+        <optgroup label="💼 Temas de Negócio">
+          <option value="corporate-navy">Corporate Navy</option>
+          <option value="executive-charcoal">Executive Charcoal</option>
+          <option value="startup-teal">Startup Teal</option>
+          <option value="finance-green">Finance Green</option>
+          <option value="consulting-slate">Consulting Slate</option>
+          <option value="tech-indigo">Tech Indigo</option>
+          <option value="luxury-black">Luxury Black</option>
+          <option value="modern-graphite">Modern Graphite</option>
+          <option value="innovation-blue">Innovation Blue</option>
+          <option value="prestige-burgundy">Prestige Burgundy</option>
+        </optgroup>
+        <optgroup label="🎨 Temas com Layout Único">
+          <option value="glassmorphism">Glassmorphism</option>
+          <option value="brutalist-raw">Brutalist Raw</option>
+          <option value="gradient-flow">Gradient Flow</option>
+          <option value="minimal-zen">Minimal Zen</option>
+          <option value="card-stack">Card Stack</option>
+          <option value="magazine-editorial">Magazine Editorial</option>
+          <option value="split-screen">Split Screen</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
+
+  <div class="social-hub-layout">
+    <!-- Sidebar -->
+    <aside class="social-sidebar">
+      <div class="social-sidebar-header">
+        <h2 class="social-sidebar-title">Social Hub</h2>
+        <p class="social-sidebar-subtitle">Gerenciamento de Redes</p>
+      </div>
+      <nav class="social-sidebar-nav">
+        <a href="#" class="social-nav-item disabled">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+          <span class="social-nav-badge">Em breve</span>
+        </a>
+        <a href="social-email.html" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>Email</span>
+        </a>
+        <a href="social-post.html?social=INSTAGRAM" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="social-post.html?social=FACEBOOK" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="social-post.html?social=YOUTUBE" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a href="social-post.html?social=LINKEDIN" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="social-post.html?social=TWITTER" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          <span>X (Twitter)</span>
+        </a>
+        <a href="social-post.html?social=TIKTOK" class="social-nav-item">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
+          <span>TikTok</span>
+        </a>
+        <a href="social-settings.html" class="social-nav-item active">
+          <svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Configurações</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="social-main">
+      <div class="social-content" style="max-width:56rem;">
+        <!-- Header -->
+        <div class="social-settings-header">
+          <div>
+            <h1 class="social-page-title" style="font-size:1.875rem;">Contas Sociais</h1>
+            <p class="social-page-description">Gerencie as contas conectadas de cada rede social.</p>
+          </div>
+          <button class="social-btn social-btn-primary" onclick="openNewAccount()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Nova Conta
+          </button>
+        </div>
+
+        <!-- Account Cards Grid -->
+        <div id="accounts-grid" class="social-accounts-grid"></div>
+
+        <!-- Empty state -->
+        <div id="empty-state" class="social-card" style="display:none;text-align:center;padding:3rem;">
+          <p style="color:hsl(var(--muted-foreground));font-size:0.875rem;">Nenhuma conta cadastrada.</p>
+          <p style="color:hsl(var(--muted-foreground));font-size:0.75rem;margin-top:0.25rem;">Clique em "Nova Conta" para adicionar.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal-overlay" class="social-modal-overlay" style="display:none;" onclick="closeModalOverlay(event)">
+    <div class="social-modal" onclick="event.stopPropagation()">
+      <div class="social-modal-header">
+        <h2 class="social-modal-title" id="modal-title">Conectar Conta</h2>
+        <button class="social-modal-close" onclick="closeModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="social-modal-body">
+        <!-- Rede Social -->
+        <div class="social-form-group">
+          <label class="social-label">Rede Social <span style="color:hsl(0 70% 50%);">*</span></label>
+          <select id="form-social-media" class="social-select" onchange="onSocialMediaChange()">
+            <option value="">Selecione a rede social</option>
+            <option value="YOUTUBE">YouTube</option>
+            <option value="FACEBOOK">Facebook</option>
+            <option value="INSTAGRAM">Instagram</option>
+            <option value="TWITTER">Twitter / X</option>
+            <option value="LINKEDIN">LinkedIn</option>
+            <option value="TIKTOK">TikTok</option>
+          </select>
+          <p id="err-socialMedia" class="social-form-error" style="display:none;"></p>
+        </div>
+
+        <!-- Account Name -->
+        <div class="social-form-group">
+          <label class="social-label" id="label-accountName">Nome da Conta <span style="color:hsl(0 70% 50%);">*</span></label>
+          <input type="text" id="form-accountName" class="social-input" placeholder="@sua_conta" maxlength="255">
+          <p id="err-accountName" class="social-form-error" style="display:none;"></p>
+        </div>
+
+        <!-- Client ID -->
+        <div class="social-form-group">
+          <div class="social-label-row">
+            <label class="social-label" id="label-clientId">Client ID / App ID <span style="color:hsl(0 70% 50%);">*</span></label>
+            <span class="social-help-icon" id="help-clientId" title="">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </span>
+          </div>
+          <input type="text" id="form-clientId" class="social-input" placeholder="Cole aqui o Client ID">
+          <p id="err-clientId" class="social-form-error" style="display:none;"></p>
+        </div>
+
+        <!-- Client Secret -->
+        <div class="social-form-group">
+          <div class="social-label-row">
+            <label class="social-label" id="label-clientSecret">Client Secret / App Secret <span style="color:hsl(0 70% 50%);">*</span></label>
+            <span class="social-help-icon" id="help-clientSecret" title="">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </span>
+          </div>
+          <div class="social-input-wrapper">
+            <input type="password" id="form-clientSecret" class="social-input" placeholder="Cole aqui o Secret">
+            <button type="button" class="social-input-toggle" onclick="toggleSecretVisibility()">
+              <svg id="secret-eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <p id="err-clientSecret" class="social-form-error" style="display:none;"></p>
+        </div>
+
+        <!-- isActive -->
+        <div class="social-form-group" style="display:flex;align-items:center;gap:0.75rem;">
+          <label class="social-switch">
+            <input type="checkbox" id="form-isActive" checked>
+            <span class="social-switch-slider"></span>
+          </label>
+          <label class="social-label" style="margin-bottom:0;">Conta ativa</label>
+        </div>
+
+        <!-- Info Banner -->
+        <div class="social-info-banner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <p>Após salvar, você será redirecionado para autorizar o acesso na plataforma selecionada. Os tokens de acesso serão gerados automaticamente.</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="social-modal-actions">
+          <button class="social-btn social-btn-outline" onclick="closeModal()">Cancelar</button>
+          <button class="social-btn social-btn-primary" id="btn-save" onclick="handleSave()">Salvar e Conectar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme management
+    function changeTheme(themeId) {
+      document.documentElement.className = 'theme-' + themeId;
+      localStorage.setItem('selectedTheme', themeId);
+    }
+    (function loadTheme() {
+      var saved = localStorage.getItem('selectedTheme') || 'vintage-sepia';
+      document.documentElement.className = 'theme-' + saved;
+      var sel = document.getElementById('theme-selector');
+      if (sel) sel.value = saved;
+    })();
+  </script>
+
+  <script>
+    /* ── Data ── */
+    var NETWORK_LABELS = {
+      YOUTUBE: { accountName: 'Nome do Canal', clientId: 'Client ID (Google Cloud Console)', clientIdHelp: 'Encontre em console.cloud.google.com → APIs & Services → Credentials.', clientSecret: 'Client Secret (Google Cloud Console)', clientSecretHelp: 'Na mesma tela de Credentials, copie o Client Secret do OAuth 2.0.' },
+      FACEBOOK: { accountName: 'Nome da Página', clientId: 'App ID (Facebook Developer)', clientIdHelp: 'Encontre em developers.facebook.com → My Apps → App ID.', clientSecret: 'App Secret (Facebook Developer)', clientSecretHelp: 'Em Settings → Basic → App Secret no painel do Facebook Developer.' },
+      INSTAGRAM: { accountName: 'Username (@perfil)', clientId: 'App ID (Facebook Developer)', clientIdHelp: 'O Instagram usa a API do Facebook. Encontre em developers.facebook.com.', clientSecret: 'App Secret (Facebook Developer)', clientSecretHelp: 'Em Settings → Basic → App Secret no painel do Facebook Developer.' },
+      TWITTER: { accountName: 'Username (@perfil)', clientId: 'API Key ou Client ID', clientIdHelp: 'Encontre em developer.twitter.com → Projects → Keys and Tokens.', clientSecret: 'API Secret ou Client Secret', clientSecretHelp: 'Na mesma tela de Keys and Tokens, copie o API Key Secret.' },
+      LINKEDIN: { accountName: 'Nome do Perfil ou Empresa', clientId: 'Client ID (LinkedIn Developer)', clientIdHelp: 'Encontre em linkedin.com/developers → My Apps → Auth → Client ID.', clientSecret: 'Client Secret (LinkedIn Developer)', clientSecretHelp: 'Na mesma tela Auth, copie o Client Secret.' },
+      TIKTOK: { accountName: 'Username (@perfil)', clientId: 'Client Key (TikTok Developer)', clientIdHelp: 'Encontre em developers.tiktok.com → Manage Apps → Client Key.', clientSecret: 'Client Secret (TikTok Developer)', clientSecretHelp: 'Na mesma tela de Manage Apps, copie o Client Secret.' }
+    };
+
+    var SOCIAL_META = {
+      INSTAGRAM: { label: 'Instagram', brandHsl: '337 76% 53%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>' },
+      FACEBOOK: { label: 'Facebook', brandHsl: '214 89% 52%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>' },
+      YOUTUBE: { label: 'YouTube', brandHsl: '0 100% 50%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>' },
+      TIKTOK: { label: 'TikTok', brandHsl: '0 0% 4%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>' },
+      LINKEDIN: { label: 'LinkedIn', brandHsl: '210 90% 40%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>' },
+      TWITTER: { label: 'X / Twitter', brandHsl: '203 89% 53%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>' }
+    };
+
+    var accounts = [
+      { id: 1, socialMedia: 'INSTAGRAM', accountName: '@meu_perfil', clientId: 'app_123', clientSecret: '***', isActive: true, tokenExpiresAt: new Date(Date.now() + 30*24*60*60*1000).toISOString() },
+      { id: 2, socialMedia: 'FACEBOOK', accountName: 'Minha Página', clientId: 'app_456', clientSecret: '***', isActive: false, tokenExpiresAt: new Date(Date.now() - 1000).toISOString() }
+    ];
+
+    var editingId = null;
+    var nextId = 100;
+
+    /* ── Token status ── */
+    function getTokenStatus(account) {
+      if (!account.tokenExpiresAt) return 'none';
+      var now = new Date();
+      var exp = new Date(account.tokenExpiresAt);
+      if (exp < now) return 'expired';
+      if (exp.getTime() - now.getTime() < 3*24*60*60*1000) return 'expiring';
+      return 'valid';
+    }
+
+    var TOKEN_BADGE = {
+      valid: { label: 'Token válido', cls: 'social-badge-green' },
+      expiring: { label: 'Expira em breve', cls: 'social-badge-yellow' },
+      expired: { label: 'Token expirado', cls: 'social-badge-red' },
+      none: { label: 'Sem token', cls: 'social-badge-muted' }
+    };
+
+    /* ── Render accounts ── */
+    function renderAccounts() {
+      var grid = document.getElementById('accounts-grid');
+      var empty = document.getElementById('empty-state');
+      if (!accounts.length) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      var html = '';
+      accounts.forEach(function(a) {
+        var meta = SOCIAL_META[a.socialMedia];
+        var ts = getTokenStatus(a);
+        var tb = TOKEN_BADGE[ts];
+        html += '<div class="social-card social-account-card">';
+        html += '<div class="social-account-top">';
+        html += '<div class="social-account-info">';
+        html += '<div class="social-account-icon" style="background-color:hsl(' + meta.brandHsl + ' / 0.12);">';
+        html += '<span style="color:hsl(' + meta.brandHsl + ');width:1.25rem;height:1.25rem;display:inline-flex;">' + meta.iconSvg + '</span>';
+        html += '</div>';
+        html += '<div><p class="social-account-name">' + (a.accountName || '') + '</p>';
+        html += '<p class="social-account-network">' + meta.label + '</p></div>';
+        html += '</div></div>';
+        // badges
+        html += '<div class="social-account-badges">';
+        if (a.isActive) {
+          html += '<span class="social-badge social-badge-green"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Conectada</span>';
+        } else {
+          html += '<span class="social-badge social-badge-muted"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Inativa</span>';
+        }
+        html += '<span class="social-badge ' + tb.cls + '">' + tb.label + '</span>';
+        html += '</div>';
+        // actions
+        html += '<div class="social-account-actions">';
+        html += '<button class="social-btn-icon" title="Editar" onclick="openEdit(' + a.id + ')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></button>';
+        html += '<label class="social-switch social-switch-sm"><input type="checkbox" ' + (a.isActive ? 'checked' : '') + ' onchange="toggleActive(' + a.id + ')"><span class="social-switch-slider"></span></label>';
+        if (ts === 'expired') {
+          html += '<button class="social-btn-icon social-btn-danger" title="Reconectar OAuth" onclick="reconnect(' + a.id + ')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></button>';
+        }
+        html += '</div>';
+        html += '</div>';
+      });
+      grid.innerHTML = html;
+    }
+
+    /* ── Modal ── */
+    function openNewAccount() {
+      editingId = null;
+      document.getElementById('modal-title').textContent = 'Conectar Conta';
+      document.getElementById('form-social-media').value = '';
+      document.getElementById('form-accountName').value = '';
+      document.getElementById('form-clientId').value = '';
+      document.getElementById('form-clientSecret').value = '';
+      document.getElementById('form-clientSecret').type = 'password';
+      document.getElementById('form-isActive').checked = true;
+      clearErrors();
+      resetLabels();
+      document.getElementById('modal-overlay').style.display = 'flex';
+    }
+
+    function openEdit(id) {
+      var a = accounts.find(function(x) { return x.id === id; });
+      if (!a) return;
+      editingId = id;
+      document.getElementById('modal-title').textContent = 'Editar Conta';
+      document.getElementById('form-social-media').value = a.socialMedia;
+      document.getElementById('form-accountName').value = a.accountName || '';
+      document.getElementById('form-clientId').value = a.clientId || '';
+      document.getElementById('form-clientSecret').value = a.clientSecret || '';
+      document.getElementById('form-clientSecret').type = 'password';
+      document.getElementById('form-isActive').checked = a.isActive;
+      clearErrors();
+      onSocialMediaChange();
+      document.getElementById('modal-overlay').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').style.display = 'none';
+    }
+
+    function closeModalOverlay(e) {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    }
+
+    /* ── Dynamic labels ── */
+    function onSocialMediaChange() {
+      var val = document.getElementById('form-social-media').value;
+      if (!val || !NETWORK_LABELS[val]) { resetLabels(); return; }
+      var nl = NETWORK_LABELS[val];
+      document.getElementById('label-accountName').innerHTML = nl.accountName + ' <span style="color:hsl(0 70% 50%);">*</span>';
+      document.getElementById('label-clientId').innerHTML = nl.clientId + ' <span style="color:hsl(0 70% 50%);">*</span>';
+      document.getElementById('label-clientSecret').innerHTML = nl.clientSecret + ' <span style="color:hsl(0 70% 50%);">*</span>';
+      document.getElementById('help-clientId').title = nl.clientIdHelp;
+      document.getElementById('help-clientSecret').title = nl.clientSecretHelp;
+    }
+
+    function resetLabels() {
+      document.getElementById('label-accountName').innerHTML = 'Nome da Conta <span style="color:hsl(0 70% 50%);">*</span>';
+      document.getElementById('label-clientId').innerHTML = 'Client ID / App ID <span style="color:hsl(0 70% 50%);">*</span>';
+      document.getElementById('label-clientSecret').innerHTML = 'Client Secret / App Secret <span style="color:hsl(0 70% 50%);">*</span>';
+    }
+
+    /* ── Validation ── */
+    function clearErrors() {
+      ['socialMedia','accountName','clientId','clientSecret'].forEach(function(f) {
+        var el = document.getElementById('err-' + f);
+        if (el) { el.style.display = 'none'; el.textContent = ''; }
+        var inp = document.getElementById('form-' + (f === 'socialMedia' ? 'social-media' : f));
+        if (inp) inp.classList.remove('social-input-error');
+      });
+    }
+
+    function showError(field, msg) {
+      var el = document.getElementById('err-' + field);
+      if (el) { el.textContent = msg; el.style.display = 'block'; }
+      var inputId = field === 'socialMedia' ? 'form-social-media' : 'form-' + field;
+      var inp = document.getElementById(inputId);
+      if (inp) inp.classList.add('social-input-error');
+    }
+
+    function validate() {
+      clearErrors();
+      var valid = true;
+      if (!document.getElementById('form-social-media').value) { showError('socialMedia', 'Selecione a rede social.'); valid = false; }
+      if (!document.getElementById('form-accountName').value.trim()) { showError('accountName', 'Campo obrigatório.'); valid = false; }
+      if (!document.getElementById('form-clientId').value.trim()) { showError('clientId', 'Campo obrigatório.'); valid = false; }
+      if (!document.getElementById('form-clientSecret').value.trim()) { showError('clientSecret', 'Campo obrigatório.'); valid = false; }
+      return valid;
+    }
+
+    /* ── Save ── */
+    function handleSave() {
+      if (!validate()) return;
+      var data = {
+        socialMedia: document.getElementById('form-social-media').value,
+        accountName: document.getElementById('form-accountName').value.trim(),
+        clientId: document.getElementById('form-clientId').value.trim(),
+        clientSecret: document.getElementById('form-clientSecret').value.trim(),
+        isActive: document.getElementById('form-isActive').checked
+      };
+      if (editingId) {
+        accounts = accounts.map(function(a) {
+          return a.id === editingId ? Object.assign({}, a, data, { lastUpdate: new Date().toISOString() }) : a;
+        });
+        showToast('Conta atualizada', 'Conta ' + data.accountName + ' salva com sucesso.');
+      } else {
+        data.id = nextId++;
+        data.tokenExpiresAt = new Date(Date.now() + 30*24*60*60*1000).toISOString();
+        data.createdAt = new Date().toISOString();
+        accounts.push(data);
+        showToast('Conta cadastrada', 'Conta ' + data.accountName + ' salva com sucesso.');
+      }
+      closeModal();
+      renderAccounts();
+    }
+
+    /* ── Actions ── */
+    function toggleActive(id) {
+      accounts = accounts.map(function(a) { return a.id === id ? Object.assign({}, a, { isActive: !a.isActive }) : a; });
+      renderAccounts();
+    }
+
+    function reconnect(id) {
+      var a = accounts.find(function(x) { return x.id === id; });
+      if (a) showToast('Reconectando…', 'Iniciando fluxo OAuth para ' + a.accountName + '.');
+    }
+
+    function toggleSecretVisibility() {
+      var inp = document.getElementById('form-clientSecret');
+      inp.type = inp.type === 'password' ? 'text' : 'password';
+    }
+
+    /* ── Toast ── */
+    function showToast(title, message, isError) {
+      var toast = document.createElement('div');
+      toast.className = 'social-toast' + (isError ? ' social-toast-error' : '');
+      toast.innerHTML = '<strong>' + title + '</strong><p>' + message + '</p>';
+      document.body.appendChild(toast);
+      setTimeout(function() { toast.classList.add('show'); }, 10);
+      setTimeout(function() {
+        toast.classList.remove('show');
+        setTimeout(function() { toast.remove(); }, 300);
+      }, 3000);
+    }
+
+    /* ── Init ── */
+    renderAccounts();
+  </script>
+</body>
+</html>
