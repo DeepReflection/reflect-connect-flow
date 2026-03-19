@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Globe, Instagram, LayoutDashboard, Linkedin, Mail, Settings, Twitter, Youtube, Facebook, AlertCircle } from 'lucide-react';
+import { Instagram, LayoutDashboard, Linkedin, Mail, Music, Settings, Twitter, Youtube, Facebook, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeSelector from '@/components/ThemeSelector';
 import { SocialMediaEnum } from '@/types/socialPost';
