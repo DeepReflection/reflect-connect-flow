@@ -477,8 +477,8 @@ const PostSocialPage = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button disabled={isSaving}>
-                          {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
-                          Salvar
+                          {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                          Postar
                           <ChevronDown className="ml-2 h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -486,10 +486,6 @@ const PostSocialPage = () => {
                         <DropdownMenuItem onClick={() => savePost(PostSocialStatusEnum.DRAFT)}>
                           <Save className="mr-2 h-4 w-4" />
                           Salvar Rascunho
-                        </DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => savePost(PostSocialStatusEnum.PUBLISHED)}>
-                          <Sparkles className="mr-2 h-4 w-4" />
-                          Postar
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
