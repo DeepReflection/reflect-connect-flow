@@ -94,6 +94,7 @@ const PostSocialPage = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [isLoadingPost, setIsLoadingPost] = useState(false);
+  const [isAutomationOpen, setIsAutomationOpen] = useState(false);
 
   const mediaConfig = useMemo(() => getMediaConfig(socialMedia, postType), [socialMedia, postType]);
   const captionLabel = getCaptionLabel(socialMedia);
