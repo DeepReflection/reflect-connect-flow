@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { AutomationProject, RecurrenceType, recurrenceLabels } from '@/types/blogAutomation';
+import { Instagram, Facebook, Youtube, Linkedin, Twitter } from 'lucide-react';
+import { AutomationProject, RecurrenceType, SocialMediaType, recurrenceLabels, socialMediaLabels } from '@/types/blogAutomation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -29,7 +30,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Checkbox } from '@/components/ui/checkbox';
+
+const socialNetworkOptions: { value: SocialMediaType; label: string; icon: React.ElementType }[] = [
+  { value: 'INSTAGRAM', label: 'Instagram', icon: Instagram },
+  { value: 'FACEBOOK', label: 'Facebook', icon: Facebook },
+  { value: 'YOUTUBE', label: 'YouTube', icon: Youtube },
+  { value: 'TIKTOK', label: 'TikTok', icon: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><circle cx="12" cy="12" r="10"/><path d="M9 12h6"/><path d="M12 9v6"/></svg> },
+  { value: 'LINKEDIN', label: 'LinkedIn', icon: Linkedin },
+  { value: 'TWITTER', label: 'X / Twitter', icon: Twitter },
+];
 
 const formSchema = z.object({
   name: z.string().min(3, 'Nome deve ter pelo menos 3 caracteres').max(100),
@@ -38,6 +47,7 @@ const formSchema = z.object({
   recurrence: z.enum(['daily', 'weekly', 'biweekly', 'monthly']),
   scheduledDays: z.array(z.number()).optional(),
   scheduledTime: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Horário inválido'),
+  socialNetworks: z.array(z.enum(['YOUTUBE', 'FACEBOOK', 'INSTAGRAM', 'TWITTER', 'LINKEDIN', 'TIKTOK'])).min(1, 'Selecione ao menos uma rede social'),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -76,11 +86,13 @@ const AutomationProjectForm = ({
       recurrence: project?.recurrence || 'weekly',
       scheduledDays: project?.scheduledDays || [1],
       scheduledTime: project?.scheduledTime || '09:00',
+      socialNetworks: project?.socialNetworks || [],
     },
   });
 
   const recurrence = form.watch('recurrence');
   const scheduledDays = form.watch('scheduledDays') || [];
+  const socialNetworks = form.watch('socialNetworks') || [];
 
   const handleSubmit = (data: FormData) => {
     onSave(data);
@@ -94,6 +106,14 @@ const AutomationProjectForm = ({
       ? current.filter(d => d !== day)
       : [...current, day].sort();
     form.setValue('scheduledDays', newDays);
+  };
+
+  const toggleNetwork = (network: SocialMediaType) => {
+    const current = socialNetworks;
+    const updated = current.includes(network)
+      ? current.filter(n => n !== network)
+      : [...current, network];
+    form.setValue('socialNetworks', updated, { shouldValidate: true });
   };
 
   return (
@@ -118,7 +138,7 @@ const AutomationProjectForm = ({
                   <FormLabel>Nome do Projeto</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="Ex: Heróis da Segunda Guerra" 
+                      placeholder="Ex: Campanha Instagram Verão" 
                       {...field} 
                       className="bg-background"
                     />
@@ -133,16 +153,16 @@ const AutomationProjectForm = ({
               name="theme"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Tema dos Artigos</FormLabel>
+                  <FormLabel>Tema dos Posts</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Descreva o tema central que a IA usará para gerar os artigos..."
+                      placeholder="Descreva o tema central que a IA usará para gerar os posts..."
                       className="min-h-[100px] bg-background resize-none"
                       {...field}
                     />
                   </FormControl>
                   <FormDescription>
-                    Seja específico. Quanto mais detalhado, melhores serão os artigos gerados.
+                    Seja específico. Quanto mais detalhado, melhores serão os posts gerados.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -162,6 +182,48 @@ const AutomationProjectForm = ({
                       className="bg-background"
                     />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Social Networks Selection */}
+            <FormField
+              control={form.control}
+              name="socialNetworks"
+              render={() => (
+                <FormItem>
+                  <FormLabel>Redes Sociais</FormLabel>
+                  <div className="grid grid-cols-3 gap-2 mt-2">
+                    {socialNetworkOptions.map(({ value, label, icon: Icon }) => {
+                      const isSelected = socialNetworks.includes(value);
+                      return (
+                        <label
+                          key={value}
+                          className={`
+                            flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer
+                            transition-all text-sm font-medium
+                            ${isSelected
+                              ? 'bg-primary/10 text-primary border-primary/50'
+                              : 'bg-background border-border text-muted-foreground hover:border-primary/30'
+                            }
+                          `}
+                        >
+                          <input
+                            type="checkbox"
+                            className="sr-only"
+                            checked={isSelected}
+                            onChange={() => toggleNetwork(value)}
+                          />
+                          <Icon className="w-4 h-4 shrink-0" />
+                          <span className="truncate">{label}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                  <FormDescription>
+                    Selecione em quais redes os posts serão gerados automaticamente.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -239,7 +301,7 @@ const AutomationProjectForm = ({
                   ))}
                 </div>
                 <FormDescription className="mt-2">
-                  Selecione os dias em que o artigo será publicado.
+                  Selecione os dias em que o post será publicado.
                 </FormDescription>
               </FormItem>
             )}

@@ -1268,3 +1268,36 @@
   height: 2.25rem;
   padding: 0;
 }
+
+/* ── Social network selection grid ── */
+.social-network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.social-network-option {
+  cursor: pointer;
+}
+.social-network-option input { display: none; }
+.social-network-option span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.social-network-option input:checked + span {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary) / 0.5);
+}
+.social-network-option:hover span {
+  border-color: hsl(var(--primary) / 0.3);
+}

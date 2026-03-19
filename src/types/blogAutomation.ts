@@ -2,6 +2,17 @@ export type RecurrenceType = 'daily' | 'weekly' | 'biweekly' | 'monthly';
 
 export type ProjectStatus = 'active' | 'paused' | 'draft';
 
+export type SocialMediaType = 'YOUTUBE' | 'FACEBOOK' | 'INSTAGRAM' | 'TWITTER' | 'LINKEDIN' | 'TIKTOK';
+
+export const socialMediaLabels: Record<SocialMediaType, string> = {
+  INSTAGRAM: 'Instagram',
+  FACEBOOK: 'Facebook',
+  YOUTUBE: 'YouTube',
+  TIKTOK: 'TikTok',
+  LINKEDIN: 'LinkedIn',
+  TWITTER: 'X / Twitter',
+};
+
 export interface AutomationProject {
   id: string;
   name: string;
@@ -10,6 +21,7 @@ export interface AutomationProject {
   recurrence: RecurrenceType;
   scheduledDays?: number[]; // 0-6 for weekly (Sunday-Saturday)
   scheduledTime: string; // HH:MM format
+  socialNetworks: SocialMediaType[];
   status: ProjectStatus;
   postsGenerated: number;
   nextRunDate: Date;
