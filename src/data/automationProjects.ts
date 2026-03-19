@@ -53,6 +53,7 @@ export const sampleProjects: AutomationProject[] = [
     recurrence: 'weekly',
     scheduledDays: [4], // Thursday
     scheduledTime: '08:00',
+    socialNetworks: ['INSTAGRAM', 'TIKTOK'],
     status: 'draft',
     postsGenerated: 0,
     nextRunDate: new Date('2026-01-30T08:00:00'),
