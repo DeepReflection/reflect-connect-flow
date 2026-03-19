@@ -121,7 +121,7 @@ const AutomationProjectForm = ({
       <DialogContent className="sm:max-w-[540px] bg-card border-border max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xl">
-            {isEditing ? 'Editar Projeto' : 'Novo Projeto de Automação'}
+            {isEditing ? 'Editar Campanha' : 'Nova Campanha de Automação'}
           </DialogTitle>
           <DialogDescription>
             Configure o tema e a frequência de publicação automática.
@@ -135,7 +135,7 @@ const AutomationProjectForm = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome do Projeto</FormLabel>
+                  <FormLabel>Nome da Campanha</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="Ex: Campanha Instagram Verão" 
@@ -315,7 +315,7 @@ const AutomationProjectForm = ({
                 Cancelar
               </Button>
               <Button type="submit">
-                {isEditing ? 'Salvar Alterações' : 'Criar Projeto'}
+                {isEditing ? 'Salvar Alterações' : 'Criar Campanha'}
               </Button>
             </DialogFooter>
           </form>
