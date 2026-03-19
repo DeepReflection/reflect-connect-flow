@@ -1,12 +1,18 @@
 import {
   Album,
   Clapperboard,
+  Facebook,
   FileText,
   Image as ImageIcon,
+  Instagram,
+  Linkedin,
   type LucideIcon,
+  Music,
   Radio,
   ScrollText,
+  Twitter,
   Video,
+  Youtube,
 } from 'lucide-react';
 import { MediaSocialTypeEnum, PostSocialTypeEnum, SocialMediaEnum } from '@/types/socialPost';
 
