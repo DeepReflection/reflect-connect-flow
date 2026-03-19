@@ -472,18 +472,48 @@ const PostSocialPage = () => {
                     ) : null}
                   </section>
 
-                  <div className="flex flex-wrap gap-3">
-                    <Button onClick={() => savePost(PostSocialStatusEnum.DRAFT)} disabled={isSaving}>
-                      {isSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
-                      Salvar Rascunho
-                    </Button>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button disabled={isSaving}>
+                          {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
+                          Salvar
+                          <ChevronDown className="ml-2 h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start">
+                        <DropdownMenuItem onClick={() => savePost(PostSocialStatusEnum.DRAFT)}>
+                          <Save className="mr-2 h-4 w-4" />
+                          Salvar Rascunho
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => savePost(PostSocialStatusEnum.PUBLISHED)}>
+                          <Sparkles className="mr-2 h-4 w-4" />
+                          Postar
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+
                     <Button variant="secondary" onClick={() => savePost(PostSocialStatusEnum.SCHEDULED)} disabled={isSaving}>
-                      <CalendarClock className="h-4 w-4" />
+                      <CalendarClock className="mr-2 h-4 w-4" />
                       Agendar
                     </Button>
-                    <Button variant="ghost" onClick={() => navigate('/social/email')}>
-                      <Sparkles className="h-4 w-4" />
-                      Voltar ao hub
+
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                      onClick={() => savePost(PostSocialStatusEnum.CANCELLED)}
+                      disabled={isSaving}
+                      title="Cancelar post"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+
+                    <div className="flex-1" />
+
+                    <Button variant="ghost" onClick={() => navigate(-1)}>
+                      <ArrowLeft className="mr-2 h-4 w-4" />
+                      Voltar
                     </Button>
                   </div>
                 </CardContent>
