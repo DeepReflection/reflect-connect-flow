@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Globe, Instagram, LayoutDashboard, Linkedin, Mail, Settings, Twitter, Youtube, Facebook, AlertCircle } from 'lucide-react';
+import { Instagram, LayoutDashboard, Linkedin, Mail, Music, Settings, Twitter, Youtube, Facebook, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ThemeSelector from '@/components/ThemeSelector';
 import { SocialMediaEnum } from '@/types/socialPost';
@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
   { label: 'YouTube', icon: Youtube, path: '/social/post/YOUTUBE', socialMedia: SocialMediaEnum.YOUTUBE },
   { label: 'LinkedIn', icon: Linkedin, path: '/social/post/LINKEDIN', socialMedia: SocialMediaEnum.LINKEDIN },
   { label: 'X (Twitter)', icon: Twitter, path: '/social/post/TWITTER', socialMedia: SocialMediaEnum.TWITTER },
-  { label: 'TikTok', icon: Globe, path: '/social/post/TIKTOK', socialMedia: SocialMediaEnum.TIKTOK },
+  { label: 'TikTok', icon: Music, path: '/social/post/TIKTOK', socialMedia: SocialMediaEnum.TIKTOK },
   { label: 'Configurações', icon: Settings, path: '/social/settings' },
 ];
 
