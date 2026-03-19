@@ -1216,3 +1216,55 @@
 .social-dropdown-item:hover {
   background: hsl(var(--muted));
 }
+
+/* ── Weekday toggle buttons ── */
+.social-weekday-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.social-weekday-btn input { display: none; }
+.social-weekday-btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.social-weekday-btn input:checked + span {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+.social-weekday-btn:hover span {
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.social-btn-ghost {
+  background: transparent;
+  color: hsl(var(--foreground));
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.social-btn-ghost:hover {
+  background: hsl(var(--muted));
+}
+.social-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+}

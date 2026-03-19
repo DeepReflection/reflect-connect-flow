@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, CalendarClock, ChevronDown, Loader2, Save, Sparkles, Trash2 } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Loader2, Save, Sparkles, Trash2, Zap } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SocialHubLayout from '@/components/social/SocialHubLayout';
 import IdeaSection from '@/components/social/post/IdeaSection';
+import AutomationProjectForm from '@/components/blog/AutomationProjectForm';
 import PostTypeSelector from '@/components/social/post/PostTypeSelector';
 import MediaUploadSingle from '@/components/social/post/MediaUploadSingle';
 import MediaUploadMultiple from '@/components/social/post/MediaUploadMultiple';
@@ -93,6 +94,7 @@ const PostSocialPage = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [isLoadingPost, setIsLoadingPost] = useState(false);
+  const [isAutomationOpen, setIsAutomationOpen] = useState(false);
 
   const mediaConfig = useMemo(() => getMediaConfig(socialMedia, postType), [socialMedia, postType]);
   const captionLabel = getCaptionLabel(socialMedia);
@@ -385,6 +387,10 @@ const PostSocialPage = () => {
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">{status}</span>
               {isLoadingPost ? <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" /> : null}
+              <Button variant="outline" className="gap-2" onClick={() => setIsAutomationOpen(true)}>
+                <Zap className="h-4 w-4" />
+                Automação
+              </Button>
             </div>
           </div>
 
@@ -490,11 +496,6 @@ const PostSocialPage = () => {
                       </DropdownMenuContent>
                     </DropdownMenu>
 
-                    <Button variant="secondary" onClick={() => savePost(PostSocialStatusEnum.SCHEDULED)} disabled={isSaving}>
-                      <CalendarClock className="mr-2 h-4 w-4" />
-                      Agendar
-                    </Button>
-
                     <Button
                       variant="ghost"
                       size="icon"
@@ -532,6 +533,14 @@ const PostSocialPage = () => {
           </div>
         </div>
       </div>
+
+      <AutomationProjectForm
+        open={isAutomationOpen}
+        onOpenChange={setIsAutomationOpen}
+        onSave={(data) => {
+          toast({ title: 'Campanha criada!', description: 'Sua campanha de automação foi criada com sucesso.' });
+        }}
+      />
     </SocialHubLayout>
   );
 };

@@ -191,9 +191,8 @@
                       </div>
                     </div>
 
-                    <button class="social-btn social-btn-outline" onclick="savePost('SCHEDULED')">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                      Agendar
+                    <button class="social-btn social-btn-ghost social-btn-icon" onclick="savePost('CANCELLED')" title="Cancelar post" style="color:hsl(0 78% 58%);">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
                     </button>
                   </div>
                   <button class="social-btn social-btn-outline" onclick="history.back()">
@@ -352,7 +351,13 @@
             '<p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));">Criação e edição dinâmica com texto gerado por IA e mídia manual.</p>' +
           '</div>' +
         '</div>' +
-        '<span class="social-badge social-badge-muted" id="status-badge">DRAFT</span>';
+        '<div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">' +
+          '<span class="social-badge social-badge-muted" id="status-badge">DRAFT</span>' +
+          '<button class="social-btn social-btn-outline" onclick="openAutomationModal()">' +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>' +
+            'Automação' +
+          '</button>' +
+        '</div>';
     }
 
     /* ── Post types ── */
@@ -656,6 +661,36 @@
     }
     document.addEventListener('click', function() { closeSaveDropdown(); });
 
+    /* ── Automation modal ── */
+    var RECURRENCE_LABELS = { daily:'Diário', weekly:'Semanal', biweekly:'Quinzenal', monthly:'Mensal' };
+    var WEEK_DAYS = [{v:0,l:'Dom'},{v:1,l:'Seg'},{v:2,l:'Ter'},{v:3,l:'Qua'},{v:4,l:'Qui'},{v:5,l:'Sex'},{v:6,l:'Sáb'}];
+
+    function openAutomationModal() {
+      document.getElementById('automation-modal-overlay').style.display = 'flex';
+      document.getElementById('auto-recurrence').value = 'weekly';
+      toggleWeekDays();
+    }
+    function closeAutomationModal() {
+      document.getElementById('automation-modal-overlay').style.display = 'none';
+    }
+    function toggleWeekDays() {
+      var rec = document.getElementById('auto-recurrence').value;
+      document.getElementById('auto-weekdays-section').style.display = rec === 'weekly' ? 'block' : 'none';
+    }
+    function saveAutomationProject() {
+      var name = document.getElementById('auto-name').value.trim();
+      var theme = document.getElementById('auto-theme').value.trim();
+      if (!name || name.length < 3) { showToast('Erro', 'Nome deve ter pelo menos 3 caracteres.', true); return; }
+      if (!theme || theme.length < 10) { showToast('Erro', 'Tema deve ter pelo menos 10 caracteres.', true); return; }
+      closeAutomationModal();
+      showToast('Campanha criada!', 'Sua campanha de automação foi criada com sucesso.');
+      // Reset form
+      document.getElementById('auto-name').value = '';
+      document.getElementById('auto-theme').value = '';
+      document.getElementById('auto-description').value = '';
+      document.getElementById('auto-time').value = '09:00';
+    }
+
     /* ── Live preview listeners ── */
     document.addEventListener('DOMContentLoaded', function() {
       init();
@@ -666,5 +701,62 @@
       if (linkEl) linkEl.addEventListener('input', updatePreview);
     });
   </script>
+
+  <!-- Automation Modal -->
+  <div id="automation-modal-overlay" class="social-modal-overlay" style="display:none;" onclick="if(event.target===this)closeAutomationModal();">
+    <div class="social-modal" style="max-width:540px;">
+      <div class="social-modal-header">
+        <h2 class="social-modal-title">Novo Projeto de Automação</h2>
+        <p style="font-size:0.875rem;color:hsl(var(--muted-foreground));">Configure o tema e a frequência de publicação automática.</p>
+      </div>
+      <div class="social-modal-body" style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="social-form-group" style="margin-bottom:0;">
+          <label class="social-label">Nome do Projeto</label>
+          <input type="text" id="auto-name" class="social-input" placeholder="Ex: Campanha Instagram Verão">
+        </div>
+        <div class="social-form-group" style="margin-bottom:0;">
+          <label class="social-label">Tema dos Posts</label>
+          <textarea id="auto-theme" class="social-textarea" style="min-height:100px;resize:none;" placeholder="Descreva o tema central que a IA usará para gerar os posts..."></textarea>
+          <p style="font-size:0.75rem;color:hsl(var(--muted-foreground));margin-top:0.25rem;">Seja específico. Quanto mais detalhado, melhores serão os posts gerados.</p>
+        </div>
+        <div class="social-form-group" style="margin-bottom:0;">
+          <label class="social-label">Descrição (opcional)</label>
+          <input type="text" id="auto-description" class="social-input" placeholder="Breve descrição do projeto">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="social-form-group" style="margin-bottom:0;">
+            <label class="social-label">Frequência</label>
+            <select id="auto-recurrence" class="social-select" onchange="toggleWeekDays()">
+              <option value="daily">Diário</option>
+              <option value="weekly" selected>Semanal</option>
+              <option value="biweekly">Quinzenal</option>
+              <option value="monthly">Mensal</option>
+            </select>
+          </div>
+          <div class="social-form-group" style="margin-bottom:0;">
+            <label class="social-label">Horário</label>
+            <input type="time" id="auto-time" class="social-input" value="09:00">
+          </div>
+        </div>
+        <div id="auto-weekdays-section">
+          <label class="social-label">Dias da Semana</label>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
+            <label class="social-weekday-btn"><input type="checkbox" value="0"><span>Dom</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="1" checked><span>Seg</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="2"><span>Ter</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="3"><span>Qua</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="4"><span>Qui</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="5"><span>Sex</span></label>
+            <label class="social-weekday-btn"><input type="checkbox" value="6"><span>Sáb</span></label>
+          </div>
+          <p style="font-size:0.75rem;color:hsl(var(--muted-foreground));margin-top:0.5rem;">Selecione os dias em que o post será publicado.</p>
+        </div>
+      </div>
+      <div class="social-modal-footer">
+        <button class="social-btn social-btn-outline" onclick="closeAutomationModal()">Cancelar</button>
+        <button class="social-btn social-btn-primary" onclick="saveAutomationProject()">Criar Projeto</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
