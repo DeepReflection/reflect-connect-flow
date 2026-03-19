@@ -46,6 +46,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 const buildMediaItem = (file: File, mediaType?: MediaSocialTypeEnum): LocalMediaSocial => ({
   tempId: crypto.randomUUID(),
   file,
+  title: file.name.replace(/\.[^/.]+$/, ''),
   previewUrl: file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined,
   s3Url: '',
   mediaType:
