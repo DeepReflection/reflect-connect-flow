@@ -8,8 +8,9 @@ export const sampleProjects: AutomationProject[] = [
     theme: 'Histórias de bravura e sacrifício de soldados durante a Segunda Guerra Mundial',
     description: 'Artigos semanais destacando histórias pouco conhecidas de heróis de guerra.',
     recurrence: 'weekly',
-    scheduledDays: [1], // Monday
+    scheduledDays: [1],
     scheduledTime: '09:00',
+    socialNetworks: ['INSTAGRAM', 'FACEBOOK'],
     status: 'active',
     postsGenerated: 12,
     nextRunDate: new Date('2026-02-03T09:00:00'),
