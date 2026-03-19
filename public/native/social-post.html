@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Hub - Novo Post</title>
+  <meta name="description" content="Criação e edição dinâmica de posts com texto gerado por IA e mídia manual.">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/social-hub.css">
+</head>
+<body>
+  <!-- Theme Bar -->
+  <div class="social-theme-bar">
+    <div class="social-theme-bar-inner">
+      <div class="social-theme-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        <span>Escolha seu tema</span>
+      </div>
+      <select id="theme-selector" class="social-theme-select" onchange="changeTheme(this.value)">
+        <optgroup label="☀ Temas Claros">
+          <option value="arctic-frost">Arctic Frost</option>
+          <option value="desert-sand">Desert Sand</option>
+          <option value="cloud-silver">Cloud Silver</option>
+          <option value="rose-garden">Rose Garden</option>
+          <option value="mint-fresh">Mint Fresh</option>
+          <option value="lavender-dream">Lavender Dream</option>
+          <option value="peach-blossom">Peach Blossom</option>
+          <option value="cream-vanilla">Cream & Vanilla</option>
+          <option value="sage-morning">Sage Morning</option>
+          <option value="sky-blue">Sky Blue</option>
+        </optgroup>
+        <optgroup label="🌙 Temas Escuros">
+          <option value="vintage-sepia" selected>Vintage Sepia</option>
+          <option value="midnight-gold">Midnight Gold</option>
+          <option value="ocean-deep">Ocean Deep</option>
+          <option value="forest-emerald">Forest Emerald</option>
+          <option value="crimson-war">Crimson War</option>
+          <option value="royal-purple">Royal Purple</option>
+          <option value="golden-hour">Golden Hour</option>
+          <option value="coral-reef">Coral Reef</option>
+          <option value="sunset-bronze">Sunset Bronze</option>
+          <option value="military-olive">Military Olive</option>
+          <option value="neon-gamer">Neon Gamer</option>
+          <option value="retro-wave">Retro Wave</option>
+          <option value="nature-organic">Nature Organic</option>
+        </optgroup>
+        <optgroup label="💼 Temas de Negócio">
+          <option value="corporate-navy">Corporate Navy</option>
+          <option value="executive-charcoal">Executive Charcoal</option>
+          <option value="startup-teal">Startup Teal</option>
+          <option value="finance-green">Finance Green</option>
+          <option value="consulting-slate">Consulting Slate</option>
+          <option value="tech-indigo">Tech Indigo</option>
+          <option value="luxury-black">Luxury Black</option>
+          <option value="modern-graphite">Modern Graphite</option>
+          <option value="innovation-blue">Innovation Blue</option>
+          <option value="prestige-burgundy">Prestige Burgundy</option>
+        </optgroup>
+        <optgroup label="🎨 Temas com Layout Único">
+          <option value="glassmorphism">Glassmorphism</option>
+          <option value="brutalist-raw">Brutalist Raw</option>
+          <option value="gradient-flow">Gradient Flow</option>
+          <option value="minimal-zen">Minimal Zen</option>
+          <option value="card-stack">Card Stack</option>
+          <option value="magazine-editorial">Magazine Editorial</option>
+          <option value="split-screen">Split Screen</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
+
+  <div class="social-hub-layout">
+    <!-- Sidebar -->
+    <aside class="social-sidebar">
+      <div class="social-sidebar-header">
+        <h2 class="social-sidebar-title">Social Hub</h2>
+        <p class="social-sidebar-subtitle">Gerenciamento de Redes</p>
+      </div>
+      <nav class="social-sidebar-nav" id="sidebar-nav"></nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="social-main">
+      <div style="padding:2rem;">
+        <div style="max-width:80rem;margin:0 auto;">
+          <!-- Page header -->
+          <div class="social-post-page-header" id="page-header"></div>
+
+          <!-- Two-column layout -->
+          <div class="social-post-layout">
+            <!-- Left column: Form -->
+            <div class="social-post-form-col">
+              <!-- Idea Section -->
+              <div class="social-post-idea" id="idea-section">
+                <div class="social-post-idea-header">
+                  <div>
+                    <div class="social-post-idea-badge">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                      Fluxo com IA
+                    </div>
+                    <h2 style="font-size:1.125rem;font-weight:600;color:hsl(var(--foreground));">Ideia do post</h2>
+                    <p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));">Descreva a ideia e deixe a IA sugerir caption, título e tags conforme a rede.</p>
+                  </div>
+                  <button class="social-btn social-btn-brand" id="btn-generate" onclick="generateContent()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    <span id="btn-generate-text">Gerar com IA</span>
+                  </button>
+                </div>
+                <div class="social-form-group" style="margin-bottom:0;">
+                  <label class="social-label" style="display:inline-flex;align-items:center;gap:0.5rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    Ideia
+                  </label>
+                  <textarea id="idea-text" class="social-textarea" style="min-height:140px;" placeholder="Descreva sua ideia para o post... Ex: Quero falar sobre os benefícios do exercício físico matinal para produtividade"></textarea>
+                </div>
+              </div>
+
+              <!-- Main form card -->
+              <div class="social-card">
+                <!-- Account selector -->
+                <div class="social-form-group">
+                  <label class="social-label">Conta social</label>
+                  <select id="social-account" class="social-select">
+                    <option value="1">Conta padrão</option>
+                  </select>
+                </div>
+
+                <!-- Post type selector -->
+                <div id="post-type-section" style="margin-bottom:1.5rem;"></div>
+
+                <!-- Media section -->
+                <section style="margin-bottom:1.5rem;">
+                  <h2 style="font-size:1.125rem;font-weight:600;color:hsl(var(--foreground));">Mídia</h2>
+                  <p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));margin-bottom:1rem;">Upload sempre manual, com preview imediato.</p>
+                  <div id="media-section"></div>
+                </section>
+
+                <!-- Text fields section -->
+                <section class="social-post-text-section">
+                  <h2 style="font-size:1.125rem;font-weight:600;color:hsl(var(--foreground));">Texto do post</h2>
+                  <p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));margin-bottom:1rem;">Os campos podem ser gerados por IA e editados livremente.</p>
+
+                  <div id="title-field" style="display:none;" class="social-form-group">
+                    <label class="social-label">Título</label>
+                    <input type="text" id="post-title" class="social-input" placeholder="Título do post" maxlength="255">
+                  </div>
+
+                  <div id="caption-field" class="social-form-group">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.375rem;">
+                      <label class="social-label" id="caption-label" style="margin-bottom:0;">Legenda</label>
+                      <span class="social-char-counter" id="caption-counter">0/2200</span>
+                    </div>
+                    <textarea id="post-caption" class="social-textarea" style="min-height:160px;resize:vertical;" placeholder="Escreva o conteúdo da legenda..." oninput="updateCaptionCounter()"></textarea>
+                  </div>
+
+                  <div id="tags-field" style="display:none;" class="social-form-group">
+                    <label class="social-label">Tags / Hashtags</label>
+                    <div class="social-tags-container" id="tags-container"></div>
+                    <div style="display:flex;gap:0.5rem;">
+                      <input type="text" id="tag-input" class="social-input" placeholder="Digite e pressione Enter" onkeydown="handleTagKey(event)">
+                      <button class="social-btn social-btn-outline" onclick="addTag()" style="white-space:nowrap;">Adicionar</button>
+                    </div>
+                  </div>
+
+                  <div id="link-field" style="display:none;" class="social-form-group">
+                    <label class="social-label" id="link-label">Link</label>
+                    <input type="text" id="post-link" class="social-input" placeholder="https://" maxlength="1000">
+                  </div>
+                </section>
+
+                <!-- Action buttons -->
+                <div class="social-post-actions">
+                  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <button class="social-btn social-btn-primary" onclick="savePost('DRAFT')">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                      Salvar Rascunho
+                    </button>
+                    <button class="social-btn social-btn-outline" onclick="savePost('SCHEDULED')">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      Agendar
+                    </button>
+                    <button class="social-btn social-btn-outline" onclick="savePost('PUBLISHED')">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                      Postar
+                    </button>
+                  </div>
+                  <button class="social-btn social-btn-outline" onclick="history.back()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    Voltar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column: Preview -->
+            <div class="social-post-preview-col">
+              <div class="social-card social-post-preview-card" id="preview-card">
+                <div class="social-post-preview-header" id="preview-header"></div>
+                <div class="social-post-preview-body" id="preview-body">
+                  <div class="social-post-preview-avatar">
+                    <div style="width:2.75rem;height:2.75rem;border-radius:50%;background:hsl(var(--secondary));"></div>
+                    <div>
+                      <p style="font-size:0.875rem;font-weight:600;color:hsl(var(--foreground));">@sua_conta</p>
+                      <p style="font-size:0.75rem;color:hsl(var(--muted-foreground));">Agora mesmo</p>
+                    </div>
+                  </div>
+                  <div class="social-post-preview-media" id="preview-media">
+                    <span>Placeholder de mídia</span>
+                  </div>
+                  <div id="preview-text-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Theme management
+    function changeTheme(themeId) {
+      document.documentElement.className = 'theme-' + themeId;
+      localStorage.setItem('selectedTheme', themeId);
+    }
+    (function loadTheme() {
+      var saved = localStorage.getItem('selectedTheme') || 'vintage-sepia';
+      document.documentElement.className = 'theme-' + saved;
+      var sel = document.getElementById('theme-selector');
+      if (sel) sel.value = saved;
+    })();
+  </script>
+
+  <script>
+    /* ── Config data (mirrors socialPostConfig.ts) ── */
+    var SOCIAL_META = {
+      INSTAGRAM: { label: 'Instagram', brandHsl: '337 76% 53%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>' },
+      FACEBOOK: { label: 'Facebook', brandHsl: '214 89% 52%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>' },
+      YOUTUBE: { label: 'YouTube', brandHsl: '0 100% 50%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>' },
+      TIKTOK: { label: 'TikTok', brandHsl: '0 0% 4%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>' },
+      LINKEDIN: { label: 'LinkedIn', brandHsl: '210 90% 40%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>' },
+      TWITTER: { label: 'X / Twitter', brandHsl: '203 89% 53%', iconSvg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>' }
+    };
+
+    var ALLOWED_POST_TYPES = {
+      INSTAGRAM: ['IMAGE','CAROUSEL','REEL','STORY','VIDEO'],
+      FACEBOOK: ['TEXT','IMAGE','CAROUSEL','VIDEO','STORY','LIVE','DOCUMENT'],
+      YOUTUBE: ['VIDEO','SHORT','LIVE'],
+      TIKTOK: ['VIDEO','SHORT','STORY'],
+      LINKEDIN: ['TEXT','IMAGE','CAROUSEL','VIDEO','DOCUMENT'],
+      TWITTER: ['TEXT','IMAGE','VIDEO']
+    };
+
+    var POST_TYPE_LABELS = { TEXT:'Texto', IMAGE:'Imagem', VIDEO:'Vídeo', CAROUSEL:'Carrossel', REEL:'Reel', STORY:'Story', SHORT:'Short', DOCUMENT:'Documento', LIVE:'Live' };
+
+    var VISIBLE_FIELDS = {
+      INSTAGRAM: { title: false, caption: true, tags: true, linkUrl: true, captionMaxLength: 2200 },
+      FACEBOOK: { title: true, caption: true, tags: true, linkUrl: true, captionMaxLength: 63206 },
+      YOUTUBE: { title: true, caption: true, tags: true, linkUrl: true, captionMaxLength: 5000 },
+      TIKTOK: { title: false, caption: true, tags: true, linkUrl: false, captionMaxLength: 2200 },
+      LINKEDIN: { title: true, caption: true, tags: true, linkUrl: true, captionMaxLength: 3000 },
+      TWITTER: { title: false, caption: true, tags: false, linkUrl: false, captionMaxLength: 280 }
+    };
+
+    var TITLE_ENABLED_BY_TYPE = {
+      FACEBOOK: ['VIDEO','DOCUMENT'],
+      YOUTUBE: ['VIDEO','SHORT','LIVE'],
+      LINKEDIN: ['CAROUSEL','DOCUMENT']
+    };
+
+    var CAPTION_LABELS = { YOUTUBE: 'Descrição', TWITTER: 'Tweet' };
+    var LINK_LABELS = { INSTAGRAM: 'Link na bio' };
+
+    var MEDIA_CONFIG = {
+      'INSTAGRAM.IMAGE': { component:'single', accept:'image/*', label:'Imagem do post', desc:'Envie 1 imagem. Recomendado 1:1 ou 4:5.' },
+      'INSTAGRAM.CAROUSEL': { component:'carousel', accept:'image/*', label:'Carrossel', desc:'Envie de 2 a 10 imagens.' },
+      'INSTAGRAM.REEL': { component:'single', accept:'video/*', label:'Reel', desc:'Envie 1 vídeo MP4. Máx. 60 segundos.' },
+      'INSTAGRAM.STORY': { component:'single', accept:'image/*,video/*', label:'Story', desc:'Envie 1 imagem ou vídeo vertical.' },
+      'INSTAGRAM.VIDEO': { component:'single', accept:'video/*', label:'Vídeo', desc:'Envie 1 vídeo para o feed.' },
+      'FACEBOOK.TEXT': { component:'none', label:'Sem mídia', desc:'Este formato é apenas textual.' },
+      'FACEBOOK.IMAGE': { component:'multiple', accept:'image/*', label:'Imagens', desc:'Envie até 10 imagens.' },
+      'FACEBOOK.CAROUSEL': { component:'carousel', accept:'image/*', label:'Carrossel', desc:'Envie imagens com título/link por card.' },
+      'FACEBOOK.VIDEO': { component:'single', accept:'video/*', label:'Vídeo', desc:'Envie 1 vídeo.' },
+      'FACEBOOK.STORY': { component:'single', accept:'image/*,video/*', label:'Story', desc:'Envie 1 imagem ou vídeo para story.' },
+      'FACEBOOK.LIVE': { component:'none', label:'Live', desc:'Nenhum upload necessário para live.' },
+      'FACEBOOK.DOCUMENT': { component:'single', accept:'application/pdf', label:'Documento', desc:'Envie 1 PDF.' },
+      'YOUTUBE.VIDEO': { component:'single', accept:'video/*', label:'Vídeo principal', desc:'Envie o vídeo e a thumbnail 16:9.' },
+      'YOUTUBE.SHORT': { component:'single', accept:'video/*', label:'Short', desc:'Envie o vídeo vertical.' },
+      'YOUTUBE.LIVE': { component:'none', label:'Live', desc:'Configure o texto do evento ao vivo.' },
+      'TIKTOK.VIDEO': { component:'single', accept:'video/*', label:'Vídeo', desc:'Envie 1 vídeo vertical.' },
+      'TIKTOK.SHORT': { component:'single', accept:'video/*', label:'Short', desc:'Envie 1 vídeo curto vertical.' },
+      'TIKTOK.STORY': { component:'single', accept:'image/*,video/*', label:'Story', desc:'Envie 1 imagem ou vídeo curto.' },
+      'LINKEDIN.TEXT': { component:'none', label:'Sem mídia', desc:'Este formato é apenas textual.' },
+      'LINKEDIN.IMAGE': { component:'multiple', accept:'image/*', label:'Imagens', desc:'Envie de 1 a 9 imagens.' },
+      'LINKEDIN.CAROUSEL': { component:'carousel', accept:'application/pdf,image/*', label:'Slides / PDF', desc:'Envie PDF ou imagens.' },
+      'LINKEDIN.VIDEO': { component:'single', accept:'video/*', label:'Vídeo', desc:'Envie 1 vídeo.' },
+      'LINKEDIN.DOCUMENT': { component:'single', accept:'application/pdf', label:'Documento', desc:'Envie 1 PDF.' },
+      'TWITTER.TEXT': { component:'none', label:'Sem mídia', desc:'Tweet apenas com texto.' },
+      'TWITTER.IMAGE': { component:'multiple', accept:'image/*', label:'Imagens', desc:'Envie de 1 a 4 imagens.' },
+      'TWITTER.VIDEO': { component:'single', accept:'video/*', label:'Vídeo', desc:'Envie 1 vídeo. Máx. 2min20s.' }
+    };
+
+    /* ── State ── */
+    var currentSocial = 'INSTAGRAM';
+    var currentPostType = '';
+    var tags = [];
+    var uploadedFiles = [];
+
+    /* ── Init ── */
+    function init() {
+      var params = new URLSearchParams(window.location.search);
+      currentSocial = params.get('social') || 'INSTAGRAM';
+      if (!SOCIAL_META[currentSocial]) currentSocial = 'INSTAGRAM';
+      currentPostType = ALLOWED_POST_TYPES[currentSocial][0];
+      document.title = 'Social Hub - Post ' + SOCIAL_META[currentSocial].label;
+      renderSidebar();
+      renderPageHeader();
+      renderPostTypes();
+      renderFields();
+      renderMediaSection();
+      updatePreview();
+      updateIdeaGradient();
+    }
+
+    /* ── Sidebar ── */
+    function renderSidebar() {
+      var navItems = [
+        { label:'Dashboard', path:'#', disabled:true, icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>' },
+        { label:'Email', path:'social-email.html', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>' },
+        { label:'Instagram', path:'social-post.html?social=INSTAGRAM', social:'INSTAGRAM', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>' },
+        { label:'Facebook', path:'social-post.html?social=FACEBOOK', social:'FACEBOOK', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>' },
+        { label:'YouTube', path:'social-post.html?social=YOUTUBE', social:'YOUTUBE', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>' },
+        { label:'LinkedIn', path:'social-post.html?social=LINKEDIN', social:'LINKEDIN', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>' },
+        { label:'X (Twitter)', path:'social-post.html?social=TWITTER', social:'TWITTER', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>' },
+        { label:'TikTok', path:'social-post.html?social=TIKTOK', social:'TIKTOK', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>' },
+        { label:'Configurações', path:'social-settings.html', icon:'<svg class="social-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>' }
+      ];
+      var html = '';
+      navItems.forEach(function(item) {
+        var isActive = item.social === currentSocial;
+        if (item.disabled) {
+          html += '<div class="social-nav-item disabled">' + item.icon + '<span>' + item.label + '</span><span class="social-nav-badge">Em breve</span></div>';
+        } else {
+          html += '<a href="' + item.path + '" class="social-nav-item' + (isActive ? ' active' : '') + '">' + item.icon + '<span>' + item.label + '</span></a>';
+        }
+      });
+      document.getElementById('sidebar-nav').innerHTML = html;
+    }
+
+    /* ── Page header ── */
+    function renderPageHeader() {
+      var meta = SOCIAL_META[currentSocial];
+      document.getElementById('page-header').innerHTML =
+        '<div style="display:flex;align-items:center;gap:1rem;">' +
+          '<div class="social-post-header-icon" style="background-color:hsl(' + meta.brandHsl + ' / 0.16);">' +
+            '<span style="color:hsl(' + meta.brandHsl + ');width:1.75rem;height:1.75rem;display:inline-flex;">' + meta.iconSvg + '</span>' +
+          '</div>' +
+          '<div>' +
+            '<p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.25em;color:hsl(var(--muted-foreground));">Post Social</p>' +
+            '<h1 style="font-family:Playfair Display,Georgia,serif;font-size:1.875rem;font-weight:700;color:hsl(var(--foreground));">' + meta.label + '</h1>' +
+            '<p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));">Criação e edição dinâmica com texto gerado por IA e mídia manual.</p>' +
+          '</div>' +
+        '</div>' +
+        '<span class="social-badge social-badge-muted" id="status-badge">DRAFT</span>';
+    }
+
+    /* ── Post types ── */
+    function renderPostTypes() {
+      var types = ALLOWED_POST_TYPES[currentSocial];
+      var meta = SOCIAL_META[currentSocial];
+      var html = '<h2 style="font-size:1.125rem;font-weight:600;color:hsl(var(--foreground));margin-bottom:0.25rem;">Tipo de post</h2>';
+      html += '<p style="font-size:0.875rem;color:hsl(var(--muted-foreground));margin-bottom:1rem;">A UI e os uploads mudam conforme o formato escolhido.</p>';
+      html += '<div class="social-post-types-grid">';
+      types.forEach(function(type) {
+        var selected = type === currentPostType;
+        html += '<button class="social-post-type-btn' + (selected ? ' selected' : '') + '" onclick="selectPostType(\'' + type + '\')"' +
+          (selected ? ' style="outline:1px solid hsl(' + meta.brandHsl + ' / 0.5);"' : '') + '>';
+        html += '<span class="social-post-type-icon"' + (selected ? ' style="background-color:hsl(' + meta.brandHsl + ' / 0.16);"' : '') + '>';
+        html += getTypeIcon(type);
+        html += '</span>';
+        html += '<span style="font-size:0.875rem;font-weight:500;">' + POST_TYPE_LABELS[type] + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+      document.getElementById('post-type-section').innerHTML = html;
+    }
+
+    function getTypeIcon(type) {
+      var icons = {
+        TEXT: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>',
+        IMAGE: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>',
+        VIDEO: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>',
+        CAROUSEL: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="16" rx="2"/><path d="M22 7v10"/><path d="M22 12h-4"/></svg>',
+        REEL: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12.61 5.5-3.18a.2.2 0 0 1 .3.17v6.36a.2.2 0 0 1-.3.17L4 12.96"/><rect x="1" y="4" width="22" height="16" rx="2"/></svg>',
+        STORY: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>',
+        SHORT: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 12.61 5.5-3.18a.2.2 0 0 1 .3.17v6.36a.2.2 0 0 1-.3.17L4 12.96"/><rect x="1" y="4" width="22" height="16" rx="2"/></svg>',
+        DOCUMENT: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        LIVE: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.4"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.4"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>'
+      };
+      return icons[type] || icons.TEXT;
+    }
+
+    function selectPostType(type) {
+      currentPostType = type;
+      renderPostTypes();
+      renderFields();
+      renderMediaSection();
+      updatePreview();
+    }
+
+    /* ── Fields visibility ── */
+    function renderFields() {
+      var vf = VISIBLE_FIELDS[currentSocial];
+      var titleEnabled = TITLE_ENABLED_BY_TYPE[currentSocial] && TITLE_ENABLED_BY_TYPE[currentSocial].indexOf(currentPostType) !== -1;
+      document.getElementById('title-field').style.display = (vf.title && titleEnabled) ? 'block' : 'none';
+      document.getElementById('caption-field').style.display = vf.caption ? 'block' : 'none';
+      document.getElementById('tags-field').style.display = vf.tags ? 'block' : 'none';
+      document.getElementById('link-field').style.display = vf.linkUrl ? 'block' : 'none';
+
+      var captionLabel = CAPTION_LABELS[currentSocial] || 'Legenda';
+      document.getElementById('caption-label').textContent = captionLabel;
+      document.getElementById('post-caption').placeholder = 'Escreva o conteúdo de ' + captionLabel.toLowerCase() + '...';
+      document.getElementById('post-caption').maxLength = vf.captionMaxLength;
+
+      var linkLabel = LINK_LABELS[currentSocial] || 'Link';
+      document.getElementById('link-label').textContent = linkLabel;
+
+      updateCaptionCounter();
+    }
+
+    /* ── Caption counter ── */
+    function updateCaptionCounter() {
+      var caption = document.getElementById('post-caption');
+      var max = VISIBLE_FIELDS[currentSocial].captionMaxLength;
+      var len = caption.value.length;
+      var ratio = max === 0 ? 0 : len / max;
+      var color = ratio >= 0.9 ? 'hsl(0 78% 58%)' : ratio >= 0.75 ? 'hsl(42 92% 55%)' : 'hsl(144 60% 42%)';
+      document.getElementById('caption-counter').textContent = len + '/' + max;
+      document.getElementById('caption-counter').style.color = color;
+      updatePreview();
+    }
+
+    /* ── Media section ── */
+    function renderMediaSection() {
+      var key = currentSocial + '.' + currentPostType;
+      var cfg = MEDIA_CONFIG[key] || { component: 'none', label: 'Sem mídia', desc: 'Nenhuma mídia necessária.' };
+      var html = '';
+      if (cfg.component === 'none') {
+        html = '<div class="social-media-placeholder">' + cfg.desc + '</div>';
+      } else {
+        html = '<div class="social-media-upload">';
+        html += '<label class="social-media-upload-area" for="media-file-input">';
+        html += '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:hsl(var(--muted-foreground));"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>';
+        html += '<p style="font-weight:500;color:hsl(var(--foreground));font-size:0.875rem;">' + cfg.label + '</p>';
+        html += '<p style="font-size:0.75rem;color:hsl(var(--muted-foreground));">' + cfg.desc + '</p>';
+        html += '</label>';
+        html += '<input type="file" id="media-file-input" accept="' + (cfg.accept || '*') + '"' + (cfg.component === 'multiple' || cfg.component === 'carousel' ? ' multiple' : '') + ' style="display:none;" onchange="handleFileUpload(event)">';
+        html += '</div>';
+        html += '<div id="media-preview-list" class="social-media-preview-list"></div>';
+      }
+      document.getElementById('media-section').innerHTML = html;
+      renderMediaPreviews();
+    }
+
+    function handleFileUpload(event) {
+      var files = Array.from(event.target.files);
+      var key = currentSocial + '.' + currentPostType;
+      var cfg = MEDIA_CONFIG[key];
+      if (cfg && cfg.component === 'single') {
+        uploadedFiles = [];
+      }
+      files.forEach(function(file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          uploadedFiles.push({ name: file.name, type: file.type, url: e.target.result });
+          renderMediaPreviews();
+          updatePreview();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderMediaPreviews() {
+      var container = document.getElementById('media-preview-list');
+      if (!container) return;
+      if (!uploadedFiles.length) { container.innerHTML = ''; return; }
+      var html = '';
+      uploadedFiles.forEach(function(f, i) {
+        html += '<div class="social-media-preview-item">';
+        if (f.type.startsWith('image/')) {
+          html += '<img src="' + f.url + '" alt="' + f.name + '">';
+        } else {
+          html += '<div class="social-media-preview-file"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg><span>' + f.name + '</span></div>';
+        }
+        html += '<button class="social-media-remove-btn" onclick="removeFile(' + i + ')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>';
+        html += '</div>';
+      });
+      container.innerHTML = html;
+    }
+
+    function removeFile(index) {
+      uploadedFiles.splice(index, 1);
+      renderMediaPreviews();
+      updatePreview();
+    }
+
+    /* ── Tags ── */
+    function handleTagKey(e) {
+      if (e.key === 'Enter') { e.preventDefault(); addTag(); }
+    }
+
+    function addTag() {
+      var input = document.getElementById('tag-input');
+      var val = input.value.trim();
+      if (!val) return;
+      if (!val.startsWith('#')) val = '#' + val;
+      if (tags.indexOf(val) === -1) tags.push(val);
+      input.value = '';
+      renderTags();
+      updatePreview();
+    }
+
+    function removeTag(index) {
+      tags.splice(index, 1);
+      renderTags();
+      updatePreview();
+    }
+
+    function renderTags() {
+      var container = document.getElementById('tags-container');
+      if (!container) return;
+      var html = '';
+      tags.forEach(function(tag, i) {
+        html += '<span class="social-tag">' + tag + '<button onclick="removeTag(' + i + ')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></span>';
+      });
+      container.innerHTML = html;
+    }
+
+    /* ── Generate content (mock) ── */
+    function generateContent() {
+      var idea = document.getElementById('idea-text').value.trim();
+      if (!idea) return;
+      var btn = document.getElementById('btn-generate');
+      var btnText = document.getElementById('btn-generate-text');
+      btn.disabled = true;
+      btnText.textContent = 'Gerando...';
+
+      setTimeout(function() {
+        var meta = SOCIAL_META[currentSocial];
+        var vf = VISIBLE_FIELDS[currentSocial];
+        var titleEnabled = TITLE_ENABLED_BY_TYPE[currentSocial] && TITLE_ENABLED_BY_TYPE[currentSocial].indexOf(currentPostType) !== -1;
+
+        if (vf.title && titleEnabled) {
+          document.getElementById('post-title').value = 'Sugestão para ' + meta.label;
+        }
+        document.getElementById('post-caption').value = idea + '\n\nTexto sugerido automaticamente para ' + meta.label + ' no formato ' + currentPostType.toLowerCase() + '.';
+        if (vf.tags) {
+          tags = ['#conteudo', '#' + meta.label.toLowerCase().replace(/[\s\/]/g, '')];
+          renderTags();
+        }
+        updateCaptionCounter();
+        updatePreview();
+        btn.disabled = false;
+        btnText.textContent = 'Regenerar';
+      }, 1200);
+    }
+
+    /* ── Update idea gradient ── */
+    function updateIdeaGradient() {
+      var meta = SOCIAL_META[currentSocial];
+      var section = document.getElementById('idea-section');
+      section.style.backgroundImage = 'linear-gradient(135deg, hsl(' + meta.brandHsl + ' / 0.14), hsl(var(--card)) 55%)';
+      var btn = document.getElementById('btn-generate');
+      btn.style.backgroundColor = 'hsl(' + meta.brandHsl + ')';
+      btn.style.color = meta.brandHsl === '0 0% 4%' ? 'hsl(var(--primary-foreground))' : '#fff';
+    }
+
+    /* ── Preview ── */
+    function updatePreview() {
+      var meta = SOCIAL_META[currentSocial];
+      var vf = VISIBLE_FIELDS[currentSocial];
+      var titleEnabled = TITLE_ENABLED_BY_TYPE[currentSocial] && TITLE_ENABLED_BY_TYPE[currentSocial].indexOf(currentPostType) !== -1;
+      var captionLabel = CAPTION_LABELS[currentSocial] || 'Legenda';
+
+      // Header
+      document.getElementById('preview-header').innerHTML =
+        '<div style="display:flex;align-items:center;gap:0.75rem;">' +
+          '<div style="width:3rem;height:3rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;background-color:hsl(' + meta.brandHsl + ' / 0.16);">' +
+            '<span style="color:hsl(' + meta.brandHsl + ');width:1.25rem;height:1.25rem;display:inline-flex;">' + meta.iconSvg + '</span>' +
+          '</div>' +
+          '<div><p style="font-size:0.875rem;font-weight:600;color:hsl(var(--foreground));">Preview</p>' +
+          '<p style="font-size:0.75rem;color:hsl(var(--muted-foreground));">' + meta.label + ' • ' + POST_TYPE_LABELS[currentPostType] + '</p></div>' +
+        '</div>' +
+        '<span class="social-badge social-badge-muted">' + (document.getElementById('status-badge') ? document.getElementById('status-badge').textContent : 'DRAFT') + '</span>';
+
+      // Media preview
+      var mediaHtml = '';
+      if (uploadedFiles.length) {
+        var first = uploadedFiles[0];
+        if (first.type.startsWith('image/')) {
+          mediaHtml = '<img src="' + first.url + '" alt="Preview" style="width:100%;height:16rem;object-fit:cover;border-radius:1rem;">';
+        } else {
+          mediaHtml = '<div class="social-post-preview-media"><span>Arquivo: ' + first.name + '</span></div>';
+        }
+      } else {
+        mediaHtml = '<div class="social-post-preview-media"><span>Placeholder de mídia para ' + meta.label + '</span></div>';
+      }
+      document.getElementById('preview-media').innerHTML = mediaHtml;
+
+      // Text content
+      var textHtml = '';
+      if (vf.title && titleEnabled) {
+        var titleVal = document.getElementById('post-title') ? document.getElementById('post-title').value : '';
+        textHtml += '<div style="margin-bottom:0.75rem;"><p style="font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.18em;color:hsl(var(--muted-foreground));margin-bottom:0.25rem;">Título</p>';
+        textHtml += '<p style="font-size:1rem;font-weight:600;color:hsl(var(--foreground));">' + (titleVal || 'Seu título aparecerá aqui') + '</p></div>';
+      }
+
+      var captionVal = document.getElementById('post-caption') ? document.getElementById('post-caption').value : '';
+      textHtml += '<div style="margin-bottom:0.75rem;"><p style="font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.18em;color:hsl(var(--muted-foreground));margin-bottom:0.25rem;">' + captionLabel + '</p>';
+      textHtml += '<p style="font-size:0.875rem;line-height:1.6;color:hsl(var(--foreground));white-space:pre-wrap;">' + (captionVal || 'O texto do post aparecerá aqui conforme você digita ou gerar com IA.') + '</p></div>';
+
+      if (vf.tags && tags.length) {
+        textHtml += '<div style="display:flex;flex-wrap:wrap;gap:0.5rem;">';
+        tags.forEach(function(tag) {
+          textHtml += '<span style="padding:0.25rem 0.75rem;border-radius:9999px;background:hsl(var(--secondary));color:hsl(var(--secondary-foreground));font-size:0.75rem;">' + tag + '</span>';
+        });
+        textHtml += '</div>';
+      }
+
+      var linkVal = document.getElementById('post-link') ? document.getElementById('post-link').value : '';
+      if (linkVal) {
+        textHtml += '<div style="margin-top:0.75rem;padding:0.5rem 0.75rem;border-radius:0.75rem;border:1px solid hsl(var(--border));background:hsl(var(--card));font-size:0.875rem;color:hsl(var(--foreground));">' + linkVal + '</div>';
+      }
+
+      document.getElementById('preview-text-content').innerHTML = textHtml;
+    }
+
+    /* ── Save (mock) ── */
+    function savePost(status) {
+      var statusBadge = document.getElementById('status-badge');
+      if (statusBadge) statusBadge.textContent = status;
+      var labels = { DRAFT:'Rascunho salvo', SCHEDULED:'Post agendado', PUBLISHED:'Post publicado', CANCELLED:'Post cancelado' };
+      showToast(labels[status] || 'Salvo', 'Os dados do post foram atualizados.');
+      updatePreview();
+    }
+
+    /* ── Toast ── */
+    function showToast(title, message, isError) {
+      var toast = document.createElement('div');
+      toast.className = 'social-toast' + (isError ? ' social-toast-error' : '');
+      toast.innerHTML = '<strong>' + title + '</strong><p>' + message + '</p>';
+      document.body.appendChild(toast);
+      setTimeout(function() { toast.classList.add('show'); }, 10);
+      setTimeout(function() { toast.classList.remove('show'); setTimeout(function() { toast.remove(); }, 300); }, 3000);
+    }
+
+    /* ── Live preview listeners ── */
+    document.addEventListener('DOMContentLoaded', function() {
+      init();
+      document.getElementById('post-caption').addEventListener('input', updateCaptionCounter);
+      var titleEl = document.getElementById('post-title');
+      if (titleEl) titleEl.addEventListener('input', updatePreview);
+      var linkEl = document.getElementById('post-link');
+      if (linkEl) linkEl.addEventListener('input', updatePreview);
+    });
+  </script>
+</body>
+</html>
