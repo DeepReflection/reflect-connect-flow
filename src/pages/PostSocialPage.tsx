@@ -387,6 +387,10 @@ const PostSocialPage = () => {
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">{status}</span>
               {isLoadingPost ? <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" /> : null}
+              <Button variant="outline" className="gap-2" onClick={() => setIsAutomationOpen(true)}>
+                <Zap className="h-4 w-4" />
+                Automação
+              </Button>
             </div>
           </div>
 
