@@ -496,11 +496,6 @@ const PostSocialPage = () => {
                       </DropdownMenuContent>
                     </DropdownMenu>
 
-                    <Button variant="secondary" onClick={() => savePost(PostSocialStatusEnum.SCHEDULED)} disabled={isSaving}>
-                      <CalendarClock className="mr-2 h-4 w-4" />
-                      Agendar
-                    </Button>
-
                     <Button
                       variant="ghost"
                       size="icon"
