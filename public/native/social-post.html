@@ -316,7 +316,9 @@
       if (!SOCIAL_META[currentSocial]) currentSocial = 'INSTAGRAM';
       currentPostType = ALLOWED_POST_TYPES[currentSocial][0];
       document.title = 'Social Hub - Post ' + SOCIAL_META[currentSocial].label;
-      renderSidebar();
+      window._sidebarActiveSocial = currentSocial;
+      window._sidebarActivePage = null;
+      renderSharedSidebar(currentSocial, null);
       renderPageHeader();
       renderPostTypes();
       renderFields();
