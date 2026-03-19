@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, CalendarClock, ChevronDown, Loader2, Save, Sparkles, Trash2 } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Loader2, Save, Sparkles, Trash2, Zap } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SocialHubLayout from '@/components/social/SocialHubLayout';
 import IdeaSection from '@/components/social/post/IdeaSection';
+import AutomationProjectForm from '@/components/blog/AutomationProjectForm';
 import PostTypeSelector from '@/components/social/post/PostTypeSelector';
 import MediaUploadSingle from '@/components/social/post/MediaUploadSingle';
 import MediaUploadMultiple from '@/components/social/post/MediaUploadMultiple';
