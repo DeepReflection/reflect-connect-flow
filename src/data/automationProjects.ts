@@ -24,6 +24,7 @@ export const sampleProjects: AutomationProject[] = [
     description: 'Cobertura mensal das principais batalhas com mapas e estratégias.',
     recurrence: 'monthly',
     scheduledTime: '10:00',
+    socialNetworks: ['YOUTUBE'],
     status: 'active',
     postsGenerated: 8,
     nextRunDate: new Date('2026-02-01T10:00:00'),
