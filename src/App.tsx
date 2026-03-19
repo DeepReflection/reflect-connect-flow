@@ -51,6 +51,7 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/social/email" element={<SocialEmail />} />
               <Route path="/social/post/:socialMedia" element={<PostSocialPage />} />
+              <Route path="/social/settings" element={<SocialAccountsSettings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
