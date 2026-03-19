@@ -315,7 +315,7 @@ const AutomationProjectForm = ({
                 Cancelar
               </Button>
               <Button type="submit">
-                {isEditing ? 'Salvar Alterações' : 'Criar Projeto'}
+                {isEditing ? 'Salvar Alterações' : 'Criar Campanha'}
               </Button>
             </DialogFooter>
           </form>
