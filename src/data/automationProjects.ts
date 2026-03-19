@@ -38,6 +38,7 @@ export const sampleProjects: AutomationProject[] = [
     description: 'Artigos sobre armas, veículos e tecnologias que surgiram na guerra.',
     recurrence: 'biweekly',
     scheduledTime: '14:00',
+    socialNetworks: ['LINKEDIN', 'TWITTER'],
     status: 'paused',
     postsGenerated: 5,
     nextRunDate: new Date('2026-02-10T14:00:00'),
