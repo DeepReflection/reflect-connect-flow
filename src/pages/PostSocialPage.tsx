@@ -533,6 +533,14 @@ const PostSocialPage = () => {
           </div>
         </div>
       </div>
+
+      <AutomationProjectForm
+        open={isAutomationOpen}
+        onOpenChange={setIsAutomationOpen}
+        onSave={(data) => {
+          toast({ title: 'Campanha criada!', description: 'Sua campanha de automação foi criada com sucesso.' });
+        }}
+      />
     </SocialHubLayout>
   );
 };
