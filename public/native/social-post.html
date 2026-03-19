@@ -351,7 +351,13 @@
             '<p style="margin-top:0.25rem;font-size:0.875rem;color:hsl(var(--muted-foreground));">Criação e edição dinâmica com texto gerado por IA e mídia manual.</p>' +
           '</div>' +
         '</div>' +
-        '<span class="social-badge social-badge-muted" id="status-badge">DRAFT</span>';
+        '<div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">' +
+          '<span class="social-badge social-badge-muted" id="status-badge">DRAFT</span>' +
+          '<button class="social-btn social-btn-outline" onclick="openAutomationModal()">' +
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>' +
+            'Automação' +
+          '</button>' +
+        '</div>';
     }
 
     /* ── Post types ── */
