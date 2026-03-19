@@ -135,7 +135,7 @@ const AutomationProjectForm = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nome do Projeto</FormLabel>
+                  <FormLabel>Nome da Campanha</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="Ex: Campanha Instagram Verão" 
