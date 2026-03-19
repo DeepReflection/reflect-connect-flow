@@ -174,18 +174,26 @@
 
                 <!-- Action buttons -->
                 <div class="social-post-actions">
-                  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-                    <button class="social-btn social-btn-primary" onclick="savePost('DRAFT')">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-                      Salvar Rascunho
-                    </button>
+                  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+                    <!-- Postar button with dropdown -->
+                    <div class="social-dropdown" style="position:relative;">
+                      <button class="social-btn social-btn-primary" onclick="savePost('PUBLISHED')" style="border-top-right-radius:0;border-bottom-right-radius:0;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                        Postar
+                      </button><button class="social-btn social-btn-primary" onclick="toggleSaveDropdown(event)" style="border-top-left-radius:0;border-bottom-left-radius:0;border-left:1px solid hsl(var(--primary-foreground) / 0.3);padding-left:0.5rem;padding-right:0.5rem;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </button>
+                      <div id="save-dropdown" class="social-dropdown-menu" style="display:none;">
+                        <button class="social-dropdown-item" onclick="savePost('DRAFT'); closeSaveDropdown();">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                          Salvar Rascunho
+                        </button>
+                      </div>
+                    </div>
+
                     <button class="social-btn social-btn-outline" onclick="savePost('SCHEDULED')">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                       Agendar
-                    </button>
-                    <button class="social-btn social-btn-outline" onclick="savePost('PUBLISHED')">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                      Postar
                     </button>
                   </div>
                   <button class="social-btn social-btn-outline" onclick="history.back()">
@@ -636,6 +644,17 @@
       setTimeout(function() { toast.classList.add('show'); }, 10);
       setTimeout(function() { toast.classList.remove('show'); setTimeout(function() { toast.remove(); }, 300); }, 3000);
     }
+
+    /* ── Save dropdown toggle ── */
+    function toggleSaveDropdown(e) {
+      e.stopPropagation();
+      var dd = document.getElementById('save-dropdown');
+      dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+    }
+    function closeSaveDropdown() {
+      document.getElementById('save-dropdown').style.display = 'none';
+    }
+    document.addEventListener('click', function() { closeSaveDropdown(); });
 
     /* ── Live preview listeners ── */
     document.addEventListener('DOMContentLoaded', function() {
