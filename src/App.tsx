@@ -21,6 +21,7 @@ import SEOInsights from "./pages/SEOInsights";
 import ProfileEditor from "./pages/ProfileEditor";
 import SocialEmail from "./pages/SocialEmail";
 import PostSocialPage from "./pages/PostSocialPage";
+import SocialAccountsSettings from "./pages/SocialAccountsSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
