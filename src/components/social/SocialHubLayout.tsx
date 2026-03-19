@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
   { label: 'YouTube', icon: Youtube, path: '/social/post/YOUTUBE', socialMedia: SocialMediaEnum.YOUTUBE },
   { label: 'LinkedIn', icon: Linkedin, path: '/social/post/LINKEDIN', socialMedia: SocialMediaEnum.LINKEDIN },
   { label: 'X (Twitter)', icon: Twitter, path: '/social/post/TWITTER', socialMedia: SocialMediaEnum.TWITTER },
-  { label: 'TikTok', icon: Globe, path: '/social/post/TIKTOK', socialMedia: SocialMediaEnum.TIKTOK },
+  { label: 'TikTok', icon: Music, path: '/social/post/TIKTOK', socialMedia: SocialMediaEnum.TIKTOK },
   { label: 'Configurações', icon: Settings, path: '/social/settings' },
 ];
 

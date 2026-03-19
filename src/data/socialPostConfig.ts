@@ -50,12 +50,12 @@ export interface MediaSlotConfig {
 }
 
 export const SOCIAL_MEDIA_META: Record<SocialMediaEnum, SocialMediaMeta> = {
-  [SocialMediaEnum.INSTAGRAM]: { label: 'Instagram', brandHsl: '337 76% 53%', icon: ImageIcon },
-  [SocialMediaEnum.FACEBOOK]: { label: 'Facebook', brandHsl: '214 89% 52%', icon: ScrollText },
-  [SocialMediaEnum.YOUTUBE]: { label: 'YouTube', brandHsl: '0 100% 50%', icon: Video },
-  [SocialMediaEnum.TIKTOK]: { label: 'TikTok', brandHsl: '0 0% 4%', icon: Clapperboard },
-  [SocialMediaEnum.LINKEDIN]: { label: 'LinkedIn', brandHsl: '210 90% 40%', icon: FileText },
-  [SocialMediaEnum.TWITTER]: { label: 'X / Twitter', brandHsl: '203 89% 53%', icon: ScrollText },
+  [SocialMediaEnum.INSTAGRAM]: { label: 'Instagram', brandHsl: '337 76% 53%', icon: Instagram },
+  [SocialMediaEnum.FACEBOOK]: { label: 'Facebook', brandHsl: '214 89% 52%', icon: Facebook },
+  [SocialMediaEnum.YOUTUBE]: { label: 'YouTube', brandHsl: '0 100% 50%', icon: Youtube },
+  [SocialMediaEnum.TIKTOK]: { label: 'TikTok', brandHsl: '0 0% 4%', icon: Music },
+  [SocialMediaEnum.LINKEDIN]: { label: 'LinkedIn', brandHsl: '210 90% 40%', icon: Linkedin },
+  [SocialMediaEnum.TWITTER]: { label: 'X / Twitter', brandHsl: '203 89% 53%', icon: Twitter },
 };
 
 export const POST_TYPE_META: Record<PostSocialTypeEnum, PostTypeMeta> = {
