@@ -370,13 +370,10 @@ const SocialAccountsSettings = () => {
       {/* ── modal form ── */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogContent className="max-w-[520px] p-0 gap-0">
-          <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4 border-b border-border">
+          <DialogHeader className="p-6 pb-4 border-b border-border">
             <DialogTitle className="text-lg font-semibold">
               {editingId ? 'Editar Conta' : 'Conectar Conta'}
             </DialogTitle>
-            <Button variant="ghost" size="icon" className="h-8 w-8 -mr-2" onClick={closeModal}>
-              <X className="h-4 w-4" />
-            </Button>
           </DialogHeader>
 
           <div className="p-6 space-y-5">
