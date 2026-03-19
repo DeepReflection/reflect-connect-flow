@@ -645,6 +645,17 @@
       setTimeout(function() { toast.classList.remove('show'); setTimeout(function() { toast.remove(); }, 300); }, 3000);
     }
 
+    /* ── Save dropdown toggle ── */
+    function toggleSaveDropdown(e) {
+      e.stopPropagation();
+      var dd = document.getElementById('save-dropdown');
+      dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+    }
+    function closeSaveDropdown() {
+      document.getElementById('save-dropdown').style.display = 'none';
+    }
+    document.addEventListener('click', function() { closeSaveDropdown(); });
+
     /* ── Live preview listeners ── */
     document.addEventListener('DOMContentLoaded', function() {
       init();
