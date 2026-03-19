@@ -401,37 +401,18 @@ const PostSocialPage = () => {
 
               <Card className="border-border bg-card shadow-[var(--shadow-card)]">
                 <CardContent className="space-y-6 p-5">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label>Conta social</Label>
-                      <Select value={String(socialAccountId)} onValueChange={(value) => setSocialAccountId(Number(value))}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {accounts.map((account) => (
-                            <SelectItem key={account.id} value={String(account.id)}>{account.label}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label>Status</Label>
-                      <Select value={status} onValueChange={(value) => setStatus(value as PostSocialStatusEnum)}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value={PostSocialStatusEnum.DRAFT}>DRAFT</SelectItem>
-                          <SelectItem value={PostSocialStatusEnum.SCHEDULED}>SCHEDULED</SelectItem>
-                          <SelectItem value={PostSocialStatusEnum.PROCESSING}>PROCESSING</SelectItem>
-                          <SelectItem value={PostSocialStatusEnum.PUBLISHED}>PUBLISHED</SelectItem>
-                          <SelectItem value={PostSocialStatusEnum.FAILED}>FAILED</SelectItem>
-                          <SelectItem value={PostSocialStatusEnum.CANCELLED}>CANCELLED</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  <div className="space-y-2">
+                    <Label>Conta social</Label>
+                    <Select value={String(socialAccountId)} onValueChange={(value) => setSocialAccountId(Number(value))}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {accounts.map((account) => (
+                          <SelectItem key={account.id} value={String(account.id)}>{account.label}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <PostTypeSelector socialMedia={socialMedia} value={postType} onChange={(value) => setPostType(value)} />
