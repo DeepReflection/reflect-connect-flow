@@ -21,6 +21,7 @@ import SEOInsights from "./pages/SEOInsights";
 import ProfileEditor from "./pages/ProfileEditor";
 import SocialEmail from "./pages/SocialEmail";
 import PostSocialPage from "./pages/PostSocialPage";
+import SocialAccountsSettings from "./pages/SocialAccountsSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/social/email" element={<SocialEmail />} />
               <Route path="/social/post/:socialMedia" element={<PostSocialPage />} />
+              <Route path="/social/settings" element={<SocialAccountsSettings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
