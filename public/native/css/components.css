@@ -693,7 +693,6 @@
 .social-link {
   display: none;
 }
-}
 
 .social-link:hover .external-icon {
   color: hsl(var(--primary));
